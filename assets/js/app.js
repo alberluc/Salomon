@@ -1,3 +1,10 @@
-import log from './components/logger'
+import { AppModel } from './components/App'
 
-log("hello");
+let App = new AppModel();
+
+if(document.readyState !== 'loading'){
+    App.init();
+}
+else{
+    document.addEventListener('DOMContentLoaded', App.init.bind(App));
+}

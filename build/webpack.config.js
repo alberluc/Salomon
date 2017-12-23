@@ -9,13 +9,13 @@ let config = {
         filename: '[name].js'
     },
     watch: true,
+    devtool: 'cheap-module-eval-source-map',
     module: {
         rules: [
             {
                 test: /\.js$/,
-                use: [
-                    'babel-loader'
-                ]
+                exclude: /(node_modules|bower_components)/,
+                use: ['babel-loader']
             }
         ]
     }
