@@ -8,7 +8,17 @@ let config = {
         path: path.resolve('./public/js'),
         filename: '[name].js'
     },
-    watch: true
+    watch: true,
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: [
+                    'babel-loader'
+                ]
+            }
+        ]
+    }
 };
 
 module.exports = config;

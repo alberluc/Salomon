@@ -8,10 +8,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.resolve(env.path.views));
 app.use(express.static(path.resolve(env.path.static)));
 
-//app.get('/', controller.site.index);
-app.get('/', function (req, res) {
-    res.render('index');
-});
+app.get('/', controller.site.index);
 
 app.listen(env.port, function () {
     console.log('Listening on port ' + env.port + '!')
