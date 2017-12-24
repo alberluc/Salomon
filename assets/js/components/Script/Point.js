@@ -15,7 +15,7 @@ export class Point {
     }
 
     /**
-     * Défini la valeur d'un poit
+     * Défini la valeur d'un point
      * @param value
      * @param UnitBuilder
      * @returns {unit, value}
@@ -32,4 +32,5 @@ export class Point {
         let flags = Points.filter(point => point.flag !== null);
         return flags.map(flag => new FlagModel(flag));
     }
+
 }

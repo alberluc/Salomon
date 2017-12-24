@@ -35,8 +35,8 @@ export class App {
      * Initialise la map en relief
      */
     initMapRelief () {
-        let MapRelief = new MapReliefModel(document.getElementById('map2D'));
-        MapRelief.load(this.Script);
+        let MapRelief = new MapReliefModel(document.getElementById('map2D'), this.Script);
+        MapRelief.load();
         MapRelief.build();
     }
 
