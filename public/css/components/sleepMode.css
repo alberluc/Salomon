@@ -1,0 +1,10 @@
+.sleepMode_view {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(8, 8, 8, 0.82); }
+
+.sleepMode-active .sleepMode_view {
+  display: block; }
+
+/*# sourceMappingURL=sleepMode.css.map */

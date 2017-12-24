@@ -1,10 +1,7 @@
+import base from './base-script'
+
 export default {
-    units: [
-        {
-            label: 'kilomètres',
-            key: 'km',
-        }
-    ],
+    base,
     distance: '32km',
     hideAltitude: '1100km',
     map: {
@@ -14,7 +11,8 @@ export default {
         50: {
             altitude: '1423km',
             flag: {
-                key: ''
+                key: 'test_flag_key',
+                dispatch: 'test_flag_dispatch'
             }
         },
         100: {

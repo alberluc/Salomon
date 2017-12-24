@@ -1,4 +1,4 @@
-import { AppModel } from './components/App'
+import { App as AppModel } from './components/App'
 
 let App = new AppModel();
 

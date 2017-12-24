@@ -1,14 +1,5 @@
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
-html, body{
-  width: 100%;
-  height: 100%;
-}
+@import "utils/base";
 
-.sleepMode-active{
-  background-color: aquamarine;
-}
+@import "components/sleepMode";

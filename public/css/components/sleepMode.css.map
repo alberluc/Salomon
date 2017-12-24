@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,eAAe;EACb,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EAAC,gBAAgB,EAAE,mBAAmB;;AAGpD,iCAAiC;EAC/B,OAAO,EAAE,KAAK",
+"sources": ["sleepMode.scss"],
+"names": [],
+"file": "sleepMode.css"
+}
