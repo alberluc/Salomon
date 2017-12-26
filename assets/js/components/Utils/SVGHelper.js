@@ -16,4 +16,8 @@ export class Converter {
         this.origin = origin;
     }
 
+    eval (x, y) {
+        console.log(x, y);
+    }
+
 }

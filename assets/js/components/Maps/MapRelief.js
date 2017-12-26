@@ -15,7 +15,7 @@ export class MapReliefModel {
     }
 
     load () {
-
+        this.Converter.eval(this.Script.Points[1]);
     }
 
     build () {

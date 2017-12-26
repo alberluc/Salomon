@@ -22,7 +22,7 @@ export class App {
     }
 
     /**
-     * Initialise l'application
+     * Initialise le script
      * @param script Script qui va définir le contexte de l'application
      */
     initScript (script) {

@@ -10,4 +10,12 @@ export class Sort {
         return this.asc(objects, exam).reverse();
     }
 
+    static getInterval (objects, exam) {
+        let filtered = this.asc(objects, exam).map(sorted => objects.filter(object => eval('sorted === object.' + exam)));
+        return [
+            filtered[0],
+            filtered[objects.length - 1]
+        ];
+    }
+
 }
