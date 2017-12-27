@@ -4,15 +4,14 @@ import { Point as PointModel } from './Point'
 
 export class Script {
 
-    constructor (config) {
-        this.config = config;
-        this.UnitsBuilder = new UnitsBuilderModel(config.base.units);
+    constructor (config, UnitsBuilder) {
+        this.UnitsBuilder = UnitsBuilder;
         this.distanceTotal = this.UnitsBuilder.define(config.distance);
         this.UnitsBuilder.distanceTotal = this.distanceTotal;
         this.Points = this.setPoints(config.map);
         this.distanceInterval = Sort.getInterval(this.Points, 'distance.value');
         this.altitudeInterval = Sort.getInterval(this.Points, 'altitude.value');
-        console.log(this);
+        this.currentPoint = this.Points[0];
     }
 
     setPoints (map) {

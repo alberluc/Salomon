@@ -11,6 +11,7 @@ export class Point {
     constructor (point, distance, UnitBuilder) {
         this.distance = this.setDistance(distance, UnitBuilder);
         this.altitude = UnitBuilder.define(point.altitude);
+        this.ratioMoveRunner = point.ratioMoveRunner;
         this.flag = typeof point.flag !== "undefined" ? new FlagModel(point.flag) : null;
     }
 

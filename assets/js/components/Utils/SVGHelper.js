@@ -1,3 +1,5 @@
+import {Point} from "../Script/Point";
+
 export class PathDrawer {
 
     constructor () {
@@ -16,8 +18,8 @@ export class Converter {
         this.origin = origin;
     }
 
-    eval (x, y) {
-        console.log(x, y);
+    eval (Point) {
+        console.log(Point);
     }
 
 }
