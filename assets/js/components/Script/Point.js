@@ -11,7 +11,6 @@ export class Point {
     constructor (point, distance, UnitBuilder) {
         this.distance = this.setDistance(distance, UnitBuilder);
         this.altitude = UnitBuilder.define(point.altitude);
-        this.ratioMoveRunner = point.ratioMoveRunner;
         this.flag = typeof point.flag !== "undefined" ? new FlagModel(point.flag) : null;
     }
 
@@ -27,11 +26,6 @@ export class Point {
             distance = UnitBuilder.convert(value)
         }
         return distance;
-    }
-
-    setFlags (Points) {
-        let flags = Points.filter(point => point.flag !== null);
-        return flags.map(flag => new FlagModel(flag));
     }
 
 }

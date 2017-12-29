@@ -1,8 +1,8 @@
 export class UnitsBuilder {
 
-    constructor (units) {
+    constructor (units, total) {
         this.units = units;
-        this.distanceTotal = null;
+        this.total = this.define(total);
     }
 
     define (value) {
@@ -18,12 +18,12 @@ export class UnitsBuilder {
     }
 
     convert (value) {
-        if(value === 0) return this.define("0" + this.distanceTotal.unit.key);
-        return this.define(String(parseFloat(value) * this.distanceTotal.value / 100) + this.distanceTotal.unit.key);
+        if(value === 0) return this.define("0" + this.total.unit.key);
+        return this.define(String(parseFloat(value) * this.total.value / 100) + this.total.unit.key);
     }
 
     getPercentage (value) {
-        return typeof this.distanceTotal !== "undefined" && this.distanceTotal !== null ? parseFloat(value) * 100 / parseFloat(this.distanceTotal.value) : 100;
+        return typeof this.total !== "undefined" && this.total !== null ? parseFloat(value) * 100 / parseFloat(this.total.value) : 100;
     }
 
 }

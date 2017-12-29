@@ -7,11 +7,11 @@ export default {
     map: {
         0: {
             altitude: '1330km',
-            ratioMoveRunner: 1.1
+            ratioMove: 1.1
         },
         50: {
             altitude: '1423km',
-            ratioMoveRunner: 1.3,
+            ratioMove: 1.3,
             flag: {
                 key: 'test_flag_key',
                 dispatch: 'test_flag_dispatch'
@@ -20,5 +20,22 @@ export default {
         100: {
             altitude: '1286km'
         }
-    }
+    },
+    bots: [
+        {
+            name: "",
+            color: "red",
+            speed: 700
+        },
+        {
+            name: "",
+            color: "green",
+            speed: 700
+        },
+        {
+            name: "",
+            color: "blue",
+            speed: 700
+        }
+    ]
 }
