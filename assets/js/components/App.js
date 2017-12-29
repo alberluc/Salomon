@@ -1,13 +1,16 @@
 import { MapReliefModel } from './Maps/MapRelief'
 import { SleepMode as SleepModeModel } from './SleepMode/SleepMode'
-import { User as UserModel } from './User/User'
 import { Script as ScriptModel } from './Script/Script'
-import { Race as RaceModel } from './Race/Race'
 import { UnitsBuilder as UnitsBuilderModel } from './Utils/UnitsBuilder'
+import { API } from "../api/API";
+import { API_Light } from "../api/API_Ligth";
+import { API_Movement } from "../api/API_Movement";
 
 import RaceScriptConfig_01 from '../../datas/race-script-01'
 
 export class App {
+
+    constructor () {}
 
     /**
      * Initialise l'application
@@ -16,8 +19,7 @@ export class App {
         this.initScript(RaceScriptConfig_01);
         this.initMapRelief();
         this.initSleepMode();
-        this.initUser();
-        this.initRace();
+        this.initAPIs();
     }
 
     /**
@@ -25,7 +27,7 @@ export class App {
      * @param script Script qui va définir le contexte de l'application
      */
     initScript (script) {
-        this.UnitsBuilder = new UnitsBuilderModel(script.base.units);
+        this.UnitsBuilder = new UnitsBuilderModel(script.base.units, script.distance);
         this.Script = new ScriptModel(script, this.UnitsBuilder);
     }
 
@@ -55,14 +57,11 @@ export class App {
         SleepMode.persistStop();
     }
 
-    initRace () {
-        this.Race = new RaceModel();
-    }
-
-    initUser () {
-        this.User = new UserModel(this.Script, this.UnitsBuilder, 0);
-        this.User.position = 50;
-        this.User.incrementPosition();
+    initAPIs () {
+        this.API_Light = new API(new API_Light());
+        this.API_Light.build();
+        this.API_Movement = new API(new API_Movement());
+        this.API_Movement.build();
     }
 
 };
