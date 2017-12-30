@@ -4,11 +4,7 @@ export class API {
         this.APIModel = APIModel;
         this.APIMethods = this.getAPIMethods(APIModel);
         this.exceptsMethods = this.getAPIMethods(this);
-        this.socket = {
-            on: function (type, callbak) {
-                console.log(type, callbak)
-            }
-        };
+        this.socket = socket;
     }
 
     getAPIMethods (APIModel) {
@@ -23,11 +19,11 @@ export class API {
     }
 
     listen (method) {
-        eval("this.socket.on('" + this.transform(method) + "', this.APIModel." + method + ")");
+        eval("this.socket.on('" + this.transformUpperToLower(method, '_') + "', this.APIModel." + method + ")");
     }
 
-    transform (method) {
-        return method.replace(/([A-Z])/g, find => "_" + find.toLowerCase());
+    transformUpperToLower (method, prefix, sufix) {
+        return method.replace(/([A-Z])/g, find => prefix || '' + find.toLowerCase() + sufix || '');
     }
 
 }

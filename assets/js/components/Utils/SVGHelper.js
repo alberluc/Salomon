@@ -1,8 +1,12 @@
-import {Point} from "../Script/Point";
+export class Builder {
 
-export class PathDrawer {
+    constructor () {}
 
-    constructor () {
+    path () {
+
+    }
+
+    circle () {
 
     }
 

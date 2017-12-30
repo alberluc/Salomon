@@ -5,12 +5,14 @@ import { UnitsBuilder as UnitsBuilderModel } from './Utils/UnitsBuilder'
 import { API } from "../api/API";
 import { API_Light } from "../api/API_Ligth";
 import { API_Movement } from "../api/API_Movement";
-
+import io from "socket.io-client";
 import RaceScriptConfig_01 from '../../datas/race-script-01'
 
 export class App {
 
-    constructor () {}
+    constructor () {
+        this.socket = io();
+    }
 
     /**
      * Initialise l'application
@@ -58,9 +60,9 @@ export class App {
     }
 
     initAPIs () {
-        this.API_Light = new API(new API_Light());
+        this.API_Light = new API(new API_Light(), this.socket);
         this.API_Light.build();
-        this.API_Movement = new API(new API_Movement());
+        this.API_Movement = new API(new API_Movement(), this.socket);
         this.API_Movement.build();
     }
 
