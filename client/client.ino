@@ -9,8 +9,9 @@ CapacitiveSensor   cs_11_9 = CapacitiveSensor(11,9);        // Utiliser une rés
 /* Boolean pour capter le pas */
 boolean clicked = true;
 boolean clickedTwo = true;
-
 /* Définition des sorties + */
+String left = "Left";
+String right = "Right";
 
 void setup()                    
 {
@@ -22,17 +23,14 @@ void setup()
    Serial.begin(9600);
 }
 
-void loop()                    
-{
+void loop() {
   /* Définition de la sensibilité du capteur */
     long total1 =  cs_4_2.capacitiveSensor(10);
     long total2 =  cs_11_9.capacitiveSensor(10);
-
-
+    
     if(total1 > 50) {
       if(clicked) {
           clicked = false;
-          pas += 1;
           digitalWrite(5, HIGH);
           /* Envoi de la donnée pour le serveur */
           Serial.println("Left");
@@ -44,10 +42,10 @@ void loop()
     if(total2 > 50) {
       if(clickedTwo) {
           clickedTwo = false;
-          pas += 1;
           digitalWrite(12, HIGH);
           /* Envoi de la donnée pour le serveur */
           Serial.println("Right");
+
       }
     } else {
       clickedTwo = true;
@@ -55,5 +53,17 @@ void loop()
     }
 
     
-    
 }
+void RemoveSpaces(char* source) {
+  char* i = source;
+  char* j = source;
+  while(*j != 0)
+  {
+    *i = *j++;
+    if(*i != ' ')
+      i++;
+  }
+  *i = 0;
+}
+
+
