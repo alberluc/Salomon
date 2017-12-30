@@ -1,3 +1,4 @@
+import io from "socket.io-client";
 import { MapReliefModel } from './Maps/MapRelief'
 import { SleepMode as SleepModeModel } from './SleepMode/SleepMode'
 import { Script as ScriptModel } from './Script/Script'
@@ -5,8 +6,8 @@ import { UnitsBuilder as UnitsBuilderModel } from './Utils/UnitsBuilder'
 import { API } from "../api/API";
 import { API_Light } from "../api/API_Ligth";
 import { API_Movement } from "../api/API_Movement";
-import io from "socket.io-client";
-import RaceScriptConfig_01 from '../../datas/race-script-01'
+import { Ids, ClassNames } from "../../datas/dom";
+import RaceScriptConfig_01 from '../../datas/race-script-01';
 
 export class App {
 
@@ -37,7 +38,7 @@ export class App {
      * Initialise la map en relief
      */
     initMapRelief () {
-        let MapRelief = new MapReliefModel(document.getElementById('map2D'), this.Script);
+        let MapRelief = new MapReliefModel(document.getElementById(Ids.MAP_RELIEF), this.Script);
         MapRelief.load();
         MapRelief.build();
     }
@@ -46,7 +47,7 @@ export class App {
      * Initialise le mode veille
      */
     initSleepMode () {
-        let SleepMode = new SleepModeModel(25000, document.body, 'sleepMode-active');
+        let SleepMode = new SleepModeModel(25000, document.body, ClassNames.SLEEP_MODE_ACTIVE);
         SleepMode.watch([
             {
                 target: document,
