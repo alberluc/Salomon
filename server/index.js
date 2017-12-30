@@ -1,6 +1,6 @@
 var SerialPort = require('serialport')
 var Readline = SerialPort.parsers.Readline;
-const pas = 0;
+let pas = 0;
 const dataArduino = [];
 const limitArray = 2;
 
