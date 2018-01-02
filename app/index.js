@@ -13,7 +13,11 @@ app.use(express.static(path.resolve(env.path.static)));
 app.get('/', controller.site.index);
 
 io.on('connection', function (socket) {
-    console.log('a user connected');
+
+    socket.on('change_color', function (value) {
+        console.log(value);
+    });
+
 });
 
 http.listen(env.port, function () {

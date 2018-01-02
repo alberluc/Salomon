@@ -8,8 +8,8 @@ export class MapReliefModel {
         this.Converter = new Converter(
             el.offsetHeight,
             el.offsetWidth,
-            Script.distanceInterval,
-            Script.altitudeInterval,
+            [Script.distanceInterval[0].distance.value, Script.distanceInterval[1].distance.value],
+            [Script.altitudeInterval[0].altitude.value, Script.altitudeInterval[1].altitude.value],
             {x: 0, y: 0}
         );
     }

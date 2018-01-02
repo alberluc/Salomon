@@ -1,10 +1,13 @@
+import { StringHelper } from "../components/Utils/StringHelper";
+import { Bus } from "./../events/Bus";
+
 export class API {
 
-    constructor (APIModel, socket) {
-        this.APIModel = APIModel;
-        this.APIMethods = this.getAPIMethods(APIModel);
-        this.exceptsMethods = this.getAPIMethods(this);
+    constructor (socket) {
+        this.APIMethods = this.getAPIMethods(this);
+        this.exceptsMethods = ['constructor'];
         this.socket = socket;
+        this.Bus = new Bus();
     }
 
     getAPIMethods (APIModel) {
@@ -13,17 +16,22 @@ export class API {
 
     build () {
         this.APIMethods.map(APIMethod => {
-            if (!this.exceptsMethods.includes(APIMethod))
-                this.listen(APIMethod);
+            if (!this.exceptsMethods.includes(APIMethod)) {
+                let firstCapitalIndex = StringHelper.findIndexFirstCapital(APIMethod);
+                let state = {
+                    action: StringHelper.transformUpperToLower(APIMethod.slice(0, firstCapitalIndex)),
+                    eventName: StringHelper.transformUpperToLower(APIMethod.slice(firstCapitalIndex, APIMethod.length), '_'),
+                    eventMethod: APIMethod.slice(firstCapitalIndex, APIMethod.length)
+                };
+                if (state.action === 'on') {
+                    this.listen(state);
+                }
+            }
         });
     }
 
-    listen (method) {
-        eval("this.socket.on('" + this.transformUpperToLower(method, '_') + "', this.APIModel." + method + ")");
-    }
-
-    transformUpperToLower (method, prefix, sufix) {
-        return method.replace(/([A-Z])/g, find => prefix || '' + find.toLowerCase() + sufix || '');
+    listen (state) {
+        eval("this.socket." + state.action + "('" + state.eventName + "', this." + state.eventMethod + ")");
     }
 
 }

@@ -23,7 +23,7 @@ export class Converter {
     }
 
     eval (Point) {
-        console.log(Point);
+        console.log(this, Point);
     }
 
 }

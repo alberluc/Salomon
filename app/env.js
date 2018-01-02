@@ -3,5 +3,5 @@ module.exports =  {
         views : './../public/views',
         static : './../public'
     },
-    port: 1234
+    port: 1235
 };

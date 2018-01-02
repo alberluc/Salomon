@@ -11,7 +11,7 @@ export class Sort {
     }
 
     static getInterval (objects, exam) {
-        let filtered = this.asc(objects, exam).map(sorted => objects.filter(object => eval('sorted === object.' + exam)));
+        let filtered = this.asc(objects, exam).map(sorted => objects.filter(object => eval('sorted === object.' + exam))[0]);
         return [
             filtered[0],
             filtered[objects.length - 1]

@@ -11,5 +11,5 @@ export default {
             key: 'km',
         }
     ],
-    multiplyRatio: 1
+    multiplyRatio: 0.02
 }

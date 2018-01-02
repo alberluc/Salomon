@@ -2,7 +2,7 @@ import io from "socket.io-client";
 import { MapReliefModel } from './Maps/MapRelief'
 import { SleepMode as SleepModeModel } from './SleepMode/SleepMode'
 import { Script as ScriptModel } from './Script/Script'
-import { UnitsBuilder as UnitsBuilderModel } from './Utils/UnitsBuilder'
+import { UnitsBuilder } from './Utils/UnitsBuilder'
 import { API } from "../api/API";
 import { API_Light } from "../api/API_Ligth";
 import { API_Movement } from "../api/API_Movement";
@@ -23,6 +23,8 @@ export class App {
         this.initMapRelief();
         this.initSleepMode();
         this.initAPIs();
+        this.tmp();
+        this.Script.start();
     }
 
     /**
@@ -30,7 +32,7 @@ export class App {
      * @param script Script qui va définir le contexte de l'application
      */
     initScript (script) {
-        this.UnitsBuilder = new UnitsBuilderModel(script.base.units, script.distance);
+        this.UnitsBuilder = new UnitsBuilder(script.base.units, { distance: script.distance, altitude: script.altitude });
         this.Script = new ScriptModel(script, this.UnitsBuilder);
     }
 
@@ -61,10 +63,18 @@ export class App {
     }
 
     initAPIs () {
-        this.API_Light = new API(new API_Light(), this.socket);
+        this.API_Light = new API_Light(this.socket);
         this.API_Light.build();
-        this.API_Movement = new API(new API_Movement(), this.socket);
+        this.API_Movement = new API_Movement(this.socket);
         this.API_Movement.build();
+    }
+
+    /**
+     * Méthode temporaire pour simuler un pas
+     */
+    tmp () {
+        let simulateMovementEl = document.getElementById('simulateMovement');
+        simulateMovementEl.addEventListener('click', this.API_Movement.onMovementRecept.bind(this.API_Movement));
     }
 
 };

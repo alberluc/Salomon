@@ -1,7 +1,9 @@
-export class API_Movement {
+import { API } from "./API";
 
-    onMovementRecept (value) {
-        console.log('hihi')
+export class API_Movement extends API {
+
+    onMovementRecept () {
+        this.Bus.dispatch(this.Bus.types.ON_USER_MOVE_RECEIVED);
     }
 
 }

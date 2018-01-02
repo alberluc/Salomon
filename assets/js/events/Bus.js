@@ -5,7 +5,7 @@ let instance = null;
 export class Bus {
 
     constructor () {
-        if(!instance){
+        if (!instance) {
             this.types = Events;
             this.el = document.createElement('div');
             instance = this;

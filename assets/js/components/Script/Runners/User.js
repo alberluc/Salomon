@@ -1,6 +1,6 @@
-import {Runner} from "./Runner";
+import { Runner } from "./Runner";
 
-export class User extends Runner{
+export class User extends Runner {
 
     /**
      * Constructeur Runners
@@ -8,8 +8,9 @@ export class User extends Runner{
      * @param UnitBuilder
      * @param position
      */
-    constructor (Script, UnitBuilder, position) {
-        super(Script, UnitBuilder, position);
+    constructor (Script, position) {
+        super(Script, position);
+        this.Bus.listen(this.Bus.types.ON_USER_MOVE_RECEIVED, this.incrementPosition.bind(this));
     }
 
 }

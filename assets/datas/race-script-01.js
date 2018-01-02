@@ -2,8 +2,8 @@ import base from './base-script'
 
 export default {
     base,
-    distance: '32km',
-    hideAltitude: '1100km',
+    distance: ['0km', '32km'],
+    altitude: ['1100km', '1423km'],
     map: {
         0: {
             altitude: '1330km',

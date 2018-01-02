@@ -1,13 +1,18 @@
+import { UnitsBuilder } from "../../Utils/UnitsBuilder";
+import { Bus } from "../../../events/Bus";
+
 export class Runner {
 
-    constructor (Script, UnitBuilder, position) {
-        this._position = position;
+    constructor (Script, position) {
         this.Script = Script;
-        this.UnitBuilder = UnitBuilder;
+        this.UnitBuilder = new UnitsBuilder();
+        this.Bus = new Bus();
+        this._position = this.UnitBuilder.convert(position, 'distance');
     }
 
     set position (value) {
-        this._position = this.UnitBuilder.convert(value);
+        console.log(value)
+        this._position = this.UnitBuilder.convert(value, 'distance');
     }
 
     get position () {
@@ -16,6 +21,11 @@ export class Runner {
 
     get ratioMove () {
         return this.Script.currentPoint.ratioMove;
+    }
+
+    incrementPosition () {
+        console.log(this.position)
+        this.position = this.position.percentage + (this.Script.multiplyRatio * this.ratioMove);
     }
 
 }
