@@ -16,6 +16,14 @@ let config = {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: ['babel-loader']
+            },
+            {
+                test: /\.svg$/,
+                loader: 'svg-inline-loader',
+                options: {
+                    removeTags: true,
+                    removingTags: ['title', 'desc', 'defs', 'style']
+                }
             }
         ]
     }

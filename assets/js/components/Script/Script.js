@@ -4,11 +4,13 @@ import { Bot as BotModel } from "./Runners/Bot";
 import { User as UserModel } from "./Runners/User";
 import { Race as RaceModel } from './Race'
 import { UnitsBuilder } from "../Utils/UnitsBuilder";
+import { Bus } from "../../events/Bus";
 
 export class Script {
 
     constructor (config) {
         this.UnitsBuilder = new UnitsBuilder();
+        this.Bus = new Bus();
         this.Points = this.initPoints(config.map);
         this.Bots = this.initBots(config.bots);
         this.User = new UserModel(this, 0);
@@ -16,7 +18,9 @@ export class Script {
         this.distanceInterval = Sort.getInterval(this.Points, 'distance.value');
         this.altitudeInterval = Sort.getInterval(this.Points, 'altitude.value');
         this.multiplyRatio = config.base.multiplyRatio;
+        this.mapCourse = config.mapCourse;
         this.currentPoint = this.Points[0];
+        this.started = false;
     }
 
     initPoints (map) {
@@ -28,7 +32,7 @@ export class Script {
     }
 
     start () {
-
+        this.started = true;
     }
 
 }

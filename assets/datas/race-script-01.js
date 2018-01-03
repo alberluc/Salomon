@@ -1,9 +1,13 @@
 import base from './base-script'
+import { Maps } from './FileMaps'
 
 export default {
     base,
     distance: ['0km', '32km'],
     altitude: ['1100km', '1423km'],
+    mapCourse: {
+        src: Maps.MapCourse_1
+    },
     map: {
         0: {
             altitude: '1330km',

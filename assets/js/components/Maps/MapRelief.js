@@ -1,6 +1,6 @@
 import { Converter } from './../Utils/SVGHelper'
 
-export class MapReliefModel {
+export class MapRelief {
 
     constructor (el, Script) {
         this.el = el;

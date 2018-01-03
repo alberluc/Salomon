@@ -1,9 +1,9 @@
 import io from "socket.io-client";
-import { MapReliefModel } from './Maps/MapRelief'
+import { MapRelief as MapReliefModel } from './Maps/MapRelief'
+import { MapCourse as MapCourseModel } from './Maps/MapCourse'
 import { SleepMode as SleepModeModel } from './SleepMode/SleepMode'
 import { Script as ScriptModel } from './Script/Script'
 import { UnitsBuilder } from './Utils/UnitsBuilder'
-import { API } from "../api/API";
 import { API_Light } from "../api/API_Ligth";
 import { API_Movement } from "../api/API_Movement";
 import { Ids, ClassNames } from "../../datas/dom";
@@ -43,6 +43,9 @@ export class App {
         let MapRelief = new MapReliefModel(document.getElementById(Ids.MAP_RELIEF), this.Script);
         MapRelief.load();
         MapRelief.build();
+        let MapCourse = new MapCourseModel(document.getElementById(Ids.MAP_COURSE), this.Script);
+        MapCourse.load();
+        MapCourse.build();
     }
 
     /**
@@ -74,7 +77,7 @@ export class App {
      */
     tmp () {
         let simulateMovementEl = document.getElementById('simulateMovement');
-        simulateMovementEl.addEventListener('click', this.API_Movement.onMovementRecept.bind(this.API_Movement));
+        simulateMovementEl.addEventListener('click', this.API_Movement.onMovementReceived.bind(this.API_Movement));
     }
 
 };
