@@ -3,6 +3,7 @@ import { Maps } from './FileMaps'
 
 export default {
     base,
+    multiplyRatio: 0.008,
     distance: ['0km', '32km'],
     altitude: ['1100km', '1423km'],
     mapCourse: {
@@ -25,21 +26,30 @@ export default {
             altitude: '1286km'
         }
     },
+    user: {
+        name: '',
+        size: 15,
+        color: "red",
+        speed: 500
+    },
     bots: [
         {
             name: "",
-            color: "red",
-            speed: 700
+            color: "green",
+            size: 7,
+            speed: 475
         },
         {
             name: "",
             color: "green",
-            speed: 700
+            size: 7,
+            speed: 440
         },
         {
             name: "",
-            color: "blue",
-            speed: 700
+            color: "green",
+            size: 7,
+            speed: 410
         }
     ]
 }

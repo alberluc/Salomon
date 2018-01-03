@@ -3,10 +3,7 @@ import { Runner } from "./Runner";
 export class Bot extends Runner {
 
     constructor (bot, Script, position) {
-        super(Script, position);
-        this.name = bot.name;
-        this.color = bot.color;
-        this.speed = bot.speed;
+        super(bot, Script, position);
         this.runInterval = null;
     }
 

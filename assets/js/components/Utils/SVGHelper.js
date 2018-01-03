@@ -1,13 +1,16 @@
 export class Builder {
 
-    constructor () {}
-
-    path () {
+    static path () {
 
     }
 
-    circle () {
-
+    static circle (x, y, r, color) {
+        let _el = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+        _el.setAttributeNS(null, 'cx', x);
+        _el.setAttributeNS(null, 'cy', y);
+        _el.setAttributeNS(null, 'r', r);
+        _el.setAttributeNS(null, 'fill', color);
+        return _el;
     }
 
 }

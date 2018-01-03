@@ -1,3 +1,6 @@
 .mapCourse{
   width: 200px;
+  & svg{
+    padding: 15px;
+  }
 }

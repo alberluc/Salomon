@@ -39,5 +39,7 @@ html, body {
 
 .mapCourse {
   width: 200px; }
+  .mapCourse svg {
+    padding: 15px; }
 
 /*# sourceMappingURL=style.css.map */

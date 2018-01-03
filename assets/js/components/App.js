@@ -24,7 +24,7 @@ export class App {
         this.initSleepMode();
         this.initAPIs();
         this.tmp();
-        this.Script.start();
+        this.startRace();
     }
 
     /**
@@ -40,12 +40,13 @@ export class App {
      * Initialise la map en relief
      */
     initMapRelief () {
-        let MapRelief = new MapReliefModel(document.getElementById(Ids.MAP_RELIEF), this.Script);
-        MapRelief.load();
-        MapRelief.build();
-        let MapCourse = new MapCourseModel(document.getElementById(Ids.MAP_COURSE), this.Script);
-        MapCourse.load();
-        MapCourse.build();
+        this.MapRelief = new MapReliefModel(document.getElementById(Ids.MAP_RELIEF), this.Script);
+        this.MapRelief.load();
+        this.MapRelief.build();
+        this.MapCourse = new MapCourseModel(document.getElementById(Ids.MAP_COURSE), this.Script);
+        this.MapCourse.build();
+        this.MapCourse.setRunner(this.Script.User);
+        this.Script.Bots.forEach(Bot => this.MapCourse.setRunner(Bot));
     }
 
     /**
@@ -78,6 +79,11 @@ export class App {
     tmp () {
         let simulateMovementEl = document.getElementById('simulateMovement');
         simulateMovementEl.addEventListener('click', this.API_Movement.onMovementReceived.bind(this.API_Movement));
+    }
+
+    startRace () {
+        this.MapCourse.watch();
+        this.Script.start();
     }
 
 };
