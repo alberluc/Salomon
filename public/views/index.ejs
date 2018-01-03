@@ -6,14 +6,22 @@
     <link rel="icon" href="img/favicon.jpg">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-    <section class="sleepMode_view">
+<body> <!-- onselectstart="return false" oncontextmenu="return false" ondragstart="return false" -->
+    <section class="sleepMode_view view">
         <span class="sleepMode_text">Mode vielle</span>
     </section>
-    <section class="race">
+    <section id="startView" class="start_view view">
+        <span class="h3">Cliquez pour<br>commencer l'éxperience</span>
+    </section>
+    <section id="raceView" class="race_view view">
         <div id="mapRelief" class="race_mapRelief mapRelief"></div>
         <div id="mapCourse" class="race_mapCourse mapCourse"></div>
     </section>
+    <section id="endView" class="view">
+        <p>Vous avez fini <span id="scoreUser"></span></p>
+        <ul id="scores"></ul>
+    </section>
+    <section id="infosView" class="view"></section>
     <footer>
         <button id="simulateMovement">Simuler un mouvement</button>
     </footer>

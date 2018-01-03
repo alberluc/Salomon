@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
 @import "utils/base";
+@import "utils/text";
 
 @import "components/sleepMode";
 @import "components/mapRelief";
 @import "components/mapCourse";
+@import "components/view";
+
+@import "layouts/start";

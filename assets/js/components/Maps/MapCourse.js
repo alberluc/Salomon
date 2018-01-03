@@ -36,9 +36,9 @@ export class MapCourse {
         RunnerCourse.image.setAttribute('cy', positionPath.y);
     }
 
-    watch () {
+    animate () {
         this.RunnersCourse.forEach(RunnerCourse => this.setPosition(RunnerCourse));
-        requestAnimationFrame(this.watch.bind(this));
+        requestAnimationFrame(this.animate.bind(this));
     }
 
 }

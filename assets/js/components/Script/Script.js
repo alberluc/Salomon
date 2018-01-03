@@ -10,17 +10,14 @@ export class Script {
 
     constructor (config) {
         this.UnitsBuilder = new UnitsBuilder();
-        this.Bus = new Bus();
         this.Points = this.initPoints(config.map);
         this.Bots = this.initBots(config.bots);
         this.User = new UserModel(config.user, this, 0);
-        this.Race = new RaceModel();
         this.distanceInterval = Sort.getInterval(this.Points, 'distance.value');
         this.altitudeInterval = Sort.getInterval(this.Points, 'altitude.value');
         this.multiplyRatio = config.multiplyRatio;
         this.mapCourse = config.mapCourse;
         this.currentPoint = this.Points[0];
-        this.started = false;
     }
 
     initPoints (map) {
@@ -29,11 +26,6 @@ export class Script {
 
     initBots (bots) {
         return bots.map(bot => new BotModel(bot, this, 0));
-    }
-
-    start () {
-        this.started = true;
-        this.Bots.forEach(Bot => Bot.run());
     }
 
 }

@@ -1,7 +1,17 @@
 export const Ids = {
     MAP_RELIEF: 'mapRelief',
     MAP_COURSE: 'mapCourse',
-    GAUGE: 'gauge'
+    GAUGE: 'gauge',
+    VIEWS : {
+        START: 'startView',
+        RACE: 'raceView',
+        END: 'endView',
+        INFOS: 'infosView'
+    },
+    END: {
+        SCORE_USER: 'scoreUser',
+        SCORES: 'scores'
+    }
 };
 
 export const ClassNames = {

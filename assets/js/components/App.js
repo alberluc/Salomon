@@ -6,7 +6,9 @@ import { Script as ScriptModel } from './Script/Script'
 import { UnitsBuilder } from './Utils/UnitsBuilder'
 import { API_Light } from "../api/API_Ligth";
 import { API_Movement } from "../api/API_Movement";
+import { Race as RaceModel } from "./Script/Race";
 import { Ids, ClassNames } from "../../datas/dom";
+import { ViewHandler } from './Utils/ViewHandler';
 import RaceScriptConfig_01 from '../../datas/race-script-01';
 
 export class App {
@@ -19,12 +21,13 @@ export class App {
      * Initialise l'application
      */
     init () {
+        ViewHandler.show(Ids.VIEWS.START);
         this.initScript(RaceScriptConfig_01);
         this.initMapRelief();
         this.initSleepMode();
         this.initAPIs();
+        this.initRace();
         this.tmp();
-        this.startRace();
     }
 
     /**
@@ -73,17 +76,17 @@ export class App {
         this.API_Movement.build();
     }
 
+    initRace () {
+        this.Race = new RaceModel(this.Script, this.MapCourse);
+        this.Race.waitStart();
+    }
+
     /**
      * Méthode temporaire pour simuler un pas
      */
     tmp () {
         let simulateMovementEl = document.getElementById('simulateMovement');
         simulateMovementEl.addEventListener('click', this.API_Movement.onMovementReceived.bind(this.API_Movement));
-    }
-
-    startRace () {
-        this.MapCourse.watch();
-        this.Script.start();
     }
 
 };

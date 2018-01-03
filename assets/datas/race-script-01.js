@@ -27,29 +27,29 @@ export default {
         }
     },
     user: {
-        name: '',
+        name: 'user',
         size: 15,
-        color: "red",
+        color: 'red',
         speed: 500
     },
     bots: [
         {
-            name: "",
-            color: "green",
+            name: 'bot1',
+            color: 'green',
             size: 7,
-            speed: 475
+            speed: 275
         },
         {
-            name: "",
-            color: "green",
+            name: 'bot2',
+            color: 'green',
             size: 7,
-            speed: 440
+            speed: 240
         },
         {
-            name: "",
-            color: "green",
+            name: 'bot3',
+            color: 'green',
             size: 7,
-            speed: 410
+            speed: 210
         }
     ]
 }

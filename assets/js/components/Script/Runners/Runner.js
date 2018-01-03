@@ -11,6 +11,7 @@ export class Runner {
         this.color = runner.color;
         this.size = runner.size;
         this.speed = runner.speed;
+        this.arrived = false;
         this._position = this.UnitBuilder.convert(position, 'distance');
     }
 
@@ -27,15 +28,21 @@ export class Runner {
     }
 
     incrementPosition () {
-        let incrementValue = this.Script.multiplyRatio * this.ratioMove;
+        if (!this.arrived) {
+            let incrementValue = this.Script.multiplyRatio * this.ratioMove;
+            this.animate(incrementValue);
+        }
+    }
+
+    animate (incrementValue) {
         let divide = 70;
+        let i = 0;
         let incrementValueDivide = incrementValue / divide;
         let speedDivide = this.speed / divide;
-        let i = 0;
         let incrementInterval = setInterval((function () {
             if (this.position.percentage >= 0.5) {
                 clearInterval(incrementInterval);
-                this.position = 0;
+                this.finishCourse();
             }
             else if (i >= divide) clearInterval(incrementInterval);
             else {
@@ -44,5 +51,12 @@ export class Runner {
             }
         }).bind(this), speedDivide);
     }
+
+    finishCourse () {
+        this.position = 0;
+        this.arrived = true;
+        this.Bus.dispatch(this.Bus.types.ON_RUNNER_FINISHED, { Runner: this } );
+    }
+
 
 }
