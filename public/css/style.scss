@@ -1,7 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
+
+/****************************************
+ *	Générique
+ ****************************************/
+
 @import "utils/base";
 @import "utils/text";
+
+/****************************************
+ *	Fonts & Variables
+ ****************************************/
+@import "utils/fonts";
+@import "utils/variables";
+
+/****************************************
+ *	Composants
+ ****************************************/
+@import "components/splashScreen";
+@import "components/timeToPlay";
 
 @import "components/sleepMode";
 @import "components/mapRelief";

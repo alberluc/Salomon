@@ -11,6 +11,7 @@ import { Race as RaceModel } from "./Race/Race";
 import { Ids, ClassNames } from "../../datas/dom";
 import { ViewHandler } from './Utils/ViewHandler';
 import RaceScriptConfig_01 from '../../datas/race-script-01';
+import { Canvas as CanvasModel } from './Particules/Canvas';
 
 export class App {
 
@@ -30,6 +31,7 @@ export class App {
         this.initAPIs();
         this.initRace();
         this.tmp();
+        this.initCanvas();
     }
 
     /**
@@ -86,6 +88,11 @@ export class App {
     initRace () {
         this.Race = new RaceModel(this.Script, this.MapCourse);
         this.Race.waitStart();
+    }
+    // Initialise le background
+    initCanvas() {
+        this.Canvas = new CanvasModel('canvas');
+        this.Canvas.build(481);
     }
 
     /**

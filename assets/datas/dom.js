@@ -15,7 +15,8 @@ export const Ids = {
     END: {
         SCORE_USER: 'scoreUser',
         SCORES: 'scores'
-    }
+    },
+    CANVAS: 'myCanvas',
 };
 
 export const ClassNames = {

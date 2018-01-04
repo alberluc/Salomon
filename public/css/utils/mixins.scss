@@ -1,0 +1,48 @@
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+@mixin rotate3d ($x,$y,$deg) {
+  @include transform(rotate(#{$x},#{$y},#{$deg}deg));
+}
+@mixin translate ($x,$y) {
+  @include transform(translate(#{$x},#{$y}));
+}
+@mixin translatey ($y) {
+  @include transform(translateY(#{$y}));
+}
+@mixin translatex ($x) {
+  @include transform(translateX(#{$x}));
+}
+@mixin translate3d ($x,$y,$z) {
+  @include transform(translate3d(#{$x},#{$y},#{$z}));
+}
+@mixin skewY ($deg) {
+  @include transform(skewY(#{$deg}deg));
+}
+@mixin scale ($x,$y) {
+  @include transform(scale(#{$x},#{$y}));
+}
+@mixin scale3d ($x,$y, $z) {
+  @include transform(scale3d(#{$x},#{$y},#{$z}));
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
