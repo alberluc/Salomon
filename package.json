@@ -21,6 +21,10 @@
     "socket.io": "^2.0.4",
     "socket.io-client": "^2.0.4",
     "svg-inline-loader": "^0.8.0",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^2.0.3"
+  },
+  "devDependencies": {
+    "webpack-hot-middleware": "^2.21.0"
   }
 }

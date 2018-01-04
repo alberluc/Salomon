@@ -1,12 +1,12 @@
 import io from "socket.io-client";
-import { MapRelief as MapReliefModel } from './Maps/MapRelief'
-import { MapCourse as MapCourseModel } from './Maps/MapCourse'
+import { MapRelief as MapReliefModel } from './Race/MapRelief'
+import { MapCourse as MapCourseModel } from './Race/MapCourse'
 import { SleepMode as SleepModeModel } from './SleepMode/SleepMode'
 import { Script as ScriptModel } from './Script/Script'
 import { UnitsBuilder } from './Utils/UnitsBuilder'
 import { API_Light } from "../api/API_Ligth";
 import { API_Movement } from "../api/API_Movement";
-import { Race as RaceModel } from "./Script/Race";
+import { Race as RaceModel } from "./Race/Race";
 import { Ids, ClassNames } from "../../datas/dom";
 import { ViewHandler } from './Utils/ViewHandler';
 import RaceScriptConfig_01 from '../../datas/race-script-01';
@@ -43,10 +43,10 @@ export class App {
      * Initialise la map en relief
      */
     initMapRelief () {
-        this.MapRelief = new MapReliefModel(document.getElementById(Ids.MAP_RELIEF), this.Script);
+        this.MapRelief = new MapReliefModel(document.getElementById(Ids.RACE.MAP_RELIEF), this.Script);
         this.MapRelief.load();
         this.MapRelief.build();
-        this.MapCourse = new MapCourseModel(document.getElementById(Ids.MAP_COURSE), this.Script);
+        this.MapCourse = new MapCourseModel(document.getElementById(Ids.RACE.MAP_COURSE), this.Script);
         this.MapCourse.build();
         this.MapCourse.setRunner(this.Script.User);
         this.Script.Bots.forEach(Bot => this.MapCourse.setRunner(Bot));

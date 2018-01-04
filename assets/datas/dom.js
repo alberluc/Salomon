@@ -1,7 +1,11 @@
 export const Ids = {
-    MAP_RELIEF: 'mapRelief',
-    MAP_COURSE: 'mapCourse',
-    GAUGE: 'gauge',
+    RACE: {
+        MAP_RELIEF: 'mapRelief',
+        MAP_COURSE: 'mapCourse',
+        GAUGE: 'gauge',
+        STEPS: 'steps',
+        TIMER: 'timer'
+    },
     VIEWS : {
         START: 'startView',
         RACE: 'raceView',

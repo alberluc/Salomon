@@ -2,7 +2,7 @@ import { Sort } from './../Utils/Sort'
 import { Point as PointModel } from './Point'
 import { Bot as BotModel } from "./Runners/Bot";
 import { User as UserModel } from "./Runners/User";
-import { Race as RaceModel } from './Race'
+import { Race as RaceModel } from '../Race/Race'
 import { UnitsBuilder } from "../Utils/UnitsBuilder";
 import { Bus } from "../../events/Bus";
 

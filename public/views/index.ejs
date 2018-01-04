@@ -14,10 +14,23 @@
         <span class="h3">Cliquez pour<br>commencer l'éxperience</span>
     </section>
     <section id="raceView" class="race_view view">
-        <div id="mapRelief" class="race_mapRelief mapRelief"></div>
-        <div id="mapCourse" class="race_mapCourse mapCourse"></div>
+        <div class="race-top race_section" style="background-color: #e0e0e0;">
+            <div id="mapRelief" class="race_mapRelief mapRelief"></div>
+        </div>
+        <div class="race-left race_section" style="background-color: #f5f5f5;">
+            <div id="gauge" class="race_gauge gauge"></div>
+        </div>
+        <div class="race-right race_section" style="background-color: #f5f5f5;">
+            <div id="mapCourse" class="race_mapCourse mapCourse"></div>
+        </div>
+        <div class="race-center">
+            <div id="steps" class="race_steps steps"></div>
+        </div>
+        <div class="race-bottom race_section" style="background-color: #e0e0e0;">
+            <div id="timer" class="race_timer timer"></div>
+        </div>
     </section>
-    <section id="endView" class="view">
+    <section id="endView" class="end_view view">
         <p>Vous avez fini <span id="scoreUser"></span></p>
         <ul id="scores"></ul>
     </section>
