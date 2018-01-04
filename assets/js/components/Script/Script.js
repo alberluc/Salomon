@@ -16,7 +16,7 @@ export class Script {
         this.altitudeInterval = Sort.getInterval(this.Points, 'altitude.value');
         this.multiplyRatio = config.multiplyRatio;
         this.mapCourse = config.mapCourse;
-        this.gauge = this.initGauge(config.base.gauge);
+        this.gauge = this.initGauge(config.base.gauge, config.gauge);
         this.currentPoint = this.Points[0];
     }
 
@@ -28,17 +28,17 @@ export class Script {
         return bots.map(bot => new BotModel(bot, this, 0));
     }
 
-    initGauge (gauge) {
-        console.log(gauge);
-        let Levels = Object.keys(gauge.levels).map(value => (
+    initGauge (gaugeBase, gaugeScript) {
+        let Levels = Object.keys(gaugeBase.levels).map(value => (
             {
-                Flag: new FlagModel(gauge.levels[value].flag),
-                type: gauge.levels[value].type,
+                Flag: new FlagModel(gaugeBase.levels[value].flag),
+                type: gaugeBase.levels[value].type,
                 value
             }
         ));
         return {
-            Levels
+            Levels,
+            ratio: gaugeScript.ratio
         }
     }
 

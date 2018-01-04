@@ -1,4 +1,5 @@
 import { ClassNames } from "../../../datas/dom";
+import { Bus } from "../../events/Bus";
 
 export class Gauge {
 
@@ -8,6 +9,8 @@ export class Gauge {
         this.Script = Script;
         this.self = Script.gauge;
         this.barLevel = {};
+        this.Bus = new Bus();
+        this.Bus.listen(this.Bus.types.ON_USER_MOVE, this.onUserMove.bind(this))
     }
 
     build () {
@@ -33,6 +36,10 @@ export class Gauge {
 
     setPositionBarLevel (value) {
         this.barLevel.el.style.transform = 'translateY(' + (100 - value)  + '%)';
+    }
+
+    onUserMove () {
+        console.log(this.Script);
     }
 
 }

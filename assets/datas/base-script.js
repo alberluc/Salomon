@@ -15,6 +15,7 @@ export default {
         levels: {
             25: {
                 type: 'less-than',
+                wait: 22,
                 flag: {
                     key: 'DH',
                     dispatch: 'onDehydration'
@@ -22,6 +23,7 @@ export default {
             },
             75: {
                 type: 'greater-than',
+                wait: 78,
                 flag: {
                     key: 'SH',
                     dispatch: 'onOverhydration'

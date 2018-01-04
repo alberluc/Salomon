@@ -9,12 +9,19 @@ export default {
     mapCourse: {
         src: Maps.MapCourse_1
     },
+    gauge: {
+        ratio: 1
+    },
     map: {
         0: {
             altitude: '1330km',
+            ratioMove: 1.2
+        },
+        25: {
+            altitude: '1350km',
             ratioMove: 1.1
         },
-        50: {
+        60: {
             altitude: '1423km',
             ratioMove: 1.3,
             flag: {
