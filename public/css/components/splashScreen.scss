@@ -1,0 +1,23 @@
+svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 110;
+  width: 300px;
+  #first {
+    animation: ping 2s ease infinite 50ms;
+  }
+  #second {
+    animation: ping 2s ease infinite 125ms;
+  }
+  #last {
+    animation: ping 2s ease infinite 175ms;
+  }
+
+  @keyframes ping {
+    0% {opacity: 1}
+    50% {opacity: 0}
+    100% {opacity: 1}
+  }
+}
