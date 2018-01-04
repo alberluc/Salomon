@@ -29,7 +29,15 @@
     grid-column: 1 / span 1;
     grid-row: 2 / span 3;
     &_gauge{
-
+      position: absolute;
+      left: 50%;
+      bottom: 20px;
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 50%;
+      border: solid black 1px;
+      transform: translateX(-50%);
     }
   }
   &-right{

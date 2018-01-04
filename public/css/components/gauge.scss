@@ -1,0 +1,20 @@
+.gauge{
+  &:after{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+  &_bar_level{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 68, 255, 0.46);
+  }
+  &_level{
+    height: 1px;
+    position: absolute;
+    border-bottom: dashed black 1px;
+    width: 100%;
+  }
+}

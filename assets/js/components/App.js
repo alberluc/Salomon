@@ -1,6 +1,7 @@
 import io from "socket.io-client";
 import { MapRelief as MapReliefModel } from './Race/MapRelief'
 import { MapCourse as MapCourseModel } from './Race/MapCourse'
+import { Gauge as GaugeModel } from './Race/Gauge'
 import { SleepMode as SleepModeModel } from './SleepMode/SleepMode'
 import { Script as ScriptModel } from './Script/Script'
 import { UnitsBuilder } from './Utils/UnitsBuilder'
@@ -24,6 +25,7 @@ export class App {
         ViewHandler.show(Ids.VIEWS.START);
         this.initScript(RaceScriptConfig_01);
         this.initMapRelief();
+        this.initGauge();
         this.initSleepMode();
         this.initAPIs();
         this.initRace();
@@ -50,6 +52,11 @@ export class App {
         this.MapCourse.build();
         this.MapCourse.setRunner(this.Script.User);
         this.Script.Bots.forEach(Bot => this.MapCourse.setRunner(Bot));
+    }
+
+    initGauge () {
+        this.Gauge = new GaugeModel(document.getElementById(Ids.RACE.GAUGE), this.Script);
+        this.Gauge.build();
     }
 
     /**

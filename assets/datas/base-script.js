@@ -10,5 +10,23 @@ export default {
             ratio: 1,
             key: 'km',
         }
-    ]
+    ],
+    gauge: {
+        levels: {
+            25: {
+                type: 'less-than',
+                flag: {
+                    key: 'DH',
+                    dispatch: 'onDehydration'
+                }
+            },
+            75: {
+                type: 'greater-than',
+                flag: {
+                    key: 'SH',
+                    dispatch: 'onOverhydration'
+                }
+            }
+        }
+    }
 }

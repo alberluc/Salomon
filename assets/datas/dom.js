@@ -19,5 +19,7 @@ export const Ids = {
 };
 
 export const ClassNames = {
-    SLEEP_MODE_ACTIVE: 'sleepMode-active'
+    SLEEP_MODE_ACTIVE: 'sleepMode-active',
+    GAUGE_LEVEL: 'gauge_level',
+    GAUGE_BAR_LEVEL: 'gauge_bar_level'
 };

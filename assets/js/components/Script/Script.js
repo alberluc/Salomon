@@ -1,10 +1,9 @@
 import { Sort } from './../Utils/Sort'
 import { Point as PointModel } from './Point'
+import { Flag as FlagModel } from "./Flag";
 import { Bot as BotModel } from "./Runners/Bot";
 import { User as UserModel } from "./Runners/User";
-import { Race as RaceModel } from '../Race/Race'
 import { UnitsBuilder } from "../Utils/UnitsBuilder";
-import { Bus } from "../../events/Bus";
 
 export class Script {
 
@@ -17,6 +16,7 @@ export class Script {
         this.altitudeInterval = Sort.getInterval(this.Points, 'altitude.value');
         this.multiplyRatio = config.multiplyRatio;
         this.mapCourse = config.mapCourse;
+        this.gauge = this.initGauge(config.base.gauge);
         this.currentPoint = this.Points[0];
     }
 
@@ -26,6 +26,20 @@ export class Script {
 
     initBots (bots) {
         return bots.map(bot => new BotModel(bot, this, 0));
+    }
+
+    initGauge (gauge) {
+        console.log(gauge);
+        let Levels = Object.keys(gauge.levels).map(value => (
+            {
+                Flag: new FlagModel(gauge.levels[value].flag),
+                type: gauge.levels[value].type,
+                value
+            }
+        ));
+        return {
+            Levels
+        }
     }
 
 }
