@@ -1,4 +1,9 @@
 export const Ids = {
+    INIT: {
+        SLEEP: 'sleepMode',
+        PLAY: 'timeToPlay',
+        SITE: 'site',
+    },
     RACE: {
         MAP_RELIEF: 'mapRelief',
         MAP_COURSE: 'mapCourse',
@@ -7,6 +12,9 @@ export const Ids = {
         TIMER: 'timer'
     },
     VIEWS : {
+        PLAY: 'timeToPlay',
+        SITE: 'site',
+        SLEEP: 'sleepMode',
         START: 'startView',
         RACE: 'raceView',
         END: 'endView',

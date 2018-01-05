@@ -1,3 +1,4 @@
+import {TweenMax} from 'gsap';
 import { Ids } from './../../../datas/dom'
 
 let ids = Ids;
@@ -9,8 +10,12 @@ export class ViewHandler {
         ViewsEl.forEach(viewEl => {
             if (viewEl.getAttribute('id') === view) {
                 viewEl.classList.add('view-active');
+                /*TweenMax.fromTo ((viewEl) , 1, {opacity:1}, {opacity:0,display:'none'});*/
             }
             else {
+                /*TweenMax.delayedCall(1,() => {
+                    TweenMax.fromTo ((viewEl) , 1, {opacity:0}, {opacity:1,display:'block'})
+                });*/
                 viewEl.classList.remove('view-active');
             }
         })

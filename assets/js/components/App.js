@@ -7,6 +7,7 @@ import { Script as ScriptModel } from './Script/Script'
 import { UnitsBuilder } from './Utils/UnitsBuilder'
 import { API_Light } from "../api/API_Ligth";
 import { API_Movement } from "../api/API_Movement";
+import { Intro as IntroModel } from './Intro/Intro';
 import { Race as RaceModel } from "./Race/Race";
 import { Ids, ClassNames } from "../../datas/dom";
 import { ViewHandler } from './Utils/ViewHandler';
@@ -23,15 +24,20 @@ export class App {
      * Initialise l'application
      */
     init () {
-        ViewHandler.show(Ids.VIEWS.START);
+        ViewHandler.show(Ids.INIT.PLAY);
         this.initScript(RaceScriptConfig_01);
         this.initMapRelief();
         this.initGauge();
         this.initSleepMode();
         this.initAPIs();
+        this.initIntro();
         this.initRace();
         this.tmp();
         this.initCanvas();
+    }
+
+    initIntro() {
+        this.Intro = new IntroModel();
     }
 
     /**

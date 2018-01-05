@@ -1,5 +1,8 @@
 svg {
   position: absolute;
+  z-index:1000;
+}
+#sleepMode__svg {
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);

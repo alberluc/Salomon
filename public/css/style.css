@@ -32,6 +32,7 @@ body {
   padding: 10px; }
 
 #canvas {
+  z-index: -1;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -57,21 +58,69 @@ body {
 /****************************************
  *	Fonts
  ****************************************/
+.btn {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #FFF;
+  cursor: pointer; }
+
+.btn__round {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%); }
+  .btn__round:before {
+    content: '';
+    position: absolute;
+    background: #FFF;
+    width: 30px;
+    height: 1px;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-80%, -50%) rotate(45deg);
+    -moz-transform: translate(-80%, -50%) rotate(45deg);
+    -ms-transform: translate(-80%, -50%) rotate(45deg);
+    -o-transform: translate(-80%, -50%) rotate(45deg);
+    transform: translate(-80%, -50%) rotate(45deg); }
+  .btn__round:after {
+    content: '';
+    position: absolute;
+    background: #FFF;
+    width: 30px;
+    height: 1px;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-10%, -50%) rotate(-45deg);
+    -moz-transform: translate(-10%, -50%) rotate(-45deg);
+    -ms-transform: translate(-10%, -50%) rotate(-45deg);
+    -o-transform: translate(-10%, -50%) rotate(-45deg);
+    transform: translate(-10%, -50%) rotate(-45deg); }
+
 /****************************************
  *	Composants
  ****************************************/
 svg {
   position: absolute;
+  z-index: 1000; }
+
+#sleepMode__svg {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 110;
   width: 300px; }
-  svg #first {
-    animation: ping 2s ease infinite 2ms; }
-  svg #second {
+  #sleepMode__svg #first {
+    animation: ping 2s ease infinite 50ms; }
+  #sleepMode__svg #second {
     animation: ping 2s ease infinite 125ms; }
-  svg #last {
+  #sleepMode__svg #last {
     animation: ping 2s ease infinite 175ms; }
 @keyframes ping {
   0% {
@@ -80,6 +129,38 @@ svg {
     opacity: 0; }
   100% {
     opacity: 1; } }
+#timeToPlay__svg {
+  width: 100%;
+  max-width: 1200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+#casque {
+  width: 700px;
+  left: 30%;
+  top: 45%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+#pas {
+  width: 700px;
+  left: 70%;
+  top: 45%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
 .sleepMode_view {
   display: none;
   align-items: center;
