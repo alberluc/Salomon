@@ -3,6 +3,9 @@ export const Ids = {
         SLEEP: 'sleepMode',
         PLAY: 'timeToPlay',
         SITE: 'site',
+        FOOTLEFT: 'foot_left',
+        FOOTRIGHT: 'foot_right',
+
     },
     RACE: {
         MAP_RELIEF: 'mapRelief',

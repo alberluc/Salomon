@@ -30,3 +30,14 @@
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+#foot_left, #foot_right {
+  opacity:0.4;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  &.foot--active {
+    opacity:1;
+  }
+}

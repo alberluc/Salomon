@@ -2,6 +2,7 @@ import { Ids } from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
 import { Sound } from "../Sound/Sound";
 import { Race as RaceModel } from "../Race/Race";
+import {TweenMax} from 'gsap';
 
 
 
@@ -26,6 +27,14 @@ export class Intro {
         playRace.addEventListener('click', () => {
             ViewHandler.show(Ids.VIEWS.START);
         });
+        /*TweenLite.ticker.addEventListener('tick', this.placement.bind(this));*/
+    }
+    placement() {
+        if(document.getElementById(Ids.INIT.FOOTLEFT).classList.contains('foot--active') && document.getElementById(Ids.INIT.FOOTRIGHT).classList.contains('foot--active')) {
+            TweenMax.delayedCall(2,() => {
+                ViewHandler.show(Ids.VIEWS.START);
+            })
+        }
     }
 
     finish () {
