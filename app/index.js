@@ -7,19 +7,19 @@ const env = require('./env');
 const path = require('path');
 
 // PARTIE SERVEUR
-var SerialPort = require('serialport');
+/*var SerialPort = require('serialport');
 
-var Readline = SerialPort.parsers.Readline;
+let Readline = SerialPort.parsers.Readline;
 let pas = 0;
 const dataArduino = [];
 const limitArray = 2;
 
 
-var serialPort = new SerialPort('/dev/cu.usbmodem1411', {
+let serialPort = new SerialPort('/dev/cu.usbmodem1411', {
     baudRate: 9600
-})
+});
 
-var parser = new Readline()
+let parser = new Readline();
 serialPort.pipe(parser)
 parser.on('data', function (data) {
     // On récupère la valeur et on la transform en String
@@ -33,18 +33,23 @@ parser.on('data', function (data) {
         pas += 1;
         console.log(pas);
     }
-})
+});
 
 serialPort.on('open', function () {
     console.log('Communication établi')
-})
+});*/
 
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(env.path.views));
 
+app.get("/", function (req, res) {
+    res.render("index", {pas});
+});
+
 app.use(express.static(path.resolve(env.path.static)));
 
 app.get('/', controller.site.index);
+
 
 io.on('connection', function (socket) {
 

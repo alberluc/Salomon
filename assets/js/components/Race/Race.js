@@ -35,6 +35,7 @@ export class Race {
         this.state = STATE.RUN;
     }
 
+
     finish () {
         let scoreUser = this.scores.length;
         this.completeScore();
