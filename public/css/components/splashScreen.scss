@@ -1,6 +1,9 @@
 svg {
-  position: absolute;
-  z-index:1000;
+  &.svg__position {
+    position: absolute;
+    z-index:1000;
+
+  }
 }
 #sleepMode__svg {
   left: 50%;

@@ -1,6 +1,8 @@
 import { Ids } from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
 import { Sound } from "../Sound/Sound";
+import { Race as RaceModel } from "../Race/Race";
+
 
 
 export class Intro {
@@ -20,6 +22,10 @@ export class Intro {
     intruction () {
         this.sound = new Sound(1);
         this.sound.play();
+        let playRace = document.getElementById(Ids.INIT.SITE);
+        playRace.addEventListener('click', () => {
+            ViewHandler.show(Ids.VIEWS.START);
+        });
     }
 
     finish () {

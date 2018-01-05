@@ -106,7 +106,7 @@ body {
 /****************************************
  *	Composants
  ****************************************/
-svg {
+svg.svg__position {
   position: absolute;
   z-index: 1000; }
 

@@ -6,7 +6,7 @@ const controller = require('./controller/index');
 const env = require('./env');
 const path = require('path');
 
-/* PARTIE SERVEUR
+// PARTIE SERVEUR
 var SerialPort = require('serialport');
 
 var Readline = SerialPort.parsers.Readline;
@@ -37,7 +37,7 @@ parser.on('data', function (data) {
 
 serialPort.on('open', function () {
     console.log('Communication établi')
-})*/
+})
 
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(env.path.views));
