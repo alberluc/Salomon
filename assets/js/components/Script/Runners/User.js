@@ -11,9 +11,17 @@ export class User extends Runner {
     constructor (user, Script, position) {
         super(user, Script, position);
         this.Bus.listen(this.Bus.types.ON_USER_MOVE_RECEIVED, (function () {
+            this.checkCurrentPoint();
             this.incrementPosition();
             this.Bus.dispatch(this.Bus.types.ON_USER_MOVE);
         }).bind(this));
+    }
+
+    checkCurrentPoint () {
+        let PointPassed = this.Script.Points.filter(Point => Point.distance.percentage < this.position.percentage);
+        PointPassed = PointPassed[PointPassed.length - 1] || this.Script.Points[0];
+        if (PointPassed.id !== this.Script.currentPoint.id) this.Bus.dispatch(this.Bus.types.ON_CHANGE_CURRENT_POINT, { id: PointPassed.id });
+        this.Script.currentPoint = PointPassed;
     }
 
 }

@@ -13,7 +13,8 @@ import { Ids, ClassNames } from "../../datas/dom";
 import { ViewHandler } from './Utils/ViewHandler';
 import RaceScriptConfig_01 from '../../datas/race-script-01';
 import { Canvas as CanvasModel } from './Particules/Canvas';
-import {TweenMax} from 'gsap';
+import { TweenMax } from 'gsap';
+import { Timer } from "./Race/Timer";
 
 
 export class App {
@@ -34,6 +35,7 @@ export class App {
         this.initAPIs();
         this.initIntro();
         this.initRace();
+        this.initTimer();
         this.tmp();
         this.initCanvas();
     }
@@ -97,6 +99,12 @@ export class App {
         this.Race = new RaceModel(this.Script, this.MapCourse);
         this.Race.waitStart();
     }
+
+    initTimer () {
+        this.Timer = new Timer(document.getElementById(Ids.RACE.TIMER));
+        this.Timer.init();
+    }
+
     // Initialise le background
     initCanvas() {
         this.Canvas = new CanvasModel('canvas');

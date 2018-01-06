@@ -1,16 +1,20 @@
 import { ClassNames } from "../../../datas/dom";
 import { Bus } from "../../events/Bus";
+import { Sort } from "../Utils/Sort";
 
 export class Gauge {
 
     constructor (el, Script) {
         this.el = el;
-        this.baseBarLevelValue = 50;
+        this.currentBarLevel = 50;
         this.Script = Script;
         this.self = Script.gauge;
         this.barLevel = {};
+        this.PointsGauge = Sort.exists(Script.Points, 'gauge');
         this.Bus = new Bus();
-        this.Bus.listen(this.Bus.types.ON_USER_MOVE, this.onUserMove.bind(this))
+        this.Bus.listen(this.Bus.types.ON_USER_MOVE, this.onUserMove.bind(this));
+        this.currentPointGauge = this.Script.Points[0];
+        this.ratio = this.currentBarLevel;
     }
 
     build () {
@@ -30,7 +34,7 @@ export class Gauge {
     buildBarLevel () {
         this.barLevel.el = document.createElement("div");
         this.barLevel.el.classList.add(ClassNames.GAUGE_BAR_LEVEL);
-        this.setPositionBarLevel(this.baseBarLevelValue);
+        this.setPositionBarLevel(this.currentBarLevel);
         this.el.appendChild(this.barLevel.el);
     }
 
@@ -39,7 +43,40 @@ export class Gauge {
     }
 
     onUserMove () {
+        let newPositionLevel = this.currentBarLevel + this.calculBarLevel();
+        this.setPositionBarLevel(newPositionLevel);
+    }
 
+    calculBarLevel () {
+        let addPositionValue = this.Script.User.position.percentage / this.ratio.distance * this.ratio.level;
+        if (this.ratio.sign === 1) {
+            return - addPositionValue;
+        }
+        else if (this.ratio.sign === -1) {
+            return addPositionValue;
+        }
+        else {
+            console.log('ratio = 0')
+        }
+    }
+
+    set ratio (value) {
+        let nextPoint = this.nextPointGauge();
+        let intervalPercetagePoints = nextPoint.distance.percentage - this.currentPointGauge.distance.percentage;
+        let intervalBarLevel = value - nextPoint.gauge.level;
+        this._ratio = {
+            sign: Math.sign(intervalBarLevel),
+            distance: intervalPercetagePoints / 100,
+            level: Math.abs(intervalBarLevel) / 100
+        };
+    }
+
+    get ratio () {
+        return this._ratio;
+    }
+
+    nextPointGauge () {
+        return this.PointsGauge.filter(PointGauge => PointGauge.distance.percentage > this.Script.User.position.percentage)[0];
     }
 
 }

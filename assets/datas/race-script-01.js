@@ -1,9 +1,10 @@
 import base from './base-script'
 import { Maps } from './FileMaps'
+import { Events } from "../js/events/Events";
 
 export default {
     base,
-    multiplyRatio: 0.008,
+    multiplyRatio: 0.016,
     distance: {
         interval: ['0km', '32km'],
         ratio: 100
@@ -31,9 +32,9 @@ export default {
             gauge: {
                 level: 24
             },
-            flags: {
+            flag: {
                 key: 'UDH',
-                dispatch: 'onUserDehydration'
+                type: Events.ON_USER_DEHYDRATION
             }
         },
         60: {
@@ -44,9 +45,9 @@ export default {
             gauge: {
                 level: 76
             },
-            flags: {
+            flag: {
                 key: 'UOH',
-                dispatch: 'onUserOverhydration'
+                type: Events.ON_USER_OVERHYDRATION
             }
         },
         100: {
@@ -55,7 +56,7 @@ export default {
     },
     user: {
         name: 'user',
-        size: 15,
+        size: 7,
         color: 'red',
         speed: 500
     },
@@ -63,19 +64,19 @@ export default {
         {
             name: 'bot1',
             color: 'green',
-            size: 7,
+            size: 3,
             speed: 275
         },
         {
             name: 'bot2',
             color: 'green',
-            size: 7,
+            size: 3,
             speed: 240
         },
         {
             name: 'bot3',
             color: 'green',
-            size: 7,
+            size: 3,
             speed: 210
         }
     ]

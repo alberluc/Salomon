@@ -4,7 +4,9 @@ export class Sort {
         let exists = [];
         objects.forEach(object => {
             try {
-                exists.push(eval("object." + exam));
+                if (eval("typeof object." + exam + " !== 'undefined' && object." + exam + " !== null")) {
+                    exists.push(object);
+                }
             }
             catch (err) {}
         });
@@ -12,7 +14,7 @@ export class Sort {
     }
 
     static asc (objects, exam) {
-        let sortable = this.exists(objects, exam);
+        let sortable = this.exists(objects, exam).map(object => eval("object." + exam));
         return sortable.sort((a, b) => a - b).map(sorted => objects.filter(object => {
             try {
                 return eval('sorted === object.' + exam);

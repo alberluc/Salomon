@@ -40,7 +40,7 @@ export class Runner {
         let incrementValueDivide = incrementValue / divide;
         let speedDivide = this.speed / divide;
         let incrementInterval = setInterval((function () {
-            if (this.position.percentage >= 0.5) {
+            if (this.position.percentage >= 1) {
                 clearInterval(incrementInterval);
                 this.finishCourse();
             }

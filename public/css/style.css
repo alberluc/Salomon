@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Fjalla+One");
 /****************************************
- *	Générique
+ *	G├®n├®rique
  ****************************************/
 * {
   padding: 0;
@@ -207,6 +207,8 @@ svg.svg__position {
 
 .mapCourse svg {
   padding: 15px; }
+.mapCourse path {
+  stroke: white; }
 
 .view {
   width: 100%;
@@ -229,7 +231,7 @@ svg.svg__position {
 .gauge_level {
   height: 1px;
   position: absolute;
-  border-bottom: dashed black 1px;
+  border-bottom: dashed white 1px;
   width: 100%; }
 
 .start_view {
@@ -303,9 +305,9 @@ svg.svg__position {
     height: 8px;
     border: 1px solid #FFF;
     border-radius: 3px;
-    position: relative; }
-    .race-bottom_timer:before {
-      content: '';
+    position: relative;
+    overflow: hidden; }
+    .race-bottom_timer_level {
       position: absolute;
       z-index: -1;
       width: 100%;
@@ -327,7 +329,7 @@ svg.svg__position {
     margin: auto;
     overflow: hidden;
     border-radius: 50%;
-    border: solid black 1px;
+    border: solid white 1px;
     transform: translateX(-50%); }
 .race-right {
   grid-column: 3 / span 1;

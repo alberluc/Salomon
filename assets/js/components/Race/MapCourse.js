@@ -30,7 +30,7 @@ export class MapCourse {
     }
 
     setPosition (RunnerCourse) {
-        let currentPoint = RunnerCourse.self.position.percentage * this.mapTotalLength;
+        let currentPoint = (RunnerCourse.self.position.percentage / 2) * this.mapTotalLength;
         let positionPath = this.pathEl.getPointAtLength(currentPoint);
         RunnerCourse.image.setAttribute('cx', positionPath.x);
         RunnerCourse.image.setAttribute('cy', positionPath.y);

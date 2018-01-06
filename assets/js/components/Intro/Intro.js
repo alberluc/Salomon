@@ -2,8 +2,8 @@ import { Ids } from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
 import { Sound } from "../Sound/Sound";
 import { Race as RaceModel } from "../Race/Race";
-import {Bus} from "../../events/Bus";
-import {TweenMax} from 'gsap';
+import { Bus } from "../../events/Bus";
+import { TweenMax } from 'gsap';
 
 
 

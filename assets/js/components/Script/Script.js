@@ -4,11 +4,13 @@ import { Flag as FlagModel } from "./Flag";
 import { Bot as BotModel } from "./Runners/Bot";
 import { User as UserModel } from "./Runners/User";
 import { UnitsBuilder } from "../Utils/UnitsBuilder";
+import { Bus } from "../../events/Bus";
 
 export class Script {
 
     constructor (config) {
         this.UnitsBuilder = new UnitsBuilder();
+        this.Bus = new Bus();
         this.Points = this.initPoints(config.map);
         this.Bots = this.initBots(config.bots);
         this.User = new UserModel(config.user, this, 0);
@@ -19,10 +21,13 @@ export class Script {
         this.mapCourse = config.mapCourse;
         this.gauge = this.initGauge(config.base.gauge);
         this.currentPoint = this.Points[0];
+        this.PointsFlags = Sort.exists(this.Points, 'Flag');
+
+        this.Bus.listen(this.Bus.types.ON_CHANGE_CURRENT_POINT, this.onChangeCurrentPoint.bind(this))
     }
 
     initPoints (map) {
-        return Object.keys(map).map(distance => new PointModel(map[distance], distance, this));
+        return Object.keys(map).map((distance, index) => new PointModel(map[distance], distance, index));
     }
 
     initBots (bots) {
@@ -40,6 +45,15 @@ export class Script {
         return {
             Levels
         }
+    }
+
+    onChangeCurrentPoint (e) {
+        this.PointsFlags.forEach(PointFlag => {
+            if (PointFlag.id === e.detail.id) {
+                console.log(PointFlag.Flag)
+                PointFlag.Flag.dispatch();
+            }
+        })
     }
 
 }

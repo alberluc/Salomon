@@ -1,3 +1,5 @@
+import { Events } from './../js/events/Events';
+
 export default {
     units: [
         {
@@ -18,7 +20,7 @@ export default {
                 wait: 22,
                 flag: {
                     key: 'DH',
-                    dispatch: 'onDehydration'
+                    type: Events.ON_DEHYDRATION
                 }
             },
             75: {
@@ -26,7 +28,7 @@ export default {
                 wait: 78,
                 flag: {
                     key: 'SH',
-                    dispatch: 'onOverhydration'
+                    type: Events.ON_OVERHYDRATION
                 }
             }
         }
