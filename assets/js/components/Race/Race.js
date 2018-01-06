@@ -21,6 +21,7 @@ export class Race {
         this.Bus.listen(this.Bus.types.ON_RUNNER_FINISHED, this.onRunnerFinish.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.setStateDanger.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.setStateDanger.bind(this));
+        this.Bus.listen(this.Bus.types.ON_USER_CORRECT_HYDRATION, this.onUserCorrectHydration.bind(this));
     }
 
     waitStart () {
@@ -67,6 +68,10 @@ export class Race {
 
     setStateDanger () {
         document.body.classList.add(ClassNames.BODY_STATE_DANGER)
+    }
+
+    onUserCorrectHydration () {
+        document.body.classList.remove(ClassNames.BODY_STATE_DANGER)
     }
 
 }

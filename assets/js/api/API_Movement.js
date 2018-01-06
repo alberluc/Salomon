@@ -7,7 +7,6 @@ export class API_Movement extends API {
     }
 
     onMovementRecept(value) {
-
         this.dataArduino.push(value.trim());
         this.dataArduino.splice(-this.limitArray.length - 1, this.dataArduino.length - this.limitArray);
         // Vérifcation
@@ -15,10 +14,6 @@ export class API_Movement extends API {
             this.Bus.dispatch(this.Bus.types.ON_USER_STEPS, { value });
         }
     }
-    /*onMovement(value) {
-        console.log(value);
-
-    }*/
 
     onMovement (value) {
         console.log(value)
