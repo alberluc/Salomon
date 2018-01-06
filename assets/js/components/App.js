@@ -13,6 +13,8 @@ import { Ids, ClassNames } from "../../datas/dom";
 import { ViewHandler } from './Utils/ViewHandler';
 import RaceScriptConfig_01 from '../../datas/race-script-01';
 import { Canvas as CanvasModel } from './Particules/Canvas';
+import {TweenMax} from 'gsap';
+
 
 export class App {
 
@@ -34,10 +36,6 @@ export class App {
         this.initRace();
         this.tmp();
         this.initCanvas();
-    }
-
-    initIntro() {
-        this.Intro = new IntroModel();
     }
 
     /**
@@ -90,6 +88,9 @@ export class App {
         this.API_Movement = new API_Movement(this.socket);
         this.API_Movement.build();
     }
+    initIntro() {
+        this.Intro = new IntroModel();
+    }
 
     initRace () {
         this.Race = new RaceModel(this.Script, this.MapCourse);
@@ -108,5 +109,6 @@ export class App {
         let simulateMovementEl = document.getElementById('simulateMovement');
         simulateMovementEl.addEventListener('click', this.API_Movement.onMovementReceived.bind(this.API_Movement));
     }
+
 
 };
