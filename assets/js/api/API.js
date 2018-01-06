@@ -22,8 +22,9 @@ export class API {
                 let state = {
                     action: StringHelper.transformUpperToLower(APIMethod.slice(0, firstCapitalIndex)),
                     eventName: StringHelper.transformUpperToLower(APIMethod.slice(firstCapitalIndex, APIMethod.length), '_'),
-                    eventMethod: APIMethod.slice(firstCapitalIndex, APIMethod.length)
+                    eventMethod: APIMethod
                 };
+                console.log(state);
                 if (state.action === 'on') {
                     this.listen(state);
                 }

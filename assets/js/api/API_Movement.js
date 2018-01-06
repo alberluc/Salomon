@@ -19,6 +19,6 @@ export class API_Movement extends API {
 
     }
 
-    onNAna () {}
+    onNana () {}
 
 }

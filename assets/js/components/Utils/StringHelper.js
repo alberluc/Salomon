@@ -7,7 +7,15 @@ export class StringHelper {
     }
 
     static transformUpperToLower (method, prefix, sufix) {
-        return method.replace(/([A-Z])/g, find => (prefix || '' + find.toLowerCase() + sufix || ''));
+        prefix = prefix || '';
+        sufix = sufix || '';
+        let firstChar = method.substr(0, 1).replace(/([A-Z])/g, (find) => {
+            return find.toLowerCase()
+        });
+        let rest = method.substr(1, method.length - 1).replace(/([A-Z])/g, (find) => {
+            return prefix + find.toLowerCase() + sufix
+        });
+        return firstChar + rest;
     }
 
 }
