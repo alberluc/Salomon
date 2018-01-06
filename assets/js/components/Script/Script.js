@@ -15,6 +15,7 @@ export class Script {
         this.distanceInterval = Sort.getInterval(this.Points, 'distance.value');
         this.altitudeInterval = Sort.getInterval(this.Points, 'altitude.value');
         this.multiplyRatio = config.multiplyRatio;
+        this.mapRelief = config.mapRelief;
         this.mapCourse = config.mapCourse;
         this.gauge = this.initGauge(config.base.gauge);
         this.currentPoint = this.Points[0];

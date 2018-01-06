@@ -1,10 +1,12 @@
 import { Converter } from './../Utils/SVGHelper'
+import { Builder as SVGBuilder } from './../Utils/SVGHelper'
 
 export class MapRelief {
 
     constructor (el, Script) {
         this.el = el;
         this.Script = Script;
+        this.RunnersCourse = [];
         this.Converter = new Converter(
             el.offsetHeight,
             el.offsetWidth,
@@ -19,7 +21,30 @@ export class MapRelief {
     }
 
     build () {
+        this.el.innerHTML = this.Script.mapRelief.src;
+        this.pathEl = this.el.querySelector('#lineRelief');
+        this.mapTotalLength = this.pathEl.getTotalLength();
+    }
+    setRunner (Runner) {
+        let RunnerCourse = {
+            image: SVGBuilder.circle(0, 0, Runner.size, Runner.color),
+            self: Runner
+        };
+        console.log(Runner);
+        this.buildImage(RunnerCourse.image);
+        this.setPosition(RunnerCourse);
+        this.RunnersCourse.push(RunnerCourse);
+    }
 
+    buildImage (image) {
+        this.pathEl.parentElement.appendChild(image);
+    }
+
+    setPosition (RunnerCourse) {
+        let currentPoint = RunnerCourse.self.position.percentage * this.mapTotalLength;
+        let positionPath = this.pathEl.getPointAtLength(currentPoint);
+        RunnerCourse.image.setAttribute('cx', positionPath.x);
+        RunnerCourse.image.setAttribute('cy', positionPath.y);
     }
 
 }

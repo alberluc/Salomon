@@ -15,6 +15,9 @@ export default {
     mapCourse: {
         src: Maps.MapCourse_1
     },
+    mapRelief: {
+        src: Maps.MapCourse_2
+    },
     map: {
         0: {
             altitude: '1330km',

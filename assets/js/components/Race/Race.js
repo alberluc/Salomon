@@ -80,11 +80,11 @@ class RaceEnd {
         let string = '';
         switch (scoreUser) {
             case 1 : {
-                string = '1er !';
+                string = '1er';
                 break;
             }
             case 2 : {
-                string = '2ème !';
+                string = '2ème';
                 break;
             }
             default : {

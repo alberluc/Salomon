@@ -3,4 +3,21 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  #endView__rank-svg {
+    width:700px;
+  }
+  .endView__rank {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #FFF;
+    font-size:75px;
+    text-transform: uppercase;
+  }
+
 }
