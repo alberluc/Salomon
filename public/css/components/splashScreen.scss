@@ -2,7 +2,11 @@ svg {
   &.svg__position {
     position: absolute;
     z-index:1000;
-
+    &:after{
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
   }
 }
 #sleepMode__svg {

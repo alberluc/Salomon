@@ -5,7 +5,7 @@ const io = require('socket.io')(http);
 const controller = require('./controller/index');
 const env = require('./env');
 const path = require('path');
-
+/*
 // PARTIE SERVEUR
 var SerialPort = require('serialport');
 
@@ -24,7 +24,7 @@ serialPort.pipe(parser)
 
 serialPort.on('open', function () {
     console.log('Communication établi')
-});
+});*/
 
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(env.path.views));
@@ -36,7 +36,7 @@ app.get('/', controller.site.index);
 
 io.on('connection', function (socket) {
 
-    parser.on('data', function (data) {
+    /*parser.on('data', function (data) {
         // On récupère la valeur et on la transform en String
         let string = data.toString();
         // On enlève les espaces
@@ -49,7 +49,7 @@ io.on('connection', function (socket) {
             console.log(steps);
             socket.emit('_ovement_ecept', steps);
         }
-    });
+    });*/
 
     socket.on('change_color', function (value) {
         console.log(value);

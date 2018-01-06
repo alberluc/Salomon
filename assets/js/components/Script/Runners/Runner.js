@@ -28,6 +28,7 @@ export class Runner {
     }
 
     incrementPosition () {
+        console.log(this.arrived, this.position);
         if (!this.arrived) {
             let incrementValue = this.Script.multiplyRatio * this.ratioMove;
             this.animate(incrementValue);

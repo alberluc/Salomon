@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Fjalla+One");
 /****************************************
- *	Générique
+ *	G├®n├®rique
  ****************************************/
 * {
   padding: 0;
@@ -109,6 +109,10 @@ body {
 svg.svg__position {
   position: absolute;
   z-index: 1000; }
+  svg.svg__position:after {
+    content: '';
+    display: block;
+    padding-bottom: 100%; }
 
 #sleepMode__svg {
   left: 50%;

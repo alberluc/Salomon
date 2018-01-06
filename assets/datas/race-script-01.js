@@ -4,13 +4,16 @@ import { Maps } from './FileMaps'
 export default {
     base,
     multiplyRatio: 0.008,
-    distance: ['0km', '32km'],
-    altitude: ['1100km', '1423km'],
+    distance: {
+        interval: ['0km', '32km'],
+        ratio: 100
+    },
+    altitude: {
+        interval: ['1100km', '1423km'],
+        ratio: 1
+    },
     mapCourse: {
         src: Maps.MapCourse_1
-    },
-    gauge: {
-        ratio: 1
     },
     map: {
         0: {
@@ -21,12 +24,26 @@ export default {
             altitude: '1350km',
             ratioMove: 1.1
         },
+        55: {
+            gauge: {
+                level: 24
+            },
+            flags: {
+                key: 'UDH',
+                dispatch: 'onUserDehydration'
+            }
+        },
         60: {
             altitude: '1423km',
             ratioMove: 1.3,
-            flag: {
-                key: 'test_flag_key',
-                dispatch: 'test_flag_dispatch'
+        },
+        80: {
+            gauge: {
+                level: 76
+            },
+            flags: {
+                key: 'UOH',
+                dispatch: 'onUserOverhydration'
             }
         },
         100: {

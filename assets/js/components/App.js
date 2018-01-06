@@ -88,6 +88,7 @@ export class App {
         this.API_Movement = new API_Movement(this.socket);
         this.API_Movement.build();
     }
+
     initIntro() {
         this.Intro = new IntroModel();
     }

@@ -15,10 +15,12 @@ export class UnitsBuilder {
         let obj = {};
         Object.keys(bases).forEach(base => {
             obj[base] = obj[base] || [];
-            eval("bases." + base).forEach((baseValue, index) => {
+            obj[base]['interval'] = obj[base]['interval'] || [];
+            obj[base]['ratio'] = eval("bases." + base + '.ratio');
+            eval("bases." + base + '.interval').forEach((baseValue, index) => {
                 let value = this.define(baseValue, null);
                 value.percentage = index;
-                obj[base].push(value)
+                obj[base]['interval'].push(value)
             });
         });
         return obj;
@@ -37,20 +39,24 @@ export class UnitsBuilder {
     }
 
     convert (value, baseName) {
-        if (value === 0) return this.define("0" + eval('this.bases.' + baseName + '[0].unit.key'), baseName);
-        return this.define(String(parseFloat(value) * eval('this.bases.' + baseName + '[1].value')) + eval('this.bases.' + baseName + '[1].unit.key'), baseName);
+        if (value === 0) return this.define("0" + eval('this.bases.' + baseName + '.interval[0].unit.key'), baseName);
+        return this.define(String(parseFloat(value) * eval('this.bases.' + baseName + '.interval[1].value') / eval('this.bases.' + baseName + '.ratio')) + eval('this.bases.' + baseName + '.interval[1].unit.key'), baseName);
     }
 
     defineOrConvert (value, baseName) {
-        let converted = this.define(value, baseName);
-        if (converted.unit === null){
-            converted = this.convert(value, baseName)
+        try{
+            return this.define(value, baseName);
         }
-        return converted;
+        catch (err) {
+            try {
+                return this.convert(value, baseName);
+            }
+            catch (err) { console.error(err); }
+        }
     }
 
     getPercentage (value, baseName) {
-        return typeof baseName !== "undefined" && baseName !== null ? parseFloat(value) / parseFloat(eval('this.bases.' + baseName + '[1].value')) : 1;
+        return typeof baseName !== "undefined" && baseName !== null ? parseFloat(value) / parseFloat(eval('this.bases.' + baseName + '.interval[1].value')) : 1;
     }
 
 }
