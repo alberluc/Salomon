@@ -19,6 +19,8 @@ export class Script {
         this.multiplyRatio = config.multiplyRatio;
         this.mapRelief = config.mapRelief;
         this.mapCourse = config.mapCourse;
+        this.danger = config.danger;
+        this.timer = config.timer;
         this.gauge = this.initGauge(config.base.gauge);
         this.currentPoint = this.Points[0];
         this.PointsFlags = Sort.exists(this.Points, 'Flag');
@@ -37,8 +39,8 @@ export class Script {
     initGauge (gaugeBase) {
         let Levels = Object.keys(gaugeBase.levels).map(value => (
             {
-                Flag: new FlagModel(gaugeBase.levels[value].flag),
-                type: gaugeBase.levels[value].type,
+                Flag: typeof gaugeBase.levels[value].flag !== "undefined" ? new FlagModel(gaugeBase.levels[value].flag) : null,
+                type: gaugeBase.levels[value].type || null,
                 value
             }
         ));

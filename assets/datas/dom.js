@@ -33,5 +33,6 @@ export const ClassNames = {
     SLEEP_MODE_ACTIVE: 'sleepMode-active',
     GAUGE_LEVEL: 'gauge_level',
     GAUGE_BAR_LEVEL: 'gauge_bar_level',
-    TIMER_LEVEL: 'race-bottom_timer_level'
+    TIMER_LEVEL: 'race-bottom_timer_level',
+    BODY_STATE_DANGER: 'race-danger'
 };

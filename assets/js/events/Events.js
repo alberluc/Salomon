@@ -5,6 +5,7 @@ export const Events = {
     ON_USER_MOVE_RECEIVED: 'onUserMoveReceived',
     ON_USER_DEHYDRATION: 'onUserDehydration',
     ON_USER_OVERHYDRATION: 'onUserOverhydration',
+    ON_USER_CORRECT_HYDRATION: 'onUserCorrectHydration',
 
 
     ON_RUNNER_FINISHED: 'onUserFinished',
@@ -13,6 +14,9 @@ export const Events = {
     ON_OVERHYDRATION: 'onOverhydration',
     ON_CORRECT_HYDRATION: 'onCorrectHydration',
 
-    ON_CHANGE_CURRENT_POINT: 'onPassPoint'
+    ON_CHANGE_CURRENT_POINT: 'onPassPoint',
+
+    ON_TIMER_CLICK: 'onTimerClick',
+    ON_TIMER_COMPLETE: 'onTimerComplete'
 
 };

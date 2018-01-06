@@ -17,15 +17,14 @@ export default {
         levels: {
             25: {
                 type: 'less-than',
-                wait: 22,
                 flag: {
                     key: 'DH',
                     type: Events.ON_DEHYDRATION
                 }
             },
+            50: {},
             75: {
                 type: 'greater-than',
-                wait: 78,
                 flag: {
                     key: 'SH',
                     type: Events.ON_OVERHYDRATION

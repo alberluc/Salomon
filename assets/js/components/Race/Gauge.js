@@ -6,15 +6,17 @@ export class Gauge {
 
     constructor (el, Script) {
         this.el = el;
-        this.currentBarLevel = 50;
+        this.baseBarLevel = 50;
         this.Script = Script;
         this.self = Script.gauge;
         this.barLevel = {};
         this.PointsGauge = Sort.exists(Script.Points, 'gauge');
         this.Bus = new Bus();
-        this.Bus.listen(this.Bus.types.ON_USER_MOVE, this.onUserMove.bind(this));
         this.currentPointGauge = this.Script.Points[0];
-        this.ratio = this.currentBarLevel;
+        this.currentBarLevel = null;
+        this.ratio = this.baseBarLevel;
+        this.Bus.listen(this.Bus.types.ON_USER_MOVE, this.onUserMove.bind(this));
+        this.Bus.listen(this.Bus.types.ON_TIMER_CLICK, this.onTimerClick.bind(this));
     }
 
     build () {
@@ -34,7 +36,7 @@ export class Gauge {
     buildBarLevel () {
         this.barLevel.el = document.createElement("div");
         this.barLevel.el.classList.add(ClassNames.GAUGE_BAR_LEVEL);
-        this.setPositionBarLevel(this.currentBarLevel);
+        this.setPositionBarLevel(this.baseBarLevel);
         this.el.appendChild(this.barLevel.el);
     }
 
@@ -43,7 +45,8 @@ export class Gauge {
     }
 
     onUserMove () {
-        let newPositionLevel = this.currentBarLevel + this.calculBarLevel();
+        let newPositionLevel = this.baseBarLevel + this.calculBarLevel();
+        this.currentBarLevel = newPositionLevel;
         this.setPositionBarLevel(newPositionLevel);
     }
 
@@ -77,6 +80,16 @@ export class Gauge {
 
     nextPointGauge () {
         return this.PointsGauge.filter(PointGauge => PointGauge.distance.percentage > this.Script.User.position.percentage)[0];
+    }
+
+    onTimerClick () {
+        let newPositionBarLevel = this.currentBarLevel + this.Script.danger.clickValue;
+        this.currentBarLevel = newPositionBarLevel;
+        this.setPositionBarLevel(newPositionBarLevel);
+        if (this.currentBarLevel > this.baseBarLevel) {
+            this.baseBarLevel = this.currentBarLevel;
+            this.Bus.dispatch(this.Bus.types.ON_USER_CORRECT_HYDRATION);
+        }
     }
 
 }

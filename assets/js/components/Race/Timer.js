@@ -4,13 +4,17 @@ import { Bus } from "../../events/Bus";
 
 export class Timer {
 
-    constructor (el) {
+    constructor (el, Script) {
         this.el = el;
         this.levelEl = null;
-        this.time = 5; //second
+        this.pass = null;
+        this.time = Script.timer.duration; //second
+        this.Script = Script;
+        this.dada = this.onDocumentClick.bind(this);
         this.Bus = new Bus();
         this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.interact.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.interact.bind(this));
+        this.Bus.listen(this.Bus.types.ON_USER_CORRECT_HYDRATION, this.onPass.bind(this));
     }
 
     init () {
@@ -25,8 +29,6 @@ export class Timer {
     }
 
     interact () {
-        console.log(this);
-        this.reset();
         this.show();
         this.start(this.time);
     }
@@ -36,7 +38,19 @@ export class Timer {
     }
 
     start (time) {
+        this.pass = false;
+        document.addEventListener('click', this.dada);
         TweenMax.to(this.levelEl, time, {x: '-100%', onComplete: this.finish.bind(this)});
+    }
+
+    onPass () {
+        this.pass = true;
+        this.stop();
+    }
+
+    stop () {
+        this.hide();
+        this.reset();
     }
 
     show () {
@@ -48,7 +62,15 @@ export class Timer {
     }
 
     finish () {
+        document.removeEventListener('click', this.dada);
+        this.stop();
+        if (!this.pass) {
+            this.Bus.dispatch(this.Bus.types.ON_TIMER_COMPLETE);
+        }
+    }
 
+    onDocumentClick () {
+        this.Bus.dispatch(this.Bus.types.ON_TIMER_CLICK);
     }
 
 }

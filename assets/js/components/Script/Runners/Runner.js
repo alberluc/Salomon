@@ -11,8 +11,18 @@ export class Runner {
         this.color = runner.color;
         this.size = runner.size;
         this.speed = runner.speed;
+        this.ratioOnDanger = runner.ratioOnDanger;
         this.arrived = false;
+        this.inDanger = false;
         this._position = this.UnitBuilder.convert(position, 'distance', false);
+
+        this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.setStateDanger.bind(this));
+        this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.setStateDanger.bind(this));
+        this.Bus.listen(this.Bus.types.ON_USER_CORRECT_HYDRATION, this.onCorrectHydration.bind(this));
+    }
+
+    setStateDanger () {
+        this.inDanger = true;
     }
 
     set position (value) {
@@ -24,6 +34,7 @@ export class Runner {
     }
 
     get ratioMove () {
+        if (this.inDanger) return this.Script.currentPoint.ratioMove * this.ratioOnDanger;
         return this.Script.currentPoint.ratioMove;
     }
 
@@ -58,5 +69,9 @@ export class Runner {
         this.Bus.dispatch(this.Bus.types.ON_RUNNER_FINISHED, { Runner: this } );
     }
 
+    onCorrectHydration () {
+        if (this.inDanger)
+            this.inDanger = false;
+    }
 
 }

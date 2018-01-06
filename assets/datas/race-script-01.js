@@ -5,6 +5,10 @@ import { Events } from "../js/events/Events";
 export default {
     base,
     multiplyRatio: 0.016,
+    danger: {
+        numberOfClick: 3,
+        clickValue: 10
+    },
     distance: {
         interval: ['0km', '32km'],
         ratio: 100
@@ -19,6 +23,9 @@ export default {
     mapRelief: {
         src: Maps.MapCourse_2
     },
+    timer: {
+        duration: 10
+    },
     map: {
         0: {
             altitude: '1330km',
@@ -28,9 +35,9 @@ export default {
             altitude: '1350km',
             ratioMove: 1.1
         },
-        55: {
+        45: {
             gauge: {
-                level: 24
+                level: 20
             },
             flag: {
                 key: 'UDH',
@@ -58,26 +65,30 @@ export default {
         name: 'user',
         size: 7,
         color: 'red',
-        speed: 500
+        speed: 500,
+        ratioOnDanger: 0.2
     },
     bots: [
         {
             name: 'bot1',
             color: 'green',
             size: 3,
-            speed: 275
+            speed: 275,
+            ratioOnDanger: 0.3
         },
         {
             name: 'bot2',
             color: 'green',
             size: 3,
-            speed: 240
+            speed: 240,
+            ratioOnDanger: 0.3
         },
         {
             name: 'bot3',
             color: 'green',
             size: 3,
-            speed: 210
+            speed: 210,
+            ratioOnDanger: 0.3
         }
     ]
 }

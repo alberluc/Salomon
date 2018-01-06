@@ -101,7 +101,7 @@ export class App {
     }
 
     initTimer () {
-        this.Timer = new Timer(document.getElementById(Ids.RACE.TIMER));
+        this.Timer = new Timer(document.getElementById(Ids.RACE.TIMER), this.Script);
         this.Timer.init();
     }
 
@@ -118,6 +118,5 @@ export class App {
         let simulateMovementEl = document.getElementById('simulateMovement');
         simulateMovementEl.addEventListener('click', this.API_Movement.onMovementReceived.bind(this.API_Movement));
     }
-
 
 };

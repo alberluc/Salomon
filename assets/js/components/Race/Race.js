@@ -1,5 +1,5 @@
 import { Bus } from "../../events/Bus";
-import { Ids } from "../../../datas/dom"
+import {ClassNames, Ids} from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
 import { Sort } from "../Utils/Sort";
 
@@ -16,9 +16,11 @@ export class Race {
         this.MapCourse = MapCourse;
         this.End = new RaceEnd();
         this.Bus = new Bus();
-        this.Bus.listen(this.Bus.types.ON_RUNNER_FINISHED, this.onRunnerFinish.bind(this));
         this.scores = [];
         this.state = STATE.WAIT;
+        this.Bus.listen(this.Bus.types.ON_RUNNER_FINISHED, this.onRunnerFinish.bind(this));
+        this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.setStateDanger.bind(this));
+        this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.setStateDanger.bind(this));
     }
 
     waitStart () {
@@ -61,6 +63,10 @@ export class Race {
                 this.state = STATE.FINISH;
             }
         }
+    }
+
+    setStateDanger () {
+        document.body.classList.add(ClassNames.BODY_STATE_DANGER)
     }
 
 }
