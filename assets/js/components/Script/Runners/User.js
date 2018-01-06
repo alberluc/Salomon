@@ -10,6 +10,7 @@ export class User extends Runner {
      */
     constructor (user, Script, position) {
         super(user, Script, position);
+        /* PARTIE USER this.Bus.listen(this.Bus.types.ON_USER_STEPS, (function () {*/
         this.Bus.listen(this.Bus.types.ON_USER_MOVE_RECEIVED, (function () {
             this.checkCurrentPoint();
             this.incrementPosition();

@@ -1,4 +1,5 @@
 import { Builder as SVGBuilder } from './../Utils/SVGHelper'
+import { TweenMax } from 'gsap';
 
 export class MapCourse {
 
@@ -32,8 +33,11 @@ export class MapCourse {
     setPosition (RunnerCourse) {
         let currentPoint = (RunnerCourse.self.position.percentage / 2) * this.mapTotalLength;
         let positionPath = this.pathEl.getPointAtLength(currentPoint);
-        RunnerCourse.image.setAttribute('cx', positionPath.x);
-        RunnerCourse.image.setAttribute('cy', positionPath.y);
+        TweenLite.to(RunnerCourse.image, 1, {attr: {
+            cx: positionPath.x,
+            cy: positionPath.y,
+
+        }})
     }
 
     animate () {
