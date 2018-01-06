@@ -32,8 +32,8 @@ export class Intro {
             console.log(event.detail.value);
         }).bind(this));
 
-        this.sound = new Sound(1);
-        this.sound.play();
+        /*this.sound = new Sound(1);
+        this.sound.play();*/
         let playRace = document.getElementById(Ids.INIT.SITE);
         playRace.addEventListener('click', () => {
             ViewHandler.show(Ids.VIEWS.START);

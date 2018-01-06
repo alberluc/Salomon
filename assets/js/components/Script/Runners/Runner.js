@@ -32,6 +32,7 @@ export class Runner {
         if (!this.arrived) {
             let incrementValue = this.Script.multiplyRatio * this.ratioMove;
             this.animate(incrementValue);
+            this.arrived = true;
         }
     }
 

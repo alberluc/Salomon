@@ -19,6 +19,7 @@ export class Script {
         this.mapCourse = config.mapCourse;
         this.gauge = this.initGauge(config.base.gauge);
         this.currentPoint = this.Points[0];
+        console.log(this.currentPoint);
     }
 
     initPoints (map) {
