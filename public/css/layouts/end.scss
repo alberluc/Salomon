@@ -105,7 +105,7 @@
     text-align: center;
     width:100%;
     position: relative;
-
+    margin-top:50px;
 
     &--generic {
       position: relative;
@@ -191,8 +191,8 @@
                 -ms-transform: translateX(-50%);
                 -o-transform: translateX(-50%);
                 transform: translateX(-50%);
-                bottom:-155px;
-                height:155px;
+                bottom:-250px;
+                height:250px;
                 width:1px;
                 background: #FFF;
               }
@@ -213,8 +213,12 @@
     }
     &--middle {
       flex:0 0 28%;
+      .infosView_lists {
+        margin-top:20px;
+      }
       li {
         list-style:none;
+        color: #09c0dd;
       }
       figure {
         margin:0 auto;
@@ -258,8 +262,8 @@
                 -ms-transform: translateX(-50%);
                 -o-transform: translateX(-50%);
                 transform: translateX(-50%);
-                bottom:-155px;
-                height:155px;
+                bottom:-250px;
+                height:250px;
                 width:1px;
                 background: #FFF;
               }
@@ -279,5 +283,19 @@
         }
       }
     }
+  }
+  .btn_restart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:80px auto 0 auto;
+    text-decoration: none;
+    color: white;
+    background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20703.02%2059.7%22%3E%3Ctitle%3EFichier%2010%3C/title%3E%3Cg%20id%3D%22Calque_2%22%20data-name%3D%22Calque%202%22%3E%3Cg%20id%3D%22Interface%22%3E%3Cg%20id%3D%22Informations%22%3E%3Cg%20id%3D%22Bouton_recommencer%22%20data-name%3D%22Bouton%20recommencer%22%3E%3Cpolygon%20points%3D%2229.96%2059.45%200.35%2029.85%2029.96%200.25%20673.07%200.25%20702.67%2029.85%20673.07%2059.45%2029.96%2059.45%22%20style%3D%22fill%3Anone%3Bstroke%3A%23fff%3Bstroke-miterlimit%3A10%3Bstroke-width%3A0.5px%22/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E);
+    background-repeat:no-repeat;
+    width: 937px;
+    height: 80px;
+    font-size: 70px;
+    text-transform: uppercase;
   }
 }
