@@ -33,11 +33,11 @@ export class MapCourse {
     setPosition (RunnerCourse) {
         let currentPoint = (RunnerCourse.self.position.percentage / 2) * this.mapTotalLength;
         let positionPath = this.pathEl.getPointAtLength(currentPoint);
-        TweenLite.to(RunnerCourse.image, 1, {attr: {
-            cx: positionPath.x,
-            cy: positionPath.y,
-
-        }})
+        TweenMax.set(RunnerCourse.image, {
+            x: positionPath.x,
+            y: positionPath.y,
+            force3D: true,
+        })
     }
 
     animate () {

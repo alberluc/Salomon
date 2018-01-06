@@ -1,6 +1,7 @@
 import { ClassNames } from "../../../datas/dom";
 import { Bus } from "../../events/Bus";
 import { Sort } from "../Utils/Sort";
+import { TweenMax } from "gsap";
 
 export class Gauge {
 
@@ -39,7 +40,10 @@ export class Gauge {
     }
 
     setPositionBarLevel (value) {
-        this.barLevel.el.style.transform = 'translateY(' + (100 - value)  + '%)';
+        TweenMax.set(this.barLevel.el, {
+            y: (100 - value) + "%",
+            force3D: true,
+        });
     }
 
     onUserMove () {
