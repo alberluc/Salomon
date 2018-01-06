@@ -9,6 +9,9 @@ export class API {
         this.exceptsMethods = ['constructor'];
         this.socket = socket;
         this.Bus = new Bus();
+        this.dataArduino = [];
+        this.limitArray = 2;
+        this.steps = 0;
     }
 
     getAPIMethods (APIModel) {
@@ -32,8 +35,8 @@ export class API {
     }
 
     listen (state) {
-        console.log("this.socket." + state.action + "('" + state.eventName + "', this." + state.eventMethod + ")");
-        eval("this.socket." + state.action + "('" + state.eventName + "', this." + state.eventMethod + ")");
+        console.log("this.socket." + state.action + "('" + state.eventName + "', this." + state.eventMethod + ".bind(this))");
+        eval("this.socket." + state.action + "('" + state.eventName + "', this." + state.eventMethod + ".bind(this))");
     }
 
 }

@@ -41,18 +41,46 @@
       margin-top:40px;
       .donut-chart {
         width:150px;
-        height:150px;
+        margin:0 3.1%;
+        height:270px;
         background: red;
+        position: relative;
+        &.chart {
+          display: flex;
+          flex-flow:column;
+          justify-content: flex-end;
+          color: #09c0dd;
+          h2 {
+          }
+          &:before {
+            content: '';
+            position: absolute;
+            width:1px;
+            height:50px;
+            bottom:70px;
+            left:50%;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+            background: #09c0dd;
+          }
+        }
         &.chart1 {
           background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20viewBox%3D%220%200%2095.17%2095.17%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22Degrade_sans_nom_104%22%20x1%3D%2244.47%22%20y1%3D%2247.59%22%20x2%3D%2250.7%22%20y2%3D%2247.59%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2309c0dd%22/%3E%3Cstop%20offset%3D%220.26%22%20stop-color%3D%22%230cc0db%22/%3E%3Cstop%20offset%3D%220.41%22%20stop-color%3D%22%2314c1d6%22/%3E%3Cstop%20offset%3D%220.54%22%20stop-color%3D%22%2322c3cd%22/%3E%3Cstop%20offset%3D%220.65%22%20stop-color%3D%22%2337c6c1%22/%3E%3Cstop%20offset%3D%220.76%22%20stop-color%3D%22%2351c9b0%22/%3E%3Cstop%20offset%3D%220.85%22%20stop-color%3D%22%2371cd9c%22/%3E%3Cstop%20offset%3D%220.94%22%20stop-color%3D%22%2397d285%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23b4d673%22/%3E%3C/linearGradient%3E%3Cfilter%20id%3D%22luminosity-invert%22%20filterUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeColorMatrix%20values%3D%22-1%200%200%200%201%200%20-1%200%200%201%200%200%20-1%200%201%200%200%200%201%200%22/%3E%3C/filter%3E%3Cmask%20id%3D%22mask%22%20x%3D%2241.69%22%20y%3D%2240.33%22%20width%3D%2212%22%20height%3D%2215%22%20maskUnits%3D%22userSpaceOnUse%22%3E%3Cg%20style%3D%22filter%3Aurl%28%23luminosity-invert%29%22%3E%3Cimage%20width%3D%2212%22%20height%3D%2215%22%20transform%3D%22translate%2841.69%2040.33%29%22%20xlink%3Ahref%3D%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAAwAAAAPCAIAAABfg7keAAAACXBIWXMAAAsSAAALEgHS3X78AAAAcElEQVQoU7WOSw7AIAgFsd7/Nhqv4NN4Ig10YUt/pJums1EfI0D0FyGEGOObAUBEeu9vkuzknG1jtlFsSa4A0JI7S7dvzm3VZR4pJXqg4SaZS2h4jGNm7T+f3vt5XzSttdKJ1hqZAGDmMUYpxTa+sgL1Cloq420v9QAAAABJRU5ErkJggg%3D%3D%22/%3E%3C/g%3E%3C/mask%3E%3C/defs%3E%3Ctitle%3EFichier%206%3C/title%3E%3Cg%20style%3D%22isolation%3Aisolate%22%3E%3Cg%20id%3D%22Calque_2%22%20data-name%3D%22Calque%202%22%3E%3Cg%20id%3D%22Interface%22%3E%3Cg%20id%3D%22Informations%22%3E%3Cpath%20d%3D%22M50.7%2C49.53a3.12%2C3.12%2C0%2C0%2C1-6.23%2C0c0-1.72%2C3.12-7%2C3.12-7S50.7%2C47.81%2C50.7%2C49.53Z%22%20style%3D%22fill%3Aurl%28%23Degrade_sans_nom_104%29%22/%3E%3Cg%20style%3D%22mask%3Aurl%28%23mask%29%22%3E%3Cg%20style%3D%22opacity%3A0.75%3Bmix-blend-mode%3Aoverlay%22%3E%3Cpath%20d%3D%22M50.7%2C49.53a3.12%2C3.12%2C0%2C0%2C1-6.23%2C0c0-1.72%2C3.12-7%2C3.12-7S50.7%2C47.81%2C50.7%2C49.53Z%22/%3E%3C/g%3E%3C/g%3E%3Cg%20style%3D%22opacity%3A0.2%22%3E%3Cpath%20d%3D%22M13.94%2C81.23a47.58%2C47.58%2C0%2C1%2C1%2C67.29%2C0L68.59%2C68.6a30.35%2C30.35%2C0%2C1%2C0-42.92%2C0c.15.15.3.3.46.44Z%22%20style%3D%22fill%3A%2309c0dd%22/%3E%3C/g%3E%3Cpath%20d%3D%22M13.94%2C81.23%2C26.13%2C69a30.34%2C30.34%2C0%2C0%2C0%2C42.46-.44L81.23%2C81.24A47.58%2C47.58%2C0%2C0%2C1%2C13.94%2C81.23Z%22%20style%3D%22fill%3A%2309c0dd%22/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E);
+          background-repeat:no-repeat;
         }
         &.chart2 {
           background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20viewBox%3D%220%200%2095.17%2095.18%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22Degrade_sans_nom_104%22%20x1%3D%2241.53%22%20y1%3D%2247.59%22%20x2%3D%2253.64%22%20y2%3D%2247.59%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2309c0dd%22/%3E%3Cstop%20offset%3D%220.26%22%20stop-color%3D%22%230cc0db%22/%3E%3Cstop%20offset%3D%220.41%22%20stop-color%3D%22%2314c1d6%22/%3E%3Cstop%20offset%3D%220.54%22%20stop-color%3D%22%2322c3cd%22/%3E%3Cstop%20offset%3D%220.65%22%20stop-color%3D%22%2337c6c1%22/%3E%3Cstop%20offset%3D%220.76%22%20stop-color%3D%22%2351c9b0%22/%3E%3Cstop%20offset%3D%220.85%22%20stop-color%3D%22%2371cd9c%22/%3E%3Cstop%20offset%3D%220.94%22%20stop-color%3D%22%2397d285%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23b4d673%22/%3E%3C/linearGradient%3E%3Cfilter%20id%3D%22luminosity-invert%22%20filterUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeColorMatrix%20values%3D%22-1%200%200%200%201%200%20-1%200%200%201%200%200%20-1%200%201%200%200%200%201%200%22/%3E%3C/filter%3E%3Cmask%20id%3D%22mask%22%20x%3D%2239.04%22%20y%3D%2235.12%22%20width%3D%2217%22%20height%3D%2225%22%20maskUnits%3D%22userSpaceOnUse%22%3E%3Cg%20style%3D%22filter%3Aurl%28%23luminosity-invert%29%22%3E%3Cimage%20width%3D%2217%22%20height%3D%2225%22%20transform%3D%22translate%2839.04%2035.12%29%22%20xlink%3Ahref%3D%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABEAAAAZCAIAAABYXFLAAAAACXBIWXMAAAsSAAALEgHS3X78AAABn0lEQVQ4T8WSzaqCQBzFJzVpyFVQLUJt0RcRBdrXpmUPMPQGuarnaVW9StA2Co2WGe2KwIKgqBaRd6GMNo53ee9ZzZz/73j4qwD8s3K5XNiIpbrdbrfdbieTSdM0g1MmaAEAWq1Wp9Op1+vUKaVH07Rer1epVBKJBMuyuq4TAKWn2WyWy2VJkkqlUqPRCAJkz2AwQAhls1kAQDwehxByHLdYLPwM2aOqqizL+CrLcq1WI5ivnuFwiBASRRE7PM9Ho1EAwGq1wuZXj6Io/oCjTCajqqrf8XqcTYIZCCGEkGVZvJXXoyiKJEmAJlEUq9Uqvro9mqYhhPzb+8XzPMMw7/fbMAyAe4rFYjqdpgYcpVKpQqHgnN2MIAgQwvAIiMVigiA4ZzcTiUTCeVJu5nq93u/3X7jH44EBN2Oa5vl8Do+A0+m02+1IdzweW5Zl03Q4HEajESa977NcLjebjWVZxLOOx6NhGOv1Gjvef6DrOsdxt9vNtu3P5/N6vS6Xy3a7nc1m8/l8Op1ikvK6+v1+Pp+HED6fz/1+P5lMgsyf6Ac72JNgca5JSQAAAABJRU5ErkJggg%3D%3D%22/%3E%3C/g%3E%3C/mask%3E%3C/defs%3E%3Ctitle%3EFichier%207%3C/title%3E%3Cg%20style%3D%22isolation%3Aisolate%22%3E%3Cg%20id%3D%22Calque_2%22%20data-name%3D%22Calque%202%22%3E%3Cg%20id%3D%22Interface%22%3E%3Cg%20id%3D%22Informations%22%3E%3Cpath%20d%3D%22M53.64%2C51.36a6.06%2C6.06%2C0%2C0%2C1-12.11%2C0c0-3.35%2C6.06-13.6%2C6.06-13.6S53.64%2C48%2C53.64%2C51.36Z%22%20style%3D%22fill%3Aurl%28%23Degrade_sans_nom_104%29%22/%3E%3Cg%20style%3D%22mask%3Aurl%28%23mask%29%22%3E%3Cg%20style%3D%22opacity%3A0.75%3Bmix-blend-mode%3Aoverlay%22%3E%3Cpath%20d%3D%22M53.64%2C51.36a6.06%2C6.06%2C0%2C0%2C1-12.11%2C0c0-3.35%2C6.06-13.6%2C6.06-13.6S53.64%2C48%2C53.64%2C51.36Z%22/%3E%3C/g%3E%3C/g%3E%3Cpath%20d%3D%22M47.58%2C17.25h.64a30.35%2C30.35%2C0%2C0%2C1%2C0%2C60.7c-.21%2C0-.43%2C0-.64%2C0V95.18A47.59%2C47.59%2C0%2C0%2C0%2C47.58%2C0Z%22%20style%3D%22fill%3A%2309c0dd%22/%3E%3Cpath%20d%3D%22M47.58%2C0V17.25a30.34%2C30.34%2C0%2C0%2C0%2C0%2C60.67V95.18A47.59%2C47.59%2C0%2C0%2C1%2C47.58%2C0Z%22%20style%3D%22fill%3A%2309c0dd%3Bopacity%3A0.2%22/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E);
+          background-repeat:no-repeat;
         }
         &.chart3 {
           background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20viewBox%3D%220%200%2095.17%2095.17%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22Degrade_sans_nom_104%22%20x1%3D%2236.74%22%20y1%3D%2247.59%22%20x2%3D%2258.43%22%20y2%3D%2247.59%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2309c0dd%22/%3E%3Cstop%20offset%3D%220.26%22%20stop-color%3D%22%230cc0db%22/%3E%3Cstop%20offset%3D%220.41%22%20stop-color%3D%22%2314c1d6%22/%3E%3Cstop%20offset%3D%220.54%22%20stop-color%3D%22%2322c3cd%22/%3E%3Cstop%20offset%3D%220.65%22%20stop-color%3D%22%2337c6c1%22/%3E%3Cstop%20offset%3D%220.76%22%20stop-color%3D%22%2351c9b0%22/%3E%3Cstop%20offset%3D%220.85%22%20stop-color%3D%22%2371cd9c%22/%3E%3Cstop%20offset%3D%220.94%22%20stop-color%3D%22%2397d285%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23b4d673%22/%3E%3C/linearGradient%3E%3Cfilter%20id%3D%22luminosity-invert%22%20filterUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeColorMatrix%20values%3D%22-1%200%200%200%201%200%20-1%200%200%201%200%200%20-1%200%201%200%200%200%201%200%22/%3E%3C/filter%3E%3Cmask%20id%3D%22mask%22%20x%3D%2234.4%22%20y%3D%2227.33%22%20width%3D%2227%22%20height%3D%2240%22%20maskUnits%3D%22userSpaceOnUse%22%3E%3Cg%20style%3D%22filter%3Aurl%28%23luminosity-invert%29%22%3E%3Cimage%20width%3D%2227%22%20height%3D%2240%22%20transform%3D%22translate%2834.4%2027.33%29%22%20xlink%3Ahref%3D%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABsAAAAoCAIAAACAWBYBAAAACXBIWXMAAAsSAAALEgHS3X78AAAEAElEQVRIS91WWU/CShidwpTSAlJa1pbFslRFY6LI8mAC/nTfNGICD8YtMSSsNhgr6xQo3odiQWjB+3Zzz+P5vnM4/eabDAD8T0CSJEmSu7oWsOxqAAAAhmFYlt3VtYB1VwMIh8OxWIymaQihLMu72gHc1QAikYggCBBCj8cDIXx9fd3ev8Px+PhYFMVYLIbjOMuyCKGdjju+Op/Pn56e7u/v+/1+iqIAAIqivL+/b5Fsy5jJZNLpdDKZ5HkeQkjTNEKo0WhUq9Utqm0Zi8ViJpMRRZHjOJqmtQVSVRUh1Gw2zVSmGXO53NHRkSAIPM8zDAMhpChqOp3KspxIJG5vb82EphlLpVIulxNFMRgMOp1OCKHNZsMwTFXV8Xg8GAzMYhpveKFQSKfTkUjE6/U6HA6N1EYZDAaj0WgymTQUArOMV1dX2WxWFEW/34/juM5DCL+/vxVFURQFIVSv1ze1BhkLhcLh4WE4HPZ4PHa7fbWEYZjL5QqFQvF4PB6Pb2qBYcZSqZTP51OpVCAQgHD96LSYs9lsNBoZTnM9ozbBcDjMMAxBEMAILpfL5/NFo9FEIrFZXc+4OsHNgAuN1QoAQAghhMbjcaPRWK3+ypjP5w8ODniep2naLCAAAMMwh8MRDAYFQRAEYa36K2OxWMxms2YTXAWEcD6fK4oyHA77/X673dZLy4wXFxepVIrjOI/HsyWgBi0my7KBQIDn+dXS0pHneY7jtJXGMGzDZB0EQbjdbq/X6/f7V/mlI8MwXq/X5XL98UnBcZyiKJ/PF4vFMpmMzi8cz87OBEFgWdbpdGpH+RfY7Xa32+3z+UKhkE4uHIPBIMMwLpfLZrOZyA1gs9koitrb23M6nTq5cLTb7SRJEgTxrxwhhARBaFqdtOg1CKHVav3LmejAMEwzpWk6lUpp5PJkvn9gIjfGpmrhOP2BqqomWgOoqjqZTBBCsizrb+TCcTgc9nq90WikKIq5wzqm0ylCaDAYDIdDnVw4SpLU7XZlWR6Px3+PiRDq9Xq9Xm8wGOjkwrFarb69vbVarW63u1reAkVRPj8/JUlqNputVkvnl8tMUZTX63W73RRFkSS5+hhsYjqdfnx81Ov1x8fHcrl8fX2tl5aOrVaLYZi9vT273Q4hxHEcQmi4TIqiaHbPz8/VavXh4aHT6Rg4gp+rarFYLBaLthDfK5jNZto5SJKk2VUqlfv7+7u7u1WTX46SJKmq2uv1tDVCCGmPSb/f//r6kmW52+222+1arfb09FStVsvl8s3NDfgN4xtyeXl5fn6uPYckSWp3SfuNfr/farVeXl5qtVqlUtnUmt65k5MTjuMoiiIIwmKxAADm8/lkMhmNRp1OZ/ufqf88/gEvurWHdFOV1AAAAABJRU5ErkJggg%3D%3D%22/%3E%3C/g%3E%3C/mask%3E%3C/defs%3E%3Ctitle%3EFichier%208%3C/title%3E%3Cg%20style%3D%22isolation%3Aisolate%22%3E%3Cg%20id%3D%22Calque_2%22%20data-name%3D%22Calque%202%22%3E%3Cg%20id%3D%22Interface%22%3E%3Cg%20id%3D%22Informations%22%3E%3Cpath%20d%3D%22M58.43%2C54.34a10.85%2C10.85%2C0%2C1%2C1-21.69%2C0c0-6%2C10.85-24.35%2C10.85-24.35S58.43%2C48.35%2C58.43%2C54.34Z%22%20style%3D%22fill%3Aurl%28%23Degrade_sans_nom_104%29%22/%3E%3Cg%20style%3D%22mask%3Aurl%28%23mask%29%22%3E%3Cg%20style%3D%22opacity%3A0.75%3Bmix-blend-mode%3Aoverlay%22%3E%3Cpath%20d%3D%22M58.43%2C54.34a10.85%2C10.85%2C0%2C1%2C1-21.69%2C0c0-6%2C10.85-24.35%2C10.85-24.35S58.43%2C48.35%2C58.43%2C54.34Z%22/%3E%3C/g%3E%3C/g%3E%3Cg%20style%3D%22opacity%3A0.2%22%3E%3Cpath%20d%3D%22M81.24%2C13.94a47.59%2C47.59%2C0%2C1%2C1-67.3%2C0L26.58%2C26.58a30.35%2C30.35%2C0%2C1%2C0%2C42.92%2C0L69%2C26.13Z%22%20style%3D%22fill%3A%2309c0dd%22/%3E%3C/g%3E%3Cpath%20d%3D%22M81.24%2C13.94%2C69%2C26.13a30.34%2C30.34%2C0%2C0%2C0-42.46.45L13.94%2C13.94A47.58%2C47.58%2C0%2C0%2C1%2C81.24%2C13.94Z%22%20style%3D%22fill%3A%2309c0dd%22/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E);
+          background-repeat:no-repeat;
         }
       }
+
     }
 
   }
@@ -76,7 +104,25 @@
     flex-flow: wrap;
     text-align: center;
     width:100%;
+    position: relative;
+    margin-top:50px;
+
     &--generic {
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        top:-40px;
+        right:0;
+        height:400px;
+        width:1px;
+        background: #09c0dd;
+      }
+      &:last-of-type {
+        &:before {
+          display: none;
+        }
+      }
       figure {
         width:70px;
         height:70px;
@@ -145,8 +191,8 @@
                 -ms-transform: translateX(-50%);
                 -o-transform: translateX(-50%);
                 transform: translateX(-50%);
-                bottom:-155px;
-                height:155px;
+                bottom:-250px;
+                height:250px;
                 width:1px;
                 background: #FFF;
               }
@@ -167,8 +213,12 @@
     }
     &--middle {
       flex:0 0 28%;
+      .infosView_lists {
+        margin-top:20px;
+      }
       li {
         list-style:none;
+        color: #09c0dd;
       }
       figure {
         margin:0 auto;
@@ -212,8 +262,8 @@
                 -ms-transform: translateX(-50%);
                 -o-transform: translateX(-50%);
                 transform: translateX(-50%);
-                bottom:-155px;
-                height:155px;
+                bottom:-250px;
+                height:250px;
                 width:1px;
                 background: #FFF;
               }
@@ -233,5 +283,19 @@
         }
       }
     }
+  }
+  .btn_restart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:80px auto 0 auto;
+    text-decoration: none;
+    color: white;
+    background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20703.02%2059.7%22%3E%3Ctitle%3EFichier%2010%3C/title%3E%3Cg%20id%3D%22Calque_2%22%20data-name%3D%22Calque%202%22%3E%3Cg%20id%3D%22Interface%22%3E%3Cg%20id%3D%22Informations%22%3E%3Cg%20id%3D%22Bouton_recommencer%22%20data-name%3D%22Bouton%20recommencer%22%3E%3Cpolygon%20points%3D%2229.96%2059.45%200.35%2029.85%2029.96%200.25%20673.07%200.25%20702.67%2029.85%20673.07%2059.45%2029.96%2059.45%22%20style%3D%22fill%3Anone%3Bstroke%3A%23fff%3Bstroke-miterlimit%3A10%3Bstroke-width%3A0.5px%22/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E);
+    background-repeat:no-repeat;
+    width: 937px;
+    height: 80px;
+    font-size: 70px;
+    text-transform: uppercase;
   }
 }
