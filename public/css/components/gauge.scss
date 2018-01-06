@@ -1,3 +1,23 @@
+.race-danger {
+  .gauge {
+    .wave {
+      -webkit-transition: background 0.5s ease;
+      -moz-transition: background 0.5s ease;
+      -ms-transition: background 0.5s ease;
+      -o-transition: background 0.5s ease;
+      transition: background 0.5s ease;
+      background : -moz-linear-gradient(0% 50% 0deg,rgba(9, 192, 221, 1) 0%,rgba(235, 23, 71, 1) 100%);
+      background : -webkit-linear-gradient(0deg, rgba(9, 192, 221, 1) 0%, rgba(235, 23, 71, 1) 100%);
+      background : -webkit-gradient(linear,0% 50% ,100% 50% ,color-stop(0,rgba(9, 192, 221, 1) ),color-stop(1,rgba(235, 23, 71, 1) ));
+      background : -o-linear-gradient(0deg, rgba(9, 192, 221, 1) 0%, rgba(235, 23, 71, 1) 100%);
+      background : -ms-linear-gradient(0deg, rgba(9, 192, 221, 1) 0%, rgba(235, 23, 71, 1) 100%);
+      -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#09C0DD', endColorstr='#EB1747' ,GradientType=0)";
+      background : linear-gradient(90deg, rgba(9, 192, 221, 1) 0%, rgba(235, 23, 71, 1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#09C0DD',endColorstr='#EB1747' , GradientType=1);
+    }
+  }
+}
+
 .gauge{
   &:after{
     content: "";
@@ -9,12 +29,58 @@
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 68, 255, 0.46);
   }
   &_level{
     height: 1px;
     position: absolute;
     border-bottom: dashed white 1px;
     width: 100%;
+  }
+  .wave {
+    opacity: 0.4;
+    position: absolute;
+    top: 0%;
+    left: -50%;
+    background: red;
+    width: 500px;
+    height: 450px;
+    transform-origin: 50% 48%;
+    border-radius: 43%;
+    animation: drift 3000ms infinite linear;
+    -webkit-transition: background 0.5s ease;
+    -moz-transition: background 0.5s ease;
+    -ms-transition: background 0.5s ease;
+    -o-transition: background 0.5s ease;
+    transition: background 0.5s ease;
+    background : -moz-linear-gradient(0% 50% 0deg,rgba(9, 192, 221, 1) 0%,rgba(13, 193, 218, 1) 14.79%,rgba(26, 194, 211, 1) 30.13%,rgba(46, 197, 198, 1) 45.71%,rgba(75, 201, 180, 1) 61.48%,rgba(113, 205, 157, 1) 77.38%,rgba(158, 211, 129, 1) 93.17%,rgba(180, 214, 115, 1) 100%);
+    background : -webkit-linear-gradient(0deg, rgba(9, 192, 221, 1) 0%, rgba(13, 193, 218, 1) 14.79%, rgba(26, 194, 211, 1) 30.13%, rgba(46, 197, 198, 1) 45.71%, rgba(75, 201, 180, 1) 61.48%, rgba(113, 205, 157, 1) 77.38%, rgba(158, 211, 129, 1) 93.17%, rgba(180, 214, 115, 1) 100%);
+    background : -webkit-gradient(linear,0% 50% ,100% 50% ,color-stop(0,rgba(9, 192, 221, 1) ),color-stop(0.1479,rgba(13, 193, 218, 1) ),color-stop(0.3013,rgba(26, 194, 211, 1) ),color-stop(0.4571,rgba(46, 197, 198, 1) ),color-stop(0.6148,rgba(75, 201, 180, 1) ),color-stop(0.7738,rgba(113, 205, 157, 1) ),color-stop(0.9317,rgba(158, 211, 129, 1) ),color-stop(1,rgba(180, 214, 115, 1) ));
+    background : -o-linear-gradient(0deg, rgba(9, 192, 221, 1) 0%, rgba(13, 193, 218, 1) 14.79%, rgba(26, 194, 211, 1) 30.13%, rgba(46, 197, 198, 1) 45.71%, rgba(75, 201, 180, 1) 61.48%, rgba(113, 205, 157, 1) 77.38%, rgba(158, 211, 129, 1) 93.17%, rgba(180, 214, 115, 1) 100%);
+    background : -ms-linear-gradient(0deg, rgba(9, 192, 221, 1) 0%, rgba(13, 193, 218, 1) 14.79%, rgba(26, 194, 211, 1) 30.13%, rgba(46, 197, 198, 1) 45.71%, rgba(75, 201, 180, 1) 61.48%, rgba(113, 205, 157, 1) 77.38%, rgba(158, 211, 129, 1) 93.17%, rgba(180, 214, 115, 1) 100%);
+    background : linear-gradient(90deg, rgba(9, 192, 221, 1) 0%, rgba(13, 193, 218, 1) 14.79%, rgba(26, 194, 211, 1) 30.13%, rgba(46, 197, 198, 1) 45.71%, rgba(75, 201, 180, 1) 61.48%, rgba(113, 205, 157, 1) 77.38%, rgba(158, 211, 129, 1) 93.17%, rgba(180, 214, 115, 1) 100%);
+    &:before {
+      content: '';
+      position: absolute;
+      width:100%;
+      height:100%;
+    }
+  }
+  .two {
+    top: 7%;
+    left: -33%;
+    height: 450px;
+    z-index: 100;
+    transform-origin: center;
+    border-radius: 36%;
+    animation: drift 6000ms infinite linear;
+  }
+  .three {
+    left: -30%;
+    top: 2%;
+    border-radius: 60%;   animation: drift 3000ms infinite linear;
+  }
+  @keyframes drift {
+    from { transform: rotate(0deg); }
+    from { transform: rotate(360deg); }
   }
 }

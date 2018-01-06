@@ -36,10 +36,15 @@ export class Gauge {
     }
 
     buildBarLevel () {
+        this.templateWave = `
+        <div class='wave one'></div>
+        <div class='wave two'></div>
+        <div class='wave three'></div>`;
         this.barLevel.el = document.createElement("div");
         this.barLevel.el.classList.add(ClassNames.GAUGE_BAR_LEVEL);
-        this.setPositionBarLevel(this.baseBarLevel);
+        this.setPositionBarLevel(this.currentBarLevel);
         this.el.appendChild(this.barLevel.el);
+        this.barLevel.el.innerHTML = this.templateWave;
     }
 
     setPositionBarLevel (value) {
