@@ -6,14 +6,14 @@ export class StringHelper {
         for (let i = 0; i <  string.length; i++) { if (capitals.indexOf(string[i]) > 0) { return i; } }
     }
 
-    static transformUpperToLower (method, prefix, sufix) {
+    static transformUpperToLower (method, prefix, suffix) {
         prefix = prefix || '';
-        sufix = sufix || '';
+        suffix = suffix || '';
         let firstChar = method.substr(0, 1).replace(/([A-Z])/g, (find) => {
             return find.toLowerCase()
         });
         let rest = method.substr(1, method.length - 1).replace(/([A-Z])/g, (find) => {
-            return prefix + find.toLowerCase() + sufix
+            return prefix + find.toLowerCase() + suffix
         });
         return firstChar + rest;
     }

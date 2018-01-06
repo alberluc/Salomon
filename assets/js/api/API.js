@@ -24,7 +24,6 @@ export class API {
                     eventName: StringHelper.transformUpperToLower(APIMethod.slice(firstCapitalIndex, APIMethod.length), '_'),
                     eventMethod: APIMethod
                 };
-                console.log(state);
                 if (state.action === 'on') {
                     this.listen(state);
                 }
@@ -33,7 +32,6 @@ export class API {
     }
 
     listen (state) {
-        console.log("this.socket." + state.action + "('" + state.eventName + "', this." + state.eventMethod + ")");
         eval("this.socket." + state.action + "('" + state.eventName + "', this." + state.eventMethod + ")");
     }
 

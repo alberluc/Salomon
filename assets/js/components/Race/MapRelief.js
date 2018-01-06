@@ -5,7 +5,6 @@ export class MapRelief {
     constructor (el, Script) {
         this.el = el;
         this.Script = Script;
-        console.log(Script)
         this.Converter = new Converter(
             el.offsetHeight,
             el.offsetWidth,

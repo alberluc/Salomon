@@ -38,9 +38,12 @@ export class UnitsBuilder {
         };
     }
 
-    convert (value, baseName) {
+    convert (value, baseName, convertWithRatio) {
+        convertWithRatio = convertWithRatio !== false;
         if (value === 0) return this.define("0" + eval('this.bases.' + baseName + '.interval[0].unit.key'), baseName);
-        return this.define(String(parseFloat(value) * eval('this.bases.' + baseName + '.interval[1].value') / eval('this.bases.' + baseName + '.ratio')) + eval('this.bases.' + baseName + '.interval[1].unit.key'), baseName);
+        let convertValue = parseFloat(value) * eval('this.bases.' + baseName + '.interval[1].value');
+        if (convertWithRatio) convertValue = convertValue / eval('this.bases.' + baseName + '.ratio');
+        return this.define(String(convertValue) + eval('this.bases.' + baseName + '.interval[1].unit.key'), baseName);
     }
 
     defineOrConvert (value, baseName) {

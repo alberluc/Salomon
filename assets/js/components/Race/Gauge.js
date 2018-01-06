@@ -39,7 +39,7 @@ export class Gauge {
     }
 
     onUserMove () {
-        console.log(this.Script);
+
     }
 
 }

@@ -12,11 +12,11 @@ export class Runner {
         this.size = runner.size;
         this.speed = runner.speed;
         this.arrived = false;
-        this._position = this.UnitBuilder.convert(position, 'distance');
+        this._position = this.UnitBuilder.convert(position, 'distance', false);
     }
 
     set position (value) {
-        this._position = this.UnitBuilder.convert(value, 'distance');
+        this._position = this.UnitBuilder.convert(value, 'distance', false);
     }
 
     get position () {
@@ -28,11 +28,9 @@ export class Runner {
     }
 
     incrementPosition () {
-        console.log(this.arrived, this.position);
         if (!this.arrived) {
             let incrementValue = this.Script.multiplyRatio * this.ratioMove;
             this.animate(incrementValue);
-            this.arrived = true;
         }
     }
 

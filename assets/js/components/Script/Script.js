@@ -12,14 +12,12 @@ export class Script {
         this.Points = this.initPoints(config.map);
         this.Bots = this.initBots(config.bots);
         this.User = new UserModel(config.user, this, 0);
-        console.log(this.Points)
         this.distanceInterval = Sort.getInterval(this.Points, 'distance.value');
         this.altitudeInterval = Sort.getInterval(this.Points, 'altitude.value');
         this.multiplyRatio = config.multiplyRatio;
         this.mapCourse = config.mapCourse;
         this.gauge = this.initGauge(config.base.gauge);
         this.currentPoint = this.Points[0];
-        console.log(this.currentPoint);
     }
 
     initPoints (map) {
