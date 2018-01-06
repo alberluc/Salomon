@@ -28,6 +28,9 @@ export default {
     },
     map: {
         0: {
+            gauge: {
+                level: 50
+            },
             altitude: '1330km',
             ratioMove: 1.2
         },
@@ -37,7 +40,8 @@ export default {
         },
         45: {
             gauge: {
-                level: 20
+                level: 20,
+                goto: 50
             },
             flag: {
                 key: 'UDH',
@@ -50,7 +54,8 @@ export default {
         },
         80: {
             gauge: {
-                level: 76
+                level: 30,
+                goto: 76
             },
             flag: {
                 key: 'UOH',

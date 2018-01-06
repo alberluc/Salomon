@@ -10,7 +10,7 @@ export class Timer {
         this.pass = null;
         this.time = Script.timer.duration; //second
         this.Script = Script;
-        this.dada = this.onDocumentClick.bind(this);
+        this.onDocumentClick = this.onDocumentClick.bind(this);
         this.Bus = new Bus();
         this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.interact.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.interact.bind(this));
@@ -39,7 +39,7 @@ export class Timer {
 
     start (time) {
         this.pass = false;
-        document.addEventListener('click', this.dada);
+        document.addEventListener('click', this.onDocumentClick);
         TweenMax.to(this.levelEl, time, {x: '-100%', onComplete: this.finish.bind(this)});
     }
 
@@ -51,6 +51,7 @@ export class Timer {
     stop () {
         this.hide();
         this.reset();
+        document.removeEventListener('click', this.onDocumentClick);
     }
 
     show () {
@@ -62,7 +63,6 @@ export class Timer {
     }
 
     finish () {
-        document.removeEventListener('click', this.dada);
         this.stop();
         if (!this.pass) {
             this.Bus.dispatch(this.Bus.types.ON_TIMER_COMPLETE);

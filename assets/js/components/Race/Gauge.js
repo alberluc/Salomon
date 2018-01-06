@@ -8,12 +8,13 @@ export class Gauge {
     constructor (el, Script) {
         this.el = el;
         this.baseBarLevel = 50;
+        this.userPercentageMemory = 0;
         this.Script = Script;
         this.self = Script.gauge;
         this.barLevel = {};
         this.PointsGauge = Sort.exists(Script.Points, 'gauge');
         this.Bus = new Bus();
-        this.currentPointGauge = this.Script.Points[0];
+        this.currentPointGaugeIndex = 0;
         this.currentBarLevel = null;
         this.ratio = this.baseBarLevel;
         this.Bus.listen(this.Bus.types.ON_USER_MOVE, this.onUserMove.bind(this));
@@ -55,7 +56,7 @@ export class Gauge {
     }
 
     calculBarLevel () {
-        let addPositionValue = this.Script.User.position.percentage / this.ratio.distance * this.ratio.level;
+        let addPositionValue = (this.Script.User.position.percentage - this.userPercentageMemory) / this.ratio.distance * this.ratio.level;
         if (this.ratio.sign === 1) {
             return - addPositionValue;
         }
@@ -65,6 +66,10 @@ export class Gauge {
         else {
             console.log('ratio = 0')
         }
+    }
+
+    get currentPointGauge () {
+        return this.PointsGauge[this.currentPointGaugeIndex];
     }
 
     set ratio (value) {
@@ -90,7 +95,9 @@ export class Gauge {
         let newPositionBarLevel = this.currentBarLevel + this.Script.danger.clickValue;
         this.currentBarLevel = newPositionBarLevel;
         this.setPositionBarLevel(newPositionBarLevel);
-        if (this.currentBarLevel > this.baseBarLevel) {
+        if (this.currentBarLevel > this.PointsGauge[this.currentPointGaugeIndex + 1].gauge.goto) {
+            this.currentPointGaugeIndex++;
+            this.userPercentageMemory = this.Script.User.position.percentage;
             this.baseBarLevel = this.currentBarLevel;
             this.Bus.dispatch(this.Bus.types.ON_USER_CORRECT_HYDRATION);
         }
