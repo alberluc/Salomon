@@ -13,9 +13,10 @@ const STATE = {
 
 export class Race {
 
-    constructor (Script, MapCourse) {
+    constructor (Script, MapCourse, MapRelief) {
         this.Script = Script;
         this.MapCourse = MapCourse;
+        this.MapRelief = MapRelief;
         this.End = new RaceEnd();
         this.Bus = new Bus();
         this.scores = [];
@@ -40,6 +41,7 @@ export class Race {
     start () {
         this.Script.Bots.forEach(Bot => Bot.run());
         this.MapCourse.animate();
+        this.MapRelief.animate();
         this.state = STATE.RUN;
     }
 

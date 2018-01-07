@@ -1,4 +1,5 @@
-const Snap = require( "imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js" );
+import { Sort } from "./Sort";
+
 const namespaceSVG = 'http://www.w3.org/2000/svg';
 
 export class Builder {
@@ -13,11 +14,12 @@ export class Builder {
 
     static constructPath (PointsConverter) {
         let s = '';
-        PointsConverter.forEach((PointsConverter, index) => {
-            if (index === 0) s += 'M ' + this.stringPoint(PointsConverter);
-            else s += 'L ' + this.stringPoint(PointsConverter);
+        let minPoint = Sort.getInterval(PointsConverter, 'y')[0];
+        PointsConverter.forEach((PointConverter, index) => {
+            PointConverter.y = PointConverter.y - minPoint.y;
+            if (index === 0) s += 'M ' + this.stringPoint(PointConverter);
+            else s += 'L ' + this.stringPoint(PointConverter);
         });
-        console.log(s);
         return s;
     }
 
@@ -25,19 +27,20 @@ export class Builder {
         return PointsConverter.x + ' ' + PointsConverter.y + ' ';
     }
 
-    static circle (x, y, r, color) {
-        let _el = document.createElementNS(namespaceSVG, 'circle')
+    static circle (x, y, r, color, className) {
+        let _el = document.createElementNS(namespaceSVG, 'circle');
         _el.setAttribute('cx', x);
         _el.setAttribute('cy', y);
         _el.setAttribute('r', r);
         _el.setAttribute('fill', color);
+        if (typeof className !== "undefined" && className !== '') _el.classList.add(className);
         return _el;
     }
 
     static svg (id, className) {
         let _el = document.createElementNS(namespaceSVG, 'svg');
         _el.setAttribute('id', id);
-        _el.classList.add(className);
+        if (typeof className !== "undefined" && className !== '' ) _el.classList.add(className);
         return _el;
     }
 

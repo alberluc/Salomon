@@ -38,5 +38,6 @@ export const ClassNames = {
     GAUGE_LEVEL: 'gauge_level',
     GAUGE_BAR_LEVEL: 'gauge_bar_level',
     TIMER_LEVEL: 'race-bottom_timer_level',
-    BODY_STATE_DANGER: 'race-danger'
+    BODY_STATE_DANGER: 'race-danger',
+    RUNNER_IMAGE: 'mapRelief_runner_image'
 };

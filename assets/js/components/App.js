@@ -54,12 +54,7 @@ export class App {
      */
     initMaps () {
         this.MapRelief = new MapReliefModel(document.getElementById(Ids.RACE.MAP_RELIEF), this.Script);
-        /*this.MapRelief.setRunner(this.Script.User);
-        this.Script.Bots.forEach(Bot => this.MapRelief.setRunner(Bot));*/
         this.MapCourse = new MapCourseModel(document.getElementById(Ids.RACE.MAP_COURSE), this.Script);
-        this.MapCourse.build();
-        this.MapCourse.setRunner(this.Script.User);
-        this.Script.Bots.forEach(Bot => this.MapCourse.setRunner(Bot));
     }
 
     initGauge () {
@@ -96,10 +91,8 @@ export class App {
     }
 
     initRace () {
-        this.Race = new RaceModel(this.Script, this.MapCourse);
-        this.Race.waitStart((function () {
-            this.MapRelief.init();
-        }).bind(this));
+        this.Race = new RaceModel(this.Script, this.MapCourse, this.MapRelief);
+        this.Race.waitStart(this.onScriptStart.bind(this));
     }
 
     initTimer () {
@@ -111,6 +104,15 @@ export class App {
     initCanvas() {
         this.Canvas = new CanvasModel('canvas');
         this.Canvas.build(481);
+    }
+
+    onScriptStart () {
+        this.MapRelief.init();
+        this.MapRelief.setRunner(this.Script.User);
+        this.Script.Bots.forEach(Bot => this.MapRelief.setRunner(Bot));
+        this.MapCourse.init();
+        this.MapCourse.setRunner(this.Script.User);
+        this.Script.Bots.forEach(Bot => this.MapCourse.setRunner(Bot));
     }
 
     /**
