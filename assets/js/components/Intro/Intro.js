@@ -1,12 +1,9 @@
 import { Ids } from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
+import { TranstionView } from "../Utils/TranstionView";
 import { Sound } from "../Sound/Sound";
 import { Race as RaceModel } from "../Race/Race";
 import { Bus } from "../../events/Bus";
-import { TweenMax } from 'gsap';
-
-
-
 
 export class Intro {
 
@@ -20,7 +17,7 @@ export class Intro {
         let startTimeToPlay = document.getElementById(Ids.INIT.PLAY);
         startTimeToPlay.addEventListener('click', () => {
             this.intruction();
-            ViewHandler.show(Ids.INIT.SITE);
+            TranstionView.show(Ids.INIT.SITE, Ids.INIT.PLAY);
         });
     }
 
