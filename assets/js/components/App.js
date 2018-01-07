@@ -29,7 +29,7 @@ export class App {
     init () {
         ViewHandler.show(Ids.VIEWS.START);
         this.initScript(RaceScriptConfig_01);
-        this.initMapRelief();
+        this.initMaps();
         this.initGauge();
         this.initSleepMode();
         this.initAPIs();
@@ -52,10 +52,8 @@ export class App {
     /**
      * Initialise la map en relief
      */
-    initMapRelief () {
+    initMaps () {
         this.MapRelief = new MapReliefModel(document.getElementById(Ids.RACE.MAP_RELIEF), this.Script);
-        this.MapRelief.load();
-        this.MapRelief.build();
         /*this.MapRelief.setRunner(this.Script.User);
         this.Script.Bots.forEach(Bot => this.MapRelief.setRunner(Bot));*/
         this.MapCourse = new MapCourseModel(document.getElementById(Ids.RACE.MAP_COURSE), this.Script);
@@ -99,7 +97,9 @@ export class App {
 
     initRace () {
         this.Race = new RaceModel(this.Script, this.MapCourse);
-        this.Race.waitStart();
+        this.Race.waitStart((function () {
+            this.MapRelief.init();
+        }).bind(this));
     }
 
     initTimer () {

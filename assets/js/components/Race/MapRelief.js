@@ -9,22 +9,32 @@ export class MapRelief {
         this.Script = Script;
         this.RunnersCourse = [];
         this.PointsAltitude = Sort.exists(Script.Points, 'altitude');
+    }
+
+    get PointsConverted () {
+        return this.PointsAltitude.map(PointAltitude => this.Converter.getPoint({x: PointAltitude.distance.percentage, y: PointAltitude.altitude.percentage}));
+    }
+
+    init () {
         this.Converter = new Converter(
-            el.offsetHeight,
-            el.offsetWidth,
-            [Script.distanceInterval[0].distance.value, Script.distanceInterval[1].distance.value],
-            [Script.altitudeInterval[0].altitude.value, Script.altitudeInterval[1].altitude.value],
+            this.el.offsetHeight,
+            this.el.offsetWidth,
             {x: 0, y: 0}
         );
+        this.load();
+        this.build();
     }
 
     load () {
-        this.Converter.eval(this.Script.Points[1]);
+        this.svgEl = SVGBuilder.svg();
+        this.pathEl = SVGBuilder.path(this.PointsConverted, 'white');
+        this.pathEl.style.transform = 'translateY(-100%)';
+        this.svgEl.appendChild(this.pathEl);
+        this.el.appendChild(this.svgEl);
     }
 
     build () {
-        console.log(this.PointsAltitude)
-        SVGBuilder.path();
+
         /*this.pathEl = this.el.querySelector('#lineRelief');
         this.mapTotalLength = this.pathEl.getTotalLength();*/
     }

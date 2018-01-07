@@ -82,7 +82,6 @@ export class Gauge {
 
     set ratio (value) {
         let nextPoint = this.nextPointGauge();
-        console.log(nextPoint, this.currentPointGauge);
         let intervalPercetagePoints = nextPoint.distance.percentage - this.currentPointGauge.distance.percentage;
         let intervalBarLevel = value - nextPoint.gauge.level;
         this._ratio = {
