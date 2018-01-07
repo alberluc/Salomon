@@ -16,9 +16,7 @@ export class Intro {
     }
 
     timeToPlay () {
-        TweenMax.from('.path',1, {
-            drawSVG:"50% 50%",
-        });
+        console.log(document.getElementById('stroke_headphone').getTotalLength());
         let startTimeToPlay = document.getElementById(Ids.INIT.PLAY);
         startTimeToPlay.addEventListener('click', () => {
             this.intruction();

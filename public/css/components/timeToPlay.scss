@@ -20,6 +20,7 @@
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 #pas {
   width: 700px;
   left: 70%;
@@ -40,4 +41,23 @@
   &.foot--active {
     opacity:1;
   }
+}
+
+#site {
+    #stroke_headphone {
+      stroke-dashoffset: 1283;
+      stroke-dasharray: 0;
+      -webkit-animation: draw 1s ease;
+      animation: draw 1s ease;
+    }
+    @keyframes draw {
+      0% {
+        stroke-dashoffset: 1527;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+
 }

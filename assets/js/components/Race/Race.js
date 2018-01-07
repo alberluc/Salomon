@@ -53,7 +53,18 @@ export class Race {
         let scoreUser = this.scores.length;
         this.completeScore();
         this.End.build(this.scores, scoreUser);
-        ViewHandler.show(Ids.VIEWS.END)
+
+        TweenMax.fromTo (('.race-center') , 1, {opacity:1}, {opacity:0,display:'none'});
+        TweenMax.delayedCall(1,() => {
+            TweenMax.fromTo (('#endView') , 1, {opacity:0}, {
+                onStart: () => {
+                    document.getElementById(Ids.VIEWS.END).classList.add('view-active');
+                },
+                opacity:1,
+                display:'flex',
+            })
+        });
+        /*ViewHandler.show(Ids.VIEWS.END)*/
     }
 
     completeScore () {

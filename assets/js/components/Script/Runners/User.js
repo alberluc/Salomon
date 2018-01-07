@@ -1,4 +1,5 @@
 import { Runner } from "./Runner";
+import { TweenMax } from 'gsap';
 
 export class User extends Runner {
 
@@ -41,6 +42,8 @@ export class User extends Runner {
         step.classList.remove('steps_' + id + '-' + dir);
         id++;
         if (id === this.stepsEl.length + 1) id = 1;
+
+
         step.classList.add('steps_' + id + '-' + dir);
         step.setAttribute('id', 'step_' + id);
     }
