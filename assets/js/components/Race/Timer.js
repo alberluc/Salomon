@@ -34,13 +34,13 @@ export class Timer {
     }
 
     reset () {
-        TweenMax.set(this.levelEl, {x: 0});
+        TweenMax.set(this.levelEl, {x: '0%'});
     }
 
     start (time) {
         this.pass = false;
-        document.addEventListener('click', this.onDocumentClick);
         TweenMax.to(this.levelEl, time, {x: '-100%', onComplete: this.finish.bind(this)});
+        document.addEventListener('click', this.onDocumentClick);
     }
 
     onPass () {
@@ -49,9 +49,10 @@ export class Timer {
     }
 
     stop () {
+        document.removeEventListener('click', this.onDocumentClick);
+        TweenMax.killTweensOf(this.levelEl);
         this.hide();
         this.reset();
-        document.removeEventListener('click', this.onDocumentClick);
     }
 
     show () {
