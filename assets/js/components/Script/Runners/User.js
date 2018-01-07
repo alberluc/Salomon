@@ -17,7 +17,6 @@ export class User extends Runner {
             this.Bus.dispatch(this.Bus.types.ON_USER_MOVE);
         }).bind(this));
     }
-
     checkCurrentPoint () {
         let PointPassed = this.Script.Points.filter(Point => Point.distance.percentage < this.position.percentage);
         PointPassed = PointPassed[PointPassed.length - 1] || this.Script.Points[0];
