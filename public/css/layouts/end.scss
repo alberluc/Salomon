@@ -19,6 +19,50 @@
     font-size:75px;
     text-transform: uppercase;
   }
+
+  &.view-active {
+    #first_circle {
+      stroke-dasharray: 1527;
+      stroke-dashoffset: 0;
+      animation: dash-1 2s cubic-bezier(0.8,0,0.2,1);
+    }
+    #second_circle {
+      stroke-dasharray: 1372;
+      stroke-dashoffset: 0;
+      animation: dash-1 2s cubic-bezier(0.8,0,0.2,1);
+      animation-delay: 0.3s;
+    }
+    #third_circle {
+      stroke-dasharray: 671;
+      stroke-dashoffset: 0;
+      animation: dash-3 2s cubic-bezier(0.8,0,0.2,1);
+    }
+    @keyframes dash-1 {
+      0% {
+        stroke-dashoffset: 1527;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes dash-2 {
+      0% {
+        stroke-dashoffset: 1372;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes dash-3 {
+      0% {
+        stroke-dashoffset: 671;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+
 }
 .infosView {
   &_header {
