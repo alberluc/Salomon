@@ -1,5 +1,6 @@
 import { Converter } from './../Utils/SVGHelper'
 import { Builder as SVGBuilder } from './../Utils/SVGHelper'
+import { Sort } from "../Utils/Sort";
 
 export class MapRelief {
 
@@ -7,6 +8,7 @@ export class MapRelief {
         this.el = el;
         this.Script = Script;
         this.RunnersCourse = [];
+        this.PointsAltitude = Sort.exists(Script.Points, 'altitude');
         this.Converter = new Converter(
             el.offsetHeight,
             el.offsetWidth,
@@ -21,6 +23,7 @@ export class MapRelief {
     }
 
     build () {
+        console.log(this.PointsAltitude)
         SVGBuilder.path();
         /*this.pathEl = this.el.querySelector('#lineRelief');
         this.mapTotalLength = this.pathEl.getTotalLength();*/

@@ -14,14 +14,15 @@ export class UnitsBuilder {
     initBases (bases) {
         let obj = {};
         Object.keys(bases).forEach(base => {
-            obj[base] = obj[base] || [];
-            obj[base]['interval'] = obj[base]['interval'] || [];
-            obj[base]['ratio'] = eval("bases." + base + '.ratio');
-            eval("bases." + base + '.interval').forEach((baseValue, index) => {
-                let value = this.define(baseValue, null);
-                value.percentage = index;
-                obj[base]['interval'].push(value)
-            });
+            obj[base] = {
+                interval: bases[base].interval.map((baseValue, index) => {
+                    let value = this.define(baseValue, null);
+                    value.percentage = index;
+                    return value;
+                }),
+                ratio: bases[base].ratio
+            };
+            obj[base].difference = obj[base].interval[1].value - obj[base].interval[0].value;
         });
         return obj;
     }
@@ -40,10 +41,10 @@ export class UnitsBuilder {
 
     convert (value, baseName, convertWithRatio) {
         convertWithRatio = convertWithRatio !== false;
-        if (value === 0) return this.define("0" + eval('this.bases.' + baseName + '.interval[0].unit.key'), baseName);
-        let convertValue = parseFloat(value) * eval('this.bases.' + baseName + '.interval[1].value');
-        if (convertWithRatio) convertValue = convertValue / eval('this.bases.' + baseName + '.ratio');
-        return this.define(String(convertValue) + eval('this.bases.' + baseName + '.interval[1].unit.key'), baseName);
+        if (value === 0) return this.define("0" + this.bases[baseName].interval[0].unit.key, baseName);
+        let convertValue = parseFloat(value) * this.bases[baseName].difference;
+        if (convertWithRatio) convertValue = convertValue / this.bases[baseName].ratio;
+        return this.define(String(convertValue) + this.bases[baseName].interval[1].unit.key, baseName);
     }
 
     defineOrConvert (value, baseName) {
@@ -59,7 +60,8 @@ export class UnitsBuilder {
     }
 
     getPercentage (value, baseName) {
-        return typeof baseName !== "undefined" && baseName !== null ? parseFloat(value) / parseFloat(eval('this.bases.' + baseName + '.interval[1].value')) : 1;
+        let differenceValue = Math.abs(this.bases[baseName].interval[1].value - parseFloat(value) - this.bases[baseName].difference);
+        return typeof baseName !== "undefined" && baseName !== null ? differenceValue / this.bases[baseName].difference : 1;
     }
 
 }

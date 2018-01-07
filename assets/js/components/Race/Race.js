@@ -22,6 +22,7 @@ export class Race {
         this.dataArduino = [];
         this.limitArray = 2;
         this.state = STATE.WAIT;
+        this.stepsEl = document.querySelectorAll('.steps');
         this.Bus.listen(this.Bus.types.ON_RUNNER_FINISHED, this.onRunnerFinish.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.setStateDanger.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.setStateDanger.bind(this));
@@ -31,72 +32,49 @@ export class Race {
     waitStart () {
         let startViewEl = document.getElementById(Ids.VIEWS.START);
         startViewEl.addEventListener('click', (function () {
-            /*this.start();*/
-            this.steps();
+            this.start();
             ViewHandler.show(Ids.VIEWS.RACE);
         }).bind(this));
     }
 
     start () {
+        document.addEventListener('keyup', this.animSteps.bind(this));
         this.Script.Bots.forEach(Bot => Bot.run());
         this.MapCourse.animate();
         this.state = STATE.RUN;
     }
 
-    steps() {
-        let y = 0;
-        document.addEventListener('keyup', (e) => {
-            let test = document.getElementById('steps');
-            let testAll = document.querySelectorAll('.steps');
-            // LEFT
-            if(e.keyCode === 37) {
-                for(let i = 0; i < testAll.length; i++) {
-                    if(i === 0) {
-                        console.log(`steps_${1}-left`,`steps_${testAll.length}-left`);
-                        testAll[i].classList.remove(`steps_${1}-left`);
-                        testAll[i].classList.add(`steps_${testAll.length}-left`);
-                    }
-                    if(i === 2) {
-
-                        testAll[i].classList.remove(`steps_${i + 1}-left`);
-                        testAll[i].classList.add(`steps_${i}-left`);
-                    }
-                    if(i === 1 || i === 3) {
-                        testAll[i].classList.remove(`steps_${i + 1}-right`);
-                        testAll[i].classList.add(`steps_${i}-right`);
-                    }
-                }
+    animSteps() {
+        this.stepsEl.forEach((step) => {
+            let id = step.getAttribute('id').split('_')[1];
+            if (step.classList.contains('step-right')) {
+                this.changeStep(step, id, 'right');
             }
-            if(e.keyCode === 39) {
-                for(let i = 0; i < testAll.length; i++) {
-                    if(i === 0) {
-                        testAll[i].classList.remove(`steps_${1}-right`);
-                        testAll[i].classList.add(`steps_${testAll.length}-right`);
-                    }
-                    if(i === 2) {
-                        testAll[i].classList.remove(`steps_${i + 1}-right`);
-                        testAll[i].classList.add(`steps_${i}-right`);
-                    }
-                    if(i === 1 || i === 3) {
-                        testAll[i].classList.remove(`steps_${i + 1}-left`);
-                        testAll[i].classList.add(`steps_${i}-left`);
-                    }
-                }
-                this.dataArduino.push('Right');
+            else {
+                this.changeStep(step, id, 'left');
             }
-            this.dataArduino.splice(-this.limitArray.length - 1, this.dataArduino.length - this.limitArray);
-
-            if(this.dataArduino[0] === "Right" && this.dataArduino[1] === "Left") {
-            }
-        });
-
+        })
     }
+
+    changeStep (step, id, dir) {
+        step.classList.remove('steps_' + id + '-' + dir);
+        id++;
+        if (id === this.stepsEl.length + 1) id = 1;
+        step.classList.add('steps_' + id + '-' + dir);
+        step.setAttribute('id', 'step_' + id);
+    }
+
+    /*this.dataArduino.splice(-this.limitArray.length - 1, this.dataArduino.length - this.limitArray);
+     if (this.dataArduino[0] === "Right" && this.dataArduino[1] === "Left") {
+     }*/
+
     finish () {
         let scoreUser = this.scores.length;
         this.completeScore();
         this.End.build(this.scores, scoreUser);
         ViewHandler.show(Ids.VIEWS.END)
     }
+
     completeScore () {
         let botScores = Sort.asc(this.Script.Bots, 'speed');
         for (let i = 0; i < this.Script.Bots.length + 1; i++) {
