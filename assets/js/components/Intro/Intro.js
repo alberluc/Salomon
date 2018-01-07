@@ -31,7 +31,7 @@ export class Intro {
         this.sound.play();*/
         let playRace = document.getElementById(Ids.INIT.SITE);
         playRace.addEventListener('click', () => {
-            ViewHandler.show(Ids.VIEWS.START);
+            TranstionView.show(Ids.VIEWS.START, Ids.INIT.SITE);
         });
         document.addEventListener('keyup', (e) => {
             if(e.keyCode === 37) {
