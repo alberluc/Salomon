@@ -13,12 +13,14 @@ export class User extends Runner {
         this.currentStep = 'right';
         this.stepsEl = document.querySelectorAll('.steps');
         /* PARTIE USER this.Bus.listen(this.Bus.types.ON_USER_STEPS, (function () {*/
-        this.Bus.listen(this.Bus.types.ON_USER_MOVE_RECEIVED, (function () {
-            this.checkCurrentPoint();
-            this.incrementPosition();
-            this.animSteps();
-            this.Bus.dispatch(this.Bus.types.ON_USER_MOVE);
-        }).bind(this));
+        this.Bus.listen(this.Bus.types.ON_USER_MOVE_RECEIVED, this.onUserMoveReceived.bind(this));
+    }
+
+    onUserMoveReceived () {
+        this.checkCurrentPoint();
+        this.incrementPosition();
+        this.animSteps();
+        this.Bus.dispatch(this.Bus.types.ON_USER_MOVE);
     }
 
     checkCurrentPoint () {
