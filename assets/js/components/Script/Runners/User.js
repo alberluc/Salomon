@@ -10,16 +10,15 @@ export class User extends Runner {
      */
     constructor (user, Script, position) {
         super(user, Script, position);
-        this.currentStep = 'right';
         this.stepsEl = document.querySelectorAll('.steps');
         /* PARTIE USER this.Bus.listen(this.Bus.types.ON_USER_STEPS, (function () {*/
         this.Bus.listen(this.Bus.types.ON_USER_MOVE_RECEIVED, this.onUserMoveReceived.bind(this));
     }
 
     onUserMoveReceived () {
-        this.checkCurrentPoint();
         this.incrementPosition();
-        this.animSteps();
+        this.checkCurrentPoint();
+        this.toggleSteps();
         this.Bus.dispatch(this.Bus.types.ON_USER_MOVE);
     }
 
@@ -30,26 +29,20 @@ export class User extends Runner {
         this.Script.currentPoint = PointPassed;
     }
 
-    changeStep (step, id, dir) {
+    toggleSteps () {
+        this.stepsEl.forEach((step) => {
+            let id = step.getAttribute('id').split('_')[1];
+            if (step.classList.contains('step-right')) this.toggleStep(step, id, 'right');
+            else this.toggleStep(step, id, 'left');
+        })
+    }
+
+    toggleStep (step, id, dir) {
         step.classList.remove('steps_' + id + '-' + dir);
         id++;
         if (id === this.stepsEl.length + 1) id = 1;
         step.classList.add('steps_' + id + '-' + dir);
         step.setAttribute('id', 'step_' + id);
-    }
-
-    animSteps() {
-        this.anim();
-        if (this.currentStep === 'right') this.currentStep = 'left';
-        else if (this.currentStep === 'left') this.currentStep = 'right';
-    }
-
-    anim () {
-        this.stepsEl.forEach((step) => {
-            let id = step.getAttribute('id').split('_')[1];
-            if (step.classList.contains('step-right')) this.changeStep(step, id, 'right');
-            else this.changeStep(step, id, 'left');
-        })
     }
 
 }
