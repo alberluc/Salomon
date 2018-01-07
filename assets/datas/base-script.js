@@ -16,6 +16,7 @@ export default {
     gauge: {
         levels: {
             25: {
+                value: 15,
                 type: 'less-than',
                 flag: {
                     key: 'DH',
@@ -24,6 +25,7 @@ export default {
             },
             50: {},
             75: {
+                value: 75,
                 type: 'greater-than',
                 flag: {
                     key: 'SH',

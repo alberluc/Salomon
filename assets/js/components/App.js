@@ -56,6 +56,8 @@ export class App {
         this.MapRelief = new MapReliefModel(document.getElementById(Ids.RACE.MAP_RELIEF), this.Script);
         this.MapRelief.load();
         this.MapRelief.build();
+        /*this.MapRelief.setRunner(this.Script.User);
+        this.Script.Bots.forEach(Bot => this.MapRelief.setRunner(Bot));*/
         this.MapCourse = new MapCourseModel(document.getElementById(Ids.RACE.MAP_COURSE), this.Script);
         this.MapCourse.build();
         this.MapCourse.setRunner(this.Script.User);

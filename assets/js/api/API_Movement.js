@@ -15,8 +15,4 @@ export class API_Movement extends API {
         }
     }
 
-    onMovement (value) {
-        console.log(value)
-    }
-
 }

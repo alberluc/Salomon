@@ -52,7 +52,6 @@ export class Script {
     onChangeCurrentPoint (e) {
         this.PointsFlags.forEach(PointFlag => {
             if (PointFlag.id === e.detail.id) {
-                console.log(PointFlag.Flag)
                 PointFlag.Flag.dispatch();
             }
         })

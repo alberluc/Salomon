@@ -21,16 +21,16 @@ export class MapRelief {
     }
 
     build () {
-        this.el.innerHTML = this.Script.mapRelief.src;
-        this.pathEl = this.el.querySelector('#lineRelief');
-        this.mapTotalLength = this.pathEl.getTotalLength();
+        SVGBuilder.path();
+        /*this.pathEl = this.el.querySelector('#lineRelief');
+        this.mapTotalLength = this.pathEl.getTotalLength();*/
     }
+
     setRunner (Runner) {
         let RunnerCourse = {
             image: SVGBuilder.circle(0, 0, Runner.size, Runner.color),
             self: Runner
         };
-        console.log(Runner);
         this.buildImage(RunnerCourse.image);
         this.setPosition(RunnerCourse);
         this.RunnersCourse.push(RunnerCourse);

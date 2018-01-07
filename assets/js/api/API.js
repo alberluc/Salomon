@@ -35,7 +35,6 @@ export class API {
     }
 
     listen (state) {
-        console.log("this.socket." + state.action + "('" + state.eventName + "', this." + state.eventMethod + ".bind(this))");
         eval("this.socket." + state.action + "('" + state.eventName + "', this." + state.eventMethod + ".bind(this))");
     }
 

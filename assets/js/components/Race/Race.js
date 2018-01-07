@@ -2,6 +2,7 @@ import { Bus } from "../../events/Bus";
 import {ClassNames, Ids} from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
 import { Sort } from "../Utils/Sort";
+import { Indicator } from "./Indicator";
 
 const STATE = {
     WAIT: "wait",
@@ -16,12 +17,11 @@ export class Race {
         this.MapCourse = MapCourse;
         this.End = new RaceEnd();
         this.Bus = new Bus();
+        this.IndicatorDistance = new Indicator(document.getElementById(Ids));
+        this.IndicatorDifferenceAltitude = new Indicator();
         this.scores = [];
         this.state = STATE.WAIT;
         this.Bus.listen(this.Bus.types.ON_RUNNER_FINISHED, this.onRunnerFinish.bind(this));
-        this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.setStateDanger.bind(this));
-        this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.setStateDanger.bind(this));
-        this.Bus.listen(this.Bus.types.ON_USER_CORRECT_HYDRATION, this.onUserCorrectHydration.bind(this));
     }
 
     waitStart () {
@@ -64,14 +64,6 @@ export class Race {
                 this.state = STATE.FINISH;
             }
         }
-    }
-
-    setStateDanger () {
-        document.body.classList.add(ClassNames.BODY_STATE_DANGER)
-    }
-
-    onUserCorrectHydration () {
-        document.body.classList.remove(ClassNames.BODY_STATE_DANGER)
     }
 
 }

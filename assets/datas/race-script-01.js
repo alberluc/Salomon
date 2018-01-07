@@ -4,7 +4,7 @@ import { Events } from "../js/events/Events";
 
 export default {
     base,
-    multiplyRatio: 0.016,
+    multiplyRatio: 0.008,
     danger: {
         numberOfClick: 3,
         clickValue: 10
@@ -40,7 +40,7 @@ export default {
         },
         45: {
             gauge: {
-                level: 20,
+                level: 15,
                 goto: 50
             },
             flag: {
@@ -55,7 +55,7 @@ export default {
         80: {
             gauge: {
                 level: 30,
-                goto: 76
+                goto: 85
             },
             flag: {
                 key: 'UOH',
@@ -63,6 +63,9 @@ export default {
             }
         },
         100: {
+            gauge: {
+                level: 40
+            },
             altitude: '1286km'
         }
     },

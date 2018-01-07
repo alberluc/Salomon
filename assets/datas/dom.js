@@ -11,7 +11,11 @@ export const Ids = {
         MAP_COURSE: 'mapCourse',
         GAUGE: 'gauge',
         STEPS: 'steps',
-        TIMER: 'timer'
+        TIMER: 'timer',
+        INDICATOR: {
+            DISTANCE: 'speed__number',
+            DIFFERENCE_ALITITUDE: 'indicatorDA'
+        }
     },
     VIEWS : {
         PLAY: 'timeToPlay',

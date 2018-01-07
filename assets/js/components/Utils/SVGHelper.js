@@ -1,7 +1,9 @@
+const Snap = require( "imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js" );
+
 export class Builder {
 
     static path () {
-
+        console.log(Snap)
     }
 
     static circle (x, y, r, color) {
