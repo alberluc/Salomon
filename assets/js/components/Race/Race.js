@@ -22,6 +22,7 @@ export class Race {
         this.dataArduino = [];
         this.limitArray = 2;
         this.state = STATE.WAIT;
+        this.currentStep = 'right';
         this.stepsEl = document.querySelectorAll('.steps');
         this.Bus.listen(this.Bus.types.ON_RUNNER_FINISHED, this.onRunnerFinish.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.setStateDanger.bind(this));
@@ -44,16 +45,22 @@ export class Race {
         this.state = STATE.RUN;
     }
 
-    animSteps() {
-        this.stepsEl.forEach((step) => {
-            let id = step.getAttribute('id').split('_')[1];
-            if (step.classList.contains('step-right')) {
-                this.changeStep(step, id, 'right');
-            }
-            else {
-                this.changeStep(step, id, 'left');
-            }
-        })
+    animSteps(e) {
+        if (e.keyCode === 37 || e.keyCode === 39) {
+            this.anim(1);
+            if (this.currentStep === 'right') this.currentStep = 'left';
+            else if (this.currentStep === 'left') this.currentStep = 'right';
+        }
+    }
+
+    anim (incr) {
+        for (let i = 0; i < incr; i++) {
+            this.stepsEl.forEach((step) => {
+                let id = step.getAttribute('id').split('_')[1];
+                if (step.classList.contains('step-right')) this.changeStep(step, id, 'right');
+                else this.changeStep(step, id, 'left');
+            })
+        }
     }
 
     changeStep (step, id, dir) {
