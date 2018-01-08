@@ -132,7 +132,16 @@ export class Position {
     }
 
     setText (position, total) {
-        this.el.innerHTML = position + '/' + total;
+        switch (parseFloat(position)) {
+            case 1 : {
+                position = '1 er';
+                break;
+            }
+            default : {
+                position = position + ' ème';
+            }
+        }
+        this.el.innerHTML = position;
     }
 
 }

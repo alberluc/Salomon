@@ -21,6 +21,7 @@ html, body{
 body{
   overflow: hidden;
   color: white;
+  box-shadow: inset 0 0 1355px 70px #090000;
   @extend .noselect;
 }
 
