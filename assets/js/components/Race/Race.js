@@ -2,7 +2,7 @@ import { Bus } from "../../events/Bus";
 import {ClassNames, Ids} from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
 import { Sort } from "../Utils/Sort";
-import { Indicator } from "./Indicator";
+import { Indicator } from "./Indicators";
 
 
 const STATE = {
@@ -13,10 +13,8 @@ const STATE = {
 
 export class Race {
 
-    constructor (Script, MapCourse, MapRelief) {
+    constructor (Script) {
         this.Script = Script;
-        this.MapCourse = MapCourse;
-        this.MapRelief = MapRelief;
         this.End = new RaceEnd();
         this.Bus = new Bus();
         this.scores = [];
@@ -24,9 +22,6 @@ export class Race {
         this.limitArray = 2;
         this.state = STATE.WAIT;
         this.Bus.listen(this.Bus.types.ON_RUNNER_FINISHED, this.onRunnerFinish.bind(this));
-        this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.setStateDanger.bind(this));
-        this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.setStateDanger.bind(this));
-        this.Bus.listen(this.Bus.types.ON_USER_CORRECT_HYDRATION, this.onUserCorrectHydration.bind(this));
     }
 
     waitStart (callback) {
@@ -40,8 +35,6 @@ export class Race {
 
     start () {
         this.Script.Bots.forEach(Bot => Bot.run());
-        this.MapCourse.animate();
-        this.MapRelief.animate();
         this.state = STATE.RUN;
     }
 
@@ -65,23 +58,15 @@ export class Race {
         }
     }
 
-    onRunnerFinish (e) {
+    onRunnerFinish (params) {
         if (this.state === STATE.RUN) {
-            let Runner = e.detail.Runner;
+            let Runner = params.Runner;
             this.scores.push(Runner);
             if (Runner.name === this.Script.User.name) {
                 this.finish();
                 this.state = STATE.FINISH;
             }
         }
-    }
-
-    setStateDanger () {
-        document.body.classList.add(ClassNames.BODY_STATE_DANGER)
-    }
-
-    onUserCorrectHydration () {
-        document.body.classList.remove(ClassNames.BODY_STATE_DANGER)
     }
 
 }

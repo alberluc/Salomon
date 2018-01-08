@@ -54,6 +54,7 @@ export class Gauge {
 
     setPositionBarLevel (value) {
         this.checkDangerState(value);
+        this.Bus.dispatch(this.Bus.types.ON_GAUGE_LEVEL_CHANGE, { value });
         TweenMax.set(this.barLevel.el, {
             y: (100 - value) + "%",
             force3D: true,
@@ -103,11 +104,11 @@ export class Gauge {
         let newPositionBarLevel = this.currentBarLevel + this.Script.danger.clickValue;
         this.setPositionBarLevel(newPositionBarLevel);
         this.currentBarLevel = newPositionBarLevel;
+        this.baseBarLevel = newPositionBarLevel;
+        this.userPercentageMemory = this.Script.User.position.percentage;
+        this.ratio = this.currentBarLevel;
         if (this.currentBarLevel > this.PointsGauge[this.currentPointGaugeIndex + 1].gauge.goto) {
             this.currentPointGaugeIndex++;
-            this.userPercentageMemory = this.Script.User.position.percentage;
-            this.baseBarLevel = this.currentBarLevel;
-            this.ratio = this.currentBarLevel;
             this.Bus.dispatch(this.Bus.types.ON_USER_CORRECT_HYDRATION);
         }
     }

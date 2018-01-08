@@ -13,8 +13,19 @@ export class Map {
         this.classNameImage = '';
     }
 
+    init () {
+        console.error('La méthode Map.init() doit être implémentée !')
+    }
+
     load () {
         this.mapTotalLength = this.pathEl.getTotalLength();
+    }
+
+    start () {
+        this.animate();
+        this.init();
+        this.setRunner(this.Script.User);
+        this.Script.Bots.forEach(Bot => this.setRunner(Bot));
     }
 
     setRunner (Runner) {

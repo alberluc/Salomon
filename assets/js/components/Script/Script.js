@@ -21,6 +21,7 @@ export class Script {
         this.mapCourse = config.mapCourse;
         this.danger = config.danger;
         this.timer = config.timer;
+        this.indicators = config.indicators;
         this.gauge = this.initGauge(config.base.gauge);
         this.currentPoint = this.Points[0];
         this.PointsFlags = Sort.exists(this.Points, 'Flag');
@@ -49,9 +50,9 @@ export class Script {
         }
     }
 
-    onChangeCurrentPoint (e) {
+    onChangeCurrentPoint (params) {
         this.PointsFlags.forEach(PointFlag => {
-            if (PointFlag.id === e.detail.id) {
+            if (PointFlag.id === params.id) {
                 PointFlag.Flag.dispatch();
             }
         })

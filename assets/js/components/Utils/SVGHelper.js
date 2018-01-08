@@ -48,16 +48,16 @@ export class Builder {
 
 export class Converter {
 
-    constructor (height, width, origin) {
+    constructor (height, width, margin) {
         this.height = height;
         this.width = width;
-        this.origin = origin;
+        this.margin = margin;
     }
 
     getPoint (Point) {
         return {
-            x: this.width * Point.x,
-            y: this.height * Point.y
+            x: (this.width - this.margin.x) * Point.x + (this.margin.x / 2),
+            y: (this.height - this.margin.y)  * (1 - Point.y) + (this.margin.y / 2)
         }
     }
 

@@ -13,16 +13,16 @@ export class Runner {
         this.speed = runner.speed;
         this.ratioOnDanger = runner.ratioOnDanger;
         this.arrived = false;
-        this.inDanger = false;
+        this.reduceSpeed = false;
         this._position = this.UnitBuilder.convert(position, 'distance', false);
 
-        this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.setStateDanger.bind(this));
-        this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.setStateDanger.bind(this));
+        this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.onReduceSpeed.bind(this));
+        this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.onReduceSpeed.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_CORRECT_HYDRATION, this.onCorrectHydration.bind(this));
     }
 
-    setStateDanger () {
-        this.inDanger = true;
+    onReduceSpeed () {
+        this.reduceSpeed = true;
     }
 
     set position (value) {
@@ -34,7 +34,7 @@ export class Runner {
     }
 
     get ratioMove () {
-        if (this.inDanger) return this.Script.currentPoint.ratioMove * this.ratioOnDanger;
+        if (this.reduceSpeed) return this.Script.currentPoint.ratioMove * this.ratioOnDanger;
         return this.Script.currentPoint.ratioMove;
     }
 
@@ -64,14 +64,14 @@ export class Runner {
     }
 
     finishCourse () {
-        this.position = 0;
+        this.position = 1;
         this.arrived = true;
         this.Bus.dispatch(this.Bus.types.ON_RUNNER_FINISHED, { Runner: this } );
     }
 
     onCorrectHydration () {
-        if (this.inDanger)
-            this.inDanger = false;
+        if (this.reduceSpeed)
+            this.reduceSpeed = false;
     }
 
 }

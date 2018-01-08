@@ -29,6 +29,7 @@ export class Timer {
     }
 
     interact () {
+        console.log('interact')
         this.show();
         this.start(this.time);
     }
@@ -40,7 +41,7 @@ export class Timer {
     start (time) {
         this.pass = false;
         TweenMax.to(this.levelEl, time, {x: '-100%', onComplete: this.finish.bind(this)});
-        document.addEventListener('click', this.onDocumentClick);
+        document.addEventListener('keyup', this.onDocumentClick);
     }
 
     onPass () {
@@ -49,7 +50,7 @@ export class Timer {
     }
 
     stop () {
-        document.removeEventListener('click', this.onDocumentClick);
+        document.removeEventListener('keyup', this.onDocumentClick);
         TweenMax.killTweensOf(this.levelEl);
         this.hide();
         this.reset();
@@ -70,8 +71,10 @@ export class Timer {
         }
     }
 
-    onDocumentClick () {
-        this.Bus.dispatch(this.Bus.types.ON_TIMER_CLICK);
+    onDocumentClick (e) {
+        if (e.keyCode === 32) {
+            this.Bus.dispatch(this.Bus.types.ON_TIMER_CLICK);
+        }
     }
 
 }

@@ -15,6 +15,12 @@ import RaceScriptConfig_01 from '../../datas/race-script-01';
 import { Canvas as CanvasModel } from './Particules/Canvas';
 import { TweenMax } from 'gsap';
 import { Timer } from "./Race/Timer";
+import {
+    Time as TimeIndicator,
+    Distance as DistanceIndicator,
+    DifferenceAltitude as DAltitudeIndicator,
+    Gauge as GaugeIndicator
+} from "./Race/Indicators";
 
 
 export class App {
@@ -36,8 +42,9 @@ export class App {
         this.initIntro();
         this.initRace();
         this.initTimer();
-        this.tmp();
         this.initCanvas();
+        this.initIndicators();
+        this.tmp();
     }
 
     /**
@@ -106,13 +113,20 @@ export class App {
         this.Canvas.build(481);
     }
 
+    initIndicators () {
+        this.TimeIndicator= new TimeIndicator(document.getElementById(Ids.RACE.INDICATOR.TIME), this.Script.indicators.time);
+        this.DistanceIndicator= new DistanceIndicator(document.getElementById(Ids.RACE.INDICATOR.DISTANCE));
+        this.DAltitudeIndicator= new DAltitudeIndicator(document.getElementById(Ids.RACE.INDICATOR.DIFFERENCE_ALITITUDE));
+        this.GaugeIndicator= new GaugeIndicator(document.getElementById(Ids.RACE.INDICATOR.GAUGE));
+    }
+
     onScriptStart () {
-        this.MapRelief.init();
-        this.MapRelief.setRunner(this.Script.User);
-        this.Script.Bots.forEach(Bot => this.MapRelief.setRunner(Bot));
-        this.MapCourse.init();
-        this.MapCourse.setRunner(this.Script.User);
-        this.Script.Bots.forEach(Bot => this.MapCourse.setRunner(Bot));
+        this.TimeIndicator.active();
+        this.DistanceIndicator.active();
+        this.DAltitudeIndicator.active();
+        this.GaugeIndicator.active();
+        this.MapRelief.start();
+        this.MapCourse.start();
     }
 
     /**

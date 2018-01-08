@@ -7,14 +7,14 @@ export default {
     multiplyRatio: 0.008,
     danger: {
         numberOfClick: 3,
-        clickValue: 10
+        clickValue: 5,
     },
     distance: {
         interval: ['0km', '32km'],
         ratio: 100
     },
     altitude: {
-        interval: ['1100km', '1423km'],
+        interval: ['1250km', '1423km'],
         ratio: 1
     },
     mapCourse: {
@@ -26,21 +26,26 @@ export default {
     timer: {
         duration: 10
     },
+    indicators: {
+        time: {
+          ratio: 100
+        }
+    },
     map: {
         0: {
             gauge: {
-                level: 50
+                level: 65
             },
             altitude: '1330km',
-            ratioMove: 1.2
+            ratioMove: 0.95
         },
         25: {
             altitude: '1350km',
-            ratioMove: 1.1
+            ratioMove: 0.8
         },
         45: {
             gauge: {
-                level: 15,
+                level: 25,
                 goto: 50
             },
             flag: {
@@ -48,14 +53,22 @@ export default {
                 type: Events.ON_USER_DEHYDRATION
             }
         },
+        46: {
+            altitude: '1410km',
+            ratioMove: 1
+        },
         60: {
             altitude: '1423km',
-            ratioMove: 1.3,
+            ratioMove: 1.2,
+        },
+        75: {
+            altitude: '1390km',
+            ratioMove: 1.2,
         },
         80: {
             gauge: {
                 level: 30,
-                goto: 85
+                goto: 76
             },
             flag: {
                 key: 'UOH',
@@ -66,7 +79,7 @@ export default {
             gauge: {
                 level: 40
             },
-            altitude: '1286km'
+            altitude: '1350km'
         }
     },
     user: {

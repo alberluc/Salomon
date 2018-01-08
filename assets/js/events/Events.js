@@ -7,6 +7,8 @@ export const Events = {
     ON_USER_OVERHYDRATION: 'onUserOverhydration',
     ON_USER_CORRECT_HYDRATION: 'onUserCorrectHydration',
 
+    ON_GAUGE_LEVEL_CHANGE: 'onGaugeLevelChange',
+    ON_CHANGE_POINT_ALTITUDE: 'onChangePointAltitude',
 
     ON_RUNNER_FINISHED: 'onUserFinished',
 

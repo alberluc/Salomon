@@ -14,7 +14,9 @@ export class Bus {
     }
 
     listen (type, callback) {
-        this.el.addEventListener(type, callback);
+        this.el.addEventListener(type, function (e) {
+            callback(e.detail);
+        });
     }
 
     dispatch (type, params) {

@@ -13,8 +13,10 @@ export const Ids = {
         STEPS: 'steps',
         TIMER: 'timer',
         INDICATOR: {
-            DISTANCE: 'speed__number',
-            DIFFERENCE_ALITITUDE: 'indicatorDA'
+            DISTANCE: 'indicatorDistance',
+            DIFFERENCE_ALITITUDE: 'indicatorDA',
+            TIME: 'indicatorTime',
+            GAUGE: 'indicatorGauge'
         }
     },
     VIEWS : {

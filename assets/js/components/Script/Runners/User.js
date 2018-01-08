@@ -19,7 +19,7 @@ export class User extends Runner {
         this.incrementPosition();
         this.checkCurrentPoint();
         this.toggleSteps();
-        this.Bus.dispatch(this.Bus.types.ON_USER_MOVE);
+        this.Bus.dispatch(this.Bus.types.ON_USER_MOVE, { position: this.position });
     }
 
     checkCurrentPoint () {
@@ -39,8 +39,8 @@ export class User extends Runner {
 
     toggleStep (step, id, dir) {
         step.classList.remove('steps_' + id + '-' + dir);
-        id++;
-        if (id === this.stepsEl.length + 1) id = 1;
+        id--;
+        if (id === 0) id = this.stepsEl.length;
         step.classList.add('steps_' + id + '-' + dir);
         step.setAttribute('id', 'step_' + id);
     }
