@@ -3,6 +3,27 @@
 
   }
 }
+#raceChronoSvg {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 190px;
+  width: 140px;
+  height: 140px;
+  circle {
+    stroke-dasharray: 314;
+    stroke-dashoffset: -314;
+    -webkit-transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
+    -moz-transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
+    -ms-transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
+    -o-transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+}
 .race{
   &_view{
     display: grid;
@@ -132,14 +153,11 @@
     align-items: center;
     position: absolute;
     z-index: 20;
-    left: 50%;
-    top: 50%;
-    font-size: 333px;
+    font-size: 50px;
     color: white;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    background-color: black;
+    left: 50%;
+    @include translatex(-50%);
+    top: 226px;
   }
   &-top{
     grid-column: 1 / span 3;

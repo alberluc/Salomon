@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 147.69 119.2"><defs><linearGradient id="Degrade_sans_nom_118" y1="59.6" x2="147.69" y2="59.6" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c0dd"/><stop offset="1" stop-color="#b4d673"/></linearGradient></defs><title>Fichier 5</title><g id="Calque_2" data-name="Calque 2"><g id="Interface"><path d="M103,0V.25c22.83,0,44.41,25.75,44.41,53,0,13.66-5,24.23-14.81,31.4-8.75,6.39-21.15,9.78-35.87,9.82-18.57.06-29.21,7.4-38.6,13.87C50.24,113.79,42.75,119,31.73,119,13.2,119,.25,107.53.25,91.18c0-18.52,15.83-29,31.51-31.11,14.64-2,24.7-4.77,29.62-12.39,1.79-2.79,3.37-6.9,5.2-11.67C71.68,22.74,78.65,4.57,96.81.88A31,31,0,0,1,103,.25V0m0,0a31.23,31.23,0,0,0-6.27.63c-24.7,5-28.71,36.25-35.59,46.91-5,7.67-15.26,10.35-29.44,12.28C14.37,62.19,0,73.66,0,91.18s14.21,28,31.73,28c24.24,0,30.92-24.4,65-24.5,28.13-.08,50.93-12.41,50.93-41.47C147.69,26.53,126.63,0,103,0Z" style="fill:red"/><line x1="63.97" y1="16.37" x2="81.97" y2="27.04" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 147.7 119.2" style="enable-background:new 0 0 147.7 119.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FF0000;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<title>Fichier 5</title>
+<g id="Calque_2_1_">
+	<g id="Interface">
+		<path class="st0" d="M103,0v0.2c22.8,0,44.4,25.8,44.4,53c0,13.7-5,24.2-14.8,31.4c-8.8,6.4-21.2,9.8-35.9,9.8
+			c-18.6,0.1-29.2,7.4-38.6,13.9c-7.9,5.4-15.4,10.7-26.4,10.7c-18.5,0-31.5-11.5-31.5-27.8c0-18.5,15.8-29,31.5-31.1
+			c14.6-2,24.7-4.8,29.6-12.4c1.8-2.8,3.4-6.9,5.2-11.7C71.7,22.7,78.7,4.6,96.8,0.9c2-0.4,4.1-0.6,6.2-0.6V0 M103,0
+			c-2.1,0-4.2,0.2-6.3,0.6C72,5.6,68,36.9,61.1,47.5c-5,7.7-15.3,10.3-29.4,12.3C14.4,62.2,0,73.7,0,91.2s14.2,28,31.7,28
+			c24.2,0,30.9-24.4,65-24.5c28.1-0.1,50.9-12.4,50.9-41.5C147.7,26.5,126.6,0,103,0z"/>
+		<line class="st1" x1="64" y1="16.4" x2="82" y2="27"/>
+	</g>
+</g>
+</svg>

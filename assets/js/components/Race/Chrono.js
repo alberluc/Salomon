@@ -1,3 +1,4 @@
+import { TweenMax } from 'gsap';
 export class Chrono {
 
     constructor (el, time) {
@@ -6,6 +7,7 @@ export class Chrono {
         this.callback = null;
         this.timer = null;
         this.setText(this.time);
+        this.stroke = 0;
     }
 
     start (callback) {
@@ -16,6 +18,10 @@ export class Chrono {
 
     startTimer () {
         this.timer = setInterval(this.onTimerIncrement.bind(this), 1000);
+        this.setText(this.time);
+        TweenMax.set('#circleTimer', {
+            strokeDashoffset: this.stroke + "px"
+        })
     }
 
     stop() {
@@ -30,8 +36,13 @@ export class Chrono {
 
     onTimerIncrement () {
         this.time--;
+        this.stroke += 314;
         this.setText(this.time);
+        TweenMax.set('#circleTimer', {
+            strokeDashoffset: this.stroke + "px"
+        })
         if (this.time === 0) this.stop();
+
     }
 
     show () {

@@ -34,7 +34,7 @@ export class App {
      * Initialise l'application
      */
     init () {
-        ViewHandler.show(Ids.VIEWS.START);
+        ViewHandler.show(Ids.VIEWS.PLAY);
         this.initScript(RaceScriptConfig_01);
         this.initMaps();
         this.initGauge();

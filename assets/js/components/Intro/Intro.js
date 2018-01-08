@@ -27,6 +27,7 @@ export class Intro {
     }
 
     intruction () {
+
         this.Bus = new Bus();
         this.Bus.listen(this.Bus.types.ON_USER_STEPS, (function (event) {
             console.log(event.detail.value);

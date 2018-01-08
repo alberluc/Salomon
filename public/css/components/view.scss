@@ -6,5 +6,8 @@
   }
   &-active{
     display: block;
+    &#site {
+      display: flex;
+    }
   }
 }
