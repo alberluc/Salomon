@@ -1,8 +1,9 @@
 import { Bus } from "../../events/Bus";
-import {ClassNames, Ids} from "../../../datas/dom"
+import { Ids} from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
 import { Sort } from "../Utils/Sort";
-import { Indicator } from "./Indicators";
+import { Chrono } from "./Chrono";
+import { RaceEnd } from "./RaceEnd";
 
 
 const STATE = {
@@ -18,6 +19,7 @@ export class Race {
         this.End = new RaceEnd();
         this.Bus = new Bus();
         this.scores = [];
+        this.Chrono = new Chrono(document.getElementById(Ids.RACE.CHRONO), 5);
         this.dataArduino = [];
         this.limitArray = 2;
         this.state = STATE.WAIT;
@@ -26,11 +28,7 @@ export class Race {
 
     waitStart (callback) {
         let startViewEl = document.getElementById(Ids.VIEWS.START);
-        startViewEl.addEventListener('click', (function () {
-            this.start();
-            ViewHandler.show(Ids.VIEWS.RACE);
-            callback();
-        }).bind(this));
+        startViewEl.addEventListener('click', this.onStartViewClick.bind(this, callback));
     }
 
     start () {
@@ -80,35 +78,14 @@ export class Race {
         }
     }
 
-}
-
-class RaceEnd {
-
-    constructor () {
-        this.scoreUserEl = document.getElementById(Ids.END.SCORE_USER);
-        this.scoresEl = document.getElementById(Ids.END.SCORES);
+    onStartViewClick (callback) {
+        ViewHandler.show(Ids.VIEWS.RACE);
+        this.Chrono.start(this.onChronoFinish.bind(this, callback));
     }
 
-    build (scores, scoreUser) {
-        this.buildScoreUser(scoreUser);
-    }
-
-    buildScoreUser (scoreUser) {
-        let string = '';
-        switch (scoreUser) {
-            case 1 : {
-                string = '1er';
-                break;
-            }
-            case 2 : {
-                string = '2ème';
-                break;
-            }
-            default : {
-                string = scoreUser + 'ème ...'
-            }
-        }
-        this.scoreUserEl.innerHTML = string;
+    onChronoFinish (callback) {
+        this.start();
+        callback();
     }
 
 }

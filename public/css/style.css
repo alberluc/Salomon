@@ -498,6 +498,20 @@ circle {
     position: absolute;
     bottom: calc(270px + 125px);
     right: 15px; }
+.race_chrono {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  top: 50%;
+  font-size: 333px;
+  color: white;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background-color: black; }
 .race-top {
   grid-column: 1 / span 3;
   grid-row: 1 / span 1;
