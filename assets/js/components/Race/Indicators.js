@@ -65,11 +65,11 @@ export class Gauge {
     }
 
     active () {
-        this.Bus.listen(this.Bus.types.ON_GAUGE_LEVEL_CHANGE, this.onGaugeLevelChange.bind(this))
+        /*this.Bus.listen(this.Bus.types.ON_GAUGE_LEVEL_CHANGE, this.onGaugeLevelChange.bind(this))*/
     }
 
     onGaugeLevelChange (params) {
-        this.el.innerHTML = (Math.round(params.value * 10) / 10) + '%';
+        /*this.el.innerHTML = (Math.round(params.value * 10) / 10) + '%';*/
     }
 
 }

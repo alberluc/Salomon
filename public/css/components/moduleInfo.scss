@@ -142,7 +142,7 @@
       height: 170px;
     }
     &-left{
-      &_secondary{
+      &_secondary {
       }
       &_head {
         top:0;
@@ -153,5 +153,41 @@
       &_secondary{
       }
     }
+  }
+}
+#heartBeat {
+  height: 35px;
+  width: 41px;
+  background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20viewBox%3D%220%200%2024.07%2020.56%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22Degrade_sans_nom_107%22%20x1%3D%2212.03%22%20y1%3D%2220.56%22%20x2%3D%2212.03%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2309c0dd%22/%3E%3Cstop%20offset%3D%220.15%22%20stop-color%3D%22%230dc1da%22/%3E%3Cstop%20offset%3D%220.3%22%20stop-color%3D%22%231ac2d3%22/%3E%3Cstop%20offset%3D%220.46%22%20stop-color%3D%22%232ec5c6%22/%3E%3Cstop%20offset%3D%220.61%22%20stop-color%3D%22%234bc9b4%22/%3E%3Cstop%20offset%3D%220.77%22%20stop-color%3D%22%2371cd9d%22/%3E%3Cstop%20offset%3D%220.93%22%20stop-color%3D%22%239ed381%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23b4d673%22/%3E%3C/linearGradient%3E%3Cfilter%20id%3D%22luminosity-invert%22%20filterUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeColorMatrix%20values%3D%22-1%200%200%200%201%200%20-1%200%200%201%200%200%20-1%200%201%200%200%200%201%200%22/%3E%3C/filter%3E%3Cmask%20id%3D%22mask%22%20x%3D%22-2.7%22%20y%3D%22-2.53%22%20width%3D%2229%22%20height%3D%2226%22%20maskUnits%3D%22userSpaceOnUse%22%3E%3Cg%20style%3D%22filter%3Aurl%28%23luminosity-invert%29%22%3E%3Cimage%20width%3D%2229%22%20height%3D%2226%22%20transform%3D%22translate%28-2.7%20-2.53%29%22%20xlink%3Ahref%3D%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAB0AAAAaCAIAAADE9MDgAAAACXBIWXMAAAsSAAALEgHS3X78AAADWUlEQVRIS9WUy0/yShTAT98tlFCECsZgqJoIG8PCxP9/YYhK4juKgBEKJQh9CMWZ0tddjBeBD70u7ub7LdrkzJnfzGlPDsDfBfVn6PDwMJfLSZJEUdR8Ph+Px09PT2s55XI5k8lwHIcxNk2z3W6vJax49/b2SqWSpmn5fF6WZZqmgyCwLEvX9X6/f3FxAQAnJyfFYnF3dzedTtM0/fHxYdt2p9PpdrvNZnOhYpe9+/v7x8fHBwcH+Xw+lUpxHOf7PkLItu3RaHR6egoAhUIhm80qiiKKIgBgjC3L2tnZUVWVYZhFZV/earVaqVQqlUqpVCoUCrIs8zwfRRFRu66LEIrjWJIkWZYFQWBZNooicmo6neY4LggCjPHr6+uXV9O0crmsaVqxWCwWi6qqJpNJjuMAgKh93w/DEAAYhmFZlmEYhmHCMMQYky+GEBqPx6qqrniz2ez29raqqrlcjpTJ8/yiFFLyRgRBoCgKIZTJZBRFSSQSJE6TF8/zoigmEolEIiGK4rL0Z1iWlSRJFEWyi2U/L/rp9X0/CII4jgGAojY03w9QFEW2xHFMDLDw2rY9mUxmsxnGeHHALwmCwPd9z/MQQhhjEvz0tlqtXq83HA4dx5lOp/P5/HvPCmEYIoSm06njOKZpmqZJ4vQiQ9f1brdrGIZlWa7rRlH0jWoFhND7+/toNBoMBrquNxoNEv/q34eHB1mWs9lsJpNJJpM8z6dSqW9sn2CMHcchxpeXl263u1hilvP6/f7W1paiKMlkUhAEQRBIC2/E8zzbtnVdb7VaNzc3l5eXt7e3i9UVLwAIgiCKInnyPL/cOst4nkfmxvPz8/X1da1Wq9frywnr3uFwCACSJJHLsizLsizHccvNhxCyLKvX6zWbzaurq1qtdn5+vuZZ9wLAYDCgKIr5F2KkKCqO4yAIZrMZuSmRnp2d/SmFjV4A6PV6URRxHEfTdBzHYRiSDnVd1zTNfr/fbDZJ+Rul8J0XAAzDiKIoDEPP8+bzOcbYdV3LsgzDaLfbd3d3tVqNTOSNfOsFAMMwMMbT6RRjjBCaTCZvb2+dTufx8bFer6/9qDV+NQqq1erR0ZGiKEEQOI7TaDTu7+9/3vIrLwBompbL5YIgsG2bTNj/DUmS/ivl7+UfEkvn0I+8wooAAAAASUVORK5CYII%3D%22/%3E%3C/g%3E%3C/mask%3E%3C/defs%3E%3Ctitle%3EFichier%2023%3C/title%3E%3Cg%20style%3D%22isolation%3Aisolate%22%3E%3Cg%20id%3D%22Calque_2%22%20data-name%3D%22Calque%202%22%3E%3Cg%20id%3D%22Interface%22%3E%3Cpath%20d%3D%22M12%2C3.62A6.32%2C6.32%2C0%2C0%2C0%2C0%2C6.32c0%2C5.13%2C12%2C14.24%2C12%2C14.24h.09s12-9.11%2C12-14.24a6.32%2C6.32%2C0%2C0%2C0-12-2.7Z%22%20style%3D%22fill%3Aurl%28%23Degrade_sans_nom_107%29%22/%3E%3Cg%20style%3D%22mask%3Aurl%28%23mask%29%22%3E%3Cg%20style%3D%22opacity%3A0.75%3Bmix-blend-mode%3Aoverlay%22%3E%3Cpath%20d%3D%22M12%2C3.62A6.32%2C6.32%2C0%2C0%2C0%2C0%2C6.32c0%2C5.13%2C12%2C14.24%2C12%2C14.24h.09s12-9.11%2C12-14.24a6.32%2C6.32%2C0%2C0%2C0-12-2.7Z%22/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E);
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat:no-repeat;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  -ms-transition: background 0.5s ease;
+  -o-transition: background 0.5s ease;
+  transition: background 0.5s ease;
+  animation: beatBeat 800ms ease alternate infinite;
+
+  @keyframes beatBeat {
+    0% {
+      transform: scale(0.6);
+
+    }
+    80% {
+      transfom: scale(0.8);
+    }
+    100% {
+      transform: scale(1);
+      transition-property: transform;
+      transition-duration: 3s;
+    }
+  }
+}
+
+.race-danger {
+  #heartBeat {
+    background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20viewBox%3D%220%200%2024.07%2020.56%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22Degrade_sans_nom_36%22%20x1%3D%2212.03%22%20y1%3D%2220.56%22%20x2%3D%2212.03%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2309c0dd%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23eb1747%22/%3E%3C/linearGradient%3E%3Cfilter%20id%3D%22luminosity-invert%22%20filterUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeColorMatrix%20values%3D%22-1%200%200%200%201%200%20-1%200%200%201%200%200%20-1%200%201%200%200%200%201%200%22/%3E%3C/filter%3E%3Cmask%20id%3D%22mask%22%20x%3D%22-2.82%22%20y%3D%22-2.82%22%20width%3D%2229%22%20height%3D%2226%22%20maskUnits%3D%22userSpaceOnUse%22%3E%3Cg%20style%3D%22filter%3Aurl%28%23luminosity-invert%29%22%3E%3Cimage%20width%3D%2229%22%20height%3D%2226%22%20transform%3D%22translate%28-2.82%20-2.82%29%22%20xlink%3Ahref%3D%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAB0AAAAaCAIAAADE9MDgAAAACXBIWXMAAAsSAAALEgHS3X78AAADgElEQVRIS9WVW0/iQBTH205bSnqjIBQQDA0aDSb4AUz86sY3DDFoSajxglxKAQmlhVba0ss+jGFBYd193P/DpJn5n1+m55yZQZD/S+jOWUmSBEGIosg0zXa7vdNzfHycSCTCMDQM47vnK7dcLhcKhaOjI57nURS1bVvTtMFg0Gw2oaFSqYiiyPN8NpuNx+O+75um2e/3+/3+y8vLmoNvQs/OzqrVaqlUyufzHMfhOO66rq7rg8EgmUze3NxcXl5eXFzk83lBEBiGIQjC87z5fJ7L5dLpNI7jj4+PX7nlcrlarZ6fn0uSlMvlWJYlSTIIAsuydF0/OTm5uroSRTGTySSTSYZh4vE4iqKO48znc57nKYoKgsBxnE6ns8UtFAqlUkmSJEmSRFHkOI4kySiKPM+zLKtcLjuOE4vFaJqmaZqiKAAAgiCu6xqGAQDwPG86nR4cHGxxJUkqFovZbDabzWYymXQ6zTAMjuMIgoRhmEwmPc8LwxDDMIIgCILAMAwG+r4PAIDp4nmepumtPCQSCZ7nOY5jWZZl2TUUQRAMw0iSJEkS2SUcxymKisfjFEWRJPk7atMEAAAAEAQB//EvBQBA0c++iqIIfnxyTdO0bdt1Xd/3gyBYL/+NfN9frVau6y6XS8dx4OQnt91ua5o2mUwMw7Bt2/O8/ZwthWHoOI5lWYZhTKdTXdfh/O88qKra6/VGo9F0OrUsKwzDPagtua67WCx0XR+Px6qq7ujfVqvFMAxsT47jYrEYy7J7aJ/yfX+xWEwmE1VVO51Or9dbL23VB54rQRBomo7FYhRFrev7XUEQLBaL8Xj89vYmy3KtVms0GuvVr3WHODjC9tqJhufw/f292+0qilKv16+vrzcNX2NkWSYIAqJxHEdRNJVKURS16VmtVpZlTSYTeNcoitLtdr9wdvTpcDhEURTHcQAAHFEUxTAMRdEwDJfLpWmao9Go2+0+PT3d39/Lsvzw8PAzF0EQVVWDIIBJgLggCFzXtW17NptpmtbpdBRFkWVZluW7u7vvhL3nStO0KIog1Pd9CNV1fTgcttvtZrNZr9cVRfm+U6i95UYQ5Pb21vO8j4+P2WwmiiK8xXVdf319bTQatVrtD7G736FNVSqVw8PDYrEoCEIQBOPxuNVq7dvmWj9zoU5PT/P5fBRFg8Hg+fn5J/u/KJVKpVKpn1z/qX4Bckfb13qNNggAAAAASUVORK5CYII%3D%22/%3E%3C/g%3E%3C/mask%3E%3C/defs%3E%3Ctitle%3EFichier%2024%3C/title%3E%3Cg%20style%3D%22isolation%3Aisolate%22%3E%3Cg%20id%3D%22Calque_2%22%20data-name%3D%22Calque%202%22%3E%3Cg%20id%3D%22Interface%22%3E%3Cpath%20d%3D%22M12%2C3.62A6.32%2C6.32%2C0%2C0%2C0%2C0%2C6.32c0%2C5.13%2C12%2C14.24%2C12%2C14.24h.09s12-9.11%2C12-14.24a6.32%2C6.32%2C0%2C0%2C0-12-2.7Z%22%20style%3D%22fill%3Aurl%28%23Degrade_sans_nom_36%29%22/%3E%3Cg%20style%3D%22mask%3Aurl%28%23mask%29%22%3E%3Cg%20style%3D%22opacity%3A0.75%3Bmix-blend-mode%3Aoverlay%22%3E%3Cpath%20d%3D%22M12%2C3.62A6.32%2C6.32%2C0%2C0%2C0%2C0%2C6.32c0%2C5.13%2C12%2C14.24%2C12%2C14.24h.09s12-9.11%2C12-14.24a6.32%2C6.32%2C0%2C0%2C0-12-2.7Z%22/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E);
+    animation: beatBeat 300ms ease alternate infinite;
   }
 }
