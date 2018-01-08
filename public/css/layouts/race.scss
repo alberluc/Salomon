@@ -1,6 +1,13 @@
 .race-danger {
   .race_view {
-
+    .race-bottom_timer_level {
+      background : -moz-linear-gradient(0% 50% 0deg,rgba(9, 192, 221, 1) 0%,rgba(235, 23, 71, 1) 100%);
+      background : -webkit-linear-gradient(0deg, rgba(9, 192, 221, 1) 0%, rgba(235, 23, 71, 1) 100%);
+      background : -webkit-gradient(linear,0% 50% ,100% 50% ,color-stop(0,rgba(9, 192, 221, 1) ),color-stop(1,rgba(235, 23, 71, 1) ));
+      background : -o-linear-gradient(0deg, rgba(9, 192, 221, 1) 0%, rgba(235, 23, 71, 1) 100%);
+      background : -ms-linear-gradient(0deg, rgba(9, 192, 221, 1) 0%, rgba(235, 23, 71, 1) 100%);
+      background : linear-gradient(90deg, rgba(9, 192, 221, 1) 0%, rgba(235, 23, 71, 1) 100%);
+    }
   }
 }
 #raceChronoSvg {
