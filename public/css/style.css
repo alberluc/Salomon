@@ -344,6 +344,9 @@ circle {
     border: solid 1px white;
     box-shadow: 0 0 0px 15px black; }
   .moduleInfo_secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     bottom: 0;
     width: 90px;
@@ -459,6 +462,7 @@ circle {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     font-size: 26px; }
     .race_view .race-top_indication#denivele__number {
       flex-flow: column; }
@@ -478,6 +482,22 @@ circle {
     top: 0; }
 .race_section {
   position: relative; }
+.race_indication {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  height: 110px;
+  border: solid 1px white;
+  border-radius: 50%; }
+  .race_indication_time {
+    position: absolute;
+    bottom: calc(270px + 0px);
+    right: 15px; }
+  .race_indication_position {
+    position: absolute;
+    bottom: calc(270px + 125px);
+    right: 15px; }
 .race-top {
   grid-column: 1 / span 3;
   grid-row: 1 / span 1;
@@ -523,7 +543,8 @@ circle {
   grid-column: 3 / span 1;
   grid-row: 2 / span 3;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  flex-direction: column; }
   .race-right_mapCourse {
     position: relative;
     left: -15px;

@@ -59,23 +59,15 @@
     <section id="raceView" class="race_view view">
         <div class="race-top race_section">
             <div id="speed" class="race-top_speed">
-                <span id="speed__number" class="race-top_indication">30<br>km</span>
+                <span id="indicatorDistance" class="race-top_indication"></span>
             </div>
             <div id="mapRelief" class="race-top_mapRelief mapRelief"></div>
             <div id="denivele" class="race-top_denivele">
-                <span id="denivele__number" class="race-top_indication">
-                    <span id="denivele__arrow"></span>
-                    0%
-                </span>
+                <span id="indicatorDA" class="race-top_indication"></span>
             </div>
 
         </div>
         <div class="race-left race_section">
-            <div id="indicatorTime"></div>
-            <div id="indicatorDistance"></div>
-            <div id="indicatorDA"></div>
-            <div id="indicatorGauge"></div>
-            <div id="indicatorPosition"></div>
             <div class="moduleInfo moduleInfo-left">
                 <div class="moduleInfo_primary moduleInfo-left_primary">
                     <span class="moduleInfo_losange"></span>
@@ -84,10 +76,14 @@
                     <span class="moduleInfo_losange"></span>
                     <div id="gauge" class="race-left_gauge gauge moduleInfo_primary_content"></div>
                 </div>
-                <div class="moduleInfo_secondary moduleInfo-left_secondary"></div>
+                <div class="moduleInfo_secondary moduleInfo-left_secondary">
+                    <div id="indicatorGauge"></div>
+                </div>
             </div>
         </div>
         <div class="race-right race_section">
+            <div id="indicatorTime" class="race_indication race_indication_time"></div>
+            <div id="indicatorPosition" class="race_indication race_indication_position"></div>
             <div class="moduleInfo moduleInfo-right">
                 <div class="moduleInfo_primary moduleInfo-right_primary moduleInfo_primary_content">
                     <span class="moduleInfo_losange"></span>

@@ -99,7 +99,7 @@ export class DifferenceAltitude {
 
     setText (DA) {
         this.changeArrow(DA);
-        this.el.innerHTML = (Math.round(DA * 10) / 10) + '%<br>' + this.arrowEl.outerHTML;
+        this.el.innerHTML = (Math.round(DA * 10) / 10) + '%' + this.arrowEl.outerHTML;
     }
 
     changeArrow (DA) {
