@@ -219,6 +219,9 @@
       left: -15px;
       background-repeat: no-repeat;
       width: calc(100% - 60px);
+      & line{
+        stroke: white;
+      }
     }
   }
   &-center{

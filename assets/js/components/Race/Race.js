@@ -2,7 +2,7 @@ import { Bus } from "../../events/Bus";
 import { Ids} from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
 import { Sort } from "../Utils/Sort";
-import { Chrono } from "./Chrono";
+import { CountDown } from "./CountDown";
 import { RaceEnd } from "./RaceEnd";
 
 
@@ -19,7 +19,7 @@ export class Race {
         this.End = new RaceEnd();
         this.Bus = new Bus();
         this.scores = [];
-        this.Chrono = new Chrono(document.getElementById(Ids.RACE.CHRONO), 5);
+        this.CountDown = new CountDown(document.getElementById(Ids.RACE.COUNT_DOWN), Script.countDown);
         this.dataArduino = [];
         this.limitArray = 2;
         this.state = STATE.WAIT;
@@ -80,10 +80,10 @@ export class Race {
 
     onStartViewClick (callback) {
         ViewHandler.show(Ids.VIEWS.RACE);
-        this.Chrono.start(this.onChronoFinish.bind(this, callback));
+        this.CountDown.start(this.onCountDownFinish.bind(this, callback));
     }
 
-    onChronoFinish (callback) {
+    onCountDownFinish (callback) {
         this.start();
         callback();
     }

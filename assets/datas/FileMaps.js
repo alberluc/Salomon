@@ -1,4 +1,4 @@
-import MapCourse_1 from './../img/course_1.svg'
+import MapCourse_1 from './../img/course_2.svg'
 import MapCourse_2 from './../img/MapRelief.svg'
 
 export const Maps = {

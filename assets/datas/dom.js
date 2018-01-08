@@ -12,7 +12,7 @@ export const Ids = {
         GAUGE: 'gauge',
         STEPS: 'steps',
         TIMER: 'timer',
-        CHRONO: 'raceChrono',
+        COUNT_DOWN: 'raceChrono',
         INDICATOR: {
             DISTANCE: 'indicatorDistance',
             DIFFERENCE_ALITITUDE: 'indicatorDA',

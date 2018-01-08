@@ -21,6 +21,7 @@ export class Script {
         this.mapCourse = config.mapCourse;
         this.danger = config.danger;
         this.timer = config.timer;
+        this.countDown = config.countDown;
         this.indicators = config.indicators;
         this.gauge = this.initGauge(config.base.gauge);
         this.currentPoint = this.Points[0];

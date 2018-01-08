@@ -23,6 +23,9 @@ export default {
     mapRelief: {
         src: Maps.MapCourse_2
     },
+    countDown: {
+      time: 3
+    },
     timer: {
         duration: 10
     },
