@@ -321,6 +321,72 @@ svg.svg__position {
 circle {
   will-change: transform; }
 
+.moduleInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 15px;
+  width: 250px;
+  height: 250px;
+  padding: 15px;
+  border-radius: 50%;
+  border: solid 1px white; }
+  .moduleInfo_primary {
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 50%;
+    border: solid 1px white;
+    box-shadow: 0 0 0px 15px black; }
+  .moduleInfo_secondary {
+    position: absolute;
+    bottom: 0;
+    width: 90px;
+    height: 90px;
+    background-color: black;
+    border: solid 1px white;
+    border-radius: 50%;
+    z-index: 5; }
+  .moduleInfo-left {
+    left: 15px; }
+    .moduleInfo-left_secondary {
+      right: 45px;
+      transform: translateX(100%); }
+  .moduleInfo-right {
+    right: 15px; }
+    .moduleInfo-right_secondary {
+      left: 45px;
+      transform: translateX(-100%); }
+  .moduleInfo_losange {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    border: solid 1px white;
+    background-color: black; }
+    .moduleInfo_losange:nth-child(1) {
+      top: -5px;
+      left: calc(50% - 5px);
+      transform: rotate(45deg); }
+    .moduleInfo_losange:nth-child(2) {
+      top: calc(50% - 5px);
+      left: -5px;
+      transform: rotate(45deg); }
+    .moduleInfo_losange:nth-child(3) {
+      top: calc(100% - 5px);
+      left: calc(50% - 5px);
+      transform: rotate(45deg); }
+    .moduleInfo_losange:nth-child(4) {
+      top: calc(50% - 5px);
+      left: calc(100% - 5px);
+      transform: rotate(45deg); }
+
 .start_view {
   color: #FFF;
   display: flex;
@@ -449,25 +515,19 @@ circle {
   grid-column: 1 / span 1;
   grid-row: 2 / span 3; }
   .race-left_gauge {
-    position: absolute;
-    left: 50%;
-    bottom: 20px;
-    width: 80%;
-    margin: auto;
+    position: relative;
+    width: 100%;
     overflow: hidden;
-    border-radius: 50%;
-    border: solid white 1px;
-    transform: translateX(-50%); }
+    border-radius: 50%; }
 .race-right {
   grid-column: 3 / span 1;
   grid-row: 2 / span 3;
   display: flex;
   justify-content: center; }
   .race-right_mapCourse {
-    background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20280.32%20239.26%22%3E%3Ctitle%3EFichier%201%3C/title%3E%3Cg%20id%3D%22Calque_2%22%20data-name%3D%22Calque%202%22%3E%3Cg%20id%3D%22Interface%22%3E%3Cg%20id%3D%22Map_course_4%22%20data-name%3D%22Map%20course%204%22%3E%3Cpath%20d%3D%22M161.32.1a119.54%2C119.54%2C0%2C0%2C1%2C27.87%2C3.29l.12%2C0V3.27a119.32%2C119.32%2C0%2C0%2C1%2C66.28%2C43.1l-.08.06.06.08a118%2C118%2C0%2C0%2C1%2C24.55%2C67.4l0%2C.92%2C0%2C.92c0%2C.28%2C0%2C.56%2C0%2C.83%2C0%2C.74%2C0%2C1.49%2C0%2C2.24%2C0%2C1%2C0%2C2.07%2C0%2C3.08a118.86%2C118.86%2C0%2C0%2C1-190.5%2C92l-.09-.07-.06.1A47.49%2C47.49%2C0%2C1%2C1%2C45%2C144.26h.11l0-.11A119.19%2C119.19%2C0%2C0%2C1%2C58.17%2C59.82c1.14-2%2C2.12-3.58%2C3.07-5.06A118.82%2C118.82%2C0%2C0%2C1%2C161.32.1m0-.1A118.91%2C118.91%2C0%2C0%2C0%2C61.16%2C54.71c-1.07%2C1.65-2.09%2C3.35-3.08%2C5.06A119.33%2C119.33%2C0%2C0%2C0%2C45%2C144.16%2C47.59%2C47.59%2C0%2C1%2C0%2C89.62%2C214%2C119%2C119%2C0%2C0%2C0%2C280.28%2C121.9c0-1%2C0-2.05%2C0-3.08%2C0-.75%2C0-1.5%2C0-2.24%2C0-.27%2C0-.55%2C0-.83l-.06-1.84a118.41%2C118.41%2C0%2C0%2C0-24.57-67.46l.09-.05A119%2C119%2C0%2C0%2C0%2C189.23%2C3.15a.78.78%2C0%2C0%2C0%2C0%2C.14A119.28%2C119.28%2C0%2C0%2C0%2C161.32%2C0Z%22%20style%3D%22fill%3A%23fff%22/%3E%3Cpath%20d%3D%22M47.61%2C158.22a33.34%2C33.34%2C0%2C0%2C1%2C15.61%2C3.86A106.58%2C106.58%2C0%2C0%2C0%2C81%2C189.91c0%2C.58%2C0%2C1.18%2C0%2C1.77a33.46%2C33.46%2C0%2C1%2C1-33.46-33.46m0-.5a34%2C34%2C0%2C1%2C0%2C34%2C34c0-.66%2C0-1.32-.06-2a106.21%2C106.21%2C0%2C0%2C1-17.91-28%2C33.66%2C33.66%2C0%2C0%2C0-16-4Z%22%20style%3D%22fill%3A%23fff%22/%3E%3Cpath%20d%3D%22M267.94%2C119A106.63%2C106.63%2C0%2C1%2C1%2C161.31%2C12.38%2C106.63%2C106.63%2C0%2C0%2C1%2C267.94%2C119Z%22%20style%3D%22fill%3Anone%3Bstroke%3A%23fff%3Bstroke-miterlimit%3A10%22/%3E%3Cpath%20d%3D%22M161.32%2C23a96%2C96%2C0%2C0%2C1%2C37.35%2C184.37A96%2C96%2C0%2C0%2C1%2C124%2C30.59%2C95.26%2C95.26%2C0%2C0%2C1%2C161.32%2C23m0-.1A96.06%2C96.06%2C0%2C1%2C0%2C257.37%2C119a96.05%2C96.05%2C0%2C0%2C0-96.05-96.06Z%22%20style%3D%22fill%3A%23fff%22/%3E%3Crect%20x%3D%22159.09%22%20y%3D%2210.15%22%20width%3D%224.45%22%20height%3D%224.45%22%20transform%3D%22translate%2856%20-110.45%29%20rotate%2845%29%22%20style%3D%22stroke%3A%23fff%3Bstroke-miterlimit%3A10%22/%3E%3Crect%20x%3D%22159.09%22%20y%3D%22223.4%22%20width%3D%224.45%22%20height%3D%224.45%22%20transform%3D%22translate%28206.79%20-47.98%29%20rotate%2845%29%22%20style%3D%22stroke%3A%23fff%3Bstroke-miterlimit%3A10%22/%3E%3Crect%20x%3D%22265.72%22%20y%3D%22116.77%22%20width%3D%224.45%22%20height%3D%224.45%22%20transform%3D%22translate%28541.55%2013.68%29%20rotate%28135%29%22%20style%3D%22stroke%3A%23fff%3Bstroke-miterlimit%3A10%22/%3E%3Crect%20x%3D%2252.46%22%20y%3D%22116.77%22%20width%3D%224.45%22%20height%3D%224.45%22%20transform%3D%22translate%28177.51%20164.47%29%20rotate%28135%29%22%20style%3D%22stroke%3A%23fff%3Bstroke-miterlimit%3A10%22/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E);
+    position: relative;
+    left: -15px;
     background-repeat: no-repeat;
-    position: absolute;
-    bottom: 0;
     width: calc(100% - 60px); }
 .race-center {
   grid-column: 2 / span 1;
