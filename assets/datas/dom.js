@@ -16,7 +16,8 @@ export const Ids = {
             DISTANCE: 'indicatorDistance',
             DIFFERENCE_ALITITUDE: 'indicatorDA',
             TIME: 'indicatorTime',
-            GAUGE: 'indicatorGauge'
+            GAUGE: 'indicatorGauge',
+            POSITION: 'indicatorPosition'
         }
     },
     VIEWS : {

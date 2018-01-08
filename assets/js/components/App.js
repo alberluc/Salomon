@@ -19,7 +19,8 @@ import {
     Time as TimeIndicator,
     Distance as DistanceIndicator,
     DifferenceAltitude as DAltitudeIndicator,
-    Gauge as GaugeIndicator
+    Gauge as GaugeIndicator,
+    Position as PositionIndicator
 } from "./Race/Indicators";
 
 
@@ -33,7 +34,7 @@ export class App {
      * Initialise l'application
      */
     init () {
-        ViewHandler.show(Ids.VIEWS.PLAY);
+        ViewHandler.show(Ids.VIEWS.START);
         this.initScript(RaceScriptConfig_01);
         this.initMaps();
         this.initGauge();
@@ -118,6 +119,7 @@ export class App {
         this.DistanceIndicator= new DistanceIndicator(document.getElementById(Ids.RACE.INDICATOR.DISTANCE));
         this.DAltitudeIndicator= new DAltitudeIndicator(document.getElementById(Ids.RACE.INDICATOR.DIFFERENCE_ALITITUDE));
         this.GaugeIndicator= new GaugeIndicator(document.getElementById(Ids.RACE.INDICATOR.GAUGE));
+        this.PositionIndicator = new PositionIndicator(document.getElementById(Ids.RACE.INDICATOR.POSITION), this.Script.User, this.MapRelief);
     }
 
     onScriptStart () {
@@ -125,6 +127,7 @@ export class App {
         this.DistanceIndicator.active();
         this.DAltitudeIndicator.active();
         this.GaugeIndicator.active();
+        this.PositionIndicator.active();
         this.MapRelief.start();
         this.MapCourse.start();
     }

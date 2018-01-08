@@ -1,9 +1,12 @@
 import { Ids } from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
-import { TranstionView } from "../Utils/TranstionView";
 import { Sound } from "../Sound/Sound";
 import { Race as RaceModel } from "../Race/Race";
 import { Bus } from "../../events/Bus";
+import { TweenMax } from 'gsap';
+
+
+
 
 export class Intro {
 
@@ -13,11 +16,13 @@ export class Intro {
     }
 
     timeToPlay () {
-        console.log(document.getElementById('stroke_headphone').getTotalLength());
+        TweenMax.from('.path',1, {
+            drawSVG:"50% 50%",
+        });
         let startTimeToPlay = document.getElementById(Ids.INIT.PLAY);
         startTimeToPlay.addEventListener('click', () => {
             this.intruction();
-            TranstionView.show(Ids.INIT.SITE, Ids.INIT.PLAY);
+            ViewHandler.show(Ids.INIT.SITE);
         });
     }
 
@@ -26,12 +31,9 @@ export class Intro {
         this.Bus.listen(this.Bus.types.ON_USER_STEPS, (function (event) {
             console.log(event.detail.value);
         }).bind(this));
-
-        /*this.sound = new Sound(1);
-        this.sound.play();*/
         let playRace = document.getElementById(Ids.INIT.SITE);
         playRace.addEventListener('click', () => {
-            TranstionView.show(Ids.VIEWS.START, Ids.INIT.SITE);
+            ViewHandler.show(Ids.VIEWS.START);
         });
         document.addEventListener('keyup', (e) => {
             if(e.keyCode === 37) {
@@ -44,6 +46,7 @@ export class Intro {
         });
 
     }
+
     placement() {
         if(document.getElementById(Ids.INIT.FOOTLEFT).classList.contains('foot--active') && document.getElementById(Ids.INIT.FOOTRIGHT).classList.contains('foot--active') && this.one) {
             TweenMax.delayedCall(2,() => {

@@ -1,7 +1,6 @@
 import { Bus } from "../../events/Bus";
 import ArrowSVG from "../../../img/arrow.svg";
-import {Builder} from "../Utils/SVGHelper";
-import {ClassNames, Ids} from "../../../datas/dom";
+import { Sort } from "../Utils/Sort";
 
 export class Time {
 
@@ -107,4 +106,33 @@ export class DifferenceAltitude {
         this.arrowEl.innerHTML = ArrowSVG;
         this.arrowEl.style.transform = 'rotate(' + (DA * -1) + 'deg)';
     }
+}
+
+export class Position {
+
+    constructor (el, User, MapRelief) {
+        this.el = el;
+        this.Bus = new Bus();
+        this.MapRelief = MapRelief;
+        this.User = User;
+    }
+
+    active () {
+        let info = this.calculPosition(this.MapRelief.RunnersCourse);
+        this.setText(info.position, info.total);
+        requestAnimationFrame(this.active.bind(this));
+    }
+
+    calculPosition (Runners) {
+        let runners = Sort.desc(Runners, 'self.position.value');
+        let position = 0;
+        let total = runners.length;
+        runners.forEach((runner, index) => { if (runner.self.name === this.User.name) position = index + 1; });
+        return { position, total }
+    }
+
+    setText (position, total) {
+        this.el.innerHTML = position + '/' + total;
+    }
+
 }

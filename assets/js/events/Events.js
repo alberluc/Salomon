@@ -10,6 +10,7 @@ export const Events = {
     ON_GAUGE_LEVEL_CHANGE: 'onGaugeLevelChange',
     ON_CHANGE_POINT_ALTITUDE: 'onChangePointAltitude',
 
+    ON_RUNNERS_MOVES: 'onRunnersMoves',
     ON_RUNNER_FINISHED: 'onUserFinished',
 
     ON_DEHYDRATION: 'onDehydration',

@@ -1,5 +1,6 @@
 import { Builder as SVGBuilder } from "../Utils/SVGHelper";
 import { TweenMax } from 'gsap';
+import { Bus } from "../../events/Bus";
 
 export class Map {
 
@@ -11,6 +12,7 @@ export class Map {
         this.pathEl = null;
         this.dividePercentage = 1;
         this.classNameImage = '';
+        this.Bus = new Bus();
     }
 
     init () {
