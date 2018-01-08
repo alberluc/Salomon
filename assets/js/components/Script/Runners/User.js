@@ -1,4 +1,5 @@
 import { Runner } from "./Runner";
+import { TweenMax } from 'gsap';
 
 export class User extends Runner {
 

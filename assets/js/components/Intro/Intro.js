@@ -1,12 +1,9 @@
 import { Ids } from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
+import { TranstionView } from "../Utils/TranstionView";
 import { Sound } from "../Sound/Sound";
 import { Race as RaceModel } from "../Race/Race";
 import { Bus } from "../../events/Bus";
-import { TweenMax } from 'gsap';
-
-
-
 
 export class Intro {
 
@@ -16,13 +13,11 @@ export class Intro {
     }
 
     timeToPlay () {
-        TweenMax.from('.path',1, {
-            drawSVG:"50% 50%",
-        });
+        console.log(document.getElementById('stroke_headphone').getTotalLength());
         let startTimeToPlay = document.getElementById(Ids.INIT.PLAY);
         startTimeToPlay.addEventListener('click', () => {
             this.intruction();
-            ViewHandler.show(Ids.INIT.SITE);
+            TranstionView.show(Ids.INIT.SITE, Ids.INIT.PLAY);
         });
     }
 
@@ -36,7 +31,7 @@ export class Intro {
         this.sound.play();*/
         let playRace = document.getElementById(Ids.INIT.SITE);
         playRace.addEventListener('click', () => {
-            ViewHandler.show(Ids.VIEWS.START);
+            TranstionView.show(Ids.VIEWS.START, Ids.INIT.SITE);
         });
         document.addEventListener('keyup', (e) => {
             if(e.keyCode === 37) {
