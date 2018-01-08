@@ -91,6 +91,42 @@
       svg, img {
         flex:1;
       }
+      #refueling {
+        width:100px;
+        position: absolute;
+        top:10px;
+        left:50%;
+        line {
+          stroke-dasharray: 30;
+          stroke-dashoffset: 30;
+          animation: move2 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+          @keyframes move2 {
+            0% {
+              stroke-dashoffset: 0;
+
+            }
+            100% {
+              stroke-dashoffset: 30;
+
+            }
+          }
+        }
+        rect {
+          stroke-dasharray: 83;
+          stroke-dashoffset: 83;
+          animation: move1 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+          @keyframes move1 {
+            0% {
+              stroke-dashoffset: 83;
+
+            }
+            0% {
+              stroke-dashoffset: 0;
+
+            }
+          }
+        }
+      }
     }
     .race-top_indication {
       width:110px;
