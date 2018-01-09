@@ -15,9 +15,9 @@ export default [
                                     from: 0,
                                     to: 1,
                                     duration: 5
-                                }
+                                },
+                                onFinish: () => { console.log('sound finish') }
                             },
-                            onFinish: () => { console.log('sound finish') }
                         }
                     ]
                 }
