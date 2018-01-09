@@ -1,11 +1,13 @@
 import { Ids } from './dom'
 import { Audios } from './Medias'
+import { Events } from "../js/events/Events";
 
 export default [
     {
         id: Ids.VIEWS.START,
         appear: {
             flag: {
+                types: Events.ON_PURPOSE_PASS_VOICE,
                 audios: {
                     play: [
                         {
@@ -28,6 +30,11 @@ export default [
                                                             to: 1,
                                                             duration: 5
                                                         },
+                                                        onFinish: {
+                                                            flag: {
+                                                                types: Events.ON_DISABLE_PURPOSE_PASS_VOICE
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             ]
