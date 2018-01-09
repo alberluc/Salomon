@@ -3,7 +3,6 @@ import { Events } from "./Events";
 let instance = null;
 
 export class Bus {
-
     constructor () {
         if (!instance) {
             this.types = Events;
@@ -25,5 +24,4 @@ export class Bus {
         });
         this.el.dispatchEvent(e);
     }
-
 }

@@ -12,7 +12,7 @@ import { Race as RaceModel } from "./Race/Race";
 import { Ids, ClassNames } from "../../datas/dom";
 import { ViewHandler } from './Utils/ViewHandler';
 import RaceScriptConfig_01 from '../../datas/race-script-01';
-import { Canvas as CanvasModel } from './Particules/Canvas';
+import { Canvas } from './Particules/Canvas';
 import { TweenMax } from 'gsap';
 import { Timer } from "./Race/Timer";
 import {
@@ -23,6 +23,7 @@ import {
     Position as PositionIndicator
 } from "./Race/Indicators";
 import {Navigation} from "./Script/Navigation";
+
 
 
 export class App {
@@ -120,8 +121,7 @@ export class App {
 
     // Initialise le background
     initCanvas() {
-        this.Canvas = new CanvasModel('canvas');
-        this.Canvas.build(481);
+        this.Canvas = new Canvas('canvas');
     }
 
     initIndicators () {
