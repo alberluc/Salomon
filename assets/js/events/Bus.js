@@ -20,7 +20,6 @@ export class Bus {
     }
 
     dispatch (type, params) {
-        console.log(type)
         let e = new CustomEvent(type, {
             detail: params
         });

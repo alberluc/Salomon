@@ -8,7 +8,6 @@ export class CountDown {
      * @param self
      */
     constructor (el, self) {
-        console.log(el, self)
         this.el = el;
         this.self = self;
         this.callback = null;

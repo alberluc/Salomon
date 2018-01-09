@@ -29,7 +29,6 @@ export class Timer {
     }
 
     interact () {
-        console.log('interact')
         this.show();
         this.start(this.time);
     }

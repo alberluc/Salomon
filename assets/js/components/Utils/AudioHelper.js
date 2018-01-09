@@ -20,7 +20,12 @@ export class AudioHelper {
         AudioContext.play();
         AudiosContextPlaying[src] = AudioContext;
         if (typeof options.onStart !== "undefined") this.eval(AudioContext, false, options.onStart);
-        if (typeof options.onFinish !== "undefined") this.eval(AudioContext, 'ended', options.onFinish)
+        if (typeof options.onFinish !== "undefined") this.eval(AudioContext, 'ended', options.onFinish);
+        this.eval(AudioContext, 'ended', this.removeAudioContext.bind(this, src));
+    }
+
+    static removeAudioContext (src) {
+        delete AudiosContextPlaying[src];
     }
 
     static stop (src) {
@@ -47,9 +52,9 @@ export class AudioHelper {
                 this.Bus.dispatch(callback);
             }
             else {
-                AudioContext.addEventListener(event, function () {
+                AudioContext.addEventListener(event, (function () {
                     this.Bus.dispatch(callback);
-                });
+                }).bind(this));
             }
         }
         else {
