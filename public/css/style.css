@@ -55,7 +55,12 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  background: #000; }
+  background: #000;
+  animation-name: infinitzoom;
+  animation-duration: 3s;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out; }
 
 .gradient {
   border-width: 1px;
@@ -66,6 +71,11 @@ body {
   -o-border-image: -o-linear-gradient(0deg, #09c0dd 0%, #0dc1da 14.79%, #1ac2d3 30.13%, #2ec5c6 45.71%, #4bc9b4 61.48%, #71cd9d 77.38%, #9ed381 93.17%, #b4d673 100%);
   border-image: linear-gradient(90deg, #09c0dd 0%, #0dc1da 14.79%, #1ac2d3 30.13%, #2ec5c6 45.71%, #4bc9b4 61.48%, #71cd9d 77.38%, #9ed381 93.17%, #b4d673 100%); }
 
+@keyframes infinitzoom {
+  from {
+    transform: scale(1.1); }
+  to {
+    transform: scale(1.15); } }
 @keyframes beatBeat {
   0% {
     transform: scale(1.3); }
@@ -578,6 +588,8 @@ circle {
     justify-content: center; }
     .race_view #mapRelief svg, .race_view #mapRelief img {
       flex: 1; }
+    .race_view #mapRelief path {
+      fill: transparent; }
     .race_view #mapRelief #refueling {
       width: 100px;
       position: absolute;
