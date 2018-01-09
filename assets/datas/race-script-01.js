@@ -40,21 +40,22 @@ export default {
                 level: 65
             },
             flag: {
-              audios: {
-                  play: [
-                      {
-                          src: Audios.ENV.CLAPPING,
-                          options: {
-                              volume: {
-                                  from: 0,
-                                  to: 1,
-                                  duration: 5
-                              },
-                              onFinish: 'onSoundFinish'
+                  audios: {
+                      play: [
+                          {
+                              src: Audios.ENV.CLAPPING,
+                              options: {
+                                  volume: {
+                                      from: 0,
+                                      to: 1,
+                                      duration: 5
+                                  },
+                                  onStart: 'onSoundStart',
+                                  onFinish: 'onSoundFinish'
+                              }
                           }
-                      }
-                  ]
-              }
+                      ]
+                  }
             },
             altitude: '1330km',
             ratioMove: 0.95

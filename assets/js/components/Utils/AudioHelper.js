@@ -19,6 +19,7 @@ export class AudioHelper {
         this.fromToVolume(AudioContext, options.volume.from, options.volume.to, options.volume.duration);
         AudioContext.play();
         AudiosContextPlaying[src] = AudioContext;
+        if (typeof options.onStart !== "undefined") this.eval(AudioContext, false, options.onStart);
         if (typeof options.onFinish !== "undefined") this.eval(AudioContext, 'ended', options.onFinish)
     }
 
@@ -41,13 +42,23 @@ export class AudioHelper {
 
     static eval (AudioContext, event, callback) {
         if (typeof callback === "string") {
-            AudioContext.addEventListener(event, function () {
-                this.Bus = new Bus();
+            this.Bus = new Bus();
+            if (!event) {
                 this.Bus.dispatch(callback);
-            });
+            }
+            else {
+                AudioContext.addEventListener(event, function () {
+                    this.Bus.dispatch(callback);
+                });
+            }
         }
         else {
-            AudioContext.addEventListener(event, callback);
+            if (!event) {
+                callback();
+            }
+            else {
+                AudioContext.addEventListener(event, callback);
+            }
         }
     }
 
