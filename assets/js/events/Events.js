@@ -20,6 +20,9 @@ export const Events = {
     ON_CHANGE_CURRENT_POINT: 'onPassPoint',
 
     ON_TIMER_CLICK: 'onTimerClick',
-    ON_TIMER_COMPLETE: 'onTimerComplete'
+    ON_TIMER_COMPLETE: 'onTimerComplete',
+
+    ON_VIEW_APPEAR: 'onViewAppear',
+    ON_VIEW_DISAPPEAR: 'onViewDisappear'
 
 };

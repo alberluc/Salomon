@@ -1,9 +1,11 @@
 import base from './base-script'
+import navigation from './navigation'
 import { Audios, Maps } from './Medias'
-import { Events } from "../js/events/Events";
+import { Events } from "../js/events/Events"
 
 export default {
     base,
+    navigation,
     multiplyRatio: 0.008,
     danger: {
         numberOfClick: 3,
@@ -39,7 +41,7 @@ export default {
             gauge: {
                 level: 65
             },
-            flag: {
+            /*flag: {
                   audios: {
                       play: [
                           {
@@ -56,7 +58,7 @@ export default {
                           }
                       ]
                   }
-            },
+            },*/
             altitude: '1330km',
             ratioMove: 0.95
         },

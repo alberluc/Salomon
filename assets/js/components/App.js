@@ -22,6 +22,7 @@ import {
     Gauge as GaugeIndicator,
     Position as PositionIndicator
 } from "./Race/Indicators";
+import {Navigation} from "./Script/Navigation";
 
 
 export class App {
@@ -36,6 +37,7 @@ export class App {
     init () {
         ViewHandler.show(Ids.VIEWS.PLAY);
         this.initScript(RaceScriptConfig_01);
+        this.initNavigation(RaceScriptConfig_01.navigation);
         this.initMaps();
         this.initGauge();
         this.initSleepMode();
@@ -55,6 +57,11 @@ export class App {
     initScript (script) {
         this.UnitsBuilder = new UnitsBuilder(script.base.units, { distance: script.distance, altitude: script.altitude });
         this.Script = new ScriptModel(script, this.UnitsBuilder);
+    }
+
+    initNavigation(navigation) {
+        this.Navigation = new Navigation(navigation);
+        this.Navigation.init();
     }
 
     /**

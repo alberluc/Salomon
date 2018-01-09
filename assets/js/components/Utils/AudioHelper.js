@@ -15,6 +15,15 @@ export class AudioHelper {
     }
 
     static play (src, options) {
+        if (typeof options.timeout !== "undefined") {
+            setTimeout(this.startPlay.bind(this, src, options), options.timeout);
+        }
+        else {
+            this.startPlay(src, options);
+        }
+    }
+
+    static startPlay (src, options) {
         let AudioContext = new Audio(src);
         this.fromToVolume(AudioContext, options.volume.from, options.volume.to, options.volume.duration);
         AudioContext.play();
@@ -28,8 +37,10 @@ export class AudioHelper {
         delete AudiosContextPlaying[src];
     }
 
-    static stop (src) {
-        AudiosContextPlaying[src].stop();
+    static stop (src, options) {
+        if (typeof options.onStop !== "undefined") this.eval(AudiosContextPlaying[src], false, options.onStop);
+        AudiosContextPlaying[src].pause();
+        this.removeAudioContext(src);
     }
 
     static fromToVolume (AudioContext, from, to, duration) {

@@ -16,7 +16,7 @@ export class Flag {
         }
         if (this.audios !== null) {
             if (typeof this.audios.play !== "undefined") this.audios.play.forEach(audio => AudioHelper.play(audio.src, audio.options || {}));
-            if (typeof this.audios.stop !== "undefined") this.audios.stop.forEach(audio => AudioHelper.stop(audio.src));
+            if (typeof this.audios.stop !== "undefined") this.audios.stop.forEach(audio => AudioHelper.stop(audio.src, audio.options || {}));
         }
     }
 
