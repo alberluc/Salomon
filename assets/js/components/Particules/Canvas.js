@@ -65,8 +65,6 @@ export function Canvas(el) {
     let velo = 0;
     function Render() {
         let dangerRace = document.querySelector('.race-danger');
-
-        console.log(dangerRace);
         window.requestAnimationFrame(Render);
         c.clearRect(0,0,w,h);
         if(dangerRace) {
