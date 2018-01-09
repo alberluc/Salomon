@@ -15,12 +15,7 @@ export class AudioHelper {
     }
 
     static play (src, options) {
-        if (typeof options.timeout !== "undefined") {
-            setTimeout(this.startPlay.bind(this, src, options), options.timeout);
-        }
-        else {
-            this.startPlay(src, options);
-        }
+        this.evalTimeout(options, this.startPlay.bind(this, src, options));
     }
 
     static startPlay (src, options) {
@@ -38,9 +33,11 @@ export class AudioHelper {
     }
 
     static stop (src, options) {
-        if (typeof options.onStop !== "undefined") this.eval(AudiosContextPlaying[src], false, options.onStop);
-        AudiosContextPlaying[src].pause();
-        this.removeAudioContext(src);
+        this.evalTimeout(options, (function () {
+            if (typeof options.onStop !== "undefined") this.eval(AudiosContextPlaying[src], false, options.onStop);
+            AudiosContextPlaying[src].pause();
+            this.removeAudioContext(src);
+        }).bind(this))
     }
 
     static fromToVolume (AudioContext, from, to, duration) {
@@ -75,6 +72,15 @@ export class AudioHelper {
             else {
                 AudioContext.addEventListener(event, callback);
             }
+        }
+    }
+
+    static evalTimeout (options, callback) {
+        if (typeof options.timeout !== "undefined") {
+            setTimeout(callback, options.timeout);
+        }
+        else {
+            callback();
         }
     }
 

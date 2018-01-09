@@ -22,8 +22,8 @@ export default [
                     ]
                 }
             }
-        }
-        /*disappear: {
+        },
+        disappear: {
             flag: {
                 key: '24',
                 audios: {
@@ -31,12 +31,13 @@ export default [
                         {
                             src: Audios.ENV.CLAPPING,
                             options: {
+                                timeout: 1000,
                                 onStop: () => { console.log('sound stop') }
                             }
                         }
                     ]
                 }
             }
-        }*/
+        }
     }
 ]
