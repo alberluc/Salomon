@@ -1,6 +1,7 @@
 import { TweenMax } from 'gsap';
 import { Audios } from "../../../datas/Medias";
 import { Bus } from "../../events/Bus";
+import { Flag } from "../Script/Flag";
 
 let AudiosContextPlaying = {};
 
@@ -19,6 +20,7 @@ export class AudioHelper {
     }
 
     static startPlay (src, options) {
+        console.log("audio playing " + src);
         let AudioContext = new Audio(src);
         this.fromToVolume(AudioContext, options.volume.from, options.volume.to, options.volume.duration);
         AudioContext.play();
@@ -54,34 +56,30 @@ export class AudioHelper {
     }
 
     static eval (AudioContext, event, callback) {
-        if (typeof callback === "string") {
-            this.Bus = new Bus();
+        if (typeof callback.flag !== "undefined") {
             if (!event) {
-                this.Bus.dispatch(callback);
+                let FlagContext = new Flag(callback.flag);
+                FlagContext.dispatch();
             }
-            else {
-                AudioContext.addEventListener(event, (function () {
-                    this.Bus.dispatch(callback);
-                }).bind(this));
-            }
+            else AudioContext.addEventListener(event, function () {
+                let FlagContext = new Flag(callback.flag);
+                FlagContext.dispatch();
+            });
+        }
+        else if (typeof callback === "string") {
+            this.Bus = new Bus();
+            if (!event) this.Bus.dispatch(callback);
+            else AudioContext.addEventListener(event, (function () { this.Bus.dispatch(callback); }).bind(this));
         }
         else {
-            if (!event) {
-                callback();
-            }
-            else {
-                AudioContext.addEventListener(event, callback);
-            }
+            if (!event) callback();
+            else AudioContext.addEventListener(event, callback);
         }
     }
 
     static evalTimeout (options, callback) {
-        if (typeof options.timeout !== "undefined") {
-            setTimeout(callback, options.timeout);
-        }
-        else {
-            callback();
-        }
+        if (typeof options.timeout !== "undefined") setTimeout(callback, options.timeout);
+        else callback();
     }
 
 }

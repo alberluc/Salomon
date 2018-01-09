@@ -13,6 +13,7 @@ export const Audios = {
 
     },
     ENV: {
-        CLAPPING: SRC_AUDIOS + '2.wav'
+        CLAPPING: SRC_AUDIOS + '2.wav',
+        CLAPPING1: SRC_AUDIOS + '1.mp3'
     }
 };

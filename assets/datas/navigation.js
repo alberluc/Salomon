@@ -16,7 +16,24 @@ export default [
                                     to: 1,
                                     duration: 5
                                 },
-                                onFinish: () => { console.log('sound finish') }
+                                onFinish: {
+                                    flag: {
+                                        audios: {
+                                            play: [
+                                                {
+                                                    src: Audios.ENV.CLAPPING1,
+                                                    options: {
+                                                        volume: {
+                                                            from: 0,
+                                                            to: 1,
+                                                            duration: 5
+                                                        },
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
                             },
                         }
                     ]
