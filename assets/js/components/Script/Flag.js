@@ -15,8 +15,8 @@ export class Flag {
             this.Bus.dispatch(this.type);
         }
         if (this.audios !== null) {
-            if (typeof this.audios.play !== "undefined") this.audios.play.forEach(src => AudioHelper.play(src));
-            if (typeof this.audios.stop !== "undefined") this.audios.stop.forEach(src => AudioHelper.stop(src));
+            if (typeof this.audios.play !== "undefined") this.audios.play.forEach(audio => AudioHelper.play(audio.src, audio.options || {}));
+            if (typeof this.audios.stop !== "undefined") this.audios.stop.forEach(audio => AudioHelper.stop(audio.src));
         }
     }
 

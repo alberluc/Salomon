@@ -1,7 +1,8 @@
 import { TweenMax } from 'gsap';
 import { Audios } from "../../../datas/Medias";
+import { Bus } from "../../events/Bus";
 
-let audiosPlaying = {};
+let AudiosContextPlaying = {};
 
 export class AudioHelper {
 
@@ -10,29 +11,44 @@ export class AudioHelper {
     }
 
     static getAudioContext (src) {
-        return audiosPlaying[src];
+        return AudiosContextPlaying[src];
     }
 
-    static play (src, callbacks) {
-        callbacks = callbacks || {};
+    static play (src, options) {
         let AudioContext = new Audio(src);
-        this.setVolume(AudioContext, 0);
-        this.gotoVolume(AudioContext, 5, 1);
+        this.fromToVolume(AudioContext, options.volume.from, options.volume.to, options.volume.duration);
         AudioContext.play();
-        audiosPlaying[src] = AudioContext;
-        if (typeof callbacks.onFinish !== "undefined") audiosPlaying[src].addEventListener('ended', callbacks.onFinish);
+        AudiosContextPlaying[src] = AudioContext;
+        if (typeof options.onFinish !== "undefined") this.eval(AudioContext, 'ended', options.onFinish)
     }
 
     static stop (src) {
-        audiosPlaying[src].stop();
+        AudiosContextPlaying[src].stop();
+    }
+
+    static fromToVolume (AudioContext, from, to, duration) {
+        this.setVolume(AudioContext, from);
+        this.goToVolume(AudioContext, duration, to);
     }
 
     static setVolume (AudioContext, volume) {
         TweenMax.set(AudioContext, { volume });
     }
 
-    static gotoVolume (AudioContext, duration, volume) {
+    static goToVolume (AudioContext, duration, volume) {
         TweenMax.to(AudioContext, duration, { volume });
+    }
+
+    static eval (AudioContext, event, callback) {
+        if (typeof callback === "string") {
+            AudioContext.addEventListener(event, function () {
+                this.Bus = new Bus();
+                this.Bus.dispatch(callback);
+            });
+        }
+        else {
+            AudioContext.addEventListener(event, callback);
+        }
     }
 
 }
