@@ -5,3 +5,14 @@ export const Maps = {
     MapCourse_1: MapCourse_1,
     MapCourse_2: MapCourse_2,
 };
+
+const SRC_AUDIOS = '../sound/';
+
+export const Audios = {
+    VOICE: {
+
+    },
+    ENV: {
+        CLAPPING: SRC_AUDIOS + '2.wav'
+    }
+};

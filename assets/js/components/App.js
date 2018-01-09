@@ -74,7 +74,7 @@ export class App {
      * Initialise le mode veille
      */
     initSleepMode () {
-        let SleepMode = new SleepModeModel(25000, document.body, ClassNames.SLEEP_MODE_ACTIVE);
+        let SleepMode = new SleepModeModel(this.Script.self.base.durationBeforeSleep, document.body, ClassNames.SLEEP_MODE_ACTIVE);
         SleepMode.watch([
             {
                 target: document,
@@ -99,8 +99,11 @@ export class App {
     }
 
     initRace () {
-        this.Race = new RaceModel(this.Script, this.MapCourse, this.MapRelief);
-        this.Race.waitStart(this.onScriptStart.bind(this));
+        this.Race = new RaceModel(this.Script, {
+            onStart: this.onRaceStart.bind(this),
+            onFinish: this.onRaceFinish.bind(this)
+        });
+        this.Race.waitStart();
     }
 
     initTimer () {
@@ -122,7 +125,7 @@ export class App {
         this.PositionIndicator = new PositionIndicator(document.getElementById(Ids.RACE.INDICATOR.POSITION), this.Script.User, this.MapRelief);
     }
 
-    onScriptStart () {
+    onRaceStart () {
         this.TimeIndicator.active();
         this.DistanceIndicator.active();
         this.DAltitudeIndicator.active();
@@ -138,6 +141,14 @@ export class App {
     tmp () {
         let simulateMovementEl = document.getElementById('simulateMovement');
         simulateMovementEl.addEventListener('click', this.API_Movement.onMovementReceived.bind(this.API_Movement));
+    }
+
+    onRaceFinish() {
+        this.TimeIndicator.disable();
+        this.DistanceIndicator.disable();
+        this.DAltitudeIndicator.disable();
+        this.GaugeIndicator.disable();
+        this.PositionIndicator.disable();
     }
 
 };

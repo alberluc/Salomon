@@ -13,7 +13,6 @@ export class MapRelief extends Map {
         this.Script = Script;
         this.PointsAltitude = Sort.exists(Script.Points, 'altitude');
         this.currentPointAltitude = this.PointsAltitude[0];
-        this.classNameImage = ClassNames.RUNNER_IMAGE;
         this.Bus.listen(this.Bus.types.ON_USER_MOVE, this.onUserMove.bind(this));
     }
 

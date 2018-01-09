@@ -33,5 +33,6 @@ export default {
                 }
             }
         }
-    }
+    },
+    durationBeforeSleep: 25000
 }

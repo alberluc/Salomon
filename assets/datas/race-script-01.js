@@ -1,5 +1,5 @@
 import base from './base-script'
-import { Maps } from './FileMaps'
+import { Audios, Maps } from './Medias'
 import { Events } from "../js/events/Events";
 
 export default {
@@ -38,6 +38,11 @@ export default {
         0: {
             gauge: {
                 level: 65
+            },
+            flag: {
+              audios: {
+                  play: [ Audios.ENV.CLAPPING ]
+              }
             },
             altitude: '1330km',
             ratioMove: 0.95

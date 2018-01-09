@@ -13,6 +13,7 @@ export class Time {
         this.el = el;
         this.DateStart = null;
         this.self = time;
+        this.animation = null;
     }
 
     active () {
@@ -20,9 +21,13 @@ export class Time {
         this.watch();
     }
 
+    disable () {
+        cancelAnimationFrame(this.animation);
+    }
+
     watch () {
         this.setText(this.calculTime(new Date()));
-        requestAnimationFrame(this.watch.bind(this));
+        this.animation = requestAnimationFrame(this.watch.bind(this));
     }
 
     calculTime (Date) {
@@ -44,15 +49,23 @@ export class Distance {
     constructor (el) {
         this.el = el;
         this.Bus = new Bus();
+        this.run = true;
+    }
+
+    disable () {
+        this.run = false;
     }
 
     active () {
         this.Bus.listen(this.Bus.types.ON_USER_MOVE, this.setText.bind(this));
+        this.el.innerHTML = "0km";
     }
 
     setText (params) {
-        let position = params.position;
-        this.el.innerHTML = (Math.round(position.value * 100) / 100) + position.unit.key;
+        if (this.run) {
+            let position = params.position;
+            this.el.innerHTML = (Math.round(position.value * 100) / 100) + position.unit.key;
+        }
     }
 
 }
@@ -62,14 +75,22 @@ export class Gauge {
     constructor (el) {
         this.el = el;
         this.Bus = new Bus();
+        this.run = true;
+    }
+
+    disable () {
+        this.run = false;
     }
 
     active () {
-        this.Bus.listen(this.Bus.types.ON_GAUGE_LEVEL_CHANGE, this.onGaugeLevelChange.bind(this))
+        this.Bus.listen(this.Bus.types.ON_GAUGE_LEVEL_CHANGE, this.onGaugeLevelChange.bind(this));
+        this.onGaugeLevelChange({ value: 50 });
     }
 
     onGaugeLevelChange (params) {
-        this.el.innerHTML = (Math.round(params.value * 10) / 10) + '%';
+        if (this.run) {
+            this.el.innerHTML = (Math.round(params.value * 10) / 10) + '%';
+        }
     }
 
 }
@@ -80,6 +101,7 @@ export class DifferenceAltitude {
         this.el = el;
         this.Bus = new Bus();
         this.arrowEl = null;
+        this.run = true;
     }
 
     active () {
@@ -87,8 +109,14 @@ export class DifferenceAltitude {
         this.Bus.listen(this.Bus.types.ON_CHANGE_POINT_ALTITUDE, this.onChangePointAltitude.bind(this))
     }
 
+    disable () {
+        this.run = false;
+    }
+
     onChangePointAltitude (params) {
-        this.setText(this.calculDAltitude(params.current, params.next));
+        if (this.run) {
+            this.setText(this.calculDAltitude(params.current, params.next));
+        }
     }
 
     calculDAltitude(current, next) {
@@ -115,12 +143,17 @@ export class Position {
         this.Bus = new Bus();
         this.MapRelief = MapRelief;
         this.User = User;
+        this.animation = null;
     }
 
     active () {
         let info = this.calculPosition(this.MapRelief.RunnersCourse);
         this.setText(info.position, info.total);
-        requestAnimationFrame(this.active.bind(this));
+        this.animation = requestAnimationFrame(this.active.bind(this));
+    }
+
+    disable () {
+        cancelAnimationFrame(this.animation);
     }
 
     calculPosition (Runners) {

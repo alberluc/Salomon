@@ -46,7 +46,7 @@ export class Runner {
     }
 
     animate (incrementValue) {
-        let divide = 100;
+        let divide = 60;
         let i = 0;
         let incrementValueDivide = incrementValue / divide;
         let speedDivide = this.speed / divide;

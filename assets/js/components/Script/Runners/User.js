@@ -1,5 +1,6 @@
 import { Runner } from "./Runner";
 import { TweenMax } from 'gsap';
+import {ClassNames} from "../../../../datas/dom";
 
 export class User extends Runner {
 
@@ -12,6 +13,7 @@ export class User extends Runner {
     constructor (user, Script, position) {
         super(user, Script, position);
         this.stepsEl = document.querySelectorAll('.steps');
+        this.className = ClassNames.RUNNER_USER;
         /* PARTIE USER this.Bus.listen(this.Bus.types.ON_USER_STEPS, (function () {*/
         this.Bus.listen(this.Bus.types.ON_USER_MOVE_RECEIVED, this.onUserMoveReceived.bind(this));
     }

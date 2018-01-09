@@ -11,8 +11,8 @@ export class Map {
         this.mapTotalLength = 0;
         this.pathEl = null;
         this.dividePercentage = 1;
-        this.classNameImage = '';
         this.Bus = new Bus();
+        this.animation = null;
     }
 
     init () {
@@ -30,9 +30,13 @@ export class Map {
         this.Script.Bots.forEach(Bot => this.setRunner(Bot));
     }
 
+    stop () {
+        cancelAnimationFrame(this.animation);
+    }
+
     setRunner (Runner) {
         let RunnerCourse = {
-            image: SVGBuilder.circle(0, 0, Runner.size, Runner.color, this.classNameImage),
+            image: SVGBuilder.circle(0, 0, Runner.size, Runner.color, Runner.className),
             self: Runner
         };
         this.buildImage(RunnerCourse.image);
@@ -56,7 +60,7 @@ export class Map {
 
     animate () {
         this.RunnersCourse.forEach(RunnerCourse => this.setPosition(RunnerCourse));
-        requestAnimationFrame(this.animate.bind(this));
+        this.animation = requestAnimationFrame(this.animate.bind(this));
     }
 
 }

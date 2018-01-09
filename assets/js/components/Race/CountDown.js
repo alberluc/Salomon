@@ -2,6 +2,11 @@ import { TweenMax } from 'gsap';
 
 export class CountDown {
 
+    /**
+     * Constructeur du Compteur
+     * @param el Element cible
+     * @param self
+     */
     constructor (el, self) {
         console.log(el, self)
         this.el = el;
@@ -12,12 +17,28 @@ export class CountDown {
         this.stroke = 0;
     }
 
+    /**
+     * Déclenche le compteur
+     * @param callback
+     */
     start (callback) {
         this.callback = callback;
         this.show();
         this.startTimer();
     }
 
+    /**
+     * Arrête le compteur
+     */
+    stop() {
+        this.stopTimer();
+        this.hide();
+        this.callback();
+    }
+
+    /**
+     * Déclenche un timer
+     */
     startTimer () {
         this.timer = setInterval(this.onTimerIncrement.bind(this), 1000);
         this.setText(this.self.time);
@@ -26,16 +47,16 @@ export class CountDown {
         })
     }
 
-    stop() {
-        this.stopTimer();
-        this.hide();
-        this.callback();
-    }
-
+    /**
+     * Arrête le timer
+     */
     stopTimer() {
         clearInterval(this.timer);
     }
 
+    /**
+     * Se déclenche lorsque le timer s'incrémente
+     */
     onTimerIncrement () {
         this.self.time--;
         this.stroke += 314;
@@ -47,14 +68,24 @@ export class CountDown {
 
     }
 
+    /**
+     * Affiche le compteur
+     */
     show () {
         this.el.style.display = "flex";
     }
 
+    /**
+     * Désaffiche le compteur
+     */
     hide () {
         this.el.style.display = "none";
     }
 
+    /**
+     * Défini le texte du compteur
+     * @param timerValue
+     */
     setText (timerValue) {
         this.el.innerHTML = timerValue;
     }

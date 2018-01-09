@@ -8,14 +8,17 @@ import { Bus } from "../../events/Bus";
 
 export class Script {
 
+    /**
+     * Initialise le script en fonction d'un configuration passée en paramètre
+     * @param config
+     */
     constructor (config) {
+        this.self = config;
         this.UnitsBuilder = new UnitsBuilder();
         this.Bus = new Bus();
         this.Points = this.initPoints(config.map);
         this.Bots = this.initBots(config.bots);
         this.User = new UserModel(config.user, this, 0);
-        this.distanceInterval = Sort.getInterval(this.Points, 'distance.value');
-        this.altitudeInterval = Sort.getInterval(this.Points, 'altitude.value');
         this.multiplyRatio = config.multiplyRatio;
         this.mapRelief = config.mapRelief;
         this.mapCourse = config.mapCourse;
@@ -26,18 +29,31 @@ export class Script {
         this.gauge = this.initGauge(config.base.gauge);
         this.currentPoint = this.Points[0];
         this.PointsFlags = Sort.exists(this.Points, 'Flag');
-
         this.Bus.listen(this.Bus.types.ON_CHANGE_CURRENT_POINT, this.onChangeCurrentPoint.bind(this))
     }
 
+    /**
+     * Initialise les points de la map
+     * @param map
+     * @returns {Array}
+     */
     initPoints (map) {
         return Object.keys(map).map((distance, index) => new PointModel(map[distance], distance, index));
     }
 
+    /**
+     * Initialise les Bots
+     * @param bots
+     */
     initBots (bots) {
         return bots.map(bot => new BotModel(bot, this, 0));
     }
 
+    /**
+     * Initialise la jauge
+     * @param gaugeBase
+     * @returns {{Levels: Array}}
+     */
     initGauge (gaugeBase) {
         let Levels = Object.keys(gaugeBase.levels).map(value => (
             {
@@ -51,6 +67,10 @@ export class Script {
         }
     }
 
+    /**
+     * Se déclenche lorque le joueur passe d'un point à un autre
+     * @param params
+     */
     onChangeCurrentPoint (params) {
         this.PointsFlags.forEach(PointFlag => {
             if (PointFlag.id === params.id) {

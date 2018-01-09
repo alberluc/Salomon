@@ -14,7 +14,7 @@ const STATE = {
 
 export class Race {
 
-    constructor (Script) {
+    constructor (Script, callbacks) {
         this.Script = Script;
         this.End = new RaceEnd();
         this.Bus = new Bus();
@@ -24,16 +24,19 @@ export class Race {
         this.limitArray = 2;
         this.state = STATE.WAIT;
         this.Bus.listen(this.Bus.types.ON_RUNNER_FINISHED, this.onRunnerFinish.bind(this));
+        this.onStart = callbacks.onStart;
+        this.onFinish = callbacks.onFinish;
     }
 
-    waitStart (callback) {
+    waitStart () {
         let startViewEl = document.getElementById(Ids.VIEWS.START);
-        startViewEl.addEventListener('click', this.onStartViewClick.bind(this, callback));
+        startViewEl.addEventListener('click', this.onStartViewClick.bind(this));
     }
 
     start () {
         this.Script.Bots.forEach(Bot => Bot.run());
         this.state = STATE.RUN;
+        this.Bus.dispatch(this.Bus.types.ON_CHANGE_CURRENT_POINT, { id: 0 });
     }
 
     /*this.dataArduino.splice(-this.limitArray.length - 1, this.dataArduino.length - this.limitArray);
@@ -41,10 +44,10 @@ export class Race {
      }*/
 
     finish () {
+        this.onFinish();
         let scoreUser = this.scores.length;
         this.completeScore();
         this.End.build(this.scores, scoreUser);
-
         TweenMax.fromTo (('.race-center') , 1, {opacity:1}, {opacity:0,display:'none'});
         TweenMax.delayedCall(1,() => {
             TweenMax.fromTo (('#endView') , 1, {opacity:0}, {
@@ -78,14 +81,14 @@ export class Race {
         }
     }
 
-    onStartViewClick (callback) {
+    onStartViewClick () {
         ViewHandler.show(Ids.VIEWS.RACE);
-        this.CountDown.start(this.onCountDownFinish.bind(this, callback));
+        this.CountDown.start(this.onCountDownFinish.bind(this));
     }
 
-    onCountDownFinish (callback) {
+    onCountDownFinish () {
+        this.onStart();
         this.start();
-        callback();
     }
 
 }
