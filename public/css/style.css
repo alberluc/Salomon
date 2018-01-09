@@ -24,7 +24,11 @@ html, body {
 body {
   overflow: hidden;
   color: white;
-  box-shadow: inset 0 0 1355px 70px #090000; }
+  box-shadow: inset 0 0 1355px 70px #090000;
+  transition: box-shadow 0.5s; }
+
+.race-danger {
+  box-shadow: inset 0 0 1355px 70px #380000; }
 
 .noselect, body {
   -webkit-touch-callout: none;
@@ -57,7 +61,7 @@ body {
   top: 0;
   background: #000;
   animation-name: infinitzoom;
-  animation-duration: 3s;
+  animation-duration: 5s;
   animation-direction: alternate-reverse;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out; }
