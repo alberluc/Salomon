@@ -39,7 +39,7 @@ export class Builder {
 
     static svg (id, className) {
         let _el = document.createElementNS(namespaceSVG, 'svg');
-        _el.setAttribute('id', id);
+        if (typeof id !== "undefined" && id !== '' ) _el.setAttribute('id', id);
         if (typeof className !== "undefined" && className !== '' ) _el.classList.add(className);
         return _el;
     }

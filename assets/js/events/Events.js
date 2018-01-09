@@ -23,6 +23,9 @@ export const Events = {
     ON_TIMER_COMPLETE: 'onTimerComplete',
 
     ON_VIEW_APPEAR: 'onViewAppear',
-    ON_VIEW_DISAPPEAR: 'onViewDisappear'
+    ON_VIEW_DISAPPEAR: 'onViewDisappear',
+
+    ON_PURPOSE_PASS_VOICE: 'onPurposePassVoice',
+    ON_DISABLE_PURPOSE_PASS_VOICE: 'onDisablePurposePassVoice'
 
 };
