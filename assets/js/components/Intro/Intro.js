@@ -3,6 +3,7 @@ import { ViewHandler } from "../Utils/ViewHandler";
 import { Race as RaceModel } from "../Race/Race";
 import { Bus } from "../../events/Bus";
 import { TweenMax } from 'gsap';
+import { AudioHelper } from "../Utils/AudioHelper";
 
 
 

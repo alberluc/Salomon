@@ -41,15 +41,41 @@ export class Gauge {
     }
 
     buildBarLevel () {
-        this.templateWave = `
+        /* SAVE this.templateWave = `
         <div class='wave one'></div>
         <div class='wave two'></div>
-        <div class='wave three'></div>`;
+        <div class='wave three'></div>`;*/
+        this.tempalteSvgWave = `
+        <svg class="editorial"
+             xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 24 150 28"
+             preserveAspectRatio="none">
+         <defs>
+         <path id="gentle-wave"
+         d="M-160 44c30 0 
+            58-18 88-18s
+            58 18 88 18 
+            58-18 88-18 
+            58 18 88 18
+            v44h-352z" />
+           <linearGradient id="Dgrade_sans_nom_110" y1="225.49" x2="1608.63" y2="225.49" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c0dd"/><stop offset="0.15" stop-color="#0dc1da"/><stop offset="0.3" stop-color="#1ac2d3"/><stop offset="0.46" stop-color="#2ec5c6"/><stop offset="0.61" stop-color="#4bc9b4"/><stop offset="0.77" stop-color="#71cd9d"/><stop offset="0.93" stop-color="#9ed381"/><stop offset="1" stop-color="#b4d673"/></linearGradient>
+          </defs>
+          <g class="parallax">
+           <use xlink:href="#gentle-wave" x="50" y="0" fill="url(#Dgrade_sans_nom_110)"/>
+           <use xlink:href="#gentle-wave" x="50" y="3" fill="url(#Dgrade_sans_nom_110)"/>
+           <use xlink:href="#gentle-wave" x="50" y="6" fill="url(#Dgrade_sans_nom_110)"/>  
+          </g>
+        </svg>
+        <div class="bottomWave"></div>
+        `
         this.barLevel.el = document.createElement("div");
         this.barLevel.el.classList.add(ClassNames.GAUGE_BAR_LEVEL);
         this.setPositionBarLevel(this.baseBarLevel);
         this.el.appendChild(this.barLevel.el);
-        this.barLevel.el.innerHTML = this.templateWave;
+        this.barLevel.el.innerHTML = this.tempalteSvgWave;
+
+        /* SAVE this.barLevel.el.innerHTML = this.templateWave; */
     }
 
     setPositionBarLevel (value) {

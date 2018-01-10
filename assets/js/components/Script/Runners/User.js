@@ -44,11 +44,6 @@ export class User extends Runner {
         step.classList.remove('steps_' + id + '-' + dir);
         id--;
         if (id === 0) id = this.stepsEl.length;
-        if(id === 0) {
-            TweenMax.to(id, 0.3, {
-                autoAlpha: 0,
-            })
-        }
         step.classList.add('steps_' + id + '-' + dir);
         step.setAttribute('id', 'step_' + id);
     }

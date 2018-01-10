@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
-
-/****************************************
- *	Générique
- ****************************************/
-
-@import "utils/base";
-@import "utils/text";
-
 /****************************************
  *	Fonts & Variables
  ****************************************/
@@ -15,6 +7,14 @@
 @import "utils/variables";
 @import "utils/btn";
 @import "utils/mixins";
+
+
+/****************************************
+ *	Générique
+ ****************************************/
+
+@import "utils/base";
+@import "utils/text";
 
 /****************************************
  *	Composants

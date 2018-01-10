@@ -12,6 +12,8 @@ export class Runner {
         this.size = runner.size;
         this.speed = runner.speed;
         this.ratioOnDanger = runner.ratioOnDanger;
+        this.strokeWidth = runner.strokeWidth;
+        this.strokeColor = runner.strokeColor;
         this.arrived = false;
         this.reduceSpeed = false;
         this._position = this.UnitBuilder.convert(position, 'distance', false);
@@ -40,6 +42,7 @@ export class Runner {
 
     incrementPosition () {
         if (!this.arrived) {
+
             let incrementValue = this.Script.multiplyRatio * this.ratioMove;
             this.animate(incrementValue);
         }
