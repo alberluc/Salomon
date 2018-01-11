@@ -1,6 +1,6 @@
-import { Bus } from "../../events/Bus";
-import ArrowSVG from "../../../img/arrow.svg";
-import { Sort } from "../Utils/Sort";
+import { Bus } from "../../events/Bus"
+import { Sort } from "../Utils/Sort"
+import { Image } from "../../../datas/Medias"
 
 export class Time {
 
@@ -132,7 +132,7 @@ export class DifferenceAltitude {
     }
 
     changeArrow (DA) {
-        this.arrowEl.innerHTML = ArrowSVG;
+        this.arrowEl.innerHTML = Image.Arrow;
         this.arrowEl.style.transform = 'rotate(' + (DA * -1) + 'deg)';
     }
 }

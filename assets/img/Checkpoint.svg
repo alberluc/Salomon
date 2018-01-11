@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <style>
+            .cls-1{isolation:isolate;}.cls-2{stroke:#fff;stroke-miterlimit:10;}.cls-3{}.cls-4{mask:url(#mask);}.cls-5{opacity:0.75;mix-blend-mode:overlay;}.cls-6{filter:url(#luminosity-invert);}
+        </style>
+        <linearGradient id="degrade" x1="15.32" y1="20.2" x2="15.32" y2="10.45"
+                        gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#09c0dd"/>
+            <stop offset="0.26" stop-color="#0cc0db"/>
+            <stop offset="0.41" stop-color="#14c1d6"/>
+            <stop offset="0.54" stop-color="#22c3cd"/>
+            <stop offset="0.65" stop-color="#37c6c1"/>
+            <stop offset="0.76" stop-color="#51c9b0"/>
+            <stop offset="0.85" stop-color="#71cd9c"/>
+            <stop offset="0.94" stop-color="#97d285"/>
+            <stop offset="1" stop-color="#b4d673"/>
+        </linearGradient>
+        <filter id="luminosity-invert" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+        </filter>
+        <mask id="mask" x="9.88" y="8.31" width="11" height="14" maskUnits="userSpaceOnUse">
+            <g class="cls-6">
+                <image width="11" height="14" transform="translate(9.88 8.31)"
+                       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAIAAAB2A3HCAAAACXBIWXMAAAsSAAALEgHS3X78AAAAVElEQVQYV62PwQ3AMAgDQ/bfySNgJnIfSVEU0r5yHxC2BbR2GQAA/hySJJE8yyT14u45t+wkrQGzKfVR1tAZFfIaS0eNjUW9ChvTERGbUCef397gAdLlSkbC6ztiAAAAAElFTkSuQmCC"/>
+            </g>
+        </mask>
+    </defs>
+    <title>Fichier 7</title>
+    <g class="cls-1">
+        <g id="Calque_2" data-name="Calque 2">
+            <g id="Interface">
+                <g id="Map_relief_2" data-name="Map relief 2">
+                    <rect class="cls-2" x="4.99" y="4.99" width="20.67" height="20.67"
+                          transform="translate(-6.35 15.32) rotate(-45)"/>
+                    <path class="cls-3" d="M18.33,17.19a3,3,0,1,1-6,0c0-1.66,3-6.74,3-6.74S18.33,15.53,18.33,17.19Z"/>
+                    <g class="cls-4">
+                        <g class="cls-5">
+                            <path fill="blue" d="M18.33,17.19a3,3,0,1,1-6,0c0-1.66,3-6.74,3-6.74S18.33,15.53,18.33,17.19Z"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

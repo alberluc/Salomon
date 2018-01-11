@@ -41,7 +41,7 @@ export default [
                                         }
                                     }
                                 }
-                            },
+                            }
                         }
                     ]
                 }
@@ -56,7 +56,9 @@ export default [
                             src: Audios.ENV.CLAPPING,
                             options: {
                                 timeout: 1000,
-                                onStop: () => { console.log('sound stop') }
+                                onStop: () => {
+                                    console.log('sound stop')
+                                }
                             }
                         }
                     ]

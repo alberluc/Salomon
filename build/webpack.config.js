@@ -23,7 +23,7 @@ let config = {
                 loader: 'svg-inline-loader',
                 options: {
                     removeTags: true,
-                    removingTags: ['title', 'desc', 'defs', 'style']
+                    removingTags: ['title', 'desc']
                 }
             }
         ]

@@ -4,18 +4,17 @@ const namespaceSVG = 'http://www.w3.org/2000/svg';
 
 export class Builder {
 
-    static path (PointsConverter, color) {
+    static path (PointsConverter, color, id) {
         let _el = document.createElementNS(namespaceSVG, 'path');
         _el.setAttribute('d', this.constructPath(PointsConverter));
+        _el.setAttribute('id', id);
         _el.style.stroke = color;
         return _el;
-        //PointsConverter.forEach(PointConverter => console.log(PointConverter));
     }
 
     static constructPath (PointsConverter) {
         let s = '';
         PointsConverter.forEach((PointConverter, index) => {
-            console.log(PointConverter);
             if (index === 0) s += 'M ' + this.stringPoint(PointConverter);
             else s += 'L ' + this.stringPoint(PointConverter);
         });
@@ -45,6 +44,12 @@ export class Builder {
         return _el;
     }
 
+    static extract (html, target) {
+        let _el = document.createElement('div');
+        _el.innerHTML = html;
+        return _el.querySelector(target);
+    }
+
 }
 
 export class Converter {
@@ -56,10 +61,6 @@ export class Converter {
     }
 
     getPoint (Point) {
-        console.log({
-            x: (this.width - this.margin.x) * Point.x + (this.margin.x / 2),
-            y: (this.height - this.margin.y)  * (1 - Point.y) + (this.margin.y / 2)
-        })
         return {
             x: (this.width - this.margin.x) * Point.x + (this.margin.x / 2),
             y: (this.height - this.margin.y)  * (1 - Point.y) + (this.margin.y / 2)

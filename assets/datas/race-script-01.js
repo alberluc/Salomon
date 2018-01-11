@@ -41,7 +41,7 @@ export default {
             gauge: {
                 level: 65
             },
-            /*flag: {
+            flag: {
                   audios: {
                       play: [
                           {
@@ -58,7 +58,7 @@ export default {
                           }
                       ]
                   }
-            },*/
+            },
             altitude: '1330km',
             ratioMove: 0.95
         },

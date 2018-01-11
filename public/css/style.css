@@ -680,7 +680,7 @@ circle {
     justify-content: center; }
     .race_view #mapRelief svg, .race_view #mapRelief img {
       flex: 1; }
-    .race_view #mapRelief path {
+    .race_view #mapRelief #root {
       fill: transparent; }
     .race_view #mapRelief #refueling {
       width: 100px;

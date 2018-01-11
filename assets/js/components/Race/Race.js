@@ -4,6 +4,7 @@ import { ViewHandler } from "../Utils/ViewHandler";
 import { Sort } from "../Utils/Sort";
 import { CountDown } from "./CountDown";
 import { RaceEnd } from "./RaceEnd";
+import {AudioHelper} from "../Utils/AudioHelper";
 
 
 const STATE = {

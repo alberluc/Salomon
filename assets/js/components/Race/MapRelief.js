@@ -3,8 +3,7 @@ import { Builder as SVGBuilder } from './../Utils/SVGHelper'
 import { Sort } from "../Utils/Sort";
 import { Map } from "./Map"
 import { TweenMax } from 'gsap';
-import { ClassNames } from "../../../datas/dom";
-import { Bus } from "../../events/Bus";
+import { Image } from "../../../datas/Medias";
 
 export class MapRelief extends Map {
 
@@ -27,6 +26,7 @@ export class MapRelief extends Map {
             {x: 30, y: 70},
         );
         this.build();
+        this.buildCheckPoints();
         this.load();
         this.Bus.dispatch(this.Bus.types.ON_CHANGE_POINT_ALTITUDE, {
             current: this.PointsAltitude[0],
@@ -36,7 +36,7 @@ export class MapRelief extends Map {
 
     build () {
         this.svgEl = SVGBuilder.svg();
-        this.pathEl = SVGBuilder.path(this.PointsConverted, 'white', 30);
+        this.pathEl = SVGBuilder.path(this.PointsConverted, 'white', 30, 'root');
         this.svgEl.appendChild(this.pathEl);
         this.el.appendChild(this.svgEl);
     }
@@ -55,6 +55,17 @@ export class MapRelief extends Map {
                 next: this.PointsAltitude[points.length]
             });
         }
+    }
+
+    buildCheckPoints() {
+        let CheckPoints = Sort.exists(this.Script.Points, 'gauge.goto');
+        CheckPoints.forEach(CheckPoint => this.buildCheckPoint(CheckPoint))
+    }
+
+    buildCheckPoint (CheckPoint) {
+        let CheckPointCoords = this.Converter.getPoint({x: CheckPoint.distance.percentage, y: 0});
+        this.svgEl.appendChild(SVGBuilder.extract(Image.Checkpoint, 'svg'));
+        console.log(SVGBuilder.extract(Image.Checkpoint, 'svg'))
     }
 
 }

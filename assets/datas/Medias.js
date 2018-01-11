@@ -1,9 +1,16 @@
 import MapCourse_1 from './../img/course_2.svg'
 import MapCourse_2 from './../img/MapRelief.svg'
+import ArrowSVG from "../img/arrow.svg"
+import CheckpointSVG from "../img/Checkpoint.svg"
 
 export const Maps = {
     MapCourse_1: MapCourse_1,
     MapCourse_2: MapCourse_2,
+};
+
+export const Image = {
+    Arrow: ArrowSVG,
+    Checkpoint: CheckpointSVG
 };
 
 const SRC_AUDIOS = '../sound/';
