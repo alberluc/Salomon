@@ -106,6 +106,7 @@ export class DifferenceAltitude {
 
     active () {
         this.arrowEl = document.createElement('div');
+        this.arrowEl.className = "indicatorDArrow";
         this.Bus.listen(this.Bus.types.ON_CHANGE_POINT_ALTITUDE, this.onChangePointAltitude.bind(this))
     }
 

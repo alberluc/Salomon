@@ -81,7 +81,7 @@ export class Gauge {
     setPositionBarLevel (value) {
         this.checkDangerState(value);
         this.Bus.dispatch(this.Bus.types.ON_GAUGE_LEVEL_CHANGE, { value });
-        TweenMax.set(this.barLevel.el, {
+        TweenMax.to(this.barLevel.el, 0.2,{
             y: (100 - value) + "%",
             force3D: true,
         });

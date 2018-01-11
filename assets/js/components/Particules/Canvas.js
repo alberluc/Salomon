@@ -15,7 +15,6 @@ export function Canvas(el) {
     let dx = 0;
     let dy = 40;
     let cpt = 0;
-    c.translate(-40,0);
 
     class Balls {
         constructor(x,y,radius, color) {

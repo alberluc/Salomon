@@ -1,13 +1,12 @@
 import { Ids } from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
+import { nextView } from "../Utils/nextView";
+
 import { Race as RaceModel } from "../Race/Race";
 import { Bus } from "../../events/Bus";
 import { TweenMax } from 'gsap';
 import {AudioHelper as AudioPlayer, AudioHelper} from "../Utils/AudioHelper";
 import { Audios } from "../../../datas/Medias";
-
-
-
 
 
 export class Intro {
@@ -19,6 +18,13 @@ export class Intro {
     }
 
     timeToPlay () {
+
+        document.addEventListener('keydown', () => {
+            document.getElementById('nextViewTime').classList.add('nextView--active');
+        });
+        document.addEventListener('keyup', () => {
+            document.getElementById('nextViewTime').classList.remove('nextView--active');
+        });
         TweenMax.from('.path',1, {
             drawSVG:"50% 50%",
         });
@@ -30,6 +36,8 @@ export class Intro {
     }
 
     intruction () {
+
+
         this.Bus = new Bus();
         /*A Mettre pour la carte arduino ON_USER_MOVE*/
         this.Bus.listen(this.Bus.types.ON_USER_STEPS, (function (event) {
@@ -59,4 +67,5 @@ export class Intro {
             this.one = false;
         }
     }
+
 }
