@@ -121,7 +121,7 @@ export default {
             size: 5,
             speed: 275,
             ratioOnDanger: 0.3,
-            strokeWidth: '1',
+            strokeWidth: '2',
             strokeColor: 'white',
         },
         {
@@ -130,7 +130,7 @@ export default {
             size: 5,
             speed: 240,
             ratioOnDanger: 0.3,
-            strokeWidth: '1',
+            strokeWidth: '2',
             strokeColor: 'white',
         },
         {
@@ -139,7 +139,7 @@ export default {
             size: 5,
             speed: 210,
             ratioOnDanger: 0.3,
-            strokeWidth: '1',
+            strokeWidth: '2',
             strokeColor: 'white',
         }
     ]
