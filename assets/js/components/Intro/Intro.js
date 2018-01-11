@@ -3,7 +3,9 @@ import { ViewHandler } from "../Utils/ViewHandler";
 import { Race as RaceModel } from "../Race/Race";
 import { Bus } from "../../events/Bus";
 import { TweenMax } from 'gsap';
-import { AudioHelper } from "../Utils/AudioHelper";
+import {AudioHelper as AudioPlayer, AudioHelper} from "../Utils/AudioHelper";
+import { Audios } from "../../../datas/Medias";
+
 
 
 
@@ -29,7 +31,8 @@ export class Intro {
 
     intruction () {
         this.Bus = new Bus();
-        this.Bus.listen(this.Bus.types.ON_USER_MOVE, (function (event) {
+        /*A Mettre pour la carte arduino ON_USER_MOVE*/
+        this.Bus.listen(this.Bus.types.ON_USER_STEPS, (function (event) {
             this.steps = event.detail.value;
         }).bind(this));
         let playRace = document.getElementById(Ids.INIT.SITE);
