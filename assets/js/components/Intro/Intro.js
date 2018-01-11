@@ -36,15 +36,14 @@ export class Intro {
             ViewHandler.show(Ids.VIEWS.START);
         });
         document.addEventListener('keyup', (e) => {
-            if(e.keyCode === 37) {
+            if (e.keyCode === 37) {
                 document.getElementById(Ids.INIT.FOOTLEFT).classList.add('foot--active');
             }
-            if(e.keyCode === 39) {
+            if (e.keyCode === 39) {
                 document.getElementById(Ids.INIT.FOOTRIGHT).classList.add('foot--active');
                 this.placement();
             }
         });
-
     }
 
     placement() {
