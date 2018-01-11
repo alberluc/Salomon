@@ -12,13 +12,18 @@ export class Runner {
         this.size = runner.size;
         this.speed = runner.speed;
         this.ratioOnDanger = runner.ratioOnDanger;
+        this.strokeWidth = runner.strokeWidth;
+        this.strokeColor = runner.strokeColor;
         this.arrived = false;
         this.reduceSpeed = false;
         this._position = this.UnitBuilder.convert(position, 'distance', false);
+        this.time = null;
 
         this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.onReduceSpeed.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.onReduceSpeed.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_CORRECT_HYDRATION, this.onCorrectHydration.bind(this));
+
+
     }
 
     onReduceSpeed () {
@@ -31,6 +36,7 @@ export class Runner {
 
     get position () {
         return this._position;
+        this.draw();
     }
 
     get ratioMove () {
@@ -45,7 +51,7 @@ export class Runner {
         }
     }
 
-    animate (incrementValue) {
+    /*animate (incrementValue) {
         let divide = 60;
         let i = 0;
         let incrementValueDivide = incrementValue / divide;
@@ -60,7 +66,15 @@ export class Runner {
                 this.position = this.position.percentage + incrementValueDivide;
                 i++;
             }
+
         }).bind(this), speedDivide);
+    }*/
+
+    animate (incrementValue) {
+        this.position = this.position.percentage + incrementValue;
+        if (this.position.percentage >= 1) {
+            this.finishCourse();
+        }
     }
 
     finishCourse () {

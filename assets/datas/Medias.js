@@ -13,7 +13,9 @@ export const Audios = {
 
     },
     ENV: {
+        EXPLICATION : SRC_AUDIOS + 'tuto.wav',
+        DESHYDRATATION : SRC_AUDIOS + 'deshydratation.wav',
         CLAPPING: SRC_AUDIOS + '2.wav',
-        CLAPPING1: SRC_AUDIOS + '1.mp3'
+        CLAPPING1: SRC_AUDIOS + '3.wav'
     }
 };

@@ -24,7 +24,7 @@ export class MapRelief extends Map {
         this.Converter = new Converter(
             this.el.offsetHeight,
             this.el.offsetWidth,
-            {x: 30, y: 50},
+            {x: 30, y: 70},
         );
         this.build();
         this.load();

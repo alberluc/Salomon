@@ -1,21 +1,18 @@
 *{
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
-  font-smooth: always;
-  font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
-  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: $fontFuturaBold;
+
 }
 
 html, body{
   width: 100%;
   height: 100%;
-  font-family: 'Futura BdCn BT', sans-serif;
 }
 
 body{
@@ -48,6 +45,14 @@ body{
   padding: 10px; 
 }
 #canvas {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   z-index: -1;
   width: 100%;
   height: 100%;
@@ -55,11 +60,11 @@ body{
   left: 0;
   top: 0;
   background: #000;
-  animation-name: infinitzoom;
+  /*animation-name: infinitzoom;
   animation-duration: 5s;
   animation-direction: alternate-reverse;
   animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;*/
 }
 .gradient {
   border-width:1px;
@@ -93,4 +98,35 @@ body{
     transition-property: transform;
     transition-duration: 3s;
   }
+}
+::selection{background-color: salmon; color: white;}
+.parallax > use{
+  animation:move-forever 12s linear infinite;
+  &:nth-child(1){
+    animation-delay:-2s; box-shadow:10px 10px 10px inset;
+    opacity: 0.4;
+  }
+  &:nth-child(2){
+    animation-delay:-2s; animation-duration:5s;
+    opacity: 0.6;
+  }
+  &:nth-child(3){
+    animation-delay:-4s; animation-duration:10s;
+    opacity: 0.5;
+  }
+}
+@keyframes move-forever{
+  0%{transform: translate(-90px , 0%)}
+  100%{transform: translate(85px , 0%)}
+}
+.bottomWave {
+  width: 100%;
+  height: 250px;
+  -moz-background : -moz-linear-gradient(0% 50% 0deg,rgba(9, 192, 221, 1) 0%,rgba(13, 193, 218, 1) 14.79%,rgba(26, 194, 211, 1) 30.13%,rgba(46, 197, 198, 1) 45.71%,rgba(75, 201, 180, 1) 61.48%,rgba(113, 205, 157, 1) 77.38%,rgba(158, 211, 129, 1) 93.17%,rgba(180, 214, 115, 1) 100%);
+  -webkit-background : -webkit-linear-gradient(0deg, rgba(9, 192, 221, 1) 0%, rgba(13, 193, 218, 1) 14.79%, rgba(26, 194, 211, 1) 30.13%, rgba(46, 197, 198, 1) 45.71%, rgba(75, 201, 180, 1) 61.48%, rgba(113, 205, 157, 1) 77.38%, rgba(158, 211, 129, 1) 93.17%, rgba(180, 214, 115, 1) 100%);
+  -webkit-background: -webkit-gradient(linear,0% 50% ,100% 50% ,color-stop(0,rgba(9, 192, 221, 1) ),color-stop(0.1479,rgba(13, 193, 218, 1) ),color-stop(0.3013,rgba(26, 194, 211, 1) ),color-stop(0.4571,rgba(46, 197, 198, 1) ),color-stop(0.6148,rgba(75, 201, 180, 1) ),color-stop(0.7738,rgba(113, 205, 157, 1) ),color-stop(0.9317,rgba(158, 211, 129, 1) ),color-stop(1,rgba(180, 214, 115, 1) ));
+  -o-background : -o-linear-gradient(0deg, rgba(9, 192, 221, 1) 0%, rgba(13, 193, 218, 1) 14.79%, rgba(26, 194, 211, 1) 30.13%, rgba(46, 197, 198, 1) 45.71%, rgba(75, 201, 180, 1) 61.48%, rgba(113, 205, 157, 1) 77.38%, rgba(158, 211, 129, 1) 93.17%, rgba(180, 214, 115, 1) 100%);
+  background : linear-gradient(90deg, rgba(9, 192, 221, 1) 0%, rgba(13, 193, 218, 1) 14.79%, rgba(26, 194, 211, 1) 30.13%, rgba(46, 197, 198, 1) 45.71%, rgba(75, 201, 180, 1) 61.48%, rgba(113, 205, 157, 1) 77.38%, rgba(158, 211, 129, 1) 93.17%, rgba(180, 214, 115, 1) 100%);
+  position: relative;
+  top: -4px;
 }

@@ -56,6 +56,16 @@ export class Race {
                 },
                 opacity:1,
                 display:'flex',
+                onComplete: () => {
+                    TweenMax.delayedCall(2, () => {
+                        TweenMax.fromTo (('#'+ Ids.VIEWS.RACE) , 1, {opacity:1}, {opacity:0,display:'none'});
+                        TweenMax.delayedCall(1, () => {
+                            TweenMax.fromTo (('#'+ Ids.VIEWS.INFOS) , 1, {opacity:0}, {opacity:1,display:'block'});
+                        })
+                    })
+
+
+                }
             })
         });
         /*ViewHandler.show(Ids.VIEWS.END)*/

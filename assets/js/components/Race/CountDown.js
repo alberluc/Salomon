@@ -40,6 +40,7 @@ export class CountDown {
      */
     startTimer () {
         this.timer = setInterval(this.onTimerIncrement.bind(this), 1000);
+
         this.setText(this.self.time);
         TweenMax.set('#circleTimer', {
             strokeDashoffset: this.stroke + "px"

@@ -20,7 +20,6 @@ export class AudioHelper {
     }
 
     static startPlay (src, options) {
-        console.log("audio playing " + src);
         let AudioContext = new Audio(src);
         this.fromToVolume(AudioContext, options.volume.from, options.volume.to, options.volume.duration);
         AudioContext.play();

@@ -27,6 +27,7 @@ export class Map {
         this.animate();
         this.init();
         this.setRunner(this.Script.User);
+
         this.Script.Bots.forEach(Bot => this.setRunner(Bot));
     }
 
@@ -36,7 +37,7 @@ export class Map {
 
     setRunner (Runner) {
         let RunnerCourse = {
-            image: SVGBuilder.circle(0, 0, Runner.size, Runner.color, Runner.className),
+            image: SVGBuilder.circle(0, 0, Runner.size, Runner.color, Runner.className, Runner.strokeWidth, Runner.strokeColor),
             self: Runner
         };
         this.buildImage(RunnerCourse.image);

@@ -14,9 +14,8 @@ export class Builder {
 
     static constructPath (PointsConverter) {
         let s = '';
-        let minPoint = Sort.getInterval(PointsConverter, 'y')[0];
         PointsConverter.forEach((PointConverter, index) => {
-            PointConverter.y = PointConverter.y - minPoint.y;
+            console.log(PointConverter);
             if (index === 0) s += 'M ' + this.stringPoint(PointConverter);
             else s += 'L ' + this.stringPoint(PointConverter);
         });
@@ -27,11 +26,13 @@ export class Builder {
         return PointsConverter.x + ' ' + PointsConverter.y + ' ';
     }
 
-    static circle (x, y, r, color, className) {
+    static circle (x, y, r, color, className, strokeWidth, strokeColor) {
         let _el = document.createElementNS(namespaceSVG, 'circle');
         _el.setAttribute('cx', x);
         _el.setAttribute('cy', y);
         _el.setAttribute('r', r);
+        _el.setAttribute('stroke-width', strokeWidth);
+        _el.setAttribute('stroke', strokeColor);
         _el.setAttribute('fill', color);
         if (typeof className !== "undefined" && className !== '') _el.classList.add(className);
         return _el;
@@ -55,6 +56,10 @@ export class Converter {
     }
 
     getPoint (Point) {
+        console.log({
+            x: (this.width - this.margin.x) * Point.x + (this.margin.x / 2),
+            y: (this.height - this.margin.y)  * (1 - Point.y) + (this.margin.y / 2)
+        })
         return {
             x: (this.width - this.margin.x) * Point.x + (this.margin.x / 2),
             y: (this.height - this.margin.y)  * (1 - Point.y) + (this.margin.y / 2)

@@ -1,10 +1,12 @@
 import { Ids } from "../../../datas/dom"
 import { ViewHandler } from "../Utils/ViewHandler";
+import { nextView } from "../Utils/nextView";
+
 import { Race as RaceModel } from "../Race/Race";
 import { Bus } from "../../events/Bus";
 import { TweenMax } from 'gsap';
-
-
+import {AudioHelper as AudioPlayer, AudioHelper} from "../Utils/AudioHelper";
+import { Audios } from "../../../datas/Medias";
 
 
 export class Intro {
@@ -12,9 +14,17 @@ export class Intro {
     constructor () {
         this.timeToPlay();
         this.one = true;
+        this.steps = null;
     }
 
     timeToPlay () {
+
+        document.addEventListener('keydown', () => {
+            document.getElementById('nextViewTime').classList.add('nextView--active');
+        });
+        document.addEventListener('keyup', () => {
+            document.getElementById('nextViewTime').classList.remove('nextView--active');
+        });
         TweenMax.from('.path',1, {
             drawSVG:"50% 50%",
         });
@@ -27,19 +37,21 @@ export class Intro {
 
     intruction () {
 
+
         this.Bus = new Bus();
+        /*A Mettre pour la carte arduino ON_USER_MOVE*/
         this.Bus.listen(this.Bus.types.ON_USER_STEPS, (function (event) {
-            console.log(event.detail.value);
+            this.steps = event.detail.value;
         }).bind(this));
         let playRace = document.getElementById(Ids.INIT.SITE);
         playRace.addEventListener('click', () => {
             ViewHandler.show(Ids.VIEWS.START);
         });
         document.addEventListener('keyup', (e) => {
-            if (e.keyCode === 37) {
+            if(e.keyCode === 37 || this.steps === 'Left') {
                 document.getElementById(Ids.INIT.FOOTLEFT).classList.add('foot--active');
             }
-            if (e.keyCode === 39) {
+            if(e.keyCode === 39 || this.steps === 'Right') {
                 document.getElementById(Ids.INIT.FOOTRIGHT).classList.add('foot--active');
                 this.placement();
             }
@@ -54,4 +66,5 @@ export class Intro {
             this.one = false;
         }
     }
+
 }

@@ -1,6 +1,8 @@
 import io from "socket.io-client";
 import { MapRelief as MapReliefModel } from './Race/MapRelief'
 import { MapCourse as MapCourseModel } from './Race/MapCourse'
+import RaceScriptConfig_01 from '../../datas/race-script-01';
+import { Navigation } from "./Script/Navigation";
 import { Gauge as GaugeModel } from './Race/Gauge'
 import { SleepMode as SleepModeModel } from './SleepMode/SleepMode'
 import { Script as ScriptModel } from './Script/Script'
@@ -11,31 +13,33 @@ import { Intro as IntroModel } from './Intro/Intro';
 import { Race as RaceModel } from "./Race/Race";
 import { Ids, ClassNames } from "../../datas/dom";
 import { ViewHandler } from './Utils/ViewHandler';
-import RaceScriptConfig_01 from '../../datas/race-script-01';
-import { Canvas as CanvasModel } from './Particules/Canvas';
+import { Canvas } from './Particules/Canvas';
 import { TweenMax } from 'gsap';
 import { Timer } from "./Race/Timer";
+import { Bus } from "../events/Bus";
+import { Events } from "../events/Events";
 import {
-    Time as TimeIndicator,
-    Distance as DistanceIndicator,
-    DifferenceAltitude as DAltitudeIndicator,
-    Gauge as GaugeIndicator,
-    Position as PositionIndicator
+Time as TimeIndicator,
+Distance as DistanceIndicator,
+DifferenceAltitude as DAltitudeIndicator,
+Gauge as GaugeIndicator,
+Position as PositionIndicator
 } from "./Race/Indicators";
-import {Navigation} from "./Script/Navigation";
+
 
 
 export class App {
 
     constructor () {
         this.socket = io();
+        this.Bus = new Bus();
     }
 
     /**
      * Initialise l'application
      */
     init () {
-        ViewHandler.show(Ids.VIEWS.PLAY);
+        ViewHandler.show(Ids.VIEWS.START);
         this.initScript(RaceScriptConfig_01);
         this.initNavigation(RaceScriptConfig_01.navigation);
         this.initMaps();
@@ -89,6 +93,9 @@ export class App {
             }, {
                 target: document,
                 event: 'mousemove'
+            }, {
+                target: this.Bus.el,
+                event: Events.ON_USER_MOVE
             }
         ]);
         SleepMode.persistStop();
@@ -120,8 +127,7 @@ export class App {
 
     // Initialise le background
     initCanvas() {
-        this.Canvas = new CanvasModel('canvas');
-        this.Canvas.build(481);
+        this.Canvas = new Canvas('canvas');
     }
 
     initIndicators () {

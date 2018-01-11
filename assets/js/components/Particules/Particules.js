@@ -6,15 +6,13 @@ export class Balls {
         this.y = y || 0;
         this.vx = 0;
         this.vy = 0;
-        this.originalX = x || 0;
-        this.originalY = y || 0;
         this.radius = radius || 2;
         this.color = color || 'rgba(255,255,255,0.2)';
-        this.interaction = 0;
         this.w = window.innerWidth;
         this.h = window.innerHeight;
         this.angle = 0;
         this.Render();
+
     }
     draw(c) {
         c.beginPath();
@@ -28,10 +26,8 @@ export class Balls {
         this.y += Math.sin(a * 70) / 2;
     }
     Render() {
-        /*this.c.clearRect(0,0,this.w,this.h);*/
-        /*requestAnimationFrame(this.Render);*/
-        // Fun animation
-        /* c.translate(Math.random() * 10,Math.random() * 20);*/
+        this.c.clearRect(0,0,this.w,this.h);
+        requestAnimationFrame(this.Render);
         this.balls.forEach(ball => {
             let a = this.angle + this.velo;
             this.velo +=  0.1;

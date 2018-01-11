@@ -107,32 +107,40 @@ export default {
     },
     user: {
         name: 'user',
-        size: 7,
-        color: 'red',
+        size: 13,
+        color: 'test',
         speed: 500,
-        ratioOnDanger: 0.2
+        ratioOnDanger: 0.2,
+        strokeWidth: '1',
+        strokeColor: 'white',
     },
     bots: [
         {
             name: 'bot1',
-            color: 'green',
-            size: 3,
+            color: 'transparent',
+            size: 5,
             speed: 275,
-            ratioOnDanger: 0.3
+            ratioOnDanger: 0.3,
+            strokeWidth: '2',
+            strokeColor: 'white',
         },
         {
             name: 'bot2',
-            color: 'green',
-            size: 3,
+            color: 'transparent',
+            size: 5,
             speed: 240,
-            ratioOnDanger: 0.3
+            ratioOnDanger: 0.3,
+            strokeWidth: '2',
+            strokeColor: 'white',
         },
         {
             name: 'bot3',
-            color: 'green',
-            size: 3,
+            color: 'transparent',
+            size: 5,
             speed: 210,
-            ratioOnDanger: 0.3
+            ratioOnDanger: 0.3,
+            strokeWidth: '2',
+            strokeColor: 'white',
         }
     ]
 }
