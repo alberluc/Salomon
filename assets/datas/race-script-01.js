@@ -26,38 +26,20 @@ export default {
         src: Maps.MapCourse_2
     },
     countDown: {
-      time: 1
+        time: 3
     },
     timer: {
         duration: 10
     },
     indicators: {
         time: {
-          ratio: 100
+            ratio: 100
         }
     },
     map: {
         0: {
             gauge: {
                 level: 65
-            },
-            flag: {
-                  audios: {
-                      play: [
-                          {
-                              src: Audios.ENV.CLAPPING,
-                              options: {
-                                  volume: {
-                                      from: 0,
-                                      to: 1,
-                                      duration: 5
-                                  },
-                                  onStart: 'onSoundStart',
-                                  onFinish: 'onSoundFinish'
-                              }
-                          }
-                      ]
-                  }
             },
             altitude: '1330km',
             ratioMove: 0.95
@@ -73,8 +55,43 @@ export default {
             },
             flag: {
                 key: 'UDH',
-                type: Events.ON_USER_DEHYDRATION
-            }
+                type: Events.ON_USER_DEHYDRATION,
+                audios: {
+                    play: [
+                        {
+                            src: Audios.ENV.DESHYDRATATION,
+                            options: {
+                                volume: {
+                                    from: 0,
+                                    to: 1,
+                                    duration: 5
+                                },
+                                onStart: {
+                                    flag: {
+                                        audios: {
+                                            play: [
+                                                {
+                                                    src: Audios.ENV.HEARTHIGHBEAT,
+                                                    options: {
+                                                        volume: {
+                                                            from: 0,
+                                                            to: 1,
+                                                            duration: 5
+                                                        },
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                onFinish: 'onSoundFinish'
+
+                            }
+                        }
+                    ],
+
+                }
+            },
         },
         46: {
             altitude: '1410km',
@@ -94,13 +111,85 @@ export default {
                 goto: 76
             },
             flag: {
-                key: 'UOH',
-                type: Events.ON_USER_OVERHYDRATION
-            }
+                key: 'UDH',
+                type: Events.ON_USER_DEHYDRATION,
+                audios: {
+                    play: [
+                        {
+                            src: Audios.ENV.HYPERHYDRATATION,
+                            options: {
+                                volume: {
+                                    from: 0,
+                                    to: 1,
+                                    duration: 5
+                                },
+                                onStart: {
+                                    flag: {
+                                        audios: {
+                                            play: [
+                                                {
+                                                    src: Audios.ENV.HEARTHIGHBEAT,
+                                                    options: {
+                                                        volume: {
+                                                            from: 0,
+                                                            to: 1,
+                                                            duration: 5
+                                                        },
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                onFinish: 'onSoundFinish'
+
+                            }
+                        }
+                    ],
+
+                }
+            },
         },
-        100: {
+        99.99: {
             gauge: {
                 level: 40
+            },
+            flag: {
+                audios: {
+                    play: [
+                        {
+                            src: Audios.ENV.ENDRACE,
+                            options: {
+                                volume: {
+                                    from: 0,
+                                    to: 1,
+                                    duration: 5
+                                },
+                                onFinish: {
+                                    flag: {
+                                        audios: {
+                                            play: [
+                                                {
+                                                    src: Audios.ENV.THANK,
+                                                    options: {
+                                                        volume: {
+                                                            from: 0,
+                                                            to: 1,
+                                                            duration: 1
+                                                        },
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+
+                            }
+                        },
+
+                    ],
+
+                }
             },
             altitude: '1350km'
         }

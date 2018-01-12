@@ -14,6 +14,9 @@
  *	Colors
  ****************************************/
 /****************************************
+ *	EASEING
+ ****************************************/
+/****************************************
  *	Fonts
  ****************************************/
 .btn {
@@ -62,7 +65,7 @@
     transform: translate(-10%, -50%) rotate(-45deg); }
 
 /****************************************
- *	G├®n├®rique
+ *	Générique
  ****************************************/
 * {
   padding: 0;
@@ -279,8 +282,7 @@ svg.svg__position {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
-  background-color: rgba(8, 8, 8, 0.82); }
+  height: 100%; }
 
 .sleepMode-active .sleepMode_view {
   display: flex; }
@@ -288,6 +290,14 @@ svg.svg__position {
 .sleepMode_text {
   font-size: 90px;
   color: white;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
   text-transform: uppercase;
   letter-spacing: 15px; }
 
@@ -296,7 +306,8 @@ svg.svg__position {
   height: 200px; }
 
 .mapCourse svg {
-  padding: 15px; }
+  padding: 15px;
+  transform: translateZ(0); }
 .mapCourse path {
   stroke: white; }
 
@@ -312,15 +323,25 @@ svg.svg__position {
 
 .moduleNext {
   position: absolute;
-  bottom: 100px;
-  right: 100px; }
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; }
   .moduleNext .nextView {
+    position: absolute;
+    bottom: 100px;
+    right: 100px;
     overflow: visible;
     width: 50px;
     height: 50px;
     stroke-width: 4px;
     stroke-dashoffset: -167;
-    stroke-dasharray: 167; }
+    stroke-dasharray: 167;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0); }
     .moduleNext .nextView #nextViewTime {
       -webkit-transition: all 3s ease;
       -moz-transition: all 3s ease;
@@ -329,6 +350,24 @@ svg.svg__position {
       transition: all 3s ease; }
     .moduleNext .nextView--active {
       stroke-dashoffset: -331; }
+
+.transtionView {
+  position: absolute;
+  left: 0;
+  z-index: 19;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: circle(0%);
+  background: linear-gradient(90deg, #09c0dd 0%, #0dc1da 14.79%, #1ac2d3 30.13%, #2ec5c6 45.71%, #4bc9b4 61.48%, #71cd9d 77.38%, #9ed381 93.17%, #b4d673 100%);
+  -webkit-transition: all 1.4s ease;
+  -moz-transition: all 1.4s ease;
+  -ms-transition: all 1.4s ease;
+  -o-transition: all 1.4s ease;
+  transition: all 1.4s ease; }
 
 .race-danger .gauge .wave {
   -webkit-transition: background 0.5s ease;
@@ -350,6 +389,7 @@ svg.svg__position {
   display: block;
   padding-bottom: 100%; }
 .gauge_bar_level {
+  opacity: 0;
   position: absolute;
   top: 0;
   height: 100%;
@@ -358,7 +398,17 @@ svg.svg__position {
   height: 1px;
   position: absolute;
   border-bottom: dashed white 1px;
-  width: 100%; }
+  width: 100%;
+  -webkit-transform: scale(0, 1);
+  -moz-transform: scale(0, 1);
+  -ms-transform: scale(0, 1);
+  -o-transform: scale(0, 1);
+  transform: scale(0, 1);
+  -webkit-transform-origin: left;
+  -moz-transform-origin: left;
+  -ms-transform-origin: left;
+  -o-transform-origin: left;
+  transform-origin: left; }
 .gauge .wave {
   opacity: 0.4;
   position: absolute;
@@ -624,7 +674,11 @@ circle {
     -ms-transition: transform 0.2s ease;
     -o-transition: transform 0.2s ease;
     transition: transform 0.2s ease;
-    will-change: transform; }
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden; }
     .race_view .steps_1-right {
       transform: translateX(0%) translateZ(0px) scale(1) rotate3d(1, 0, 0, 0.1deg); }
     .race_view .steps_2-left {
@@ -655,11 +709,18 @@ circle {
       top: 0;
       width: 300px;
       height: 300px;
+      opacity: 0;
       z-index: -1;
       border: 1px solid rgba(255, 255, 255, 0.5);
       -webkit-border-radius: 100%;
       -moz-border-radius: 100%;
-      border-radius: 100%; }
+      border-radius: 100%;
+      -webkit-transition: opacity 0.5s ease;
+      -moz-transition: opacity 0.5s ease;
+      -ms-transition: opacity 0.5s ease;
+      -o-transition: opacity 0.5s ease;
+      transition: opacity 0.5s ease;
+      will-change: opacity; }
   .race_view #speed:before {
     left: 0;
     -moz-transform: translate(-50%, -50%);
@@ -667,6 +728,10 @@ circle {
     -ms-transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
+  .race_view #speed.active:before {
+    opacity: 1; }
+  .race_view #denivele.active:before {
+    opacity: 1; }
   .race_view #denivele:before {
     right: 0;
     -moz-transform: translate(50%, -50%);
@@ -774,6 +839,15 @@ circle {
   .race-top_mapRelief {
     width: calc(100% - 26%);
     height: 100%; }
+  .race-top .mapReliefSvg {
+    fill: transparent;
+    -webkit-transition: all 2s cubic-bezier(0.8, 0, 0.2, 1);
+    -moz-transition: all 2s cubic-bezier(0.8, 0, 0.2, 1);
+    -ms-transition: all 2s cubic-bezier(0.8, 0, 0.2, 1);
+    -o-transition: all 2s cubic-bezier(0.8, 0, 0.2, 1);
+    transition: all 2s cubic-bezier(0.8, 0, 0.2, 1); }
+    .race-top .mapReliefSvg.active {
+      stroke-dashoffset: 0 !important; }
 .race-bottom {
   grid-column: 2 / span 1;
   grid-row: 3 / span 1;
@@ -819,12 +893,19 @@ circle {
     left: -15px;
     background-repeat: no-repeat;
     width: calc(100% - 60px); }
+    .race-right_mapCourse .cls-1 {
+      stroke-dasharray: 836;
+      stroke-dashoffset: 836; }
     .race-right_mapCourse line {
       stroke: white; }
 .race-center {
   grid-column: 2 / span 1;
   grid-row: 2 / span 1;
-  position: relative; }
+  position: relative;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden; }
 
 .indicatorDArrow {
   -webkit-transition: all 0.5s ease;
@@ -904,7 +985,7 @@ circle {
   color: #FFF;
   text-transform: uppercase; }
   .infosView_header h1 {
-    margin-top: 30px;
+    padding-top: 30px;
     font-size: 80px; }
   .infosView_header p {
     font-size: 30px;

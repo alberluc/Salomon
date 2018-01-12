@@ -8,7 +8,7 @@ export class Bot extends Runner {
         this.runInterval = null;
         this.className = ClassNames.RUNNER_BOT;
     }
-
+ 
     run () {
         this.runInterval = setInterval(this.incrementPosition.bind(this), this.speed);
 

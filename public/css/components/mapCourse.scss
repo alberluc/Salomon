@@ -1,6 +1,7 @@
 .mapCourse{
   & svg{
     padding: 15px;
+    transform: translateZ(0);
   }
   & path{
     stroke: white;

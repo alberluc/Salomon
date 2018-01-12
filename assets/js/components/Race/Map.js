@@ -27,7 +27,6 @@ export class Map {
         this.animate();
         this.init();
         this.setRunner(this.Script.User);
-
         this.Script.Bots.forEach(Bot => this.setRunner(Bot));
     }
 

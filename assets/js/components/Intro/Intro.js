@@ -18,7 +18,6 @@ export class Intro {
     }
 
     timeToPlay () {
-
         document.addEventListener('keydown', () => {
             document.getElementById('nextViewTime').classList.add('nextView--active');
         });
@@ -37,6 +36,14 @@ export class Intro {
 
     intruction () {
 
+
+        /*AudioHelper.play(AudioHelper.list.ENV.EXPLICATION, {
+            volume: {
+                from: 1,
+                to: 1,
+                duration: 10,
+            },
+        });*/
 
         this.Bus = new Bus();
         /*A Mettre pour la carte arduino ON_USER_MOVE*/

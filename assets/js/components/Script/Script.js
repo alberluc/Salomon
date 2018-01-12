@@ -20,7 +20,6 @@ export class Script {
         this.Bots = this.initBots(config.bots);
         this.User = new UserModel(config.user, this, 0);
         this.multiplyRatio = config.multiplyRatio;
-        this.mapRelief = config.mapRelief;
         this.mapCourse = config.mapCourse;
         this.danger = config.danger;
         this.timer = config.timer;

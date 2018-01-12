@@ -32,16 +32,9 @@ export function Canvas(el) {
             c.fill();
             c.closePath();
         }
-        setPos(a, state) {
-            if(state) {
-                this.x += Math.cos(a * 30) * 0.2;
-                this.y += Math.sin(a * 10) * 0.4;
-                this.color = 'rgba(255,0,0,0.3)';
-            } else {
-                this.color = 'rgba(255,255,255,0.3)';
-                this.x += Math.cos(Math.PI * a * 10) * 0.5;
-                this.y += Math.sin(a * 10) * 0.1;
-            }
+        setPos(a) {
+            this.x += Math.cos(Math.PI * a * 10) * 0.5;
+            this.y += Math.sin(a * 10) * 0.06;
         }
     }
 
@@ -62,29 +55,19 @@ export function Canvas(el) {
 
     let angle = 0;
     let velo = 0;
+
+
     function Render() {
-        let dangerRace = document.querySelector('.race-danger');
         window.requestAnimationFrame(Render);
         c.clearRect(0,0,w,h);
-        if(dangerRace) {
-            balls.forEach(ball => {
-                let a = angle + velo;
-                velo +=  0.1;
-                ball.draw(c);
-                ball.setPos(a,true);
+        balls.forEach(ball => {
+            let a = angle + velo;
+            velo +=  0.1;
+            ball.draw(c);
+            ball.setPos(a);
 
-            });
-            angle += 5 / Math.PI;
-        } else {
-            balls.forEach(ball => {
-                let a = angle + velo;
-                velo +=  0.1;
-                ball.draw(c);
-                ball.setPos(a);
-
-            });
-            angle += 5 / Math.PI;
-        }
+        });
+        angle += 5 / Math.PI;
 
     }
     Render();

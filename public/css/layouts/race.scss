@@ -58,6 +58,10 @@
       -o-transition: transform 0.2s ease;
       transition: transform 0.2s ease;
       will-change: transform;
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+      backface-visibility: hidden;
       &_1-right {
         transform: translateX(0%) translateZ(0px) scale(1) rotate3d(1,0,0,0.1deg);
       }
@@ -97,11 +101,19 @@
         top:0;
         width:300px;
         height:300px;
+        opacity:0;
         z-index: -1;
         border:1px solid rgba(255,255,255,0.5);
         -webkit-border-radius: 100%;
         -moz-border-radius: 100%;
         border-radius: 100%;
+        -webkit-transition: opacity 0.5s ease;
+        -moz-transition: opacity 0.5s ease;
+        -ms-transition: opacity 0.5s ease;
+        -o-transition: opacity 0.5s ease;
+        transition: opacity 0.5s ease;
+        will-change: opacity;
+
       }
     }
     #speed {
@@ -109,8 +121,19 @@
         left:0;
         @include translate(-50%,-50%);
       }
+      &.active {
+        &:before {
+          opacity:1,
+        }
+      }
     }
     #denivele {
+      &.active {
+        &:before {
+          opacity:1;
+        }
+      }
+
       &:before {
         right:0;
         @include translate(50%,-50%);
@@ -240,6 +263,17 @@
       width: calc(100% - 26%);
       height:100%;
     }
+    .mapReliefSvg {
+      fill: transparent;
+      -webkit-transition: all 2s cubic-bezier(0.8,0,0.2,1);
+      -moz-transition: all 2s cubic-bezier(0.8,0,0.2,1);
+      -ms-transition: all 2s cubic-bezier(0.8,0,0.2,1);
+      -o-transition: all 2s cubic-bezier(0.8,0,0.2,1);
+      transition: all 2s cubic-bezier(0.8,0,0.2,1);
+      &.active {
+        stroke-dashoffset: 0!important;
+      }
+    }
   }
   &-bottom{
     grid-column: 2 / span 1;
@@ -292,6 +326,10 @@
       left: -15px;
       background-repeat: no-repeat;
       width: calc(100% - 60px);
+      .cls-1 {
+        stroke-dasharray: 836;
+        stroke-dashoffset: 836;
+      }
       & line{
         stroke: white;
       }
@@ -301,6 +339,10 @@
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
     position: relative;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 }
 .indicatorDArrow {

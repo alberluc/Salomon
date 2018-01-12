@@ -25,6 +25,8 @@ DifferenceAltitude as DAltitudeIndicator,
 Gauge as GaugeIndicator,
 Position as PositionIndicator
 } from "./Race/Indicators";
+import { transitionRace } from './Race/transitionRace';
+
 
 
 
@@ -39,7 +41,7 @@ export class App {
      * Initialise l'application
      */
     init () {
-        ViewHandler.show(Ids.VIEWS.START);
+        ViewHandler.show(Ids.VIEWS.PLAY);
         this.initScript(RaceScriptConfig_01);
         this.initNavigation(RaceScriptConfig_01.navigation);
         this.initMaps();

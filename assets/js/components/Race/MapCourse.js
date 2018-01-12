@@ -16,6 +16,7 @@ export class MapCourse extends Map {
     build () {
         this.el.innerHTML = this.Script.mapCourse.src;
         this.pathEl = this.el.querySelector('path');
+        console.log(this.pathEl.getTotalLength());
     }
 
 }

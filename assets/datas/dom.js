@@ -21,6 +21,7 @@ export const Ids = {
             POSITION: 'indicatorPosition'
         }
     },
+
     VIEWS : {
         PLAY: 'timeToPlay',
         SITE: 'site',
@@ -33,6 +34,16 @@ export const Ids = {
     END: {
         SCORE_USER: 'scoreUser',
         SCORES: 'scores'
+    },
+    TRANSITION: {
+        MAP_RELIEF: 'mapRelief',
+        MAP_COURSE: 'mapCourse',
+        SPEED: 'speed',
+        DENIVELE : 'denivele',
+        GAUGE: 'moduleInfoLeft',
+        STEPS: 'steps',
+        MODULEINFO_RIGHT: 'moduleInfoRight',
+        MODULEINFO_LEFT: 'moduleInfoLeft',
     },
     CANVAS: 'myCanvas',
 };

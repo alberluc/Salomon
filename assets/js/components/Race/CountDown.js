@@ -79,6 +79,9 @@ export class CountDown {
      * Désaffiche le compteur
      */
     hide () {
+        TweenMax.set('#raceChronoSvg',{
+            autoAlpha: 0,
+        });
         this.el.style.display = "none";
     }
 
