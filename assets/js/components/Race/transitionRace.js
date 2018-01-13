@@ -57,7 +57,7 @@ export class transitionRace {
         this.tl.fromTo('#' + Ids.TRANSITION.SPEED, 0.5, { autoAlpha: 0,}, {
             onStart: () => {
                 TweenMax.set('#' + Ids.TRANSITION.SPEED, {
-                    className: 'race-top_speed active',
+                    className: 'race-top_speed opacityView active',
                 })
             },
             autoAlpha: 1,
@@ -69,7 +69,7 @@ export class transitionRace {
         this.tl.fromTo('#' + Ids.TRANSITION.DENIVELE, 0.5, { autoAlpha: 0,}, {
             onStart: () => {
                 TweenMax.set('#' + Ids.TRANSITION.DENIVELE, {
-                    className: 'race-top_speed active',
+                    className: 'race-top_speed opacityView active',
                 })
             },
             autoAlpha: 1,

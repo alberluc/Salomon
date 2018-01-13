@@ -16,6 +16,8 @@ export default [
                                 volume: { from: 1, to: 1, duration: 0.2 },
                                 onFinish: {
                                     flag: {
+                                        type: Events.ON_PRESENTATION_MAP_COURSE,
+
                                         audios: {
                                             play: [
                                                 {
@@ -24,6 +26,7 @@ export default [
                                                         volume: { from: 1, to: 1, duration: 0.2 },
                                                         onFinish: {
                                                             flag: {
+                                                                type: Events.ON_PRESENTATION_MAP_RELIEF,
                                                                 audios: {
                                                                     play: [
                                                                         {
@@ -32,6 +35,7 @@ export default [
                                                                                 volume: { from: 1, to: 1, duration: 0.2 },
                                                                                 onFinish: {
                                                                                     flag: {
+                                                                                        type: Events.ON_PRESENTATION_GAUGE,
                                                                                         audios: {
                                                                                             play: [
                                                                                                 {
@@ -40,6 +44,8 @@ export default [
                                                                                                         volume: { from: 1, to: 1, duration: 0.2 },
                                                                                                         onFinish: {
                                                                                                             flag: {
+                                                                                                                type: Events.ON_PRESENTATION_FINISH,
+
                                                                                                                 audios: {
                                                                                                                     play: [
                                                                                                                         {

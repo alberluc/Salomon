@@ -26,6 +26,8 @@ Gauge as GaugeIndicator,
 Position as PositionIndicator
 } from "./Race/Indicators";
 import { transitionRace } from './Race/transitionRace';
+import { Transition } from './Transition/Transition';
+
 
 
 
@@ -53,6 +55,7 @@ export class App {
         this.initTimer();
         this.initCanvas();
         this.initIndicators();
+        this.initOpactiy();
         this.tmp();
     }
 
@@ -139,6 +142,11 @@ export class App {
         this.DAltitudeIndicator= new DAltitudeIndicator(document.getElementById(Ids.RACE.INDICATOR.DIFFERENCE_ALITITUDE));
         this.GaugeIndicator= new GaugeIndicator(document.getElementById(Ids.RACE.INDICATOR.GAUGE));
         this.PositionIndicator = new PositionIndicator(document.getElementById(Ids.RACE.INDICATOR.POSITION), this.Script.User, this.MapRelief);
+    }
+
+    initOpactiy() {
+        this.transitionOpacity = new Transition();
+        this.transitionOpacity.init()
     }
 
     onRaceStart () {
