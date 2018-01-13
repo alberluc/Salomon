@@ -26,7 +26,7 @@ export default {
         src: Maps.MapCourse_2
     },
     countDown: {
-        time: 3
+        time: 1
     },
     timer: {
         duration: 10

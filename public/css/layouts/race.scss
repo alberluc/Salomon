@@ -270,6 +270,9 @@
       -ms-transition: all 2s cubic-bezier(0.8,0,0.2,1);
       -o-transition: all 2s cubic-bezier(0.8,0,0.2,1);
       transition: all 2s cubic-bezier(0.8,0,0.2,1);
+      #Map_relief_2 {
+
+      }
       &.active {
         stroke-dashoffset: 0!important;
       }
@@ -378,7 +381,59 @@
 }
 
 .mapRelief_checkpoint{
+  .cls-2 {
+    stroke-dasharray: 84;
+    stroke-dashoffset: 84;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  .cls-3 {
+    opacity:0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
   & rect {
     fill: black;
+  }
+  .mapRelief_checkpoint_bar {
+
+  }
+  &.activeCheckPoint {
+    .cls-2 {
+      stroke-dasharray: 84;
+      stroke-dashoffset: 0;
+    }
+    .cls-3 {
+      opacity:1;
+    }
+    .mapRelief_checkpoint_bar {
+      stroke-dashoffset: 0;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+    }
+  }
+}
+.viewCheckPoint {
+  &_1 {
+    .mapRelief_checkpoint_bar {
+      stroke-dashoffset: 100;
+      stroke-dasharray: 100;
+
+    }
+  }
+  &_2 {
+    .mapRelief_checkpoint_bar {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+    }
   }
 }
