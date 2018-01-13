@@ -7,7 +7,8 @@ export default [
         id: Ids.VIEWS.RACE,
         appear: {
             flag: {
-                timeout: 2000,
+                timeout: 4000,
+                type: Events.ON_PRESENTATION_MAP_COURSE,
                 audios: {
                     play: [
                         {
@@ -16,8 +17,6 @@ export default [
                                 volume: { from: 1, to: 1, duration: 0.2 },
                                 onFinish: {
                                     flag: {
-                                        type: Events.ON_PRESENTATION_MAP_COURSE,
-
                                         audios: {
                                             play: [
                                                 {

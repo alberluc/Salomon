@@ -16,7 +16,9 @@ export class Transition {
     }
 
     onViewMapCourse() {
-        this.transition('.opacityView', 'moduleInfo-right')
+        setTimeout(() => {
+            this.transition('.opacityView', 'moduleInfo-right')
+        }, 3000)
     }
     onViewMapRelief() {
         this.transition('.opacityView', 'mapRelief')
