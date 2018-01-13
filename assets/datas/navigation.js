@@ -7,43 +7,85 @@ export default [
         id: Ids.VIEWS.RACE,
         appear: {
             flag: {
-                types: Events.ON_PURPOSE_PASS_VOICE,
+                timeout: 2000,
                 audios: {
                     play: [
                         {
-                            src: Audios.ENV.CLAPPING1,
+                            src: Audios.VOICE.PRESENTATION_ELEMENT.OFF1,
                             options: {
-                                volume: {
-                                    from: 0,
-                                    to: 1,
-                                    duration: 5
-                                },
+                                volume: { from: 1, to: 1, duration: 0.2 },
                                 onFinish: {
                                     flag: {
                                         audios: {
                                             play: [
                                                 {
-                                                    src: Audios.ENV.SUPPORT,
+                                                    src: Audios.VOICE.PRESENTATION_ELEMENT.OFF2,
                                                     options: {
-                                                        volume: {
-                                                            from: 1,
-                                                            to: 0.7,
-                                                        },
-                                                    }
-                                                }
-                                            ],
-                                            play: [
-                                                {
-                                                    src: Audios.ENV.SUPPORT,
-                                                    options: {
-                                                        volume: {
-                                                            from: 1,
-                                                            to: 0.7,
-                                                        },
+                                                        volume: { from: 1, to: 1, duration: 0.2 },
+                                                        onFinish: {
+                                                            flag: {
+                                                                audios: {
+                                                                    play: [
+                                                                        {
+                                                                            src: Audios.VOICE.PRESENTATION_ELEMENT.OFF3,
+                                                                            options: {
+                                                                                volume: { from: 1, to: 1, duration: 0.2 },
+                                                                                onFinish: {
+                                                                                    flag: {
+                                                                                        audios: {
+                                                                                            play: [
+                                                                                                {
+                                                                                                    src: Audios.VOICE.PRESENTATION_ELEMENT.OFF4,
+                                                                                                    options: {
+                                                                                                        volume: { from: 1, to: 1, duration: 0.2 },
+                                                                                                        onFinish: {
+                                                                                                            flag: {
+                                                                                                                audios: {
+                                                                                                                    play: [
+                                                                                                                        {
+                                                                                                                            src: Audios.VOICE.PRESENTATION_ELEMENT.OFF5,
+                                                                                                                            options: {
+                                                                                                                                volume: { from: 1, to: 1, duration: 0.2 },
+                                                                                                                                onFinish: {
+                                                                                                                                    flag: {
+                                                                                                                                        type: Events.ON_PRESENTATION_ELEMENT_FINISH,
+                                                                                                                                        audios: {
+                                                                                                                                            play: [
+                                                                                                                                                {
+                                                                                                                                                    src: Audios.ENV.CLAPPING1,
+                                                                                                                                                    options: {
+                                                                                                                                                        volume: {
+                                                                                                                                                            from: 0,
+                                                                                                                                                            to: 1,
+                                                                                                                                                            duration: 5
+                                                                                                                                                        }
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            ]
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             ]
-
                                         }
                                     }
                                 }
@@ -52,7 +94,6 @@ export default [
                     ]
                 }
             },
-
         },
     },
 
@@ -67,7 +108,7 @@ export default [
                             src: Audios.ENV.CLAPPING1,
                             options: {
                                 volume: {
-                                    from: 0,
+                                    from: 1,
                                     to: 1,
                                     duration: 5
                                 },
@@ -79,7 +120,7 @@ export default [
                                                     src: Audios.ENV.CLAPPING1,
                                                     options: {
                                                         volume: {
-                                                            from: 0,
+                                                            from: 1,
                                                             to: 1,
                                                             duration: 5
                                                         },
@@ -109,7 +150,7 @@ export default [
                         {
                             src: Audios.ENV.CLAPPING,
                             options: {
-                                timeout: 1000,
+                                timeout: 0.20,
                                 onStop: () => {
                                     console.log('sound stop')
                                 }

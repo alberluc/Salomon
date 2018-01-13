@@ -17,9 +17,16 @@ const SRC_AUDIOS = '../sound/';
 
 export const Audios = {
     VOICE: {
-        EXPLICATION : SRC_AUDIOS + 'tuto.wav',
-        DESHYDRATATION : SRC_AUDIOS + 'deshydratation.wav',
-        HYPERHYDRATATION : SRC_AUDIOS + 'hyperhydratation.wav'
+        EXPLICATION: SRC_AUDIOS + 'tuto.wav',
+        DESHYDRATATION: SRC_AUDIOS + 'deshydratation.wav',
+        HYPERHYDRATATION: SRC_AUDIOS + 'hyperhydratation.wav',
+        PRESENTATION_ELEMENT: {
+            OFF1: SRC_AUDIOS + 'off1.wav',
+            OFF2: SRC_AUDIOS + 'off2.wav',
+            OFF3: SRC_AUDIOS + 'off3.wav',
+            OFF4: SRC_AUDIOS + 'off4.wav',
+            OFF5: SRC_AUDIOS + 'off5.wav'
+        }
     },
     ENV: {
         SUPPORT: SRC_AUDIOS + 'support.wav',

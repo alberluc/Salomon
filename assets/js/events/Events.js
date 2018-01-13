@@ -13,6 +13,8 @@ export const Events = {
     ON_RUNNERS_MOVES: 'onRunnersMoves',
     ON_RUNNER_FINISHED: 'onUserFinished',
 
+    ON_COUNTDOWN_START: 'onCountDownStart',
+
     ON_DEHYDRATION: 'onDehydration',
     ON_OVERHYDRATION: 'onOverhydration',
     ON_CORRECT_HYDRATION: 'onCorrectHydration',
@@ -26,6 +28,8 @@ export const Events = {
     ON_VIEW_DISAPPEAR: 'onViewDisappear',
 
     ON_PURPOSE_PASS_VOICE: 'onPurposePassVoice',
-    ON_DISABLE_PURPOSE_PASS_VOICE: 'onDisablePurposePassVoice'
+    ON_DISABLE_PURPOSE_PASS_VOICE: 'onDisablePurposePassVoice',
+
+    ON_PRESENTATION_ELEMENT_FINISH: 'onPresentationElementFinish'
 
 };

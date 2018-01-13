@@ -12,8 +12,9 @@ export class CountDown {
         this.self = self;
         this.callback = null;
         this.timer = null;
-        this.setText(this.self.time);
         this.stroke = 0;
+        this.setText(this.self.time);
+        this.hide();
     }
 
     /**
@@ -40,8 +41,8 @@ export class CountDown {
      */
     startTimer () {
         this.timer = setInterval(this.onTimerIncrement.bind(this), 1000);
-
         this.setText(this.self.time);
+        console.log(this.stroke);
         TweenMax.set('#circleTimer', {
             strokeDashoffset: this.stroke + "px"
         })
@@ -61,17 +62,20 @@ export class CountDown {
         this.self.time--;
         this.stroke += 314;
         this.setText(this.self.time);
+        console.log(this.stroke);
         TweenMax.set('#circleTimer', {
             strokeDashoffset: this.stroke + "px"
         })
         if (this.self.time === 0) this.stop();
-
     }
 
     /**
      * Affiche le compteur
      */
     show () {
+        TweenMax.to('#raceChronoSvg', 1, {
+            autoAlpha: 1,
+        });
         this.el.style.display = "flex";
     }
 
@@ -79,7 +83,7 @@ export class CountDown {
      * Désaffiche le compteur
      */
     hide () {
-        TweenMax.set('#raceChronoSvg',{
+        TweenMax.to('#raceChronoSvg', 1, {
             autoAlpha: 0,
         });
         this.el.style.display = "none";

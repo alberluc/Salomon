@@ -17,6 +17,7 @@ export class Navigation {
     getViewNavigation(view) {
         return {
             appear: () => {
+                console.log(this);
                 if (typeof view.appear !== "undefined") {
                     let flag = new Flag(view.appear.flag);
                     flag.dispatch();

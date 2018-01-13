@@ -117,7 +117,8 @@ export class App {
     initRace () {
         this.Race = new RaceModel(this.Script, {
             onStart: this.onRaceStart.bind(this),
-            onFinish: this.onRaceFinish.bind(this)
+            onFinish: this.onRaceFinish.bind(this),
+            onViewAppear: this.onRaceViewAppear.bind(this)
         });
         this.Race.waitStart();
     }
@@ -146,8 +147,6 @@ export class App {
         this.DAltitudeIndicator.active();
         this.GaugeIndicator.active();
         this.PositionIndicator.active();
-        this.MapRelief.start();
-        this.MapCourse.start();
     }
 
     /**
@@ -164,6 +163,11 @@ export class App {
         this.DAltitudeIndicator.disable();
         this.GaugeIndicator.disable();
         this.PositionIndicator.disable();
+    }
+
+    onRaceViewAppear () {
+        this.MapRelief.start();
+        this.MapCourse.start();
     }
 
 };

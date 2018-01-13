@@ -37,17 +37,16 @@ export class MapRelief extends Map {
     }
 
     build () {
+        console.log('building')
         this.svgEl = SVGBuilder.svg();
         this.pathEl = SVGBuilder.path(this.PointsConverted, 'white', 30, 'root');
-
         let totalLenght = this.pathEl.getTotalLength();
         this.pathEl.style.strokeDasharray = totalLenght;
         this.pathEl.style.strokeDashoffset = totalLenght;
-
         this.pathEl.classList.add('mapReliefSvg');
         setTimeout(() => {
             this.pathEl.classList.add('active');
-        },400)
+        }, 400);
         this.svgEl.appendChild(this.pathEl);
         this.el.appendChild(this.svgEl);
     }

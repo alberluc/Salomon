@@ -2,15 +2,15 @@ import { TweenMax, TimelineLite } from 'gsap';
 import { Ids} from "../../../datas/dom"
 
 export class transitionRace {
+
     constructor() {
         this.tl = new TimelineLite({ paused: true });
         this.transitionGauge();
         this.transitionSpeed();
         this.transitionSteps();
         this.transitionMap();
-        this.transitionMapRelief()
+        //this.transitionMapRelief();
         this.transitionDevinele();
-
     }
 
     transitionMapRelief() {
@@ -20,12 +20,14 @@ export class transitionRace {
             force3D: true,
         })
     }
+
     transitionMap() {
         this.tl.fromTo('#' + Ids.TRANSITION.MODULEINFO_RIGHT, 0.5, { autoAlpha: 0,}, {
             autoAlpha: 1,
             force3D: true,
         })
     }
+
     transitionSteps() {
         this.tl.fromTo('.steps-opacity', 0.5, { opacity: 0,}, {
             opacity: 1,
@@ -50,6 +52,7 @@ export class transitionRace {
             }
         })
     }
+
     transitionSpeed() {
         this.tl.fromTo('#' + Ids.TRANSITION.SPEED, 0.5, { autoAlpha: 0,}, {
             onStart: () => {
@@ -61,6 +64,7 @@ export class transitionRace {
             force3D: true,
         })
     }
+
     transitionDevinele() {
         this.tl.fromTo('#' + Ids.TRANSITION.DENIVELE, 0.5, { autoAlpha: 0,}, {
             onStart: () => {
@@ -77,6 +81,7 @@ export class transitionRace {
     play() {
         this.tl.play();
     }
+
 }
 
 
