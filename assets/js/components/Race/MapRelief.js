@@ -4,6 +4,7 @@ import { Sort } from "../Utils/Sort";
 import { Map } from "./Map"
 import { TweenMax } from 'gsap';
 import { Image } from "../../../datas/Medias";
+import {ClassNames} from "../../../datas/dom";
 
 export class MapRelief extends Map {
 
@@ -13,6 +14,7 @@ export class MapRelief extends Map {
         this.PointsAltitude = Sort.exists(Script.Points, 'altitude');
         this.currentPointAltitude = this.PointsAltitude[0];
         this.Bus.listen(this.Bus.types.ON_USER_MOVE, this.onUserMove.bind(this));
+        this.checkpointsEl = [];
     }
 
     get PointsConverted () {
@@ -73,8 +75,13 @@ export class MapRelief extends Map {
 
     buildCheckPoint (CheckPoint) {
         let CheckPointCoords = this.Converter.getPoint({x: CheckPoint.distance.percentage, y: 0});
-        this.svgEl.appendChild(SVGBuilder.extract(Image.Checkpoint, 'svg'));
-        console.log(SVGBuilder.extract(Image.Checkpoint, 'svg'))
+        let svg = SVGBuilder.extract(Image.Checkpoint, 'svg');
+        svg.classList.add(ClassNames.CHECKPOINT);
+        let g = svg.querySelector('rect').parentElement;
+        g.setAttribute("transform", "translate(" + CheckPointCoords.x + ")");
+        this.checkpointsEl[CheckPoint.id] = svg;
+        this.svgEl.appendChild(this.checkpointsEl[CheckPoint.id]);
+        g.prepend(SVGBuilder.path([{x: (svg.getBBox().width / 2) + 1, y: 0}, {x: (svg.getBBox().width / 2) + 1, y:  100}], "white", '', 'mapRelief_checkpoint_bar'));
     }
 
 }

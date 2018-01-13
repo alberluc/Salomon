@@ -21,8 +21,6 @@ export class Runner {
         this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.onReduceSpeed.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.onReduceSpeed.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_CORRECT_HYDRATION, this.onCorrectHydration.bind(this));
-
-
     }
 
     onReduceSpeed () {

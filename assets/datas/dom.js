@@ -55,5 +55,6 @@ export const ClassNames = {
     TIMER_LEVEL: 'race-bottom_timer_level',
     BODY_STATE_DANGER: 'race-danger',
     RUNNER_USER: 'runner-user',
-    RUNNER_BOT: 'runner-bot'
+    RUNNER_BOT: 'runner-bot',
+    CHECKPOINT: 'mapRelief_checkpoint'
 };

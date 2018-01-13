@@ -4,10 +4,11 @@ const namespaceSVG = 'http://www.w3.org/2000/svg';
 
 export class Builder {
 
-    static path (PointsConverter, color, id) {
+    static path (PointsConverter, color, id, className) {
         let _el = document.createElementNS(namespaceSVG, 'path');
         _el.setAttribute('d', this.constructPath(PointsConverter));
-        _el.setAttribute('id', id);
+        if (typeof id !== "undefined" && id !== '' ) _el.setAttribute('id', id);
+        if (typeof className !== "undefined" && className !== '') _el.classList.add(className);
         _el.style.stroke = color;
         return _el;
     }
