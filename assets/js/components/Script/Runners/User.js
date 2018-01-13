@@ -44,7 +44,6 @@ export class User extends Runner {
         step.classList.remove('steps_' + id + '-' + dir);
         id--;
         if (id === 0) id = this.stepsEl.length;
-        console.log(this.stepsEl.length);
         step.classList.add('steps_' + id + '-' + dir);
         step.setAttribute('id', 'step_' + id);
         

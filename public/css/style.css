@@ -840,7 +840,7 @@ circle {
     width: calc(100% - 26%);
     height: 100%; }
   .race-top .mapReliefSvg {
-    fill: transparent;
+    fill: black;
     -webkit-transition: all 2s cubic-bezier(0.8, 0, 0.2, 1);
     -moz-transition: all 2s cubic-bezier(0.8, 0, 0.2, 1);
     -ms-transition: all 2s cubic-bezier(0.8, 0, 0.2, 1);

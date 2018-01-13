@@ -59,7 +59,7 @@ export default {
                 audios: {
                     play: [
                         {
-                            src: Audios.ENV.DESHYDRATATION,
+                            src: Audios.VOICE.DESHYDRATATION,
                             options: {
                                 volume: {
                                     from: 0,
@@ -116,7 +116,7 @@ export default {
                 audios: {
                     play: [
                         {
-                            src: Audios.ENV.HYPERHYDRATATION,
+                            src: Audios.VOICE.HYPERHYDRATATION,
                             options: {
                                 volume: {
                                     from: 0,

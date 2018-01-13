@@ -23,7 +23,7 @@ export function Canvas(el) {
             this.vx = 0;
             this.vy = 0;
             this.radius = radius || 3;
-            this.color = color || 'rgba(255,255,255,0.5)';
+            this.color = color || 'rgba(255,255,255,0.2)';
         }
         draw(c) {
             c.beginPath();

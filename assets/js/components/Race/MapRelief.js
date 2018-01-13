@@ -80,7 +80,7 @@ export class MapRelief extends Map {
         let g = svg.querySelector('rect').parentElement;
         g.setAttribute("transform", "translate(" + CheckPointCoords.x + ")");
         this.checkpointsEl[CheckPoint.id] = svg;
-        this.svgEl.appendChild(this.checkpointsEl[CheckPoint.id]);
+        this.svgEl.prepend(this.checkpointsEl[CheckPoint.id]);
         g.prepend(SVGBuilder.path([{x: (svg.getBBox().width / 2) + 1, y: 0}, {x: (svg.getBBox().width / 2) + 1, y:  100}], "white", '', 'mapRelief_checkpoint_bar'));
     }
 

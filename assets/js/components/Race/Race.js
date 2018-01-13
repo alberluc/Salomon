@@ -114,7 +114,6 @@ export class Race {
         ViewHandler.show(Ids.VIEWS.RACE);
         this.CountDown.start(this.onCountDownFinish.bind(this));
         this.transition.play();
-
     }
 
     onCountDownFinish () {
