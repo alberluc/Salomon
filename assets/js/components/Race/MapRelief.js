@@ -15,6 +15,7 @@ export class MapRelief extends Map {
         this.currentPointAltitude = this.PointsAltitude[0];
         this.Bus.listen(this.Bus.types.ON_USER_MOVE, this.onUserMove.bind(this));
         this.checkpointsEl = [];
+        this.id = 0;
     }
 
     get PointsConverted () {
@@ -47,6 +48,14 @@ export class MapRelief extends Map {
         this.pathEl.classList.add('mapReliefSvg');
         setTimeout(() => {
             this.pathEl.classList.add('active');
+            // TPM POUR LA VOIX
+            setTimeout(() => {
+                let checkpoint = document.querySelectorAll('.mapRelief_checkpoint');
+                for(let i = 0; i < checkpoint.length; i++) {
+                    checkpoint[i].classList.add('activeCheckPoint');
+                    console.log(checkpoint[i]);
+                }
+            },2000)
         },400)
         this.svgEl.appendChild(this.pathEl);
         this.el.appendChild(this.svgEl);
@@ -74,6 +83,8 @@ export class MapRelief extends Map {
     }
 
     buildCheckPoint (CheckPoint) {
+        this.id += 1;
+
         let CheckPointCoords = this.Converter.getPoint({x: CheckPoint.distance.percentage, y: 0});
         let svg = SVGBuilder.extract(Image.Checkpoint, 'svg');
         svg.classList.add(ClassNames.CHECKPOINT);
@@ -81,7 +92,9 @@ export class MapRelief extends Map {
         g.setAttribute("transform", "translate(" + CheckPointCoords.x + ")");
         this.checkpointsEl[CheckPoint.id] = svg;
         this.svgEl.prepend(this.checkpointsEl[CheckPoint.id]);
+        this.checkpointsEl[CheckPoint.id].classList.add('viewCheckPoint_' + this.id);
         g.prepend(SVGBuilder.path([{x: (svg.getBBox().width / 2) + 1, y: 0}, {x: (svg.getBBox().width / 2) + 1, y:  100}], "white", '', 'mapRelief_checkpoint_bar'));
+
     }
 
 }
