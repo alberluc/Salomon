@@ -23,7 +23,7 @@ export class Race {
         this.CountDown = new CountDown(document.getElementById(Ids.RACE.COUNT_DOWN), Script.countDown);
         this.dataArduino = [];
         this.limitArray = 2;
-        this.state = STATE.WAIT;
+        this.Script.RaceState = STATE.WAIT;
         this.onStart = callbacks.onStart;
         this.onFinish = callbacks.onFinish;
         this.onViewAppear = callbacks.onViewAppear;
@@ -43,7 +43,7 @@ export class Race {
 
     start () {
         this.Script.Bots.forEach(Bot => Bot.run());
-        this.state = STATE.RUN;
+        this.Script.RaceState = STATE.RUN;
         this.Bus.dispatch(this.Bus.types.ON_CHANGE_CURRENT_POINT, { id: 0 });
     }
 
@@ -91,12 +91,12 @@ export class Race {
     }
 
     onRunnerFinish (params) {
-        if (this.state === STATE.RUN) {
+        if (this.Script.RaceState === STATE.RUN) {
             let Runner = params.Runner;
             this.scores.push(Runner);
             if (Runner.name === this.Script.User.name) {
                 this.finish();
-                this.state = STATE.FINISH;
+                this.Script.RaceState = STATE.FINISH;
             }
         }
     }

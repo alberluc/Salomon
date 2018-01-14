@@ -161,6 +161,7 @@ export class App {
      */
     tmp () {
         let simulateMovementEl = document.getElementById('simulateMovement');
+        simulateMovementEl.style.display = "block";
         simulateMovementEl.addEventListener('click', this.API_Movement.onMovementReceived.bind(this.API_Movement));
     }
 

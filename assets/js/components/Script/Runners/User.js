@@ -14,15 +14,18 @@ export class User extends Runner {
         super(user, Script, position);
         this.stepsEl = document.querySelectorAll('.steps');
         this.className = ClassNames.RUNNER_USER;
+        this.Script = Script;
         /* PARTIE USER this.Bus.listen(this.Bus.types.ON_USER_STEPS, (function () {*/
         this.Bus.listen(this.Bus.types.ON_USER_MOVE_RECEIVED, this.onUserMoveReceived.bind(this));
     }
 
     onUserMoveReceived () {
-        this.incrementPosition();
-        this.checkCurrentPoint();
-        this.toggleSteps();
-        this.Bus.dispatch(this.Bus.types.ON_USER_MOVE, { position: this.position });
+        if (this.Script.RaceState === "run") {
+            this.incrementPosition();
+            this.checkCurrentPoint();
+            this.toggleSteps();
+            this.Bus.dispatch(this.Bus.types.ON_USER_MOVE, {position: this.position});
+        }
     }
 
     checkCurrentPoint () {
