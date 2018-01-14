@@ -18,6 +18,12 @@ export class Intro {
     }
 
     timeToPlay () {
+        document.addEventListener('keydown', () => {
+            document.getElementById('nextViewTime').classList.add('nextView--active');
+        });
+        document.addEventListener('keyup', () => {
+            document.getElementById('nextViewTime').classList.remove('nextView--active');
+        });
         TweenMax.from('.path',1, {
             drawSVG:"50% 50%",
         });
@@ -29,10 +35,30 @@ export class Intro {
     }
 
     intruction () {
+
+
+        /*AudioHelper.play(AudioHelper.list.ENV.EXPLICATION, {
+            volume: {
+                from: 1,
+                to: 1,
+                duration: 10,
+            },
+        });*/
+
         this.Bus = new Bus();
         /*A Mettre pour la carte arduino ON_USER_MOVE*/
-        this.Bus.listen(this.Bus.types.ON_USER_STEPS, (function (event) {
-            this.steps = event.detail.value;
+        this.Bus.listen(this.Bus.types.ON_USER_PLACEMENT, (function (event) {
+            this.steps = event.value.trim();
+            if(this.steps === 'Left') {
+                document.getElementById(Ids.INIT.FOOTLEFT).classList.add('foot--active');
+                this.placement();
+
+            }
+            if(this.steps === 'Right') {
+                document.getElementById(Ids.INIT.FOOTRIGHT).classList.add('foot--active');
+                this.placement();
+            }
+
         }).bind(this));
         let playRace = document.getElementById(Ids.INIT.SITE);
         playRace.addEventListener('click', () => {
@@ -44,7 +70,6 @@ export class Intro {
             }
             if(e.keyCode === 39 || this.steps === 'Right') {
                 document.getElementById(Ids.INIT.FOOTRIGHT).classList.add('foot--active');
-                this.placement();
             }
         });
     }
