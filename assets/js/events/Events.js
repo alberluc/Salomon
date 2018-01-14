@@ -30,6 +30,11 @@ export const Events = {
     ON_PURPOSE_PASS: 'onPurposePassVoice',
     ON_DISABLE_PURPOSE_PASS: 'onDisablePurposePassVoice',
 
+    ON_PRESENTATION_MAP_COURSE: 'onPresentationMapCourse',
+    ON_PRESENTATION_MAP_RELIEF: 'onPresentationMapRelief',
+    ON_PRESENTATION_GAUGE: 'onPresentationMapGauge',
+    ON_PRESENTATION_FINISH: 'onPresentationFinish',
+
     ON_PRESENTATION_ELEMENT_FINISH: 'onPresentationElementFinish'
 
 };

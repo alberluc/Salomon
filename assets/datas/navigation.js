@@ -9,8 +9,8 @@ export default [
         appear: {
             flag: {
                 key: FlagKeys.RACE_VIEW_APPEAR,
-                timeout: 500,
-                type: [ Events.ON_PURPOSE_PASS ],
+                timeout: 2000,
+                type: [ Events.ON_PURPOSE_PASS, Events.ON_PRESENTATION_MAP_COURSE ],
                 skip: {
                     active: FlagKeys.PRESENTATION_FINISH,
                     flag: {
@@ -41,6 +41,7 @@ export default [
                                                         volume: { from: 1, to: 1, duration: 0.2 },
                                                         onFinish: {
                                                             flag: {
+                                                                type: Events.ON_PRESENTATION_MAP_RELIEF,
                                                                 audios: {
                                                                     play: [
                                                                         {
@@ -49,6 +50,7 @@ export default [
                                                                                 volume: { from: 1, to: 1, duration: 0.2 },
                                                                                 onFinish: {
                                                                                     flag: {
+                                                                                        type: Events.ON_PRESENTATION_GAUGE,
                                                                                         audios: {
                                                                                             play: [
                                                                                                 {
@@ -57,31 +59,17 @@ export default [
                                                                                                         volume: { from: 1, to: 1, duration: 0.2 },
                                                                                                         onFinish: {
                                                                                                             flag: {
+                                                                                                                type: [ Events.ON_PRESENTATION_FINISH, Events.ON_PRESENTATION_ELEMENT_FINISH ],
+                                                                                                                key: FlagKeys.PRESENTATION_FINISH,
                                                                                                                 audios: {
                                                                                                                     play: [
                                                                                                                         {
-                                                                                                                            src: Audios.VOICE.PRESENTATION_ELEMENT.OFF5,
+                                                                                                                            src: Audios.ENV.CLAPPING1,
                                                                                                                             options: {
-                                                                                                                                volume: { from: 1, to: 1, duration: 0.2 },
-                                                                                                                                onFinish: {
-                                                                                                                                    flag: {
-                                                                                                                                        key: FlagKeys.PRESENTATION_FINISH,
-                                                                                                                                        type: Events.ON_PRESENTATION_ELEMENT_FINISH,
-                                                                                                                                        audios: {
-                                                                                                                                            play: [
-                                                                                                                                                {
-                                                                                                                                                    src: Audios.ENV.CLAPPING1,
-                                                                                                                                                    options: {
-                                                                                                                                                        volume: {
-                                                                                                                                                            from: 0,
-                                                                                                                                                            to: 1,
-                                                                                                                                                            duration: 5
-                                                                                                                                                        }
-                                                                                                                                                    }
-                                                                                                                                                }
-                                                                                                                                            ]
-                                                                                                                                        }
-                                                                                                                                    }
+                                                                                                                                volume: {
+                                                                                                                                    from: 0,
+                                                                                                                                    to: 1,
+                                                                                                                                    duration: 5
                                                                                                                                 }
                                                                                                                             }
                                                                                                                         }

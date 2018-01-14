@@ -1,7 +1,5 @@
-import { Bus } from "../../events/Bus";
 
-
-export function Canvas(el) {
+export function Canvas (el) {
 
     let canvas = document.getElementById(el);
     let c = canvas.getContext('2d');
