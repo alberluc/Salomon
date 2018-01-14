@@ -127,13 +127,17 @@ export class Gauge {
     }
 
     onTimerClick () {
-        let newPositionBarLevel = this.currentBarLevel + this.Script.danger.clickValue;
+        let newPositionBarLevel = this.PointsGauge[this.currentPointGaugeIndex + 1].gauge.goto;
+        if (this.Script.danger.auto !== true) {
+            newPositionBarLevel = this.currentBarLevel + this.Script.danger.clickValue;
+        }
+        console.log(newPositionBarLevel);
         this.setPositionBarLevel(newPositionBarLevel);
         this.currentBarLevel = newPositionBarLevel;
         this.baseBarLevel = newPositionBarLevel;
         this.userPercentageMemory = this.Script.User.position.percentage;
         this.ratio = this.currentBarLevel;
-        if (this.currentBarLevel > this.PointsGauge[this.currentPointGaugeIndex + 1].gauge.goto) {
+        if (this.currentBarLevel >= this.PointsGauge[this.currentPointGaugeIndex + 1].gauge.goto) {
             this.currentPointGaugeIndex++;
             this.Bus.dispatch(this.Bus.types.ON_USER_CORRECT_HYDRATION);
         }

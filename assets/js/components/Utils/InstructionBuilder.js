@@ -12,11 +12,11 @@ export class InstructionBuilder {
         this.Bus.listen(this.Bus.types.ON_DISABLE_PURPOSE_PASS, this.onDisablePurposePass.bind(this));
     }
 
-    onPurposePass (params) {
+    onPurposePass () {
         this.IndicationPurposePass.enable();
     }
 
-    onDisablePurposePass (params) {
+    onDisablePurposePass () {
         this.IndicationPurposePass.disable();
     }
 
