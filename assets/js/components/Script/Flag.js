@@ -9,6 +9,14 @@ export class Flag {
         this.audios = flag.audios || null;
         this.timeout = flag.timeout || 1;
         this.Bus = new Bus();
+        if (typeof flag.skip !== "undefined") this.Bus.listen(flag.skip.listen, this.skip.bind(this, flag));
+    }
+
+    skip (flag) {
+        let FlagSkip = new Flag(flag.skip.flag);
+        FlagSkip.dispatch();
+        let FlagToActive = this.Bus.buildFlag(flag.skip.active);
+        FlagToActive.dispatch();
     }
 
     dispatch () {

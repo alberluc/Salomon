@@ -20,7 +20,6 @@ export class AudioHelper {
     }
 
     static startPlay (src, options) {
-        console.log(src);
         let AudioContext = new Audio(src);
         this.fromToVolume(AudioContext, options.volume.from, options.volume.to, options.volume.duration);
         AudioContext.play();
@@ -36,9 +35,11 @@ export class AudioHelper {
 
     static stop (src, options) {
         this.evalTimeout(options, (function () {
-            if (typeof options.onStop !== "undefined") this.eval(AudiosContextPlaying[src], false, options.onStop);
-            AudiosContextPlaying[src].pause();
-            this.removeAudioContext(src);
+            if (typeof this.getAudioContext(src) !== "undefined") {
+                if (typeof options.onStop !== "undefined") this.eval(AudiosContextPlaying[src], false, options.onStop);
+                AudiosContextPlaying[src].pause();
+                this.removeAudioContext(src);
+            }
         }).bind(this));
     }
 

@@ -65,7 +65,7 @@
     transform: translate(-10%, -50%) rotate(-45deg); }
 
 /****************************************
- *	Générique
+ *	G├®n├®rique
  ****************************************/
 * {
   padding: 0;
@@ -320,17 +320,17 @@ svg.svg__position {
       display: flex; }
 
 .moduleNext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: #FFF;
-  clip-path: circle(2% at calc(90% + 6px) calc(88% + 4px)); }
+  left: 50%;
+  bottom: 60px;
+  color: white;
+  transform: translateX(-50%); }
+  .moduleNext p {
+    margin-right: 15px; }
   .moduleNext .nextView {
-    position: absolute;
-    bottom: 100px;
-    right: 100px;
     overflow: visible;
     width: 50px;
     height: 50px;
@@ -343,11 +343,11 @@ svg.svg__position {
     -o-transform: translateZ(0);
     transform: translateZ(0); }
     .moduleNext .nextView #nextViewTime {
-      -webkit-transition: all 3s ease;
-      -moz-transition: all 3s ease;
-      -ms-transition: all 3s ease;
-      -o-transition: all 3s ease;
-      transition: all 3s ease; }
+      -webkit-transition: all 2s ease;
+      -moz-transition: all 2s ease;
+      -ms-transition: all 2s ease;
+      -o-transition: all 2s ease;
+      transition: all 2s ease; }
     .moduleNext .nextView--active {
       stroke-dashoffset: -331; }
 
@@ -746,7 +746,7 @@ circle {
     .race_view #mapRelief svg, .race_view #mapRelief img {
       flex: 1; }
     .race_view #mapRelief #root {
-      fill: transparent; }
+      fill: rgba(0, 0, 0, 0); }
     .race_view #mapRelief #refueling {
       width: 100px;
       position: absolute;

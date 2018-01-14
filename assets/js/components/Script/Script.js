@@ -28,6 +28,7 @@ export class Script {
         this.indicators = config.indicators;
         this.gauge = this.initGauge(config.base.gauge);
         this.Flags = this.searchFlag([], config);
+        this.Flags.forEach(Flag => this.Bus.addFlag(Flag));
         this.currentPoint = this.Points[0];
         this.PointsFlags = Sort.exists(this.Points, 'Flag');
         this.Bus.listen(this.Bus.types.ON_CHANGE_CURRENT_POINT, this.onChangeCurrentPoint.bind(this))

@@ -12,6 +12,7 @@ export default [
                 timeout: 2000,
                 type: [ Events.ON_PURPOSE_PASS, Events.ON_PRESENTATION_MAP_COURSE ],
                 skip: {
+                    listen: Events.ON_PASS_VOICE,
                     active: FlagKeys.PRESENTATION_FINISH,
                     flag: {
                         audios: {

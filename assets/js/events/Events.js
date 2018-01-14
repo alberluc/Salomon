@@ -35,6 +35,7 @@ export const Events = {
     ON_PRESENTATION_GAUGE: 'onPresentationMapGauge',
     ON_PRESENTATION_FINISH: 'onPresentationFinish',
 
-    ON_PRESENTATION_ELEMENT_FINISH: 'onPresentationElementFinish'
+    ON_PRESENTATION_ELEMENT_FINISH: 'onPresentationElementFinish',
+    ON_PASS_VOICE: 'onPassVoice'
 
 };

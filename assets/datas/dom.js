@@ -46,7 +46,9 @@ export const Ids = {
         MODULEINFO_LEFT: 'moduleInfoLeft',
     },
     CANVAS: 'myCanvas',
-    INDICATIONS: 'indications'
+    INDICATIONS: {
+        LONG_PASS: 'indicationLongPass'
+    }
 };
 
 export const ClassNames = {
