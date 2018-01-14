@@ -60,7 +60,7 @@ export default [
                                                                                                         volume: { from: 1, to: 1, duration: 0.2 },
                                                                                                         onFinish: {
                                                                                                             flag: {
-                                                                                                                type: [ Events.ON_PRESENTATION_FINISH, Events.ON_PRESENTATION_ELEMENT_FINISH ],
+                                                                                                                type: [ Events.ON_PRESENTATION_FINISH, Events.ON_DISABLE_PURPOSE_PASS ],
                                                                                                                 key: FlagKeys.PRESENTATION_FINISH,
                                                                                                                 audios: {
                                                                                                                     play: [

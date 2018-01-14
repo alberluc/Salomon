@@ -10,7 +10,7 @@ export default {
     danger: {
         auto: true, // A commenter si l'on veut que l'utilisateur appuie plusieurs fois pour monter le niveau de la jauge
         numberOfClick: 3,
-        clickValue: 5,
+        clickValue: 5
     },
     distance: {
         interval: ['0km', '32km'],

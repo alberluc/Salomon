@@ -7,6 +7,7 @@ export const Ids = {
         FOOTRIGHT: 'foot_right'
     },
     RACE: {
+        ORDER: 'raceOrder',
         MAP_RELIEF: 'mapRelief',
         MAP_COURSE: 'mapCourse',
         GAUGE: 'gauge',

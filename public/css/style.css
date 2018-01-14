@@ -649,6 +649,13 @@ circle {
     -o-transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
     transition: all 1s cubic-bezier(0.77, 0, 0.175, 1); }
 
+.race_order {
+  position: absolute;
+  font-size: 90px;
+  top: 22%;
+  left: 50%;
+  letter-spacing: 3px;
+  transform: translateX(-50%); }
 .race_view {
   display: grid;
   width: 100%;
