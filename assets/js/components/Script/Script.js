@@ -5,6 +5,7 @@ import { Bot as BotModel } from "./Runners/Bot";
 import { User as UserModel } from "./Runners/User";
 import { UnitsBuilder } from "../Utils/UnitsBuilder";
 import { Bus } from "../../events/Bus";
+import {Audios} from "../../../datas/Medias";
 
 export class Script {
 
@@ -26,6 +27,7 @@ export class Script {
         this.countDown = config.countDown;
         this.indicators = config.indicators;
         this.gauge = this.initGauge(config.base.gauge);
+        this.Flags = this.searchFlag([], config);
         this.currentPoint = this.Points[0];
         this.PointsFlags = Sort.exists(this.Points, 'Flag');
         this.Bus.listen(this.Bus.types.ON_CHANGE_CURRENT_POINT, this.onChangeCurrentPoint.bind(this))
@@ -76,6 +78,18 @@ export class Script {
                 PointFlag.Flag.dispatch();
             }
         })
+    }
+
+    searchFlag (arr, objs) {
+        Object.keys(objs).forEach(obj => {
+            if (obj === "flag") {
+                arr.push(objs[obj]);
+            }
+            if (Array.isArray(objs[obj]) || typeof objs[obj] === "object") {
+                return this.searchFlag(arr, objs[obj]);
+            }
+        });
+        return arr;
     }
 
 }

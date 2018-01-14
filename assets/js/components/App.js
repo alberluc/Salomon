@@ -26,6 +26,7 @@ Gauge as GaugeIndicator,
 Position as PositionIndicator
 } from "./Race/Indicators";
 import { transitionRace } from './Race/transitionRace';
+import {InstructionBuilder} from "./Utils/InstructionBuilder";
 
 
 
@@ -35,6 +36,7 @@ export class App {
     constructor () {
         this.socket = io();
         this.Bus = new Bus();
+        this.InstructionBuilder = new InstructionBuilder(document.getElementById(Ids.INDICATIONS));
     }
 
     /**

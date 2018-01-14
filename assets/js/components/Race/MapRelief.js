@@ -51,7 +51,6 @@ export class MapRelief extends Map {
                 let checkpoint = document.querySelectorAll('.mapRelief_checkpoint');
                 for(let i = 0; i < checkpoint.length; i++) {
                     checkpoint[i].classList.add('activeCheckPoint');
-                    console.log(checkpoint[i]);
                 }
             },2000)
         },400)

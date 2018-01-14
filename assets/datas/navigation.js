@@ -1,13 +1,30 @@
 import { Ids } from './dom'
 import { Audios } from './Medias'
 import { Events } from "../js/events/Events";
+import { Keys as FlagKeys } from "./Flags";
 
 export default [
     {
         id: Ids.VIEWS.RACE,
         appear: {
             flag: {
-                timeout: 2000,
+                key: FlagKeys.RACE_VIEW_APPEAR,
+                timeout: 500,
+                type: [ Events.ON_PURPOSE_PASS ],
+                skip: {
+                    active: FlagKeys.PRESENTATION_FINISH,
+                    flag: {
+                        audios: {
+                            stop: [
+                                { src: Audios.VOICE.PRESENTATION_ELEMENT.OFF1 },
+                                { src: Audios.VOICE.PRESENTATION_ELEMENT.OFF2 },
+                                { src: Audios.VOICE.PRESENTATION_ELEMENT.OFF3 },
+                                { src: Audios.VOICE.PRESENTATION_ELEMENT.OFF4 },
+                                { src: Audios.VOICE.PRESENTATION_ELEMENT.OFF5 }
+                            ]
+                        }
+                    }
+                },
                 audios: {
                     play: [
                         {
@@ -48,6 +65,7 @@ export default [
                                                                                                                                 volume: { from: 1, to: 1, duration: 0.2 },
                                                                                                                                 onFinish: {
                                                                                                                                     flag: {
+                                                                                                                                        key: FlagKeys.PRESENTATION_FINISH,
                                                                                                                                         type: Events.ON_PRESENTATION_ELEMENT_FINISH,
                                                                                                                                         audios: {
                                                                                                                                             play: [
@@ -94,14 +112,14 @@ export default [
                     ]
                 }
             },
-        },
+        }
     },
 
     /* EXEMPLE {
         id: Ids.VIEWS.RACE,
         appear: {
             flag: {
-                types: Events.ON_PURPOSE_PASS_VOICE,
+                types: Events.ON_PURPOSE_PASS,
                 audios: {
                     play: [
                         {
@@ -126,7 +144,7 @@ export default [
                                                         },
                                                         onFinish: {
                                                             flag: {
-                                                                types: Events.ON_DISABLE_PURPOSE_PASS_VOICE
+                                                                types: Events.ON_DISABLE_PURPOSE_PASS
                                                             }
                                                         }
                                                     }

@@ -27,8 +27,8 @@ export const Events = {
     ON_VIEW_APPEAR: 'onViewAppear',
     ON_VIEW_DISAPPEAR: 'onViewDisappear',
 
-    ON_PURPOSE_PASS_VOICE: 'onPurposePassVoice',
-    ON_DISABLE_PURPOSE_PASS_VOICE: 'onDisablePurposePassVoice',
+    ON_PURPOSE_PASS: 'onPurposePassVoice',
+    ON_DISABLE_PURPOSE_PASS: 'onDisablePurposePassVoice',
 
     ON_PRESENTATION_ELEMENT_FINISH: 'onPresentationElementFinish'
 

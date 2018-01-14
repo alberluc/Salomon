@@ -46,6 +46,7 @@ export const Ids = {
         MODULEINFO_LEFT: 'moduleInfoLeft',
     },
     CANVAS: 'myCanvas',
+    INDICATIONS: 'indications'
 };
 
 export const ClassNames = {

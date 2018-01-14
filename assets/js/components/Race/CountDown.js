@@ -42,7 +42,6 @@ export class CountDown {
     startTimer () {
         this.timer = setInterval(this.onTimerIncrement.bind(this), 1000);
         this.setText(this.self.time);
-        console.log(this.stroke);
         TweenMax.set('#circleTimer', {
             strokeDashoffset: this.stroke + "px"
         })
@@ -62,7 +61,6 @@ export class CountDown {
         this.self.time--;
         this.stroke += 314;
         this.setText(this.self.time);
-        console.log(this.stroke);
         TweenMax.set('#circleTimer', {
             strokeDashoffset: this.stroke + "px"
         })

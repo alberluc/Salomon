@@ -1,5 +1,5 @@
-import {Bus} from "../../events/Bus";
-import {Flag} from "./Flag";
+import { Bus } from "../../events/Bus";
+import { Flag } from "./Flag";
 
 export class Navigation {
 
@@ -17,7 +17,6 @@ export class Navigation {
     getViewNavigation(view) {
         return {
             appear: () => {
-                console.log(this);
                 if (typeof view.appear !== "undefined") {
                     let flag = new Flag(view.appear.flag);
                     flag.dispatch();
