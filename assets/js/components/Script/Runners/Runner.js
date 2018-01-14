@@ -1,5 +1,6 @@
 import { UnitsBuilder } from "../../Utils/UnitsBuilder";
 import { Bus } from "../../../events/Bus";
+import * as socket from "socket.io-client";
 
 export class Runner {
 
@@ -25,6 +26,7 @@ export class Runner {
 
     onReduceSpeed () {
         this.reduceSpeed = true;
+
     }
 
     set position (value) {

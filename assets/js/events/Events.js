@@ -4,6 +4,8 @@ export const Events = {
     ON_USER_MOVE: 'onUserMove',
     ON_USER_MOVE_RECEIVED: 'onUserMoveReceived',
     ON_USER_DEHYDRATION: 'onUserDehydration',
+    ON_USER_PLACEMENT: 'onUserPlacement',
+    ON_USER_NORMAL: 'onUserNormal',
     ON_USER_OVERHYDRATION: 'onUserOverhydration',
     ON_USER_CORRECT_HYDRATION: 'onUserCorrectHydration',
 

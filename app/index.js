@@ -12,7 +12,7 @@ var SerialPort = require('serialport');
 let Readline = SerialPort.parsers.Readline;
 let steps = 0;
 
-let serialPort = new SerialPort('/dev/cu.usbmodem1411', {
+let serialPort = new SerialPort('/dev/cu.usbmodem1421', {
     baudRate: 9600
 });
 
@@ -27,23 +27,30 @@ app.use(express.static(path.resolve(env.path.static)));
 
 app.get('/', controller.site.index);
 
-/*serialPort.on('open', function () {
+serialPort.on('open', function () {
     io.on('connection', function (socket) {
         parser.on('data', function (data) {
             // On récupère la valeur et on la transform en String
             let string = data.toString();
             socket.emit('movement_recept', string);
+
+            socket.emit('user_placement', string);
+
         });
-
-        setInterval(function() {
-            socket.emit('movement', { message: 'Salut'});
-        }, 100);
-
         socket.on('change_color', function (value) {
-            console.log(value);
+            serialPort.write('C');
+        });
+        socket.on('normal_color', function (value) {
+            serialPort.write('B');
         });
     });
-});*/
+});
+
+
+function test () {
+    serialPort.write('Salut');
+}
+setInterval(test, 1000);
 
 http.listen(env.port, function () {
     console.log('Listening on port ' + env.port + '!')

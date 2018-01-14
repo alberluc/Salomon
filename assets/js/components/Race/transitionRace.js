@@ -11,6 +11,8 @@ export class transitionRace {
         this.transitionMap();
         //this.transitionMapRelief();
         this.transitionDevinele();
+        this.body = document.querySelector('body')
+
     }
 
     transitionMapRelief() {
@@ -40,10 +42,9 @@ export class transitionRace {
             force3D: true,
             onComplete: () => {
                 TweenMax.staggerTo('.gauge_level', 1, {
-                    delay: Math.random() * 1,
                     scaleX: 1,
                     force3D: true,
-                }, '-=0.6');
+                });
                 TweenMax.to('.gauge_bar_level', 1,{
                     delay: 1,
                     autoAlpha: 1,

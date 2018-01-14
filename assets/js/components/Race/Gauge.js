@@ -46,7 +46,7 @@ export class Gauge {
         <div class='wave two'></div>
         <div class='wave three'></div>`;*/
         this.tempalteSvgWave = `
-        <svg class="editorial"
+         <svg class="editorial"
              xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              viewBox="0 24 150 28"
@@ -58,16 +58,16 @@ export class Gauge {
             58 18 88 18 
             58-18 88-18 
             58 18 88 18
-            v44h-352z" />
+            v100h-352z" />
            <linearGradient id="Dgrade_sans_nom_110" y1="225.49" x2="1608.63" y2="225.49" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c0dd"/><stop offset="0.15" stop-color="#0dc1da"/><stop offset="0.3" stop-color="#1ac2d3"/><stop offset="0.46" stop-color="#2ec5c6"/><stop offset="0.61" stop-color="#4bc9b4"/><stop offset="0.77" stop-color="#71cd9d"/><stop offset="0.93" stop-color="#9ed381"/><stop offset="1" stop-color="#b4d673"/></linearGradient>
           </defs>
           <g class="parallax">
-           <use xlink:href="#gentle-wave" x="50" y="0" fill="url(#Dgrade_sans_nom_110)"/>
-           <use xlink:href="#gentle-wave" x="50" y="3" fill="url(#Dgrade_sans_nom_110)"/>
-           <use xlink:href="#gentle-wave" x="50" y="6" fill="url(#Dgrade_sans_nom_110)"/>  
+           <use xlink:href="#gentle-wave" x="70" y="0" fill="url(#Dgrade_sans_nom_110)"/>
+           <use xlink:href="#gentle-wave" x="70" y="3" fill="url(#Dgrade_sans_nom_110)"/>
+           <use xlink:href="#gentle-wave" x="70" y="6" fill="url(#Dgrade_sans_nom_110)"/>  
+           <use xlink:href="#gentle-wave" x="70" y="25" fill="url(#Dgrade_sans_nom_110)"/>  
           </g>
         </svg>
-        <div class="bottomWave"></div>
         `
         this.barLevel.el = document.createElement("div");
         this.barLevel.el.classList.add(ClassNames.GAUGE_BAR_LEVEL);
@@ -170,7 +170,10 @@ export class Gauge {
     }
 
     removeStateDanger () {
-        document.body.classList.remove(ClassNames.BODY_STATE_DANGER)
+        if(document.body.classList.contains('race-danger')) {
+            document.body.classList.remove(ClassNames.BODY_STATE_DANGER)
+            this.Bus.dispatch(this.Bus.types.ON_USER_NORMAL, { value: 'test' });
+        };
     }
 
 }

@@ -18,7 +18,7 @@
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 190px;
+  top: 200px;
   width: 140px;
   height: 140px;
   circle {
@@ -261,7 +261,7 @@
     color: white;
     left: 50%;
     @include translatex(-50%);
-    top: 226px;
+    top: 237px;
   }
   &-top{
     grid-column: 1 / span 3;
@@ -306,6 +306,7 @@
         z-index:-1;
         width:100%;
         height:7px;
+
         background : -moz-linear-gradient(0% 50% 0deg,rgba(9, 192, 221, 1) 0%,rgba(13, 193, 218, 1) 14.79%,rgba(26, 194, 211, 1) 30.13%,rgba(46, 197, 198, 1) 45.71%,rgba(75, 201, 180, 1) 61.48%,rgba(113, 205, 157, 1) 77.38%,rgba(158, 211, 129, 1) 93.17%,rgba(180, 214, 115, 1) 100%);
         background : -webkit-linear-gradient(0deg, rgba(9, 192, 221, 1) 0%, rgba(13, 193, 218, 1) 14.79%, rgba(26, 194, 211, 1) 30.13%, rgba(46, 197, 198, 1) 45.71%, rgba(75, 201, 180, 1) 61.48%, rgba(113, 205, 157, 1) 77.38%, rgba(158, 211, 129, 1) 93.17%, rgba(180, 214, 115, 1) 100%);
         background : -webkit-gradient(linear,0% 50% ,100% 50% ,color-stop(0,rgba(9, 192, 221, 1) ),color-stop(0.1479,rgba(13, 193, 218, 1) ),color-stop(0.3013,rgba(26, 194, 211, 1) ),color-stop(0.4571,rgba(46, 197, 198, 1) ),color-stop(0.6148,rgba(75, 201, 180, 1) ),color-stop(0.7738,rgba(113, 205, 157, 1) ),color-stop(0.9317,rgba(158, 211, 129, 1) ),color-stop(1,rgba(180, 214, 115, 1) ));
@@ -444,4 +445,7 @@
       stroke-dashoffset: 100;
     }
   }
+}
+.editorial {
+  overflow: visible;
 }
