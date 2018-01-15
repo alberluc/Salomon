@@ -5,6 +5,7 @@ import { Sort } from "../Utils/Sort";
 import { CountDown } from "./CountDown";
 import { RaceEnd } from "./RaceEnd";
 import { transitionRace } from "./transitionRace";
+import {RaceIndication} from "./RaceIndication";
 
 
 const STATE = {
@@ -18,6 +19,7 @@ export class Race {
     constructor (Script, callbacks) {
         this.Script = Script;
         this.End = new RaceEnd();
+        this.RaceIndication = new RaceIndication(document.getElementById(Ids.RACE.ORDER), 0.5);
         this.Bus = new Bus();
         this.scores = [];
         this.CountDown = new CountDown(document.getElementById(Ids.RACE.COUNT_DOWN), Script.countDown);
@@ -29,7 +31,7 @@ export class Race {
         this.onViewAppear = callbacks.onViewAppear;
         this.initTransition();
         this.Bus.listen(this.Bus.types.ON_RUNNER_FINISHED, this.onRunnerFinish.bind(this));
-        this.Bus.listen(this.Bus.types.ON_PRESENTATION_ELEMENT_FINISH, this.onCountDownStart.bind(this));
+        this.Bus.listen(this.Bus.types.ON_PRESENTATION_FINISH, this.onCountDownStart.bind(this));
     }
     initTransition() {
         this.transition = new transitionRace();
@@ -108,6 +110,7 @@ export class Race {
     }
 
     onCountDownFinish () {
+        this.RaceIndication.showDuration('Partez !', 1000);
         this.onStart();
         this.start();
     }
