@@ -45,7 +45,6 @@ export class transitionRace {
                     scaleX: 1,
                     force3D: true,
                     onComplete: () => {
-                        console.log('end')
                         TweenMax.set('.gauge_level', {
                             borderBottomStyle: "dashed",
                             borderBottomWidth: "1.5px"

@@ -33,6 +33,16 @@
     &--active {
       stroke-dashoffset: -331;
     }
+    &_background{
+      position: absolute;
+      top: 0;
+      & circle{
+        stroke: #ffffff52 !important;
+      }
+    }
+    &_container{
+      position: relative;
+    }
   }
 }
 .transtionView {
