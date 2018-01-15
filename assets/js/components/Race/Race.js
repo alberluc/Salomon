@@ -34,6 +34,8 @@ export class Race {
         this.initTransition();
         this.Bus.listen(this.Bus.types.ON_RUNNER_FINISHED, this.onRunnerFinish.bind(this));
         this.Bus.listen(this.Bus.types.ON_PRESENTATION_FINISH, this.onCountDownStart.bind(this));
+        this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.onTimerStart.bind(this));
+        this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.onTimerStart.bind(this));
     }
     initTransition() {
         this.transition = new transitionRace();
@@ -41,8 +43,7 @@ export class Race {
 
 
     waitStart () {
-        let startViewEl = document.getElementById(Ids.VIEWS.START);
-        startViewEl.addEventListener('click', this.onStartViewClick.bind(this));
+        this.Bus.listen(this.Bus.types.ON_USER_GOOD_PLACEMENT, this.onStartViewClick.bind(this));
     }
 
     start () {
@@ -119,6 +120,10 @@ export class Race {
 
     onCountDownStart () {
         this.CountDown.start(this.onCountDownFinish.bind(this));
+    }
+
+    onTimerStart () {
+        this.RaceIndication.showDuration('Buvez !', 2000);
     }
 
 }

@@ -35,16 +35,6 @@ export class Intro {
     }
 
     intruction () {
-
-
-        /*AudioHelper.play(AudioHelper.list.ENV.EXPLICATION, {
-            volume: {
-                from: 1,
-                to: 1,
-                duration: 10,
-            },
-        });*/
-
         this.Bus = new Bus();
         /*A Mettre pour la carte arduino ON_USER_MOVE*/
         this.Bus.listen(this.Bus.types.ON_USER_PLACEMENT, (function (event) {
@@ -58,27 +48,32 @@ export class Intro {
                 document.getElementById(Ids.INIT.FOOTRIGHT).classList.add('foot--active');
                 this.placement();
             }
-
         }).bind(this));
-        let playRace = document.getElementById(Ids.INIT.SITE);
-        playRace.addEventListener('click', () => {
-            ViewHandler.show(Ids.VIEWS.START);
-        });
+        let keyA = false, keyB = false, start = false;
         document.addEventListener('keyup', (e) => {
             if(e.keyCode === 37 || this.steps === 'Left') {
+                keyA = true;
                 document.getElementById(Ids.INIT.FOOTLEFT).classList.add('foot--active');
             }
             if(e.keyCode === 39 || this.steps === 'Right') {
+                keyB = true;
                 document.getElementById(Ids.INIT.FOOTRIGHT).classList.add('foot--active');
+            }
+            if (keyA && keyB && !start) {
+                start = true;
+                TweenMax.delayedCall(1, () => {
+                    this.Bus.dispatch(this.Bus.types.ON_USER_GOOD_PLACEMENT);
+                });
             }
         });
     }
 
     placement() {
         if(document.getElementById(Ids.INIT.FOOTLEFT).classList.contains('foot--active') && document.getElementById(Ids.INIT.FOOTRIGHT).classList.contains('foot--active') && this.one) {
-            TweenMax.delayedCall(2,() => {
-                ViewHandler.show(Ids.VIEWS.START);
-            })
+            TweenMax.delayedCall(1, () => {
+                ViewHandler.show(Ids.VIEWS.RACE);
+                this.Bus.dispatch(this.Bus.types.ON_USER_GOOD_PLACEMENT);
+            });
             this.one = false;
         }
     }

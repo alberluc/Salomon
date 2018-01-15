@@ -35,10 +35,11 @@
   &_order{
     position: absolute;
     font-size: 90px;
-    top: 22%;
+    top: 20%;
     left: 50%;
     letter-spacing: 3px;
     transform: translateX(-50%);
+    z-index: 300000;
   }
   &_view{
     display: grid;
@@ -256,7 +257,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    z-index: 20;
+    z-index: 300000;
     font-size: 50px;
     color: white;
     left: 50%;
@@ -466,4 +467,9 @@
   &.pos4{
     color: #e00000;
   }
+}
+
+.steps_parents{
+  position: relative;
+  bottom: -50px;
 }

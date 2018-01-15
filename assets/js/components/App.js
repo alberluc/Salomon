@@ -163,9 +163,14 @@ export class App {
      * Méthode temporaire pour simuler un pas
      */
     tmp () {
-        let simulateMovementEl = document.getElementById('simulateMovement');
+        /*let simulateMovementEl = document.getElementById('simulateMovement');
         simulateMovementEl.style.display = "block";
-        simulateMovementEl.addEventListener('click', this.API_Movement.onMovementReceived.bind(this.API_Movement));
+        simulateMovementEl.addEventListener('click', this.API_Movement.onMovementReceived.bind(this.API_Movement));*/
+        document.addEventListener('keydown', (function (e) {
+            if (e.keyCode === 37 || e.keyCode === 39) {
+                this.API_Movement.onMovementReceived();
+            }
+        }).bind(this));
     }
 
     onRaceFinish() {
@@ -181,4 +186,4 @@ export class App {
         this.MapCourse.start();
     }
 
-};
+}

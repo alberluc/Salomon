@@ -32,7 +32,7 @@ export const Audios = {
         SUPPORT: SRC_AUDIOS + 'support.wav',
         TIMER: SRC_AUDIOS + 'timer.wav',
         CLAPPING: SRC_AUDIOS + '2.wav',
-        CLAPPING1: SRC_AUDIOS + '3.wav',
+        CHRONO: SRC_AUDIOS + 'chrono.wav',
         HEARTHIGHBEAT: SRC_AUDIOS + 'heartHighBeat.wav',
         ENDRACE: SRC_AUDIOS + 'endExplication.wav',
         THANK: SRC_AUDIOS + 'end.wav'

@@ -65,7 +65,7 @@ export default [
                                                                                                                 audios: {
                                                                                                                     play: [
                                                                                                                         {
-                                                                                                                            src: Audios.ENV.CLAPPING1,
+                                                                                                                            src: Audios.ENV.CHRONO,
                                                                                                                             options: {
                                                                                                                                 volume: {
                                                                                                                                     from: 0,

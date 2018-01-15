@@ -1,4 +1,6 @@
 .moduleNext {
+  position: relative;
+  z-index: 20000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,6 +10,9 @@
   color: white;
   font-size: 25px;
   transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #000000c7;
+  box-shadow: 0 0 7px 2px #050000d6;
   p {
     margin-right: 15px;
   }

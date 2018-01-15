@@ -26,7 +26,6 @@ export const Ids = {
         PLAY: 'timeToPlay',
         SITE: 'site',
         SLEEP: 'sleepMode',
-        START: 'startView',
         RACE: 'raceView',
         END: 'endView',
         INFOS: 'infosView'

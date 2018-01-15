@@ -277,7 +277,7 @@ svg.svg__position {
     stroke-dashoffset: 0; } }
 .sleepMode_view {
   position: relative;
-  z-index: 1000;
+  z-index: 10001;
   display: none;
   align-items: center;
   justify-content: center;
@@ -322,6 +322,8 @@ svg.svg__position {
       display: flex; }
 
 .moduleNext {
+  position: relative;
+  z-index: 20000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -330,7 +332,10 @@ svg.svg__position {
   bottom: 60px;
   color: white;
   font-size: 25px;
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #000000c7;
+  box-shadow: 0 0 7px 2px #050000d6; }
   .moduleNext p {
     margin-right: 15px; }
   .moduleNext .nextView {
@@ -669,10 +674,11 @@ circle {
 .race_order {
   position: absolute;
   font-size: 90px;
-  top: 22%;
+  top: 20%;
   left: 50%;
   letter-spacing: 3px;
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  z-index: 300000; }
 .race_view {
   display: grid;
   width: 100%;
@@ -846,7 +852,7 @@ circle {
   justify-content: center;
   align-items: center;
   position: absolute;
-  z-index: 20;
+  z-index: 300000;
   font-size: 50px;
   color: white;
   left: 50%;
@@ -1006,6 +1012,10 @@ circle {
     color: #0792a7; }
   .position_player.pos4 {
     color: #e00000; }
+
+.steps_parents {
+  position: relative;
+  bottom: -50px; }
 
 .end_view {
   display: flex;
