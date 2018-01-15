@@ -14,7 +14,7 @@ export class Timer {
         this.Bus = new Bus();
         this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.interact.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.interact.bind(this));
-        this.Bus.listen(this.Bus.types.ON_USER_CORRECT_HYDRATION, this.onPass.bind(this));
+        //this.Bus.listen(this.Bus.types.ON_USER_CORRECT_HYDRATION, this.onPass.bind(this));
     }
 
     init () {
@@ -40,7 +40,7 @@ export class Timer {
     start (time) {
         this.pass = false;
         TweenMax.to(this.levelEl, time, {x: '-100%', onComplete: this.finish.bind(this)});
-        document.addEventListener('keyup', this.onDocumentClick);
+        document.addEventListener('click', this.onDocumentClick);
     }
 
     onPass () {
@@ -49,7 +49,7 @@ export class Timer {
     }
 
     stop () {
-        document.removeEventListener('keyup', this.onDocumentClick);
+        document.removeEventListener('click', this.onDocumentClick);
         TweenMax.killTweensOf(this.levelEl);
         this.hide();
         this.reset();
@@ -70,10 +70,9 @@ export class Timer {
         }
     }
 
-    onDocumentClick (e) {
-        if (e.keyCode === 32) {
-            this.Bus.dispatch(this.Bus.types.ON_TIMER_CLICK);
-        }
+    onDocumentClick () {
+        this.Bus.dispatch(this.Bus.types.ON_TIMER_CLICK);
+        this.onPass();
     }
 
 }
