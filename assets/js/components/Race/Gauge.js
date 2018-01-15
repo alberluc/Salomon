@@ -60,6 +60,7 @@ export class Gauge {
             58 18 88 18
             v100h-352z" />
            <linearGradient id="Dgrade_sans_nom_110" y1="225.49" x2="1608.63" y2="225.49" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c0dd"/><stop offset="0.15" stop-color="#0dc1da"/><stop offset="0.3" stop-color="#1ac2d3"/><stop offset="0.46" stop-color="#2ec5c6"/><stop offset="0.61" stop-color="#4bc9b4"/><stop offset="0.77" stop-color="#71cd9d"/><stop offset="0.93" stop-color="#9ed381"/><stop offset="1" stop-color="#b4d673"/></linearGradient>
+           <linearGradient id="Degrade_sans_nom_23" y1="13.91" x2="54.77" y2="13.91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c0dd"/><stop offset="1" stop-color="#eb1747"/></linearGradient>
           </defs>
           <g class="parallax">
            <use xlink:href="#gentle-wave" x="70" y="0" fill="url(#Dgrade_sans_nom_110)"/>

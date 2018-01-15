@@ -98,6 +98,8 @@ void loop() {
        setAll(0,0,255);
        showStrip();
      }
+
+     delay(200);
    
   
 }

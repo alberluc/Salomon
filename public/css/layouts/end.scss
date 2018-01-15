@@ -102,15 +102,15 @@
           &:before {
             content: '';
             position: absolute;
-            width:1px;
+            width:2px;
             height:50px;
             bottom:70px;
             left:50%;
-            -webkit-transform: translateX(-50%) scale(0,1);
-            -moz-transform: translateX(-50%) scale(0,1);
-            -ms-transform: translateX(-50%) scale(0,1);
-            -o-transform: translateX(-50%) scale(0,1);
-            transform: translateX(-50%) scale(0,1);
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
             background: #09c0dd;
           }
         }
@@ -136,6 +136,7 @@
     flex-flow: wrap;
     list-style:none;
     li {
+      font-size:24px;
       list-style:none;
       flex: 1;
       text-align: center;
@@ -162,13 +163,8 @@
         top:-40px;
         right:0;
         height:400px;
-        width:1px;
+        width:2px;
         background: #09c0dd;
-        -webkit-transform: scale(0,1);
-        -moz-transform: scale(0,1);
-        -ms-transform: scale(0,1);
-        -o-transform: scale(0,1);
-        transform: scale(0,1);
       }
       &:last-of-type {
         &:before {
@@ -238,14 +234,14 @@
                 content: '';
                 position: absolute;
                 left:50%;
-                -webkit-transform: translateX(-50%) scale(0,1);
-                -moz-transform: translateX(-50%) scale(0,1);
-                -ms-transform: translateX(-50%) scale(0,1);
-                -o-transform: translateX(-50%) scale(0,1);
-                transform: translateX(-50%) scale(0,1);
+                -webkit-transform: translateX(-50%);
+                -moz-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                -o-transform: translateX(-50%);
+                transform: translateX(-50%);
                 bottom:-250px;
                 height:250px;
-                width:1px;
+                width:2px;
                 background: #FFF;
               }
             }
@@ -271,6 +267,7 @@
       li {
         list-style:none;
         color: #09c0dd;
+        font-size:24px;
       }
       figure {
         margin:0 auto;
@@ -316,7 +313,7 @@
                 transform: translateX(-50%);
                 bottom:-250px;
                 height:250px;
-                width:1px;
+                width:2px;
                 background: #FFF;
               }
 

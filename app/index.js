@@ -12,7 +12,7 @@ var SerialPort = require('serialport');
 let Readline = SerialPort.parsers.Readline;
 let steps = 0;
 
-let serialPort = new SerialPort('/dev/cu.usbmodem1421', {
+let serialPort = new SerialPort('/dev/cu.usbmodem1411', {
     baudRate: 9600
 });
 
@@ -33,8 +33,8 @@ serialPort.on('open', function () {
             // On récupère la valeur et on la transform en String
             let string = data.toString();
             socket.emit('movement_recept', string);
-
             socket.emit('user_placement', string);
+            console.log('Salut');
 
         });
         socket.on('change_color', function (value) {
