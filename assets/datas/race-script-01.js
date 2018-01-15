@@ -125,7 +125,7 @@ export default {
     user: {
         name: 'user',
         size: 13,
-        color: 'test',
+        color: 'Degrade_sans_nom_118',
         speed: 500,
         ratioOnDanger: 0.2,
         strokeWidth: '1',

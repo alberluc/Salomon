@@ -26,7 +26,7 @@ export class Builder {
         return PointsConverter.x + ' ' + PointsConverter.y + ' ';
     }
 
-    static circle (x, y, r, color, className, strokeWidth, strokeColor) {
+    static circle (x, y, r, color, className, strokeWidth, strokeColor, fill) {
         let _el = document.createElementNS(namespaceSVG, 'circle');
         _el.setAttribute('cx', x);
         _el.setAttribute('cy', y);
@@ -34,6 +34,7 @@ export class Builder {
         _el.setAttribute('stroke-width', strokeWidth);
         _el.setAttribute('stroke', strokeColor);
         _el.setAttribute('fill', color);
+
         if (typeof className !== "undefined" && className !== '') _el.classList.add(className);
         return _el;
     }

@@ -26,7 +26,8 @@ export class Map {
     start () {
         this.animate();
         this.init();
-        this.setRunner(this.Script.User);
+        this.runnerGradient(this.Script.User, false);
+        this.runnerGradient(this.Script.User, true);
         this.Script.Bots.forEach(Bot => this.setRunner(Bot));
     }
 
@@ -42,6 +43,26 @@ export class Map {
         this.buildImage(RunnerCourse.image);
         this.setPosition(RunnerCourse);
         this.RunnersCourse.push(RunnerCourse);
+    }
+
+    runnerGradient (Runner, boolean) {
+        if(boolean) {
+            let RunnerCourse = {
+                image: SVGBuilder.circle(0, 0, 6, 'url(#Degrade_sans_nom_118)', Runner.className),
+                self: Runner
+            };
+            this.buildImage(RunnerCourse.image);
+            this.setPosition(RunnerCourse);
+            this.RunnersCourse.push(RunnerCourse);
+        } else {
+            let RunnerCourse = {
+                image: SVGBuilder.circle(0, 0, Runner.size, 'transparent', Runner.className, Runner.strokeWidth, Runner.strokeColor),
+                self: Runner
+            };
+            this.buildImage(RunnerCourse.image);
+            this.setPosition(RunnerCourse);
+            this.RunnersCourse.push(RunnerCourse);
+        }
     }
 
     buildImage (image) {
