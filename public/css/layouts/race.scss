@@ -331,8 +331,6 @@
       background-repeat: no-repeat;
       width: calc(100% - 60px);
       .cls-1 {
-        stroke-dasharray: 836;
-        stroke-dashoffset: 836;
       }
       & line{
         stroke: white;
@@ -413,7 +411,7 @@
     .cls-3 {
       opacity:1;
     }
-    .mapRelief_checkpoint_bar {
+    .mapRelief_checkpoint_bar { 
       stroke-dashoffset: 0;
       -webkit-transition: all 0.5s ease;
       -moz-transition: all 0.5s ease;
