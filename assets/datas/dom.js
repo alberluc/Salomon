@@ -22,7 +22,6 @@ export const Ids = {
             POSITION: 'indicatorPosition'
         }
     },
-
     VIEWS : {
         PLAY: 'timeToPlay',
         SITE: 'site',

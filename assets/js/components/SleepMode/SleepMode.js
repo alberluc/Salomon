@@ -1,3 +1,6 @@
+import {ViewHandler} from "../Utils/ViewHandler";
+import {Ids} from "../../../datas/dom";
+
 export class SleepMode {
 
     /**
@@ -49,12 +52,14 @@ export class SleepMode {
 
     enableSleepMode () {
         if (!this.isStopped) {
+            ViewHandler.show(Ids.VIEWS.SLEEP);
             this.isActive = true;
             this.elementChangeStateOnSleepMode.classList.add(this.classNameSleepMode);
         }
     }
 
     disableSleepMode () {
+        window.location = "/";
         this.isActive = false;
         this.elementChangeStateOnSleepMode.classList.remove(this.classNameSleepMode);
     }

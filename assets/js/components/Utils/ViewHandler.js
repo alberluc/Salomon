@@ -12,30 +12,11 @@ export class ViewHandler {
         this.Bus = new Bus();
         ViewsEl.forEach(viewEl => {
             if (viewEl.getAttribute('id') === view) {
-                /*TweenMax.delayedCall(1, () => {
-                    TweenMax.fromTo((viewEl), 1, {
-                        autoAlpha: 0
-                    }, {
-                        autoAlpha: 1,
-                        onComplete: () => {
-                        }
-                    });
-
-                });*/
                 viewEl.classList.add('view-active');
-
                 this.Bus.dispatch(this.Bus.types.ON_VIEW_APPEAR, { id: viewEl.getAttribute('id') });
             }
             else {
                 if (viewEl.classList.contains('view-active')) {
-                    /*TweenMax.fromTo((viewEl), 1, {
-                            autoAlpha: 1
-                        },
-                        {
-                            autoAlpha: 0,
-                            onComplete: () => {
-                            }
-                        });*/
                     viewEl.classList.remove('view-active');
                     this.Bus.dispatch(this.Bus.types.ON_VIEW_DISAPPEAR, { id: viewEl.getAttribute('id') });
                 }

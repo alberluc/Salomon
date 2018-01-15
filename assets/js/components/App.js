@@ -99,10 +99,13 @@ export class App {
                 event: 'mousemove'
             }, {
                 target: this.Bus.el,
-                event: Events.ON_USER_MOVE
+                event: Events.ON_USER_PLACEMENT
+            }, {
+                target: this.Bus.el,
+                event: Events.ON_USER_MOVE_RECEIVED
             }
         ]);
-        SleepMode.persistStop();
+        //SleepMode.persistStop();
     }
 
     initAPIs () {

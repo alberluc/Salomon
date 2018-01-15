@@ -1,4 +1,6 @@
 .sleepMode_view{
+  position: relative;
+  z-index: 10001;
   display: none;
   align-items: center;
   justify-content: center;

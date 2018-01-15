@@ -9,7 +9,6 @@ export class transitionRace {
         this.transitionSpeed();
         this.transitionSteps();
         this.transitionMap();
-        //this.transitionMapRelief();
         this.transitionDevinele();
         this.body = document.querySelector('body')
 
@@ -42,14 +41,7 @@ export class transitionRace {
             force3D: true,
             onComplete: () => {
                 TweenMax.staggerTo('.gauge_level', 1, {
-                    scaleX: 1,
-                    force3D: true,
-                    onComplete: () => {
-                        TweenMax.set('.gauge_level', {
-                            borderBottomStyle: "dashed",
-                            borderBottomWidth: "1.5px"
-                        });
-                    }
+                    scaleX: 1
                 });
                 TweenMax.to('.gauge_bar_level', 1,{
                     delay: 1,

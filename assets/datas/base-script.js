@@ -88,5 +88,5 @@ export default {
             }
         }
     },
-    durationBeforeSleep: 25000
+    durationBeforeSleep: 300000
 }

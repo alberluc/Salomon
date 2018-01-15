@@ -276,6 +276,8 @@ svg.svg__position {
   100% {
     stroke-dashoffset: 0; } }
 .sleepMode_view {
+  position: relative;
+  z-index: 1000;
   display: none;
   align-items: center;
   justify-content: center;
