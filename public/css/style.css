@@ -482,6 +482,8 @@ circle {
   border: solid 1px white; }
   .moduleInfo_time {
     font-size: 20px !important; }
+  .moduleInfo_position {
+    font-size: 20px !important; }
   .moduleInfo_primary {
     z-index: 10;
     display: flex;
@@ -504,7 +506,7 @@ circle {
     border: solid 1px white;
     border-radius: 50%;
     z-index: 5;
-    font-size: 30px; }
+    font-size: 25px; }
   .moduleInfo_secondary {
     bottom: 0; }
   .moduleInfo_third {
@@ -993,6 +995,15 @@ circle {
 
 .editorial {
   overflow: visible; }
+
+.position_player {
+  font-weight: 700;
+  font-size: 30px;
+  margin-right: 3px; }
+  .position_player.pos1 {
+    color: #0792a7; }
+  .position_player.pos4 {
+    color: #e00000; }
 
 .end_view {
   display: flex;

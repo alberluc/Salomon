@@ -455,3 +455,15 @@
 .editorial {
   overflow: visible;
 }
+
+.position_player{
+  font-weight: 700;
+  font-size: 30px;
+  margin-right: 3px;
+  &.pos1{
+    color: #0792a7;
+  }
+  &.pos4{
+    color: #e00000;
+  }
+}

@@ -161,18 +161,18 @@ export class Position {
         let runners = Sort.desc(Runners, 'self.position.value');
         let position = 0;
         let total = runners.length;
-        runners.forEach((runner, index) => { if (runner.self.name === this.User.name) position = index + 1; });
+        runners.forEach((runner, index) => { if (runner.self.name === this.User.name) position = index; });
         return { position, total }
     }
 
     setText (position, total) {
         switch (parseFloat(position)) {
             case 1 : {
-                position = '1 er';
+                position = '<span class="position_player pos' + position + '">1</span>er';
                 break;
             }
             default : {
-                position = position + ' ème';
+                position = '<span class="position_player pos' + position + '">' + position + '</span>ème';
             }
         }
         this.el.innerHTML = position;
