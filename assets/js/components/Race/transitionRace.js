@@ -44,6 +44,13 @@ export class transitionRace {
                 TweenMax.staggerTo('.gauge_level', 1, {
                     scaleX: 1,
                     force3D: true,
+                    onComplete: () => {
+                        console.log('end')
+                        TweenMax.set('.gauge_level', {
+                            borderBottomStyle: "dashed",
+                            borderBottomWidth: "1.5px"
+                        });
+                    }
                 });
                 TweenMax.to('.gauge_bar_level', 1,{
                     delay: 1,

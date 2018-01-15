@@ -327,6 +327,7 @@ svg.svg__position {
   left: 50%;
   bottom: 60px;
   color: white;
+  font-size: 25px;
   transform: translateX(-50%); }
   .moduleNext p {
     margin-right: 15px; }
@@ -397,6 +398,8 @@ svg.svg__position {
 .gauge_level {
   height: 1px;
   position: absolute;
+  opacity: 1;
+  z-index: 10000;
   border-bottom: dashed white 1px;
   width: 100%;
   -webkit-transform: scale(0, 1);
@@ -470,6 +473,8 @@ circle {
   padding: 15px;
   border-radius: 50%;
   border: solid 1px white; }
+  .moduleInfo_time {
+    font-size: 20px !important; }
   .moduleInfo_primary {
     z-index: 10;
     display: flex;
@@ -491,7 +496,8 @@ circle {
     background-color: black;
     border: solid 1px white;
     border-radius: 50%;
-    z-index: 5; }
+    z-index: 5;
+    font-size: 30px; }
   .moduleInfo_secondary {
     bottom: 0; }
   .moduleInfo_third {
@@ -637,7 +643,7 @@ circle {
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 190px;
+  top: 200px;
   width: 140px;
   height: 140px; }
   #raceChronoSvg circle {
@@ -838,7 +844,7 @@ circle {
   -ms-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 226px; }
+  top: 237px; }
 .race-top {
   grid-column: 1 / span 3;
   grid-row: 1 / span 1;
@@ -973,6 +979,9 @@ circle {
 .viewCheckPoint_2 .mapRelief_checkpoint_bar {
   stroke-dasharray: 100;
   stroke-dashoffset: 100; }
+
+.editorial {
+  overflow: visible; }
 
 .end_view {
   display: flex;

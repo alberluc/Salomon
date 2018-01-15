@@ -58,7 +58,6 @@ class IndicationPurposePass {
 
     watch (DateStart) {
         let currDate = new Date();
-        console.dir(document.getElementById('nextViewTime'));
         let time = currDate.getTime() - DateStart.getTime();
         if (time > this.time) { this.active(); }
         else this.watcher = requestAnimationFrame(this.watch.bind(this, DateStart));

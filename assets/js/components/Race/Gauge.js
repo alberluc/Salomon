@@ -2,10 +2,12 @@ import { ClassNames } from "../../../datas/dom";
 import { Bus } from "../../events/Bus";
 import { Sort } from "../Utils/Sort";
 import { TweenMax } from "gsap";
+import {Flag} from "../Script/Flag";
 
 const TYPES = {
     LESS_THAN: 'less-than',
-    GREATER_THAN: 'greater-than'
+    GREATER_THAN: 'greater-than',
+    DEFAULT: 'default'
 };
 
 export class Gauge {
@@ -21,6 +23,7 @@ export class Gauge {
         this.Bus = new Bus();
         this.currentPointGaugeIndex = 0;
         this.currentBarLevel = null;
+        this.stateDanger = false;
         this.ratio = this.baseBarLevel;
         this.Bus.listen(this.Bus.types.ON_USER_MOVE, this.onUserMove.bind(this));
         this.Bus.listen(this.Bus.types.ON_TIMER_CLICK, this.onTimerClick.bind(this));
@@ -32,19 +35,17 @@ export class Gauge {
     }
 
     buildMarksLevels () {
-        this.self.Levels.forEach(Level => {
-            Level.el = document.createElement("div");
-            Level.el.classList.add(ClassNames.GAUGE_LEVEL);
-            Level.el.style.height = parseFloat(Level.value) + "%";
-           this.el.appendChild(Level.el);
+        this.self.Levels.forEach(Level  => {
+            if (Level.show) {
+                Level.el = document.createElement("div");
+                Level.el.classList.add(ClassNames.GAUGE_LEVEL);
+                Level.el.style.height = parseFloat(Level.value) + "%";
+                this.el.appendChild(Level.el);
+            }
         });
     }
 
     buildBarLevel () {
-        /* SAVE this.templateWave = `
-        <div class='wave one'></div>
-        <div class='wave two'></div>
-        <div class='wave three'></div>`;*/
         this.tempalteSvgWave = `
          <svg class="editorial"
              xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +132,6 @@ export class Gauge {
         if (this.Script.danger.auto !== true) {
             newPositionBarLevel = this.currentBarLevel + this.Script.danger.clickValue;
         }
-        console.log(newPositionBarLevel);
         this.setPositionBarLevel(newPositionBarLevel);
         this.currentBarLevel = newPositionBarLevel;
         this.baseBarLevel = newPositionBarLevel;
@@ -144,25 +144,43 @@ export class Gauge {
     }
 
     checkDangerState (valueLevel) {
-        let danger = false;
+        let find = false;
         this.self.Levels.forEach(Level => {
             if (typeof Level.type !== "undefined" && Level.type !== null) {
                 switch (Level.type) {
                     case TYPES.LESS_THAN: {
-                        if (valueLevel < parseFloat(Level.value)) { this.setStateDanger(); danger = true; }
+                        if (valueLevel < parseFloat(Level.value)) {
+                            find = true;
+                            if (!this.stateDanger) {
+                                Level.Flag.dispatch();
+                                this.setStateDanger();
+                                this.stateDanger = true;
+                            }
+                        }
                         break;
                     }
                     case  TYPES.GREATER_THAN: {
-                        if (valueLevel > parseFloat(Level.value)) { this.setStateDanger(); danger = true; }
+                        if (valueLevel > parseFloat(Level.value)) {
+                            find = true;
+                            if (!this.stateDanger) {
+                                Level.Flag.dispatch();
+                                this.setStateDanger();
+                                this.stateDanger = true;
+                            }
+                        }
                         break;
                     }
-                    default: {
-                        console.error('Type "' + Level.type + '" not exist !');
+                    case TYPES.DEFAULT: {
+                        if (!find) {
+                            Level.Flag.dispatch();
+                            this.stateDanger = false;
+                        }
+                        break;
                     }
                 }
             }
         });
-        if (!danger) { this.removeStateDanger(); }
+        if (!this.stateDanger) { this.removeStateDanger(); }
     }
 
     setStateDanger () {
@@ -170,10 +188,10 @@ export class Gauge {
     }
 
     removeStateDanger () {
-        if(document.body.classList.contains('race-danger')) {
-            document.body.classList.remove(ClassNames.BODY_STATE_DANGER)
+        if (document.body.classList.contains('race-danger')) {
+            document.body.classList.remove(ClassNames.BODY_STATE_DANGER);
             this.Bus.dispatch(this.Bus.types.ON_USER_NORMAL, { value: 'test' });
-        };
+        }
     }
 
 }

@@ -56,42 +56,7 @@ export default {
             },
             flag: {
                 key: 'UDH',
-                type: Events.ON_USER_DEHYDRATION,
-                audios: {
-                    play: [
-                        {
-                            src: Audios.VOICE.DESHYDRATATION,
-                            options: {
-                                volume: {
-                                    from: 0,
-                                    to: 1,
-                                    duration: 5
-                                },
-                                onStart: {
-                                    flag: {
-                                        audios: {
-                                            play: [
-                                                {
-                                                    src: Audios.ENV.HEARTHIGHBEAT,
-                                                    options: {
-                                                        volume: {
-                                                            from: 0,
-                                                            to: 1,
-                                                            duration: 5
-                                                        },
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                },
-                                onFinish: 'onSoundFinish'
-
-                            }
-                        }
-                    ],
-
-                }
+                type: Events.ON_USER_DEHYDRATION
             },
         },
         46: {
@@ -113,42 +78,7 @@ export default {
             },
             flag: {
                 key: 'UDH',
-                type: Events.ON_USER_DEHYDRATION,
-                audios: {
-                    play: [
-                        {
-                            src: Audios.VOICE.HYPERHYDRATATION,
-                            options: {
-                                volume: {
-                                    from: 0,
-                                    to: 1,
-                                    duration: 5
-                                },
-                                onStart: {
-                                    flag: {
-                                        audios: {
-                                            play: [
-                                                {
-                                                    src: Audios.ENV.HEARTHIGHBEAT,
-                                                    options: {
-                                                        volume: {
-                                                            from: 0,
-                                                            to: 1,
-                                                            duration: 5
-                                                        },
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                },
-                                onFinish: 'onSoundFinish'
-
-                            }
-                        }
-                    ],
-
-                }
+                type: Events.ON_USER_DEHYDRATION
             },
         },
         99.99: {
@@ -183,13 +113,10 @@ export default {
                                             ]
                                         }
                                     }
-                                },
-
+                                }
                             }
-                        },
-
-                    ],
-
+                        }
+                    ]
                 }
             },
             altitude: '1350km'

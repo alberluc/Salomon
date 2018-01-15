@@ -1,4 +1,5 @@
 import { Events } from './../js/events/Events';
+import { Audios } from "./Medias";
 
 export default {
     units: [
@@ -19,8 +20,31 @@ export default {
                 value: 25,
                 type: 'less-than',
                 flag: {
-                    key: 'DH',
-                    type: Events.ON_DEHYDRATION
+                    type: [ Events.ON_DEHYDRATION, Events.ON_USER_DEHYDRATION ],
+                    audios: {
+                        play: [
+                            {
+                                src: Audios.VOICE.DESHYDRATATION,
+                                options: {
+                                    volume: {
+                                        from: 0,
+                                        to: 1,
+                                        duration: 5
+                                    }
+                                }
+                            },
+                            {
+                                src: Audios.ENV.HEARTHIGHBEAT,
+                                options: {
+                                    volume: {
+                                        from: 0,
+                                        to: 1,
+                                        duration: 5
+                                    },
+                                }
+                            }
+                        ],
+                    }
                 }
             },
             50: {},
@@ -28,8 +52,38 @@ export default {
                 value: 75,
                 type: 'greater-than',
                 flag: {
-                    key: 'SH',
-                    type: Events.ON_OVERHYDRATION
+                    type: Events.ON_OVERHYDRATION,
+                    audios: {
+                        play: [
+                            {
+                                src: Audios.VOICE.HYPERHYDRATATION,
+                                options: {
+                                    volume: {
+                                        from: 0,
+                                        to: 1,
+                                        duration: 5
+                                    }
+                                }
+                            },
+                            {
+                                src: Audios.ENV.HEARTHIGHBEAT,
+                                options: {
+                                    volume: {
+                                        from: 0,
+                                        to: 1,
+                                        duration: 5
+                                    },
+                                }
+                            }
+                        ],
+                    }
+                }
+            },
+            "default" : {
+                flag: {
+                    audios: {
+                        stop: [ Audios.ENV.HEARTHIGHBEAT ]
+                    }
                 }
             }
         }

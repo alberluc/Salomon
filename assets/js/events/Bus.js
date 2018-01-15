@@ -4,6 +4,7 @@ import {Flag} from "../components/Script/Flag";
 let instance = null;
 
 export class Bus {
+
     constructor () {
         if (!instance) {
             this.types = Events;
@@ -29,10 +30,6 @@ export class Bus {
 
     addFlag (Flag) {
         if (Flag.key !== null) this.Flags[Flag.key] = Flag;
-    }
-
-    getFlag (key) {
-        return this.Flags[key]
     }
 
     buildFlag (key) {

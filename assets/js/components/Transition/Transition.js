@@ -1,4 +1,3 @@
-import { Events } from "../../../js/events/Events";
 import { Bus } from "../../events/Bus";
 import { TweenMax } from "gsap";
 

@@ -60,7 +60,8 @@ export class Script {
         let Levels = Object.keys(gaugeBase.levels).map(value => (
             {
                 Flag: typeof gaugeBase.levels[value].flag !== "undefined" ? new FlagModel(gaugeBase.levels[value].flag) : null,
-                type: gaugeBase.levels[value].type || null,
+                type: gaugeBase.levels[value].type || value,
+                show: Number.isInteger(parseFloat(value)),
                 value
             }
         ));
