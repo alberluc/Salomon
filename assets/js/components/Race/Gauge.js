@@ -27,6 +27,7 @@ export class Gauge {
         this.ratio = this.baseBarLevel;
         this.Bus.listen(this.Bus.types.ON_USER_MOVE, this.onUserMove.bind(this));
         this.Bus.listen(this.Bus.types.ON_TIMER_CLICK, this.onTimerClick.bind(this));
+        this.Bus.listen(this.Bus.types.ON_TIMER_COMPLETE, this.onTimerFinish.bind(this));
     }
 
     build () {
@@ -142,6 +143,10 @@ export class Gauge {
             this.currentPointGaugeIndex++;
             this.Bus.dispatch(this.Bus.types.ON_USER_CORRECT_HYDRATION);
         }
+    }
+
+    onTimerFinish () {
+        this.removeStateDanger();
     }
 
     checkDangerState (valueLevel) {

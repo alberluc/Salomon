@@ -32,6 +32,7 @@ export const Ids = {
     },
     END: {
         SCORE_USER: 'scoreUser',
+        TEXT_SCORE: 'textScore',
         SCORES: 'scores'
     },
     TRANSITION: {

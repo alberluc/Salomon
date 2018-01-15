@@ -461,15 +461,14 @@
   font-weight: 700;
   font-size: 30px;
   margin-right: 3px;
-  &.pos1{
-    color: #0792a7;
-  }
-  &.pos4{
-    color: #e00000;
-  }
 }
 
 .steps_parents{
   position: relative;
   bottom: -50px;
+}
+
+.score_text{
+  display: block;
+  font-size: 24px;
 }

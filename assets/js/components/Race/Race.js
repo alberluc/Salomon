@@ -36,6 +36,7 @@ export class Race {
         this.Bus.listen(this.Bus.types.ON_PRESENTATION_FINISH, this.onCountDownStart.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_DEHYDRATION, this.onTimerStart.bind(this));
         this.Bus.listen(this.Bus.types.ON_USER_OVERHYDRATION, this.onTimerStart.bind(this));
+        this.Bus.listen(this.Bus.types.ON_TIMER_COMPLETE, this.onTimerFinish.bind(this));
     }
     initTransition() {
         this.transition = new transitionRace();
@@ -56,11 +57,10 @@ export class Race {
      if (this.dataArduino[0] === "Right" && this.dataArduino[1] === "Left") {
      }*/
 
-    finish () {
+    finish (scoreUser, forceFinish) {
         this.onFinish();
-        let scoreUser = this.scores.length;
         this.completeScore();
-        this.End.build(this.scores, scoreUser);
+        this.End.build(this.scores, scoreUser, forceFinish ? 'Tu n\'as pas bu...' : '');
         TweenMax.fromTo (('.steps-opacity') , 1, {opacity:1}, {opacity:0,display:'none'});
         TweenMax.delayedCall(1,() => {
             TweenMax.fromTo (('#endView') , 1, {opacity:0}, {
@@ -100,7 +100,7 @@ export class Race {
             let Runner = params.Runner;
             this.scores.push(Runner);
             if (Runner.name === this.Script.User.name) {
-                this.finish();
+                this.finish(this.scores.length);
                 this.Script.RaceState = STATE.FINISH;
             }
         }
@@ -124,6 +124,10 @@ export class Race {
 
     onTimerStart () {
         this.RaceIndication.showDuration('Buvez !', 2000);
+    }
+
+    onTimerFinish () {
+        this.finish(this.Script.Bots.length + 1, true);
     }
 
 }

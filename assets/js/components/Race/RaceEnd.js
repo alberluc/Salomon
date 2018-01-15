@@ -4,9 +4,11 @@ export class RaceEnd {
     constructor () {
         this.scoreUserEl = document.getElementById(Ids.END.SCORE_USER);
         this.scoresEl = document.getElementById(Ids.END.SCORES);
+        this.textEl = document.getElementById(Ids.END.TEXT_SCORE);
     }
 
-    build (scores, scoreUser) {
+    build (scores, scoreUser, text) {
+        this.textEl.innerHTML = text;
         this.buildScoreUser(scoreUser);
     }
 

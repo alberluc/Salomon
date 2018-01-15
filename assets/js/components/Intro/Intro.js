@@ -71,7 +71,6 @@ export class Intro {
     placement() {
         if(document.getElementById(Ids.INIT.FOOTLEFT).classList.contains('foot--active') && document.getElementById(Ids.INIT.FOOTRIGHT).classList.contains('foot--active') && this.one) {
             TweenMax.delayedCall(1, () => {
-                ViewHandler.show(Ids.VIEWS.RACE);
                 this.Bus.dispatch(this.Bus.types.ON_USER_GOOD_PLACEMENT);
             });
             this.one = false;
